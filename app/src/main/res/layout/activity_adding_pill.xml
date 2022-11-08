@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddingPill">
+
+    <RelativeLayout
+        android:id="@+id/RelativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/NameText"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:fontFamily="@font/font1"
+            android:text="Создание таблетки"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="30sp" />
+
+
+        <EditText
+            android:id="@+id/NameEdit"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="45dp"
+            android:layout_marginRight="30dp"
+            android:hint="НАЗВАНИЕ ТАБЛЕТКИ"
+            android:textColorHint="#454444" />
+
+        <EditText
+            android:id="@+id/NumberEdit"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="85dp"
+            android:layout_marginRight="250dp"
+            android:hint="СКОЛЬКО"
+            android:inputType="number"
+            android:textColorHint="#454444" />
+
+        <Spinner
+            android:id="@+id/Spinner"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="160dp"
+            android:layout_marginTop="85dp"
+            android:layout_marginRight="30dp" />
+
+        <TextView
+            android:id="@+id/textCCC"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="130dp"
+            android:text="С"
+            android:textColor="#454444"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/textBefore"
+            android:layout_width="130dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="65dp"
+            android:layout_marginTop="130dp"
+            android:text="дата"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="#454444"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/textDOO"
+            android:layout_width="50dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="195dp"
+            android:layout_marginTop="130dp"
+            android:text="до"
+            android:textAlignment="center"
+            android:textColor="#454444"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/textAfter"
+            android:layout_width="130dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="250dp"
+            android:layout_marginTop="130dp"
+            android:text="даты"
+            android:textAlignment="center"
+            android:textColor="#454444"
+            android:textSize="25sp" />
+
+        <Spinner
+            android:id="@+id/spinnerTimes"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="170dp"
+            android:layout_marginRight="30dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnChoose"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="210dp"
+            android:layout_marginRight="50dp"
+            android:text="ВЫБРАТЬ"
+            android:textSize="20sp" />
+
+
+
+
+
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
