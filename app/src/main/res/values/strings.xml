@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">MedicineReminderNew</string>
+    <string name="medicine_re">
+MEDICINE\nREMINDER
+</string>
+    <string name="name">
+        Парацетомол
+    </string>
+    <string name="kl">3 раза в сутки</string>
+
 </resources>
