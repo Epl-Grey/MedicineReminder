@@ -35,6 +35,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + COLUMN_NAME + " TEXT, "
                 + COLUMN_VALUE + " INTEGER, "
                 + COLUMN_DOSAGE + " TEXT, "
+                + COLUMN_DATE1 + " TEXT, "
                 + COLUMN_DATE2 + " TEXT, "
                 + COLUMN_TIME1 + " TEXT, "
                 + COLUMN_TIME2 + " TEXT, "
