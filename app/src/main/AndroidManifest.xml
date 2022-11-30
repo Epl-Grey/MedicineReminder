@@ -10,9 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.Light.NoActionBar">
         <activity
-            android:name=".inform"
-            android:exported="false" />
-        <activity
             android:name=".AddingPill"
             android:exported="false" />
         <activity
