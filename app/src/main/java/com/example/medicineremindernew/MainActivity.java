@@ -13,6 +13,7 @@ import android.view.View;
 
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 
@@ -35,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     Intent intent;
     Button addPill;
     Button calendar;
+    ImageButton settingBtn;
 
     DatePickerDialog datePickerDialog;
 
@@ -44,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         addPill = findViewById(R.id.addButton);
         calendar= findViewById(R.id.calendar);
+        settingBtn = findViewById(R.id.settings);
         intent = new Intent(this, AddingPill.class);
         addPill.setOnClickListener(view -> startActivity(intent));
 

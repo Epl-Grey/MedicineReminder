@@ -3,8 +3,6 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/2_Magistr_Code/AndroidStudioProjects/MedicineReminder/app/src/main/res/layout/activity_add_time.xml" value="0.358695652173913" />
-        <entry key="..\:/Users/2_Magistr_Code/AndroidStudioProjects/MedicineReminder/app/src/main/res/layout/activity_main.xml" value="0.358695652173913" />
         <entry key="..\:/Users/Ilia/AndroidStudioProjects/MedicineReminderNew/app/src/main/res/drawable/custom_background.xml" value="0.1" />
         <entry key="..\:/Users/Ilia/AndroidStudioProjects/MedicineReminderNew/app/src/main/res/drawable/custom_background2.xml" value="0.1" />
         <entry key="..\:/Users/Ilia/AndroidStudioProjects/MedicineReminderNew/app/src/main/res/layout/activity_add_pill.xml" value="0.278125" />
@@ -12,6 +10,8 @@
         <entry key="..\:/Users/Ilia/AndroidStudioProjects/MedicineReminderNew/app/src/main/res/layout/activity_adding_pill.xml" value="0.18" />
         <entry key="..\:/Users/Ilia/AndroidStudioProjects/MedicineReminderNew/app/src/main/res/layout/activity_main.xml" value="0.1956521739130435" />
         <entry key="..\:/Users/Ilia/AndroidStudioProjects/MedicineReminderNew/app/src/main/res/layout/activity_users.xml" value="0.21829710144927536" />
+        <entry key="app/src/main/res/layout/activity_alarm.xml" value="0.24954710144927536" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
       </map>
     </option>
   </component>
