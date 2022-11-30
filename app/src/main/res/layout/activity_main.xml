@@ -8,23 +8,48 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/iphone_13_pro_max___2"
+        >
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/settings"
             android:layout_width="45dp"
             android:layout_height="45dp"
-            android:text="s"
-            android:textSize="18sp"
-            android:layout_marginLeft="360dp"/>
+            android:layout_marginLeft="360dp"
+            android:layout_marginTop="20dp"
 
+            android:background="@drawable/setting_alt_line"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/medicine_re"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="45dp"
+            android:gravity="top"
+            android:text="@string/medicine_re"
+            android:textAppearance="@style/medicine_re" />
+        <ImageView
+            android:id="@+id/vector_10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/medicine_re"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/vector_10"
+            />
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/calendar"
             android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:layout_marginTop="50dp"
-            android:text="календарь"
-            android:textSize="20sp" />
+            android:layout_height="wrap_content"
+            android:layout_below="@id/vector_10"
+            android:layout_marginTop="4dp"
+            android:backgroundTint="#CAECA7"
+            android:text="12.02.12"
+            android:textSize="24sp" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/addButton"
@@ -39,8 +64,30 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="90dp" />
-
-
+        <TextView
+            android:id="@+id/some_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="32dp"
+            android:layout_below="@id/calendar"
+            android:layout_marginTop="30dp"
+            android:text="@string/name"
+            android:textAppearance="@style/some_id"
+            android:gravity="top"
+            />
+        <TextView
+            android:id="@+id/kl"
+            android:layout_width="142dp"
+            android:layout_height="24dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="32dp"
+            android:layout_below="@id/some_id"
+            android:layout_marginTop="5dp"
+            android:text="@string/kl"
+            android:textAppearance="@style/kl"
+            android:gravity="top"
+            />
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
