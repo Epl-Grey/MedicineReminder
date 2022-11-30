@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".inform">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="MissingConstraints">
+
+        <ImageButton
+            android:id="@+id/settings"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/setting_alt_line"
+            />
+
+        <ImageButton
+            android:id="@+id/back"
+            android:layout_width="30dp"
+            android:layout_height="25dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="23dp"
+            android:background="@drawable/back" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="70dp"
+            app:srcCompat="@drawable/frame_26" />
+
+        <TextView
+            android:id="@+id/nam"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/settings"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="40dp"
+            android:layout_toRightOf="@id/imageView2"
+            android:text="@string/nam"
+            android:textAppearance="@style/nam" />
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/name"
+            android:textAppearance="@style/some_id"
+            android:layout_below="@id/nam"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@id/imageView2"
+            android:layout_marginLeft="20dp"
+            />
+        <TextView
+            android:id="@+id/dos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dos"
+            android:textAppearance="@style/nam"
+            android:layout_below="@+id/name"
+            android:layout_toRightOf="@id/imageView2"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            />
+
+        <TextView
+            android:id="@+id/dose"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dos"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/imageView2"
+            android:layout_marginTop="5dp"
+            android:text="@string/dose"
+            android:textAppearance="@style/some_id" />
+        <TextView
+            android:id="@+id/nextt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Следующий \nприем"
+            android:textAppearance="@style/nam"
+            android:layout_below="@+id/dose"
+            android:layout_toRightOf="@id/imageView2"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            />
+
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/nextt"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@id/imageView2"
+            android:text="@string/time"
+            android:textAppearance="@style/some_id" />
+
+        <TextView
+            android:id="@+id/t"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/imageView2"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="20dp"
+            android:textAppearance="@style/inf"
+            android:text="Время приема"
+            />
+
+        <TextView
+            android:id="@+id/kl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/t"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/kl2"
+            android:textAppearance="@style/kl" />
+        <TextView
+            android:id="@+id/allt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/t"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/kl"
+            android:layout_marginLeft="20dp"
+            android:textAppearance="@style/kl"
+            android:text="@string/timeall"
+
+            />
+
+
+        <TextView
+            android:id="@+id/kyrs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/kl"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="20dp"
+            android:textAppearance="@style/inf"
+            android:text="Продолжительность"
+            />
+
+        <TextView
+            android:id="@+id/weeks"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/kyrs"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:text="8 недель"
+            android:textAppearance="@style/kl" />
+
+        <TextView
+            android:id="@+id/number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/weeks"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="20dp"
+            android:textAppearance="@style/inf"
+            android:text="Количество"
+            />
+
+        <TextView
+            android:id="@+id/numbes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/number"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:text="160 капсул"
+            android:textAppearance="@style/kl" />
+        <TextView
+            android:id="@+id/all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/number"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/numbes"
+            android:layout_marginLeft="4dp"
+            android:text="(в целом) |"
+            android:textAppearance="@style/kl" />
+        <TextView
+            android:id="@+id/numbernext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/number"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/all"
+            android:layout_marginLeft="20dp"
+            android:textAppearance="@style/kl"
+            android:text="64 капсулы"
+
+            />
+        <TextView
+            android:id="@+id/nexts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/number"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/numbernext"
+            android:layout_marginLeft="4dp"
+            android:text="(осталось) "
+            android:textAppearance="@style/kl" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_below="@+id/nexts"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="35dp"
+            android:text="Редактировать"
+            android:background="@drawable/btn" />
+
+    </RelativeLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
