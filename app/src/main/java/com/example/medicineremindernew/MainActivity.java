@@ -8,12 +8,14 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.text.Layout;
 import android.util.Log;
 import android.view.View;
 
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.SimpleCursorAdapter;
 
 import java.text.DateFormat;
@@ -44,13 +46,18 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         addPill = findViewById(R.id.addButton);
         calendar= findViewById(R.id.calendar);
+        Button settings=findViewById(R.id.settings);
+        Intent sett = new Intent(this, settimgs.class);
+        settings.setOnClickListener(view -> startActivity(sett));
         intent = new Intent(this, AddingPill.class);
         addPill.setOnClickListener(view -> startActivity(intent));
-
+       RelativeLayout inf=findViewById(R.id.inform);
+        Intent infor = new Intent(this, inform.class);
+        inf.setOnClickListener(view -> startActivity(infor));
 
         pillList = findViewById(R.id.list);
         pillList.setOnItemClickListener((parent, view, position, id) -> {
-            Intent intent = new Intent(getApplicationContext(), AddingPill.class);
+            Intent intent = new Intent(getApplicationContext(),AddingPill.class);
             intent.putExtra("id", id);
             startActivity(intent);
         });

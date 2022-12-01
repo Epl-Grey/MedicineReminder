@@ -9,39 +9,70 @@
     <RelativeLayout
         android:id="@+id/RelativeLayout"
         android:layout_width="match_parent"
+        android:background="@drawable/iphone_13_pro_max___2"
         android:layout_height="match_parent">
+        <ImageButton
+            android:id="@+id/settings"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/setting_alt_line"
+            />
+
+        <ImageButton
+            android:id="@+id/back"
+            android:layout_width="30dp"
+            android:layout_height="25dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="23dp"
+            android:background="@drawable/back" />
+
+
+        <ImageView
+            android:id="@+id/vector_10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/NameText"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/vector_10" />
 
         <TextView
             android:id="@+id/NameText"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:fontFamily="@font/font1"
-            android:text="Создание таблетки"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="30sp" />
-
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/back"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:gravity="top"
+            android:text="ADDING"
+            android:textAppearance="@style/medicine_re" />
 
         <EditText
             android:id="@+id/NameEdit"
             android:layout_width="match_parent"
             android:layout_height="40dp"
+            android:layout_below="@id/dat"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="45dp"
+            android:layout_marginTop="100dp"
             android:layout_marginRight="30dp"
-            android:hint="НАЗВАНИЕ ТАБЛЕТКИ"
+            android:background="@drawable/edt"
+            android:hint="    НАЗВАНИЕ ТАБЛЕТКИ"
             android:textColorHint="#454444" />
 
         <EditText
             android:id="@+id/NumberEdit"
             android:layout_width="match_parent"
             android:layout_height="40dp"
+            android:layout_below="@id/NameEdit"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="85dp"
+            android:layout_marginTop="30dp"
             android:layout_marginRight="250dp"
-            android:hint="СКОЛЬКО"
+            android:hint=" СКОЛЬКО"
+            android:background="@drawable/edt"
             android:inputType="number"
             android:textColorHint="#454444" />
 
@@ -49,71 +80,84 @@
             android:id="@+id/Spinner"
             android:layout_width="match_parent"
             android:layout_height="40dp"
+            android:layout_below="@id/NameEdit"
             android:layout_marginLeft="160dp"
-            android:layout_marginTop="85dp"
+            android:layout_marginTop="30dp"
             android:layout_marginRight="30dp" />
 
-        <TextView
-            android:id="@+id/textCCC"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="130dp"
-            android:text="С"
-            android:textColor="#454444"
-            android:textSize="25sp" />
+        <RelativeLayout
+            android:id="@+id/dat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/vector_10"
+            android:layout_marginLeft="75dp"
+            android:layout_marginTop="10dp">
 
-        <TextView
-            android:id="@+id/textBefore"
-            android:layout_width="130dp"
-            android:layout_height="35dp"
-            android:layout_marginLeft="65dp"
-            android:layout_marginTop="130dp"
-            android:text="дата"
-            android:textAlignment="center"
-            android:textAllCaps="false"
-            android:textColor="#454444"
-            android:textSize="25sp" />
+            <TextView
+                android:id="@+id/textCCC"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="С"
+                android:textColor="#454444"
+                android:textSize="25sp" />
 
-        <TextView
-            android:id="@+id/textDOO"
-            android:layout_width="50dp"
-            android:layout_height="35dp"
-            android:layout_marginLeft="195dp"
-            android:layout_marginTop="130dp"
-            android:text="до"
-            android:textAlignment="center"
-            android:textColor="#454444"
-            android:textSize="25sp" />
+            <TextView
+                android:id="@+id/textBefore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_toRightOf="@id/textCCC"
+                android:text="дата"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="#454444"
+                android:textSize="25sp" />
 
-        <TextView
-            android:id="@+id/textAfter"
-            android:layout_width="130dp"
-            android:layout_height="35dp"
-            android:layout_marginLeft="250dp"
-            android:layout_marginTop="130dp"
-            android:text="даты"
-            android:textAlignment="center"
-            android:textColor="#454444"
-            android:textSize="25sp" />
+            <TextView
+                android:id="@+id/textDOO"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_toRightOf="@id/textBefore"
+                android:text="до"
+                android:textAlignment="center"
+                android:textColor="#454444"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/textAfter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_toRightOf="@id/textDOO"
+                android:text="даты"
+                android:textAlignment="center"
+                android:textColor="#454444"
+                android:textSize="25sp" />
+        </RelativeLayout>
 
         <Spinner
             android:id="@+id/spinnerTimes"
             android:layout_width="match_parent"
             android:layout_height="40dp"
+            android:layout_marginTop="30dp"
+            android:layout_below="@id/NumberEdit"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="170dp"
             android:layout_marginRight="30dp" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnChoose"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_below="@id/spinnerTimes"
             android:layout_marginLeft="50dp"
-            android:layout_marginTop="210dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/btn"
             android:layout_marginRight="50dp"
-            android:text="ВЫБРАТЬ"
-            android:textSize="20sp" />
+            android:textAppearance="@style/kl"
+            android:text="Выбрать"
+           />
 
 
 

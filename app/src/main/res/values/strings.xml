@@ -1,3 +1,32 @@
 <resources>
     <string name="app_name">MedicineReminderNew</string>
+    <string name="time">
+        15:00
+    </string>
+    <string name="date">
+        22.02.2022
+
+    </string>
+    <string name="name">
+        Парацетомол
+    </string>
+
+    <string name="medicine_re">
+MEDICINE\nREMINDER
+</string>
+
+    <string name="kl">3 раза в сутки</string>
+    <string name="nam">
+    Название
+</string>
+    <string name="dos">Дозировка</string>
+    <string name="dose">250 мг</string>
+    <string name="timeall">15:00,18:00,21:00</string>
+    <string name="kl2">3 раза в сутки           |</string>
+
+    <string-array name="lang">
+        <item>Русский</item>
+        <item>Английский</item>
+        <item>Немецкий</item>
+    </string-array>
 </resources>
