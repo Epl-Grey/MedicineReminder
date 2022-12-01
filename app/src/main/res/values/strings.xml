@@ -16,11 +16,17 @@ MEDICINE\nREMINDER
 </string>
 
     <string name="kl">3 раза в сутки</string>
-<string name="nam">
+    <string name="nam">
     Название
 </string>
     <string name="dos">Дозировка</string>
     <string name="dose">250 мг</string>
     <string name="timeall">15:00,18:00,21:00</string>
     <string name="kl2">3 раза в сутки           |</string>
+
+    <string-array name="lang">
+        <item>Русский</item>
+        <item>Английский</item>
+        <item>Немецкий</item>
+    </string-array>
 </resources>

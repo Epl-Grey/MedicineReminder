@@ -28,7 +28,7 @@ public class AddingPill extends AppCompatActivity {
     //Переменные
     String selectItemOr;
 
-    String[] countries = {"ГРАММОВ", "МОЛИЛИТРОВ", "СТОЛОВЫХ ЛОЖЕК", "ТАБЛЕТОК"};
+    String[] countries = {"ГРАММОВ", "МИЛИЛИТРОВ", "СТОЛОВЫХ ЛОЖЕК", "ТАБЛЕТОК"};
 
     TextView textAfter;
     TextView textBefore;
