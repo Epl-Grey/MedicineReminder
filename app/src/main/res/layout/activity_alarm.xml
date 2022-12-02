@@ -29,7 +29,6 @@
             android:layout_below="@+id/time"
             android:layout_marginTop="15dp"
             android:text="@string/date"
-            android:textAlignment="center"
             android:textAppearance="@style/date"
 
             />
@@ -39,9 +38,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/date"
             android:layout_marginLeft="60dp"
-            android:layout_marginTop="170dp"
+            android:layout_marginTop="230dp"
             android:layout_marginRight="60dp"
-            android:textAppearance="@style/date"
             android:text="@string/name"
             android:textAlignment="center" />
 

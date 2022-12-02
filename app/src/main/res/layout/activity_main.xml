@@ -55,39 +55,67 @@
             android:id="@+id/addButton"
             android:layout_width="45dp"
             android:layout_height="45dp"
-            android:background="@drawable/plus"
-            android:layout_marginTop="650dp"
-            android:layout_marginLeft="340dp"/>
-
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/plus" />
         <ListView
             android:id="@+id/list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="90dp" />
+         <RelativeLayout
+             android:id="@+id/inform"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_below="@id/calendar"
+             >
 
-        <TextView
-            android:id="@+id/some_id"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/calendar"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="32dp"
-            android:layout_marginTop="30dp"
-            android:gravity="top"
-            android:text="@string/name"
-            android:textAppearance="@style/some_id" />
-        <TextView
-            android:id="@+id/kl"
-            android:layout_width="142dp"
-            android:layout_height="24dp"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="32dp"
-            android:layout_below="@id/some_id"
-            android:layout_marginTop="5dp"
-            android:text="@string/kl"
-            android:textAppearance="@style/kl"
-            android:gravity="top"
-            />
+             <TextView
+                 android:id="@+id/name"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_marginLeft="12dp"
+                 android:layout_marginTop="30dp"
+                 android:layout_toRightOf="@id/imageView"
+                 android:gravity="top"
+                 android:text="@string/name"
+                 android:textAppearance="@style/some_id" />
+
+             <TextView
+                 android:id="@+id/kl"
+                 android:layout_width="142dp"
+                 android:layout_height="24dp"
+                 android:layout_below="@id/name"
+                 android:layout_marginLeft="12dp"
+                 android:layout_marginTop="5dp"
+                 android:layout_marginRight="32dp"
+                 android:layout_toRightOf="@id/imageView"
+                 android:gravity="top"
+                 android:text="@string/kl"
+                 android:textAppearance="@style/kl" />
+
+             <ImageView
+                 android:id="@+id/imageView"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_marginLeft="20dp"
+                 android:layout_marginTop="30dp"
+                 app:srcCompat="@drawable/vector_176" />
+
+             <TextView
+                 android:layout_marginTop="45dp"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_marginLeft="30dp"
+                 android:layout_toRightOf="@id/name"
+                 android:text="@string/time"
+                android:textAppearance="@style/time_"
+                 android:textAlignment="center"
+                 />
+         </RelativeLayout>
+
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

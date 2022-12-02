@@ -31,6 +31,12 @@
             android:exported="false"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
+            android:name=".AlarmActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AlarmActivity"
+            android:exported="false" />
+        <activity
             android:name=".AddingPill"
             android:exported="false" />
         <activity

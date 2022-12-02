@@ -1,6 +1,5 @@
 package com.example.medicineremindernew;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.media.Ringtone;
@@ -9,12 +8,12 @@ import android.net.Uri;
 import android.os.Bundle;
 
 public class AlarmActivity extends AppCompatActivity {
+
     Ringtone ringtone;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_alarm);
 
         Uri notificationUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
