@@ -24,7 +24,7 @@ public class inform extends AppCompatActivity {
                 startActivity(bak);
             }
         });
-        Button settings=findViewById(R.id.settings);
+        ImageButton settings=findViewById(R.id.settings);
         Intent sett = new Intent(this, settimgs.class);
         settings.setOnClickListener(view -> startActivity(sett));
     }
