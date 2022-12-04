@@ -9,12 +9,14 @@ import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -55,6 +57,26 @@ public class AddingPill extends AppCompatActivity {
         valueEdit =  findViewById(R.id.NumberEdit);
 
         Button btnChoose =  findViewById(R.id.btnChoose);
+        ImageButton settings_btn = findViewById(R.id.settings);
+        ImageButton back_btn = findViewById(R.id.back);
+
+        Intent main_activity_intent = new Intent(this, MainActivity.class);
+        Intent settings_activity = new Intent(this, SettingsActivity.class);
+
+        back_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(main_activity_intent);
+            }
+        });
+
+        settings_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(settings_activity);
+            }
+        });
+
 
         //спинеры spinner_num, spinner_times
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, countries);

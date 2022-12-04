@@ -21,7 +21,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".settimgs"
+            android:name=".SettingsActivity"
             android:exported="false" />
         <activity
             android:name=".inform"
@@ -30,12 +30,6 @@
             android:name=".AlarmActivity"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity
-            android:name=".AlarmActivity"
-            android:exported="false" />
-        <activity
-            android:name=".AlarmActivity"
-            android:exported="false" />
         <activity
             android:name=".AddingPill"
             android:exported="false" />

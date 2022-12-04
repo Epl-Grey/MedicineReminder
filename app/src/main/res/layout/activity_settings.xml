@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".settimgs">
+    tools:context=".SettingsActivity">
     <RelativeLayout
         android:id="@+id/RelativeLayout"
         android:layout_width="match_parent"
@@ -81,22 +81,24 @@
             android:layout_toRightOf="@id/imageView3"
             android:text="Звук уведомлений"
             android:textAppearance="@style/some_id" />
+
         <ImageView
             android:id="@+id/imageView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@id/imageView3"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="30dp"
-            android:layout_below="@id/imageView3"
             app:srcCompat="@drawable/e_mail__1_" />
+
         <TextView
             android:id="@+id/email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/imageView4"
-            android:layout_marginTop="33dp"
-            android:layout_marginLeft="5dp"
             android:layout_below="@id/imageView3"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="33dp"
+            android:layout_toRightOf="@id/imageView4"
             android:text="Техподдержка"
             android:textAppearance="@style/some_id" />
 

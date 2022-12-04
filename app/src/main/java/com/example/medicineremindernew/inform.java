@@ -5,9 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 
 public class inform extends AppCompatActivity {
 
@@ -25,7 +23,7 @@ public class inform extends AppCompatActivity {
             }
         });
         ImageButton settings=findViewById(R.id.settings);
-        Intent sett = new Intent(this, settimgs.class);
+        Intent sett = new Intent(this, SettingsActivity.class);
         settings.setOnClickListener(view -> startActivity(sett));
     }
 }
