@@ -9,6 +9,8 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import java.util.Calendar;
+
 public class AlarmController {
     Context context;
     DatabaseHelper sqlHelper;
@@ -42,5 +44,42 @@ public class AlarmController {
             System.out.println();
             cursor.moveToNext();
         }
+    }
+
+    void add_alarm(Pill pill){
+
+        String[] time = pill.time.split(":");
+        String[] date1 = pill.date1.split("\\.");
+        String[] date2 = pill.date2.split("\\.");
+
+
+        Calendar calendar_date1 = Calendar.getInstance();
+        calendar_date1.set(Calendar.MILLISECOND, 0);
+        calendar_date1.set(Calendar.SECOND, 0);
+//        calendar_date1.set(Calendar.MINUTE, Integer.parseInt(pill));
+
+        Calendar alarm_calendar = Calendar.getInstance();
+        alarm_calendar.set(Calendar.MILLISECOND, 0);
+        alarm_calendar.set(Calendar.SECOND, 0);
+        alarm_calendar.set(Calendar.MINUTE, Integer.parseInt(time[1]));
+        alarm_calendar.set(Calendar.HOUR_OF_DAY, Integer.parseInt(time[0]));
+
+        AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+
+        AlarmManager.AlarmClockInfo alarmClockInfo = new AlarmManager.AlarmClockInfo(alarm_calendar.getTimeInMillis(), getAlarmInfoPendingIntent());
+
+        alarmManager.setAlarmClock(alarmClockInfo, getAlarmActionPendingIntent());
+    }
+
+    private PendingIntent getAlarmInfoPendingIntent() {
+        Intent alarmInfoIntent = new Intent(context, MainActivity.class);
+        alarmInfoIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        return PendingIntent.getActivity(context, 0, alarmInfoIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+    }
+
+    private PendingIntent getAlarmActionPendingIntent() {
+        Intent intent = new Intent(context, AlarmActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        return PendingIntent.getActivity(context, 1, intent, PendingIntent.FLAG_UPDATE_CURRENT);
     }
 }
