@@ -33,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
 
     DatePickerDialog datePickerDialog;
 
+    public static long userId;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,8 +52,9 @@ public class MainActivity extends AppCompatActivity {
 
         pillList = findViewById(R.id.list);
         pillList.setOnItemClickListener((parent, view, position, id) -> {
-            Intent intent = new Intent(getApplicationContext(),AddingPill.class);
+            Intent intent = new Intent(getApplicationContext(),inform.class);
             intent.putExtra("id", id);
+            userId = id;
             startActivity(intent);
         });
 
