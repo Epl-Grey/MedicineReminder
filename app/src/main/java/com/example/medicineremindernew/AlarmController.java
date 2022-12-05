@@ -28,25 +28,49 @@ public class AlarmController {
         cursor.moveToFirst();
 
         while(!cursor.isAfterLast()){
-            System.out.println("ID:     " + cursor.getInt(0));
-            System.out.println("Name:   " + cursor.getString(1));
-            System.out.println("Value:  " + cursor.getInt(2));
-            System.out.println("Dosage: " + cursor.getString(3));
-            System.out.println("Date 1: " + cursor.getString(4));
-            System.out.println("Date 2: " + cursor.getString(5));
-            System.out.println("Time 1: " + cursor.getString(6));
-            System.out.println("Time 2: " + cursor.getString(7));
-            System.out.println("Time 3: " + cursor.getString(8));
-            System.out.println("Time 4: " + cursor.getString(9));
-            System.out.println("Time 5: " + cursor.getString(10));
-            System.out.println("Time 6: " + cursor.getString(11));
-            System.out.println("Times : " + cursor.getString(12));
+            int id = cursor.getInt(0);
+            String name = cursor.getString(1);
+            int value = cursor.getInt(2);
+            String dosage = cursor.getString(3);
+            String date1 = cursor.getString(4);
+            String date2 = cursor.getString(5);
+            String time1 = cursor.getString(6);
+            String time2 = cursor.getString(7);
+            String time3 = cursor.getString(8);
+            String time4 = cursor.getString(9);
+            String time5 = cursor.getString(10);
+            String time6 = cursor.getString(11);
+            String times = cursor.getString(12);
+
+
+            System.out.println("ID:     " + id);
+            System.out.println("Name:   " + name);
+            System.out.println("Value:  " + value);
+            System.out.println("Dosage: " + dosage);
+            System.out.println("Date 1: " + date1);
+            System.out.println("Date 2: " + date2);
+            System.out.println("Time 1: " + time1);
+            System.out.println("Time 2: " + time2);
+            System.out.println("Time 3: " + time3);
+            System.out.println("Time 4: " + time4);
+            System.out.println("Time 5: " + time5);
+            System.out.println("Time 6: " + time6);
+            System.out.println("Times : " + times);
             System.out.println();
+
+            add_alarm(new Pill(id, name, value, dosage, date1, date2, time1));
+            add_alarm(new Pill(id, name, value, dosage, date1, date2, time2));
+            add_alarm(new Pill(id, name, value, dosage, date1, date2, time3));
+            add_alarm(new Pill(id, name, value, dosage, date1, date2, time4));
+            add_alarm(new Pill(id, name, value, dosage, date1, date2, time5));
+            add_alarm(new Pill(id, name, value, dosage, date1, date2, time6));
             cursor.moveToNext();
         }
     }
 
     void add_alarm(Pill pill){
+
+        if (pill.time.equals("") || pill.date1.equals("дата") || pill.date2.equals("дата"))return;
 
         String[] time = pill.time.split(":");
         String[] date1 = pill.date1.split("\\.");
@@ -56,7 +80,18 @@ public class AlarmController {
         Calendar calendar_date1 = Calendar.getInstance();
         calendar_date1.set(Calendar.MILLISECOND, 0);
         calendar_date1.set(Calendar.SECOND, 0);
-//        calendar_date1.set(Calendar.MINUTE, Integer.parseInt(pill));
+        calendar_date1.set(Calendar.MINUTE, Integer.parseInt(time[1]));
+        calendar_date1.set(Calendar.DAY_OF_MONTH, Integer.parseInt(date1[0]));
+        calendar_date1.set(Calendar.MONTH, Integer.parseInt(date1[1]));
+        calendar_date1.set(Calendar.YEAR, Integer.parseInt(date1[2]));
+
+        Calendar calendar_date2 = Calendar.getInstance();
+        calendar_date2.set(Calendar.MILLISECOND, 0);
+        calendar_date2.set(Calendar.SECOND, 0);
+        calendar_date2.set(Calendar.MINUTE, Integer.parseInt(time[1]));
+        calendar_date2.set(Calendar.DAY_OF_MONTH, Integer.parseInt(date2[0]));
+        calendar_date2.set(Calendar.MONTH, Integer.parseInt(date2[1]));
+        calendar_date2.set(Calendar.YEAR, Integer.parseInt(date2[2]));
 
         Calendar alarm_calendar = Calendar.getInstance();
         alarm_calendar.set(Calendar.MILLISECOND, 0);
@@ -64,11 +99,12 @@ public class AlarmController {
         alarm_calendar.set(Calendar.MINUTE, Integer.parseInt(time[1]));
         alarm_calendar.set(Calendar.HOUR_OF_DAY, Integer.parseInt(time[0]));
 
-        AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+        if(alarm_calendar.compareTo(calendar_date1) > 0 & alarm_calendar.compareTo(calendar_date2) < 0){
+            AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
 
-        AlarmManager.AlarmClockInfo alarmClockInfo = new AlarmManager.AlarmClockInfo(alarm_calendar.getTimeInMillis(), getAlarmInfoPendingIntent());
-
-        alarmManager.setAlarmClock(alarmClockInfo, getAlarmActionPendingIntent());
+            AlarmManager.AlarmClockInfo alarmClockInfo = new AlarmManager.AlarmClockInfo(alarm_calendar.getTimeInMillis(), getAlarmInfoPendingIntent());
+            alarmManager.setAlarmClock(alarmClockInfo, getAlarmActionPendingIntent());
+        }
     }
 
     private PendingIntent getAlarmInfoPendingIntent() {

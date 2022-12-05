@@ -176,6 +176,9 @@ public class AddTime extends AppCompatActivity {
 
         db.insert(DatabaseHelper.TABLE, DatabaseHelper.COLUMN_TIME2, bValues);
 
+        AlarmController alarmController = new AlarmController(this);
+        alarmController.refresh();
+
         getToMainRes();
 
     }
