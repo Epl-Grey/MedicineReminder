@@ -1,14 +1,21 @@
 package com.example.medicineremindernew;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Calendar;
+import java.util.Date;
 
 public class inform extends AppCompatActivity {
 
@@ -17,6 +24,7 @@ public class inform extends AppCompatActivity {
     Cursor userCursor;
     long userId=0;
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,9 +48,23 @@ public class inform extends AppCompatActivity {
         System.out.println(userId);
 
 
+
         userCursor = db.rawQuery("select * from " + DatabaseHelper.TABLE + " where " +
                 DatabaseHelper.COLUMN_ID + "=?", new String[]{Long.toString(userId)});
         userCursor.moveToFirst();
+        String date1 = userCursor.getString(4);
+        String[] date11 = date1.split("\\.");
+
+        Calendar calendar_date1 = Calendar.getInstance();
+        calendar_date1.set(Calendar.HOUR_OF_DAY, Integer.parseInt(date11[0]));
+        calendar_date1.set(Calendar.MONTH, Integer.parseInt(date11[1]));
+        calendar_date1.set(Calendar.YEAR, Integer.parseInt(date11[2]));
+
+//        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy");
+//        System.out.println(simpleDateFormat.format(calendar_date1.getTime()));
+//        LocalDate newDate = LocalDate.parse("05-05-2018");
+
+
         name.setText(userCursor.getString(1));
         dose.setText(userCursor.getString(2) + " " + userCursor.getString(3));
         time.setText(userCursor.getString(6));
