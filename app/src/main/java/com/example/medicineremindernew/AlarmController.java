@@ -64,6 +64,13 @@ public class AlarmController {
             add_alarm(new Pill(id, name, value, dosage, date1, date2, time4));
             add_alarm(new Pill(id, name, value, dosage, date1, date2, time5));
             add_alarm(new Pill(id, name, value, dosage, date1, date2, time6));
+
+            add_alarm_notify(new Pill(id, name, value, dosage, date1, date2, time1));
+            add_alarm_notify(new Pill(id, name, value, dosage, date1, date2, time2));
+            add_alarm_notify(new Pill(id, name, value, dosage, date1, date2, time3));
+            add_alarm_notify(new Pill(id, name, value, dosage, date1, date2, time4));
+            add_alarm_notify(new Pill(id, name, value, dosage, date1, date2, time5));
+            add_alarm_notify(new Pill(id, name, value, dosage, date1, date2, time6));
             cursor.moveToNext();
         }
     }
@@ -81,6 +88,7 @@ public class AlarmController {
         calendar_date1.set(Calendar.MILLISECOND, 0);
         calendar_date1.set(Calendar.SECOND, 0);
         calendar_date1.set(Calendar.MINUTE, Integer.parseInt(time[1]));
+        calendar_date1.set(Calendar.HOUR_OF_DAY, Integer.parseInt(time[0]));
         calendar_date1.set(Calendar.DAY_OF_MONTH, Integer.parseInt(date1[0]));
         calendar_date1.set(Calendar.MONTH, Integer.parseInt(date1[1]));
         calendar_date1.set(Calendar.YEAR, Integer.parseInt(date1[2]));
@@ -89,6 +97,7 @@ public class AlarmController {
         calendar_date2.set(Calendar.MILLISECOND, 0);
         calendar_date2.set(Calendar.SECOND, 0);
         calendar_date2.set(Calendar.MINUTE, Integer.parseInt(time[1]));
+        calendar_date2.set(Calendar.HOUR_OF_DAY, Integer.parseInt(time[0]));
         calendar_date2.set(Calendar.DAY_OF_MONTH, Integer.parseInt(date2[0]));
         calendar_date2.set(Calendar.MONTH, Integer.parseInt(date2[1]));
         calendar_date2.set(Calendar.YEAR, Integer.parseInt(date2[2]));
@@ -100,6 +109,9 @@ public class AlarmController {
         alarm_calendar.set(Calendar.HOUR_OF_DAY, Integer.parseInt(time[0]));
 
         if(alarm_calendar.compareTo(calendar_date1) > 0 & alarm_calendar.compareTo(calendar_date2) < 0){
+            if(Calendar.getInstance().compareTo(alarm_calendar) > 0){
+                alarm_calendar.add(Calendar.DAY_OF_MONTH, 1);
+            }
             AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
 
             AlarmManager.AlarmClockInfo alarmClockInfo = new AlarmManager.AlarmClockInfo(alarm_calendar.getTimeInMillis(), getAlarmInfoPendingIntent());
@@ -117,5 +129,56 @@ public class AlarmController {
         Intent intent = new Intent(context, AlarmActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         return PendingIntent.getActivity(context, 1, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+    }
+
+    void add_alarm_notify(Pill pill){
+        if (pill.time.equals("") || pill.date1.equals("дата") || pill.date2.equals("дата"))return;
+
+        String[] time = pill.time.split(":");
+        String[] date1 = pill.date1.split("\\.");
+        String[] date2 = pill.date2.split("\\.");
+
+
+        Calendar calendar_date1 = Calendar.getInstance();
+        calendar_date1.set(Calendar.MILLISECOND, 0);
+        calendar_date1.set(Calendar.SECOND, 0);
+        calendar_date1.set(Calendar.MINUTE, Integer.parseInt(time[1]));
+        calendar_date1.set(Calendar.HOUR_OF_DAY, Integer.parseInt(time[0]));
+        calendar_date1.set(Calendar.DAY_OF_MONTH, Integer.parseInt(date1[0]));
+        calendar_date1.set(Calendar.MONTH, Integer.parseInt(date1[1]));
+        calendar_date1.set(Calendar.YEAR, Integer.parseInt(date1[2]));
+
+        Calendar calendar_date2 = Calendar.getInstance();
+        calendar_date2.set(Calendar.MILLISECOND, 0);
+        calendar_date2.set(Calendar.SECOND, 0);
+        calendar_date2.set(Calendar.MINUTE, Integer.parseInt(time[1]));
+        calendar_date2.set(Calendar.HOUR_OF_DAY, Integer.parseInt(time[0]));
+        calendar_date2.set(Calendar.DAY_OF_MONTH, Integer.parseInt(date2[0]));
+        calendar_date2.set(Calendar.MONTH, Integer.parseInt(date2[1]));
+        calendar_date2.set(Calendar.YEAR, Integer.parseInt(date2[2]));
+
+        Calendar alarm_calendar = Calendar.getInstance();
+        alarm_calendar.set(Calendar.MILLISECOND, 0);
+        alarm_calendar.set(Calendar.SECOND, 0);
+        alarm_calendar.set(Calendar.MINUTE, Integer.parseInt(time[1]));
+        alarm_calendar.set(Calendar.HOUR_OF_DAY, Integer.parseInt(time[0]));
+
+        if(alarm_calendar.compareTo(calendar_date1) > 0 & alarm_calendar.compareTo(calendar_date2) < 0){
+            if(Calendar.getInstance().compareTo(alarm_calendar) > 0){
+                alarm_calendar.add(Calendar.DAY_OF_MONTH, 1);
+            }
+            Intent intent = new Intent(context, AlarmReceiverNotify.class);
+            intent.putExtra("name", pill.name);
+            PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+            alarm_calendar.add(Calendar.MINUTE, -15);
+
+            AlarmManager alarmManager = (AlarmManager)context.getSystemService(ALARM_SERVICE);
+
+            System.out.println(alarm_calendar.getTime());
+            alarmManager.set(AlarmManager.RTC_WAKEUP, alarm_calendar.getTimeInMillis(), pendingIntent);
+            System.out.println("setAlarmNotify");
+        }
+
+
     }
 }

@@ -72,8 +72,7 @@
              android:id="@+id/inform"
              android:layout_width="match_parent"
              android:layout_height="wrap_content"
-             android:layout_below="@id/calendar"
-             >
+             android:layout_below="@id/calendar">
 
 <!--             <TextView-->
 <!--                 android:id="@+id/name"-->
