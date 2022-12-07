@@ -213,13 +213,14 @@
             android:textAppearance="@style/kl" />
 
         <Button
+            android:id="@+id/redactor"
             android:layout_width="wrap_content"
             android:layout_height="35dp"
             android:layout_below="@+id/nexts"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="35dp"
-            android:text="Редактировать"
-            android:background="@drawable/btn" />
+            android:background="@drawable/btn"
+            android:text="Редактировать" />
 
     </RelativeLayout>
 
