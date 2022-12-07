@@ -8,6 +8,16 @@
 <RelativeLayout
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@drawable/splashscreen"
-    tools:ignore="MissingConstraints"></RelativeLayout>
+    android:background="@drawable/splashscreen__3_"
+    tools:ignore="MissingConstraints">
+
+    <WebView
+        android:id="@+id/simpleWebView"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="300dp"
+        android:layout_marginLeft="60dp"
+        android:background="#E1FFC2"
+        tools:ignore="WebViewLayout" />
+</RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,7 +10,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/tm_"
+        android:background="#ffffff"
         tools:ignore="MissingConstraints">
 
         <TextView
@@ -22,26 +22,18 @@
             android:textAppearance="@style/time"
             android:textAlignment="center" />
 
-        <TextView
-            android:id="@+id/date"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/time"
-            android:layout_marginTop="15dp"
-            android:text="@string/date"
-            android:textAppearance="@style/date"
 
-            />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/date"
-            android:layout_marginLeft="60dp"
-            android:layout_marginTop="230dp"
-            android:layout_marginRight="60dp"
-            android:text="@string/name"
-            android:textAlignment="center" />
+
+
+            <WebView
+                android:id="@+id/simpleWebView"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="300dp"
+                android:layout_marginLeft="100dp"
+                android:background="#ffffff"
+                tools:ignore="WebViewLayout" />
 
     </RelativeLayout>
 

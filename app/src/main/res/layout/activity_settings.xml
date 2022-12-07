@@ -101,25 +101,29 @@
             android:layout_toRightOf="@id/imageView4"
             android:text="Техподдержка"
             android:textAppearance="@style/some_id" />
-
+<RelativeLayout
+    android:id="@+id/the"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/imageView4"
+    >
         <ImageView
             android:id="@+id/imageView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="30dp"
-            android:layout_below="@id/imageView4"
             app:srcCompat="@drawable/sun" />
+
         <TextView
             android:id="@+id/theme"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/imageView4"
-            android:layout_marginTop="33dp"
             android:layout_marginLeft="5dp"
-            android:layout_below="@id/imageView4"
+            android:layout_marginTop="33dp"
+            android:layout_toRightOf="@id/imageView5"
             android:text="Светлая тема"
             android:textAppearance="@style/some_id" />
-
+    </RelativeLayout>
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

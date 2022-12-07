@@ -6,9 +6,11 @@ import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.webkit.WebView;
 
 public class AlarmActivity extends AppCompatActivity {
-
+    WebView webView;
+    public String fileName = "a2.html";
     Ringtone ringtone;
 
     @Override

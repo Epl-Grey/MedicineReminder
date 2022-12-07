@@ -16,9 +16,9 @@
             android:id="@+id/settings"
             android:layout_width="45dp"
             android:layout_height="45dp"
-            android:layout_marginLeft="360dp"
+            android:layout_alignParentRight="true"
             android:layout_marginTop="20dp"
-
+            android:layout_marginRight="20dp"
             android:background="@drawable/setting_alt_line"
             android:textSize="18sp" />
 
