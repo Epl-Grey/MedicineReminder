@@ -40,7 +40,7 @@ public class AddTime extends AppCompatActivity {
     int hour, minute;
 
 
-    String[] times = {"ОДИН РАЗ В ДЕНЬ", "ДВА РАЗА В ДЕНТЬ", "ТРИ РАЗА В ДЕНЬ", "ЧЕТЫРЕ РАЗА В ДЕНЬ", "ПЯТЬ РАЗ В ДЕНЬ", "ШЕСТЬ РАЗ В ДЕНЬ"};
+    String[] times = {"ОДИН РАЗ В ДЕНЬ", "ДВА РАЗА В ДЕНЬ", "ТРИ РАЗА В ДЕНЬ", "ЧЕТЫРЕ РАЗА В ДЕНЬ", "ПЯТЬ РАЗ В ДЕНЬ", "ШЕСТЬ РАЗ В ДЕНЬ"};
     String selectItem;
 
     @Override

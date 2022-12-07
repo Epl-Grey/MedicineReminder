@@ -53,26 +53,29 @@ public class inform extends AppCompatActivity {
                 DatabaseHelper.COLUMN_ID + "=?", new String[]{Long.toString(userId)});
         userCursor.moveToFirst();
         String date1 = userCursor.getString(4);
-        String[] date11 = date1.split("\\.");
+        if(!date1.equals("дата")){
+            String[] date11 = date1.split("\\.");
 
-        Calendar calendar_date1 = Calendar.getInstance();
-        calendar_date1.set(Calendar.HOUR_OF_DAY, Integer.parseInt(date11[0]));
-        calendar_date1.set(Calendar.MONTH, Integer.parseInt(date11[1]));
-        calendar_date1.set(Calendar.YEAR, Integer.parseInt(date11[2]));
+            Calendar calendar_date1 = Calendar.getInstance();
+            calendar_date1.set(Calendar.HOUR_OF_DAY, Integer.parseInt(date11[0]));
+            calendar_date1.set(Calendar.MONTH, Integer.parseInt(date11[1]));
+            calendar_date1.set(Calendar.YEAR, Integer.parseInt(date11[2]));
 
 //        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy");
 //        System.out.println(simpleDateFormat.format(calendar_date1.getTime()));
 //        LocalDate newDate = LocalDate.parse("05-05-2018");
 
 
-        name.setText(userCursor.getString(1));
-        dose.setText(userCursor.getString(2) + " " + userCursor.getString(3));
-        time.setText(userCursor.getString(6));
-        kl.setText(userCursor.getString(12));
-        allt.setText(userCursor.getString(6) + " " + userCursor.getString(7) + " " +
-                userCursor.getString(8) + " " +userCursor.getString(9) + " " +
-                userCursor.getString(10) + " " + userCursor.getString(11));
-        weeks.setText(userCursor.getString(4) + "-" + userCursor.getString(5));
+            name.setText(userCursor.getString(1));
+            dose.setText(userCursor.getString(2) + " " + userCursor.getString(3));
+            time.setText(userCursor.getString(6));
+            kl.setText(userCursor.getString(12));
+            allt.setText(userCursor.getString(6) + " " + userCursor.getString(7) + " " +
+                    userCursor.getString(8) + " " +userCursor.getString(9) + " " +
+                    userCursor.getString(10) + " " + userCursor.getString(11));
+            weeks.setText(userCursor.getString(4) + "-" + userCursor.getString(5));
+        }
+
         userCursor.close();
 
 
