@@ -9,6 +9,8 @@ import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
@@ -30,15 +32,19 @@ public class AddingPill extends AppCompatActivity {
     //Переменные
     String selectItemOr;
 
-    String[] countries = {"ГРАММОВ", "МИЛИЛИТРОВ", "СТОЛОВЫХ ЛОЖЕК", "ТАБЛЕТОК"};
+    String[] countries = {"грамм", "мл", "стол. ложек", "табл"};
 
     TextView textAfter;
     TextView textBefore;
 
+    DatabaseHelper sqlHelper;
+    SQLiteDatabase db;
+    Cursor userCursor;
+
     EditText nameEdit;
     EditText valueEdit;
-
-    String[] times = {"ОДИН РАЗ В ДЕНЬ", "ДВА РАЗА В ДЕНЬ", "ТРИ РАЗА В ДЕНЬ", "ЧЕТЫРЕ РАЗА В ДЕНЬ", "ПЯТЬ РАЗ В ДЕНЬ", "ШЕСТЬ РАЗ В ДЕНЬ"};
+    long userId;
+    String[] times = {"1 раз в день", "2 раза в день", "3 раза в день", "4 раза в день", "5 раз в день", "6 раз в день"};
     DatePickerDialog datePickerDialog;
 
     @SuppressLint("ResourceAsColor")
@@ -62,6 +68,34 @@ public class AddingPill extends AppCompatActivity {
 
         Intent main_activity_intent = new Intent(this, MainActivity.class);
         Intent settings_activity = new Intent(this, SettingsActivity.class);
+
+        sqlHelper = new DatabaseHelper(this);
+        db = sqlHelper.getWritableDatabase();
+
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            userId = extras.getLong("id");
+        }
+        // если 0, то добавление
+        if (userId > 0) {
+            // получаем элемент по id из бд
+            userCursor = db.rawQuery("select * from " + DatabaseHelper.TABLE + " where " +
+                    DatabaseHelper.COLUMN_ID + "=?", new String[]{String.valueOf(userId)});
+            userCursor.moveToFirst();
+            nameEdit.setText(userCursor.getString(1));
+            valueEdit.setText(String.valueOf(userCursor.getInt(2)));
+            textBefore.setText(userCursor.getString(4));
+            textAfter.setText(userCursor.getString(5));
+            userCursor.close();
+        }
+
+
+//            nameEdit.setText(userCursor.getString(1));
+//            valueEdit.setText(String.valueOf(userCursor.getInt(2)));
+//            textBefore.setText(userCursor.getString(5));
+//            textAfter.setText(userCursor.getString(6));
+//            userCursor.close();
+
 
         back_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,6 +135,7 @@ public class AddingPill extends AppCompatActivity {
             selectItemOr = spinner_times.getSelectedItem().toString();
             String intent_dos = spinner_num.getSelectedItem().toString();
 
+            intent.putExtra("id", userId);
             intent.putExtra("Item", selectItemOr);
             intent.putExtra("name", nameEdit.getText().toString());
             intent.putExtra("value", valueEdit.getText().toString());
@@ -123,7 +158,7 @@ public class AddingPill extends AppCompatActivity {
             public void onDateSet(DatePicker datePicker, int year, int month, int day)
             {
                 month = month + 1;
-                String date = month + "." + day + "." + year;
+                String date = day + "." + month + "." + year;
                 textView.setText(date);
             }
         };

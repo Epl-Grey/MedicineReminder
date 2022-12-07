@@ -34,14 +34,15 @@ public class AddTime extends AppCompatActivity {
 
     Intent IntentSave;
 
+    long userId;
+
     DatabaseHelper sqlHelper;
     SQLiteDatabase db;
     Cursor userCursor;
     int hour, minute;
 
 
-    String[] times = {"ОДИН РАЗ В ДЕНЬ", "ДВА РАЗА В ДЕНЬ", "ТРИ РАЗА В ДЕНЬ", "ЧЕТЫРЕ РАЗА В ДЕНЬ", "ПЯТЬ РАЗ В ДЕНЬ", "ШЕСТЬ РАЗ В ДЕНЬ"};
-    String selectItem;
+    String[] times = {"1 раз в день", "2 раза в день", "3 раза в день", "4 раза в день", "5 раз в день", "6 раз в день"};    String selectItem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +57,7 @@ public class AddTime extends AppCompatActivity {
         setTimes6 = (TextView) findViewById(R.id.setTimes6);
 
         nextBtn = (Button) findViewById(R.id.nextBtn);
+        userId = getIntent().getLongExtra("id", 0);
 
         IntentSave = getIntent();
 
@@ -173,8 +175,12 @@ public class AddTime extends AppCompatActivity {
         bValues.put(DatabaseHelper.COLUMN_TIME6, setTimes6.getText().toString());
         bValues.put(DatabaseHelper.COLUMN_VALUETIME, getIntent().getStringExtra("Item"));
 
+        if (userId > 0) {
+            db.update(DatabaseHelper.TABLE, bValues, DatabaseHelper.COLUMN_ID + "=" + userId, null);
+        } else {
+            db.insert(DatabaseHelper.TABLE, DatabaseHelper.COLUMN_TIME2, bValues);
+        }
 
-        db.insert(DatabaseHelper.TABLE, DatabaseHelper.COLUMN_TIME2, bValues);
 
         AlarmController alarmController = new AlarmController(this);
         alarmController.refresh();
