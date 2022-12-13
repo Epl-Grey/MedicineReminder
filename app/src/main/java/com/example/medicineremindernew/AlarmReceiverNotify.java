@@ -10,7 +10,8 @@ public class AlarmReceiverNotify extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         Bundle extras = intent.getExtras();
         String name = extras.getString("name");
-        NotificationMaker.makeNotify(context, name);
+        String time = extras.getString("time");
+        NotificationMaker.makeNotify(context, name, time);
 
     }
 }

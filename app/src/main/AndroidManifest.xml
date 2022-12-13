@@ -12,6 +12,7 @@
         android:roundIcon="@drawable/frame_1__1_"
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.Light.NoActionBar">
+        <receiver android:name=".AlarmReceiverNotify" />
         <activity
             android:name=".splashscreen"
             android:exported="true">

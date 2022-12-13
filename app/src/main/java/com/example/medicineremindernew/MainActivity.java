@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.SimpleCursorAdapter;
+import android.widget.TextView;
 
 import java.util.Calendar;
 
@@ -42,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         addPill = findViewById(R.id.addButton);
         calendar= findViewById(R.id.calendar);
         Button settings=findViewById(R.id.settings);
+        TextView title = findViewById(R.id.medicine_re);
         Intent sett = new Intent(this, SettingsActivity.class);
         settings.setOnClickListener(view -> startActivity(sett));
         intent = new Intent(this, AddingPill.class);
@@ -64,10 +66,20 @@ public class MainActivity extends AppCompatActivity {
         });
 
         databaseHelper = new DatabaseHelper(getApplicationContext());
-
         AlarmController alarmController = new AlarmController(this);
-        alarmController.refresh();
+        title.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                alarmController.refresh();
+            }
+        });
 
+        alarmController.refresh();
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.MINUTE, 1);
+        System.out.println(calendar.getTime());
+        String time = calendar.get(Calendar.HOUR_OF_DAY) + ":" + calendar.get(Calendar.MINUTE);
+        alarmController.add_alarm_notify(new Pill(5, "TEST", 10, "шт", "1.12.2022", "31.12.2022", time));
     }
 
     @Override
@@ -76,9 +88,9 @@ public class MainActivity extends AppCompatActivity {
         // открываем подключение
         db = databaseHelper.getReadableDatabase();
         //получаем данные из бд в виде курсора
-        pillCursor = db.rawQuery("select " + DatabaseHelper.COLUMN_ID + ", " + DatabaseHelper.COLUMN_NAME  + ", " + DatabaseHelper.COLUMN_VALUE + ", " + DatabaseHelper.COLUMN_TIME1 + " from " + DatabaseHelper.TABLE, null);
+        pillCursor = db.rawQuery("select " + DatabaseHelper.COLUMN_ID + ", " + DatabaseHelper.COLUMN_NAME  + ", " + DatabaseHelper.COLUMN_VALUETIME + ", " + DatabaseHelper.COLUMN_TIME1 + " from " + DatabaseHelper.TABLE, null);
         // определяем, какие столбцы из курсора будут выводиться в ListView
-        String[] headers = new String[]{DatabaseHelper.COLUMN_NAME, DatabaseHelper.COLUMN_VALUE, DatabaseHelper.COLUMN_TIME1};
+        String[] headers = new String[]{DatabaseHelper.COLUMN_NAME, DatabaseHelper.COLUMN_VALUETIME, DatabaseHelper.COLUMN_TIME1};
         // создаем адаптер, передаем в него курсор
         pillAdapter = new SimpleCursorAdapter(this, R.layout.row_layout,
                 pillCursor, headers, new int[]{R.id.name, R.id.kl, R.id.time}, 0);

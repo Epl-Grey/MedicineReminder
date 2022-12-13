@@ -11,7 +11,7 @@ import android.os.Build;
 import androidx.core.app.NotificationCompat;
 
 public class NotificationMaker {
-    static void makeNotify(Context ctx, String title){
+    static void makeNotify(Context ctx, String title, String time){
         System.out.println("NOTIFY!!!");
         NotificationManager mNotificationManager;
 
@@ -21,12 +21,12 @@ public class NotificationMaker {
         PendingIntent pendingIntent = PendingIntent.getActivity(ctx, 0, ii, 0);
 
         NotificationCompat.BigTextStyle bigText = new NotificationCompat.BigTextStyle();
-        bigText.bigText("Примите через 15 минут");
+        bigText.bigText("Примите в " + time);
         bigText.setBigContentTitle(title);
 //        bigText.setSummaryText(subTitle);
 
         mBuilder.setContentIntent(pendingIntent);
-        mBuilder.setSmallIcon(R.mipmap.ic_launcher_round);
+        mBuilder.setSmallIcon(R.drawable.bell);
         mBuilder.setContentTitle("Your Title");
         mBuilder.setContentText("Your text");
         mBuilder.setPriority(Notification.PRIORITY_MAX);
