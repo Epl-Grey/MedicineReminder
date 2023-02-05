@@ -16,6 +16,7 @@ import android.widget.RelativeLayout;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 
+import com.example.medicineremindernew.firebase.PillsManager;
 import com.example.medicineremindernew.firebase.UsersManager;
 
 import java.util.Calendar;
@@ -84,11 +85,9 @@ public class MainActivity extends AppCompatActivity {
         String time = calendar.get(Calendar.HOUR_OF_DAY) + ":" + calendar.get(Calendar.MINUTE);
         alarmController.add_alarm_notify(new Pill(5, "TEST", 10, "шт", "1.12.2022", "31.12.2022", time));
 
-//        String[] logins = {"qwerty123", "xXx_QWERTY_xXx", "qwerty1337", "QwertyPro"};
-//
-//        UsersManager usersManager = new UsersManager();
-//        Random random = new Random();
-//        usersManager.saveData(logins[random.nextInt(4)], "password");
+
+        PillsManager pillsManager = new PillsManager();
+        pillsManager.saveData("lohlohloh", "Працетомол", "2", "Таблеток", "12.05.2022", "12.06.2022", "9:30", "10:30", "11:30", "13:30", "15:30", "17:30", "ШЕСТЬ РАЗ В ДЕНЬ");
     }
 
     @Override

@@ -8,9 +8,27 @@ import java.security.MessageDigest
 
 class UsersManager() {
     private var dbRef: DatabaseReference = FirebaseDatabase.getInstance().getReference("Users")
-
+    var users: ArrayList<UserData> = arrayListOf<UserData>()
     init {
-        getUsers()
+        val userListener = object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                // Get Post object and use the values to update the UI
+                users.clear()
+                if(snapshot.exists()){
+                    for (userSnap in snapshot.children){
+                        val userData = userSnap.getValue<UserData>()
+                        users.add(userData!!)
+                    }
+                }
+                System.out.println(users)
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                // Getting Post failed, log a message
+                Log.w(TAG, "loadUser:onCancelled", databaseError.toException())
+            }
+        }
+        dbRef.addValueEventListener(userListener)
     }
 
     fun saveData(userLogin: String, userPassword: String){
@@ -27,29 +45,5 @@ class UsersManager() {
         val employeeModel = UserData(empId, userLogin, passwordHash)
 
         dbRef.child(empId).setValue(employeeModel)
-    }
-
-    private fun getUsers() {
-        val users: ArrayList<UserData> = arrayListOf<UserData>()
-
-        val postListener = object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                // Get Post object and use the values to update the UI
-                users.clear()
-                if(snapshot.exists()){
-                    for (userSnap in snapshot.children){
-                        val userData = userSnap.getValue<UserData>()
-                        users.add(userData!!)
-                    }
-                }
-                System.out.println(users)
-            }
-
-            override fun onCancelled(databaseError: DatabaseError) {
-                // Getting Post failed, log a message
-                Log.w(TAG, "loadPost:onCancelled", databaseError.toException())
-            }
-        }
-        dbRef.addValueEventListener(postListener)
     }
 }
