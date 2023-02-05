@@ -16,9 +16,10 @@ import android.widget.RelativeLayout;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 
-import com.example.medicineremindernew.firebase.Test;
+import com.example.medicineremindernew.firebase.UsersManager;
 
 import java.util.Calendar;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -83,8 +84,11 @@ public class MainActivity extends AppCompatActivity {
         String time = calendar.get(Calendar.HOUR_OF_DAY) + ":" + calendar.get(Calendar.MINUTE);
         alarmController.add_alarm_notify(new Pill(5, "TEST", 10, "шт", "1.12.2022", "31.12.2022", time));
 
-        Test test = new Test();
-        test.test();
+//        String[] logins = {"qwerty123", "xXx_QWERTY_xXx", "qwerty1337", "QwertyPro"};
+//
+//        UsersManager usersManager = new UsersManager();
+//        Random random = new Random();
+//        usersManager.saveData(logins[random.nextInt(4)], "password");
     }
 
     @Override
