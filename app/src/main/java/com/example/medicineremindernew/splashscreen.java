@@ -18,7 +18,7 @@ public class splashscreen extends AppCompatActivity {
             @Override public void run() {
                Intent i=new Intent(splashscreen.this,MainActivity.class);
                 startActivity(i);
-                finish(); } }, 5000);
+                finish(); } }, 1200);
         webView = (WebView) findViewById(R.id.simpleWebView);
         // displaying content in WebView from html file that stored in assets folder
         webView.getSettings().setJavaScriptEnabled(true);

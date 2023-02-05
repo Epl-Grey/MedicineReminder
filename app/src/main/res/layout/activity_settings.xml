@@ -125,5 +125,6 @@
             android:text="Светлая тема"
             android:textAppearance="@style/some_id" />
     </RelativeLayout>
+
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,7 +9,11 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Locale;
 
 public class AlarmController {
     Context context;
@@ -22,6 +26,7 @@ public class AlarmController {
     }
 
     void refresh(){
+        System.out.println("\n\n\n\n\n\n\n\n\n");
         sqlHelper = new DatabaseHelper(context);
         db = sqlHelper.getWritableDatabase();
         cursor = db.rawQuery(String.format("SELECT * FROM %s ORDER BY %s", DatabaseHelper.TABLE, DatabaseHelper.COLUMN_DATE1), new String[]{});
@@ -83,6 +88,7 @@ public class AlarmController {
         String[] date1 = pill.date1.split("\\.");
         String[] date2 = pill.date2.split("\\.");
 
+        System.out.println("\n\n===ALARMS===");
 
         Calendar calendar_date1 = Calendar.getInstance();
         calendar_date1.set(Calendar.MILLISECOND, 0);
@@ -90,7 +96,7 @@ public class AlarmController {
         calendar_date1.set(Calendar.MINUTE, Integer.parseInt(time[1]));
         calendar_date1.set(Calendar.HOUR_OF_DAY, Integer.parseInt(time[0]));
         calendar_date1.set(Calendar.DAY_OF_MONTH, Integer.parseInt(date1[0]));
-        calendar_date1.set(Calendar.MONTH, Integer.parseInt(date1[1]));
+        calendar_date1.set(Calendar.MONTH, Integer.parseInt(date1[1])-1);
         calendar_date1.set(Calendar.YEAR, Integer.parseInt(date1[2]));
 
         Calendar calendar_date2 = Calendar.getInstance();
@@ -99,7 +105,7 @@ public class AlarmController {
         calendar_date2.set(Calendar.MINUTE, Integer.parseInt(time[1]));
         calendar_date2.set(Calendar.HOUR_OF_DAY, Integer.parseInt(time[0]));
         calendar_date2.set(Calendar.DAY_OF_MONTH, Integer.parseInt(date2[0]));
-        calendar_date2.set(Calendar.MONTH, Integer.parseInt(date2[1]));
+        calendar_date2.set(Calendar.MONTH, Integer.parseInt(date2[1])-1);
         calendar_date2.set(Calendar.YEAR, Integer.parseInt(date2[2]));
 
         Calendar alarm_calendar = Calendar.getInstance();
@@ -108,7 +114,14 @@ public class AlarmController {
         alarm_calendar.set(Calendar.MINUTE, Integer.parseInt(time[1]));
         alarm_calendar.set(Calendar.HOUR_OF_DAY, Integer.parseInt(time[0]));
 
+        System.out.println("Date1  " + calendar_date1.get(Calendar.DAY_OF_MONTH) + "." + calendar_date1.get(Calendar.MONTH) + "." + calendar_date1.get(Calendar.YEAR));
+        System.out.println("Date2  " + calendar_date2.get(Calendar.DAY_OF_MONTH) + "." + calendar_date2.get(Calendar.MONTH) + "." + calendar_date2.get(Calendar.YEAR));
+
+        System.out.println(alarm_calendar.getTime() + " > " + calendar_date1.getTime() + " = " + (alarm_calendar.compareTo(calendar_date1) > 0));
+        System.out.println(alarm_calendar.getTime() + " > " + calendar_date2.getTime() + " = " + (alarm_calendar.compareTo(calendar_date2) < 0));
+
         if(alarm_calendar.compareTo(calendar_date1) > 0 & alarm_calendar.compareTo(calendar_date2) < 0){
+            System.out.println(Calendar.getInstance().getTime() + " > " + alarm_calendar.getTime() + " = " + (Calendar.getInstance().compareTo(alarm_calendar) > 0));
             if(Calendar.getInstance().compareTo(alarm_calendar) > 0){
                 alarm_calendar.add(Calendar.DAY_OF_MONTH, 1);
             }
@@ -138,6 +151,10 @@ public class AlarmController {
         String[] date1 = pill.date1.split("\\.");
         String[] date2 = pill.date2.split("\\.");
 
+        System.out.println("\n\n===NOFICATIONS===");
+
+        System.out.println("Date1: " + Arrays.toString(date1));
+        System.out.println("Date2: " + Arrays.toString(date2));
 
         Calendar calendar_date1 = Calendar.getInstance();
         calendar_date1.set(Calendar.MILLISECOND, 0);
@@ -145,7 +162,7 @@ public class AlarmController {
         calendar_date1.set(Calendar.MINUTE, Integer.parseInt(time[1]));
         calendar_date1.set(Calendar.HOUR_OF_DAY, Integer.parseInt(time[0]));
         calendar_date1.set(Calendar.DAY_OF_MONTH, Integer.parseInt(date1[0]));
-        calendar_date1.set(Calendar.MONTH, Integer.parseInt(date1[1]));
+        calendar_date1.set(Calendar.MONTH, Integer.parseInt(date1[1])-1);
         calendar_date1.set(Calendar.YEAR, Integer.parseInt(date1[2]));
 
         Calendar calendar_date2 = Calendar.getInstance();
@@ -154,7 +171,7 @@ public class AlarmController {
         calendar_date2.set(Calendar.MINUTE, Integer.parseInt(time[1]));
         calendar_date2.set(Calendar.HOUR_OF_DAY, Integer.parseInt(time[0]));
         calendar_date2.set(Calendar.DAY_OF_MONTH, Integer.parseInt(date2[0]));
-        calendar_date2.set(Calendar.MONTH, Integer.parseInt(date2[1]));
+        calendar_date2.set(Calendar.MONTH, Integer.parseInt(date2[1])-1);
         calendar_date2.set(Calendar.YEAR, Integer.parseInt(date2[2]));
 
         Calendar alarm_calendar = Calendar.getInstance();
@@ -163,18 +180,28 @@ public class AlarmController {
         alarm_calendar.set(Calendar.MINUTE, Integer.parseInt(time[1]));
         alarm_calendar.set(Calendar.HOUR_OF_DAY, Integer.parseInt(time[0]));
 
+        System.out.println("Date1  " + calendar_date1.get(Calendar.DAY_OF_MONTH) + "." + calendar_date1.get(Calendar.MONTH) + "." + calendar_date1.get(Calendar.YEAR));
+        System.out.println("Date2  " + calendar_date2.get(Calendar.DAY_OF_MONTH) + "." + calendar_date2.get(Calendar.MONTH) + "." + calendar_date2.get(Calendar.YEAR));
+
+        System.out.println(alarm_calendar.getTime() + " > " + calendar_date1.getTime() + " = " + (alarm_calendar.compareTo(calendar_date1) > 0));
+        System.out.println(alarm_calendar.getTime() + " > " + calendar_date2.getTime() + " = " + (alarm_calendar.compareTo(calendar_date2) < 0));
+
         if(alarm_calendar.compareTo(calendar_date1) > 0 & alarm_calendar.compareTo(calendar_date2) < 0){
+            System.out.println(Calendar.getInstance().getTime() + " > " + alarm_calendar.getTime() + " = " + (Calendar.getInstance().compareTo(alarm_calendar) > 0));
             if(Calendar.getInstance().compareTo(alarm_calendar) > 0){
                 alarm_calendar.add(Calendar.DAY_OF_MONTH, 1);
             }
             Intent intent = new Intent(context, AlarmReceiverNotify.class);
             intent.putExtra("name", pill.name);
+            SimpleDateFormat df = new SimpleDateFormat("HH:mm");
+            intent.putExtra("time", df.format(alarm_calendar.getTime()));
             PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
             alarm_calendar.add(Calendar.MINUTE, -15);
 
             AlarmManager alarmManager = (AlarmManager)context.getSystemService(ALARM_SERVICE);
 
-            System.out.println(alarm_calendar.getTime());
+            System.out.println(pill.name + " " + alarm_calendar.getTime());
             alarmManager.set(AlarmManager.RTC_WAKEUP, alarm_calendar.getTimeInMillis(), pendingIntent);
             System.out.println("setAlarmNotify");
         }
