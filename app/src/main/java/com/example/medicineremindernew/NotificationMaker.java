@@ -23,12 +23,9 @@ public class NotificationMaker {
         NotificationCompat.BigTextStyle bigText = new NotificationCompat.BigTextStyle();
         bigText.bigText("Примите в " + time);
         bigText.setBigContentTitle(title);
-//        bigText.setSummaryText(subTitle);
 
         mBuilder.setContentIntent(pendingIntent);
         mBuilder.setSmallIcon(R.drawable.bell);
-        mBuilder.setContentTitle("Your Title");
-        mBuilder.setContentText("Your text");
         mBuilder.setPriority(Notification.PRIORITY_MAX);
         mBuilder.setStyle(bigText);
 
@@ -45,6 +42,10 @@ public class NotificationMaker {
             mBuilder.setChannelId(channelId);
         }
 
-        mNotificationManager.notify(0, mBuilder.build());
+        Notification notification = mBuilder.build();
+
+        notification.flags |= Notification.FLAG_NO_CLEAR | Notification.FLAG_ONGOING_EVENT;
+
+        mNotificationManager.notify(0, notification);
     }
 }
