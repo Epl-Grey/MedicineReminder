@@ -9,6 +9,9 @@ import java.security.MessageDigest
 class UsersManager() {
     private var dbRef: DatabaseReference = FirebaseDatabase.getInstance().getReference("Users")
     var users: ArrayList<UserData> = arrayListOf<UserData>()
+
+    var listener: (users: ArrayList<UserData>) -> Unit = {}
+
     init {
         val userListener = object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -20,7 +23,8 @@ class UsersManager() {
                         users.add(userData!!)
                     }
                 }
-                System.out.println(users)
+                listener(users)
+                System.out.println("Users: ${users.size}")
             }
 
             override fun onCancelled(databaseError: DatabaseError) {

@@ -10,6 +10,8 @@ class PillsManager {
     private var dbRef: DatabaseReference = FirebaseDatabase.getInstance().getReference("Pills")
     var pills: ArrayList<PillData> = arrayListOf<PillData>()
 
+    var listener: (pills: ArrayList<PillData>) -> Unit = {}
+
     init {
         val pillListener = object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -21,6 +23,7 @@ class PillsManager {
                         pills.add(userData!!)
                     }
                 }
+                listener(pills)
                 System.out.println(pills)
                 // TODO: Добаваить таблетки в локальную базу данных
             }

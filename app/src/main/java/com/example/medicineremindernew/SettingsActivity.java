@@ -14,6 +14,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.ThemedSpinnerAdapter;
 
 public class SettingsActivity extends AppCompatActivity {
@@ -29,7 +30,23 @@ public class SettingsActivity extends AppCompatActivity {
         Intent bak = new Intent(this, MainActivity.class);
         back.setOnClickListener(view -> startActivity(bak));
 
+        TextView login_btn = findViewById(R.id.email);
+        TextView register_btn = findViewById(R.id.theme);
 
+        login_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SettingsActivity.this, LoginActivity.class);
+                startActivity(intent);
+            }
+        });
+        register_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SettingsActivity.this, RegisterActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
 

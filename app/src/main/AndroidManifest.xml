@@ -13,7 +13,15 @@
         android:roundIcon="@drawable/frame_1__1_"
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.Light.NoActionBar">
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
+
         <receiver android:name=".AlarmReceiverNotify" />
+
         <activity
             android:name=".splashscreen"
             android:exported="true">
@@ -41,8 +49,7 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true" />
     </application>
 
 </manifest>
