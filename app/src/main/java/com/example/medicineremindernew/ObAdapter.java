@@ -37,13 +37,13 @@ public class ObAdapter extends PagerAdapter {
             R.string.description5
     };
 
-//    private int images[] ={
-//            R.drawable.ob1,
-//            R.drawable.ob2,
-//            R.drawable.ob3,
-//            R.drawable.ob4,
-//            R.drawable.ob5
-//    };
+    private int images[] ={
+            R.drawable.ob,
+            R.drawable.ob2,
+            R.drawable.ob3,
+            R.drawable.ob4,
+            R.drawable.ob5
+    };
 
     @Override
     public int getCount() {
@@ -70,7 +70,7 @@ public class ObAdapter extends PagerAdapter {
         title = v.findViewById(R.id.title);
         description = v.findViewById(R.id.description);
 
-       // image.setImageResource(images[position]);
+        image.setImageResource(images[position]);
         title.setText(titles[position]);
         description.setText(descriptions[position]);
 
