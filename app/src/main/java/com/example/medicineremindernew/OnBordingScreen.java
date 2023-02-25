@@ -34,8 +34,8 @@ public class OnBordingScreen extends AppCompatActivity {
         next = findViewById(R.id.nextCard);
         dotsLayout = findViewById(R.id.dotsLayout);
         saveState = new SaveState(this, "ob");
-        Intent intent = new Intent(this, MainActivity.class);
-        if (saveState.getState() == 1) {
+        Intent intent = new Intent(this, LoginActivity.class);
+        if (saveState.getState() >= 1) {
             startActivity(intent);
             finish();
         }

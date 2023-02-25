@@ -44,6 +44,14 @@
             android:text="submit"
             android:textSize="20dp"
             android:layout_marginTop="100dp"/>
+
+        <Button
+            android:id="@+id/register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="register"
+            android:textSize="20dp"
+            android:layout_marginTop="100dp"/>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

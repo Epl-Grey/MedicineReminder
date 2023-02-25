@@ -80,7 +80,7 @@ public class inform extends AppCompatActivity {
 
             long milliseconds = date2.getTime() - date.getTime();
 
-            days = (int) (milliseconds / (24 * 60 * 60 * 1000));
+            days = (int) (milliseconds / (24 * 60 * 60 * 1000) + 1);
             System.out.println("Разница между датами в днях: " + days);
 
 
@@ -90,6 +90,8 @@ public class inform extends AppCompatActivity {
 
         String db12 = userCursor.getString(12);
         int db2 = userCursor.getInt(2);
+        System.out.println(db2);
+        System.out.println(db12);
         int daysValue = 0;
         if (db12.equals(times[0])) {
             daysValue = (1 * db2) * days;
@@ -124,7 +126,7 @@ public class inform extends AppCompatActivity {
             date3 = formatter.parse(str);
             System.out.println(date3);
 
-            long milliseconds = date.getTime() - date3.getTime();
+            long milliseconds = date2.getTime() - date3.getTime();
 
             days2 = (int) (milliseconds / (24 * 60 * 60 * 1000));
             System.out.println("Разница между датами в днях2: " + days2);

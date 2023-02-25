@@ -1,10 +1,11 @@
 package com.example.medicineremindernew
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.medicineremindernew.firebase.UserData
 import com.example.medicineremindernew.firebase.UsersManager
 import java.security.MessageDigest
@@ -13,6 +14,9 @@ class LoginActivity : AppCompatActivity() {
     lateinit var loginEditText: EditText
     lateinit var passwordEditText: EditText
     lateinit var submitButton: Button
+    lateinit var submitButton2: Button
+
+    lateinit var saveState: SaveState;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,6 +25,14 @@ class LoginActivity : AppCompatActivity() {
         loginEditText = findViewById(R.id.login_edit_text)
         passwordEditText = findViewById(R.id.password_edit_text)
         submitButton = findViewById(R.id.submit_login)
+        submitButton2 = findViewById(R.id.register)
+
+        saveState = SaveState(this, "ob")
+        val intent2= Intent(this, MainActivity::class.java)
+        if (saveState.state >= 2) {
+            startActivity(intent2)
+            finish()
+        }
 
         submitButton.setOnClickListener {
             if(loginEditText.text.isEmpty()){
@@ -55,6 +67,18 @@ class LoginActivity : AppCompatActivity() {
                 }
                 Toast.makeText(this, "Invalid auth data", Toast.LENGTH_SHORT).show()
             }
+
+            saveState.state = 2
+            startActivity(intent)
+            finish()
         }
+
+
+        submitButton2.setOnClickListener {
+            val intent = Intent(this, RegisterActivity::class.java)
+            startActivity(intent)
+        }
+
+
     }
 }
