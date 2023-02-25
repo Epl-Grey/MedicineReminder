@@ -44,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
         addPill = findViewById(R.id.addButton);
         calendar= findViewById(R.id.calendar);
         Button settings=findViewById(R.id.settings);
@@ -55,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
         RelativeLayout inf=findViewById(R.id.inform);
         Intent infor = new Intent(this, inform.class);
         inf.setOnClickListener(view -> startActivity(infor));
+
 
         pillList = findViewById(R.id.list);
         pillList.setOnItemClickListener((parent, view, position, id) -> {
