@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 
+import androidx.annotation.RequiresApi;
 import androidx.core.app.NotificationCompat;
 
 public class NotificationMaker {
@@ -15,37 +16,40 @@ public class NotificationMaker {
         System.out.println("NOTIFY!!!");
         NotificationManager mNotificationManager;
 
-        NotificationCompat.Builder mBuilder =
-                new NotificationCompat.Builder(ctx, "notify_001");
         Intent ii = new Intent(ctx, MainActivity.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(ctx, 0, ii, 0);
 
-        NotificationCompat.BigTextStyle bigText = new NotificationCompat.BigTextStyle();
-        bigText.bigText("Примите в " + time);
-        bigText.setBigContentTitle(title);
+        PendingIntent pendingIntent;
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.S){
+            pendingIntent = PendingIntent.getActivity(ctx, 0, ii, PendingIntent.FLAG_MUTABLE);
+        }else{
+            pendingIntent = PendingIntent.getActivity(ctx, 0, ii, 0);
+        }
 
-        mBuilder.setContentIntent(pendingIntent);
-        mBuilder.setSmallIcon(R.drawable.bell);
-        mBuilder.setPriority(Notification.PRIORITY_MAX);
-        mBuilder.setStyle(bigText);
+        NotificationCompat.Builder mBuilder =
+                new NotificationCompat.Builder(ctx, title)
+                        .setContentIntent(pendingIntent)
+                        .setSmallIcon(R.drawable.bell)
+                        .setContentTitle(title)
+                        .setContentText("Примите в "+ time)
+                        .setPriority(Notification.PRIORITY_MAX);
 
-        mNotificationManager =
-                (NotificationManager) ctx.getSystemService(Context.NOTIFICATION_SERVICE);
+
+
+        mNotificationManager = (NotificationManager) ctx.getSystemService(Context.NOTIFICATION_SERVICE);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            String channelId = "Your_channel_id";
             NotificationChannel channel = new NotificationChannel(
-                    channelId,
+                    title,
                     "Channel human readable title",
                     NotificationManager.IMPORTANCE_HIGH);
             mNotificationManager.createNotificationChannel(channel);
-            mBuilder.setChannelId(channelId);
+            mBuilder.setChannelId(title);
         }
 
         Notification notification = mBuilder.build();
 
-        notification.flags |= Notification.FLAG_NO_CLEAR | Notification.FLAG_ONGOING_EVENT;
+//        notification.flags |= Notification.FLAG_ONGOING_EVENT;
 
-        mNotificationManager.notify(0, notification);
+        mNotificationManager.notify(title, 0, notification);
     }
 }

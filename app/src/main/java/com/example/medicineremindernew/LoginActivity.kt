@@ -1,5 +1,6 @@
 package com.example.medicineremindernew
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -49,7 +50,9 @@ class LoginActivity : AppCompatActivity() {
 
                         if (user.userPassword!! == passwordHash) {
                             Toast.makeText(this@LoginActivity, "Login succeed!", Toast.LENGTH_LONG).show()
-                            return
+                            val editor = getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE).edit()
+                            editor.putString("userId", user.userId)
+                            editor.apply()
                         }
                     }
                 }

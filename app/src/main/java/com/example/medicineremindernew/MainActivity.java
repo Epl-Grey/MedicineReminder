@@ -53,8 +53,8 @@ public class MainActivity extends AppCompatActivity {
         intent = new Intent(this, AddingPill.class);
         addPill.setOnClickListener(view -> startActivity(intent));
         RelativeLayout inf=findViewById(R.id.inform);
-        Intent infor = new Intent(this, inform.class);
-        inf.setOnClickListener(view -> startActivity(infor));
+        Intent informIntent = new Intent(this, inform.class);
+        inf.setOnClickListener(view -> startActivity(informIntent));
 
         pillList = findViewById(R.id.list);
         pillList.setOnItemClickListener((parent, view, position, id) -> {
@@ -83,11 +83,7 @@ public class MainActivity extends AppCompatActivity {
         calendar.add(Calendar.MINUTE, 1);
         System.out.println(calendar.getTime());
         String time = calendar.get(Calendar.HOUR_OF_DAY) + ":" + calendar.get(Calendar.MINUTE);
-        alarmController.add_alarm_notify(new Pill(5, "TEST", 10, "шт", "1.12.2022", "31.12.2022", time));
-
-
-        PillsManager pillsManager = new PillsManager();
-        pillsManager.saveData("lohlohloh", "Працетомол", "2", "Таблеток", "12.05.2022", "12.06.2022", "9:30", "10:30", "11:30", "13:30", "15:30", "17:30", "ШЕСТЬ РАЗ В ДЕНЬ");
+        alarmController.add_alarm_notify(new Pill(5, "Боярошник", 10, "шт", "1.02.2023", "31.02.2023", time));
     }
 
     @Override

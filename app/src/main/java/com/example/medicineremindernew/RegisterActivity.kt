@@ -1,5 +1,6 @@
 package com.example.medicineremindernew
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -52,6 +53,10 @@ class RegisterActivity : AppCompatActivity() {
                     }
                 }
                 userManager.saveData(loginEditText.text.toString(), passwordEditText.text.toString())
+                Toast.makeText(this@RegisterActivity, "Registration succeed!\nHave a good day", Toast.LENGTH_LONG).show()
+                val editor = getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE).edit()
+                editor.putString("userId", passwordEditText.text.toString())
+                editor.apply()
             }
         }
     }

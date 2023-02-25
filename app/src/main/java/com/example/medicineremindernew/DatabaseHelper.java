@@ -60,10 +60,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 //                + ", " + COLUMN_TIME6
 //                + ", " + COLUMN_VALUETIME
 //                + ") VALUES ('Працетомол', 2, 'Таблеток', '12.05.2022', '12.06.2022', '9:30', '10:30', '11:30', '13:30', '15:30', '17:30', 'ШЕСТЬ РАЗ В ДЕНЬ');");
-
-
-
-
     }
 
 

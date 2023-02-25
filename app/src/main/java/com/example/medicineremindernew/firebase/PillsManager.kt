@@ -1,18 +1,20 @@
 package com.example.medicineremindernew.firebase
 
 import android.content.ContentValues
+import android.content.Context
 import android.util.Log
 import com.google.firebase.database.*
 import com.google.firebase.database.ktx.getValue
 import java.security.MessageDigest
 
-class PillsManager {
+class PillsManager(val context: Context) {
     private var dbRef: DatabaseReference = FirebaseDatabase.getInstance().getReference("Pills")
     var pills: ArrayList<PillData> = arrayListOf<PillData>()
 
     var listener: (pills: ArrayList<PillData>) -> Unit = {}
 
     init {
+        val sharedPreference = context.getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
         val pillListener = object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 // Get Post object and use the values to update the UI
@@ -23,6 +25,8 @@ class PillsManager {
                         pills.add(userData!!)
                     }
                 }
+
+
                 listener(pills)
                 System.out.println(pills)
                 // TODO: Добаваить таблетки в локальную базу данных
