@@ -16,7 +16,7 @@ public class splashscreen extends AppCompatActivity {
         setContentView(R.layout.activity_splashscreen);
         new Handler().postDelayed(new Runnable() {
             @Override public void run() {
-               Intent i=new Intent(splashscreen.this,MainActivity.class);
+               Intent i=new Intent(splashscreen.this,OnBordingScreen.class);
                 startActivity(i);
                 finish(); } }, 1200);
         webView = (WebView) findViewById(R.id.simpleWebView);
