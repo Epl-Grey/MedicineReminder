@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -39,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
     DatePickerDialog datePickerDialog;
 
     public static long userId;
+    PillsManager pillsManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,6 +90,10 @@ public class MainActivity extends AppCompatActivity {
         System.out.println(calendar.getTime());
         String time = calendar.get(Calendar.HOUR_OF_DAY) + ":" + calendar.get(Calendar.MINUTE);
         alarmController.add_alarm_notify(new Pill(5, "Боярошник", 10, "шт", "1.02.2023", "31.02.2023", time));
+
+        SharedPreferences sharedPreference = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
+        System.out.println(sharedPreference.getString("userName", "userId don't set"));
+        pillsManager = new PillsManager(this);
     }
 
     @Override
