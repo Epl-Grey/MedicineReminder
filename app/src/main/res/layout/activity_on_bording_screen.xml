@@ -8,7 +8,7 @@
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewPager"
-
+         android:background="#FCF7F1"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
@@ -17,9 +17,9 @@
         android:layout_width="60dp"
         android:layout_height="60dp"
         app:cardCornerRadius="30dp"
-        android:backgroundTint="@color/green"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:backgroundTint="@color/main"
         android:layout_margin="30dp"
         android:clickable="true"
         android:focusable="true"
@@ -30,9 +30,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="7dp"
-            android:background="@color/green"
-            android:src="@drawable/ic_next"
-            app:tint="@color/white"
+            android:src="@drawable/group_7095"
             />
 
 

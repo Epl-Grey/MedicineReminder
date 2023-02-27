@@ -60,7 +60,7 @@ public class OnBordingScreen extends AppCompatActivity {
                 next.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        if (position < 4) {
+                        if (position < 3) {
                             viewPager.setCurrentItem(position + 1, true);
                         } else {
                             saveState.setState(1);
@@ -82,7 +82,7 @@ public class OnBordingScreen extends AppCompatActivity {
     }
 
     private void dotsFunction(int pos) {
-        dots = new TextView[5];
+        dots = new TextView[4];
         dotsLayout.removeAllViews();
 
         for (int i = 0; i < dots.length; i++) {
@@ -100,7 +100,7 @@ public class OnBordingScreen extends AppCompatActivity {
 
         if (dots.length > 0) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                dots[pos].setTextColor(getColor(R.color.green));   //selected dot color
+                dots[pos].setTextColor(getColor(R.color.bl));   //selected dot color
             }
             dots[pos].setTextSize(40);  //selected dots size
         }

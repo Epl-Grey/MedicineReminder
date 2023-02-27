@@ -1,15 +1,13 @@
 <resources>
     <string name="app_name">MedicineReminderNew</string>
     <string name="title1">Добро пожаловать</string>
-    <string name="title2">Регистрация/авторизация</string>
-    <string name="title3">Лекарства</string>
-    <string name="title4">Время</string>
-    <string name="title5">Инсулин</string>
-    <string name="description1">Спасибо за загрузку приложения Medicine Reminder. Это приложение поможет вам вовремя принимать лекарстава.</string>
-    <string name="description2">Войдите в свою учетную запись или зарегистрируйтесь, если у вас ее еще нет, или просто войдите, используя учетную запись Google.</string>
-    <string name="description3">Вы можете добавить нужные вам лекарства. Для это нажмите на плюс в правом нижнем углу, после прочтения этого сообщения.</string>
-    <string name="description4">В приложение есть уведомления и будильник, которые напомнят вам вовремя принимать лекарства</string>
-    <string name="description5">Также в нашем приложении есть расчет дозы инсулина. Предупреждение! Не является рекомендацией! Проверьте расчет перед инъекцией!</string>
+    <string name="title2">Учетная запись</string>
+    <string name="title3">Уведомления</string>
+    <string name="title4">Инсулин</string>
+    <string name="description1">Приложение Medicine Reminder поможет вам не забыть про своевременный  прием лекарств.</string>
+    <string name="description2">Ваши данные не потеряются, главное зарегистрироваться или войти с помощью учетной записи Gooogle</string>
+    <string name="description3">Наличие напоминание в виде уведомлений за 15 минут до начала приема и будильник на указанное время</string>
+    <string name="description4">Наличие калькулятора болюса и хлебных единиц.</string>
     <string name="time">
         15:00
     </string>

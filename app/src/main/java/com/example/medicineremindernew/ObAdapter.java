@@ -26,23 +26,20 @@ public class ObAdapter extends PagerAdapter {
             R.string.title2,
             R.string.title3,
             R.string.title4,
-            R.string.title5
     };
 
     private int descriptions[] = {
             R.string.description1,
             R.string.description2,
             R.string.description3,
-            R.string.description4,
-            R.string.description5
+            R.string.description4
     };
 
     private int images[] ={
-            R.drawable.ob,
-            R.drawable.ob2,
-            R.drawable.ob3,
-            R.drawable.ob4,
-            R.drawable.ob5
+            R.drawable._22x_2,
+            R.drawable.z5zwmxld5d34oo6mjwqw5tuxa5xr3abh_transformed_1,
+            R.drawable._22x_1,
+            R.drawable._937591_scaled_transformed_1__1_
     };
 
     @Override
