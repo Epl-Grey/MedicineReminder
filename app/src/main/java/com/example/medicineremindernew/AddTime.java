@@ -3,7 +3,9 @@ package com.example.medicineremindernew;
 import android.app.AlertDialog;
 import android.app.TimePickerDialog;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -15,6 +17,9 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.medicineremindernew.firebase.PillData;
+import com.example.medicineremindernew.firebase.PillsManager;
 
 import java.util.Calendar;
 import java.util.Locale;
@@ -160,27 +165,39 @@ public class AddTime extends AppCompatActivity {
     }
 
     public void save(View view){
+//        ContentValues bValues = new ContentValues();
+//        bValues.put(DatabaseHelper.COLUMN_NAME, getIntent().getStringExtra("name"));
+//        bValues.put(DatabaseHelper.COLUMN_VALUE, getIntent().getStringExtra("value"));
+//        bValues.put(DatabaseHelper.COLUMN_DOSAGE, getIntent().getStringExtra("dos"));
+//        bValues.put(DatabaseHelper.COLUMN_DATE1, getIntent().getStringExtra("data1"));
+//        bValues.put(DatabaseHelper.COLUMN_DATE2, getIntent().getStringExtra("data2"));
+//        bValues.put(DatabaseHelper.COLUMN_TIME1, setTimes.getText().toString());
+//        bValues.put(DatabaseHelper.COLUMN_TIME2, setTimes2.getText().toString());
+//        bValues.put(DatabaseHelper.COLUMN_TIME3, setTimes3.getText().toString());
+//        bValues.put(DatabaseHelper.COLUMN_TIME4, setTimes4.getText().toString());
+//        bValues.put(DatabaseHelper.COLUMN_TIME5, setTimes5.getText().toString());
+//        bValues.put(DatabaseHelper.COLUMN_TIME6, setTimes6.getText().toString());
+//        bValues.put(DatabaseHelper.COLUMN_VALUETIME, getIntent().getStringExtra("Item"));
 
-        ContentValues bValues = new ContentValues();
-        bValues.put(DatabaseHelper.COLUMN_NAME, getIntent().getStringExtra("name"));
-        bValues.put(DatabaseHelper.COLUMN_VALUE, getIntent().getStringExtra("value"));
-        bValues.put(DatabaseHelper.COLUMN_DOSAGE, getIntent().getStringExtra("dos"));
-        bValues.put(DatabaseHelper.COLUMN_DATE1, getIntent().getStringExtra("data1"));
-        bValues.put(DatabaseHelper.COLUMN_DATE2, getIntent().getStringExtra("data2"));
-        bValues.put(DatabaseHelper.COLUMN_TIME1, setTimes.getText().toString());
-        bValues.put(DatabaseHelper.COLUMN_TIME2, setTimes2.getText().toString());
-        bValues.put(DatabaseHelper.COLUMN_TIME3, setTimes3.getText().toString());
-        bValues.put(DatabaseHelper.COLUMN_TIME4, setTimes4.getText().toString());
-        bValues.put(DatabaseHelper.COLUMN_TIME5, setTimes5.getText().toString());
-        bValues.put(DatabaseHelper.COLUMN_TIME6, setTimes6.getText().toString());
-        bValues.put(DatabaseHelper.COLUMN_VALUETIME, getIntent().getStringExtra("Item"));
+        SharedPreferences sharedPreference = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
+        String userId = sharedPreference.getString("userName", "userId don't set");
 
-        if (userId > 0) {
-            db.update(DatabaseHelper.TABLE, bValues, DatabaseHelper.COLUMN_ID + "=" + userId, null);
-        } else {
-            db.insert(DatabaseHelper.TABLE, DatabaseHelper.COLUMN_TIME2, bValues);
-        }
-
+        PillsManager pillsManager = new PillsManager(this);
+        pillsManager.saveData(
+                userId,
+                getIntent().getStringExtra("name"),
+                getIntent().getStringExtra("value"),
+                getIntent().getStringExtra("dos"),
+                getIntent().getStringExtra("data1"),
+                getIntent().getStringExtra("data2"),
+                setTimes.getText().toString(),
+                setTimes2.getText().toString(),
+                setTimes3.getText().toString(),
+                setTimes4.getText().toString(),
+                setTimes5.getText().toString(),
+                setTimes6.getText().toString(),
+                getIntent().getStringExtra("Item")
+        );
 
         AlarmController alarmController = new AlarmController(this);
         alarmController.refresh();

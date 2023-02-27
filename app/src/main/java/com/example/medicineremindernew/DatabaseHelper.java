@@ -1,8 +1,11 @@
 package com.example.medicineremindernew;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import com.example.medicineremindernew.firebase.PillData;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "pillInfo.db"; // название бд
@@ -24,14 +27,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COLUMN_VALUETIME = "valuetime";
 
     public DatabaseHelper(Context context) {
-        super(context, DATABASE_NAME, null, 9);
+        super(context, DATABASE_NAME, null, 10);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
 
         db.execSQL("CREATE TABLE "+TABLE+" (" + COLUMN_ID
-                + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+                + " TEXT PRIMARY KEY,"
                 + COLUMN_NAME + " TEXT, "
                 + COLUMN_VALUE + " INTEGER, "
                 + COLUMN_DOSAGE + " TEXT, "
@@ -70,6 +73,30 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
+    public void insertPill(PillData pill){
+        SQLiteDatabase db=this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(COLUMN_ID, pill.getPillId());
+        cv.put(COLUMN_NAME, pill.getPillName());
+        cv.put(COLUMN_VALUE, pill.getPillValue());
+        cv.put(COLUMN_DOSAGE, pill.getPillDosage());
+        cv.put(COLUMN_DATE1, pill.getPillDateFrom());
+        cv.put(COLUMN_DATE2, pill.getPillDateTo());
+        cv.put(COLUMN_TIME1, pill.getPillTime1());
+        cv.put(COLUMN_TIME2, pill.getPillTime2());
+        cv.put(COLUMN_TIME3, pill.getPillTime3());
+        cv.put(COLUMN_TIME4, pill.getPillTime4());
+        cv.put(COLUMN_TIME5, pill.getPillTime5());
+        cv.put(COLUMN_TIME6, pill.getPillTime6());
+        cv.put(COLUMN_VALUETIME, pill.getPillTimesPerDay());
+
+        db.insert(TABLE, null, cv);
+    }
+
+    public void cleanDB(){
+        SQLiteDatabase db=this.getWritableDatabase();
+        db.execSQL("DELETE FROM " + TABLE);
+    }
 
 
 }

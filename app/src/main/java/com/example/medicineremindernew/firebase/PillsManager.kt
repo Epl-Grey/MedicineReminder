@@ -3,9 +3,10 @@ package com.example.medicineremindernew.firebase
 import android.content.ContentValues
 import android.content.Context
 import android.util.Log
+import com.example.medicineremindernew.AlarmController
+import com.example.medicineremindernew.DatabaseHelper
 import com.google.firebase.database.*
 import com.google.firebase.database.ktx.getValue
-import java.security.MessageDigest
 
 class PillsManager(val context: Context) {
     private var dbRef: DatabaseReference = FirebaseDatabase.getInstance().getReference("Pills")
@@ -30,6 +31,18 @@ class PillsManager(val context: Context) {
                 listener(pills)
                 System.out.println(pills)
                 // TODO: Добаваить таблетки в локальную базу данных
+                val dbHelper: DatabaseHelper = DatabaseHelper(context)
+                val sharedPreference = context.getSharedPreferences("UserInfo",Context.MODE_PRIVATE)
+                val userName = sharedPreference.getString("userName", "userId don't set")
+
+                println("userName: $userName")
+                dbHelper.cleanDB()
+                pills.forEach {
+                    if(it.userId == userName) {
+                        dbHelper.insertPill(it)
+                    }
+                }
+
             }
 
             override fun onCancelled(databaseError: DatabaseError) {

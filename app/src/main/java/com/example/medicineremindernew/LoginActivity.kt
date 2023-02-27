@@ -62,8 +62,8 @@ class LoginActivity : AppCompatActivity() {
 
                         if (user.userPassword!! == passwordHash) {
                             Toast.makeText(this@LoginActivity, "Login succeed!", Toast.LENGTH_LONG).show()
-                            val editor = getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE).edit()
-                            editor.putString("userId", user.userId)
+                            val editor = getSharedPreferences("UserInfo", Context.MODE_PRIVATE).edit()
+                            editor.putString("userName", user.userLogin)
                             editor.apply()
                         }
                     }

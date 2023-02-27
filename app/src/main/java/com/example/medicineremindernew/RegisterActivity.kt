@@ -15,6 +15,7 @@ class RegisterActivity : AppCompatActivity() {
     lateinit var passwordEditText: EditText
     lateinit var passwordRepeatEditText: EditText
     lateinit var submitButton: Button
+    lateinit var saveState: SaveState
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,25 +39,28 @@ class RegisterActivity : AppCompatActivity() {
                 passwordRepeatEditText.error = "Repeat password"
                 return@setOnClickListener
             }
-            if(!passwordEditText.text.toString().equals(passwordRepeatEditText.text.toString())){
+            if(passwordEditText.text.toString() != passwordRepeatEditText.text.toString()){
                 Toast.makeText(this@RegisterActivity, "Passwords are different", Toast.LENGTH_LONG).show()
                 return@setOnClickListener
             }
 
             val userManager = UsersManager()
+            saveState = SaveState(this, "ob")
 
             userManager.listener = fun(it: ArrayList<UserData>) {
                 for (user in userManager.users) {
-                    if (user.userLogin!!.toString().equals(loginEditText.text.toString())) {
+                    if (user.userLogin!!.toString() == loginEditText.text.toString()) {
                         Toast.makeText(this@RegisterActivity, "Login already in use", Toast.LENGTH_LONG).show()
                         return
                     }
                 }
                 userManager.saveData(loginEditText.text.toString(), passwordEditText.text.toString())
                 Toast.makeText(this@RegisterActivity, "Registration succeed!\nHave a good day", Toast.LENGTH_LONG).show()
-                val editor = getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE).edit()
-                editor.putString("userId", passwordEditText.text.toString())
+                val editor = getSharedPreferences("UserInfo", Context.MODE_PRIVATE).edit()
+                editor.putString("userName", loginEditText.text.toString())
                 editor.apply()
+                saveState.state = 2
+                finish()
             }
         }
     }
