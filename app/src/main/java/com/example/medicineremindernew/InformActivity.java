@@ -14,16 +14,13 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.Locale;
 
-public class inform extends AppCompatActivity {
+public class InformActivity extends AppCompatActivity {
 
     String[] times = {"1 раз в день", "2 раза в день", "3 раза в день", "4 раза в день", "5 раз в день", "6 раз в день"};
 
@@ -58,8 +55,11 @@ public class inform extends AppCompatActivity {
 
 
 
-        userCursor = db.rawQuery("select * from " + DatabaseHelper.TABLE + " where " +
-                DatabaseHelper.COLUMN_ID + "=?", new String[]{Long.toString(userId)});
+//        userCursor = db.rawQuery("select * from " + DatabaseHelper.TABLE + " where " +
+//                DatabaseHelper.COLUMN_ID + "=?", new String[]{Long.toString(userId)});
+
+        userCursor = db.rawQuery("SELECT * FROM " + DatabaseHelper.TABLE, new String[]{});
+
         userCursor.moveToFirst();
         String date1 = userCursor.getString(4);
         String[] date11 = date1.split("\\.");
