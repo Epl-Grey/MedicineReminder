@@ -8,6 +8,8 @@
     <string name="description2">Ваши данные не потеряются, главное зарегистрироваться или войти с помощью учетной записи Gooogle</string>
     <string name="description3">Наличие напоминание в виде уведомлений за 15 минут до начала приема и будильник на указанное время</string>
     <string name="description4">Наличие калькулятора болюса и хлебных единиц.</string>
+    <string name="welcome">Добро             пожаловать</string>
+    <string name="SUBMIT">Войти</string>
     <string name="time">
         15:00
     </string>
@@ -37,4 +39,15 @@ MEDICINE\nREMINDER
         <item>Английский</item>
         <item>Немецкий</item>
     </string-array>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
 </resources>

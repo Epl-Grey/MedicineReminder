@@ -6,52 +6,114 @@
     android:layout_height="match_parent"
     tools:context=".RegisterActivity">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+
         android:orientation="vertical"
-        android:paddingHorizontal="30dp"
-        android:paddingTop="70dp">
+        >
+
+        <RelativeLayout
+            android:id="@+id/frame_45"
+            android:layout_width="230dp"
+            android:layout_height="130dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/frame_4"
+            />
+        <RelativeLayout
+            android:id="@+id/frame_47"
+            android:layout_width="25dp"
+            android:layout_height="35dp"
+            android:layout_below="@id/frame_45"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/frame_47"
+            android:clipToOutline="true" />
+        <TextView
+            android:id="@+id/welcom"
+            android:layout_below="@id/frame_45"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Регистрация"
+            android:textSize="40dp"
+            android:textAppearance="@style/welcom"
+            android:gravity="center"
+            />
 
         <TextView
-            android:layout_width="match_parent"
+            android:id="@+id/text_login"
+            android:layout_below="@id/welcom"
+            android:text="Логин"
+            android:layout_marginLeft="55dp"
+            android:layout_marginTop="40dp"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Register"
-            android:textSize="40dp"
-            android:gravity="center"
-            android:layout_marginBottom="120dp"/>
-
+            />
         <EditText
+            android:layout_below="@id/text_login"
             android:id="@+id/login_edit_text"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Login"
-            android:textSize="20dp"
-            android:layout_marginBottom="20dp"/>
-
+            />
+        <TextView
+            android:id="@+id/text_pass"
+            android:layout_below="@id/login_edit_text"
+            android:text="Пароль"
+            android:layout_marginLeft="55dp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
         <EditText
+            android:layout_below="@id/text_pass"
             android:id="@+id/password_edit_text"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Password"
-            android:textSize="20dp"
-            android:layout_marginBottom="20dp"/>
+            android:layout_marginTop="10dp"
+            />
+        <TextView
+            android:id="@+id/text_passr"
+            android:layout_below="@id/password_edit_text"
+            android:text="Повторите пароль"
+            android:layout_marginLeft="55dp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
 
         <EditText
             android:id="@+id/repeat_password_edit_text"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Repeat password"
-            android:textSize="20dp"
+            android:layout_below="@id/text_passr"
             android:layout_marginBottom="20dp"/>
 
         <Button
+            android:layout_below="@id/repeat_password_edit_text"
             android:id="@+id/submit_register"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="submit"
-            android:textSize="20dp"
-            android:layout_marginTop="50dp"/>
-    </LinearLayout>
+            android:background="@drawable/submit"
+            android:layout_height="40dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:textColor="#ffffff"
+            android:text="Продолжить"
+            android:layout_marginTop="10dp"/>
+    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

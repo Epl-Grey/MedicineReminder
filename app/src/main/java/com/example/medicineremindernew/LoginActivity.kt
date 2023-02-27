@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import com.example.medicineremindernew.firebase.UserData
 import com.example.medicineremindernew.firebase.UsersManager
@@ -15,7 +16,7 @@ class LoginActivity : AppCompatActivity() {
     lateinit var loginEditText: EditText
     lateinit var passwordEditText: EditText
     lateinit var submitButton: Button
-    lateinit var submitButton2: Button
+    lateinit var submitButton2: TextView
 
     lateinit var saveState: SaveState;
 
