@@ -63,7 +63,6 @@ public class AddingPill extends AppCompatActivity {
         valueEdit =  findViewById(R.id.NumberEdit);
 
         Button btnChoose =  findViewById(R.id.btnChoose);
-        ImageButton settings_btn = findViewById(R.id.settings);
         ImageButton back_btn = findViewById(R.id.back);
 
         Intent main_activity_intent = new Intent(this, MainActivity.class);
@@ -104,12 +103,6 @@ public class AddingPill extends AppCompatActivity {
             }
         });
 
-        settings_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(settings_activity);
-            }
-        });
 
 
         //спинеры spinner_num, spinner_times

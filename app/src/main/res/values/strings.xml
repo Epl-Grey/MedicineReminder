@@ -37,4 +37,8 @@ MEDICINE\nREMINDER
         <item>Английский</item>
         <item>Немецкий</item>
     </string-array>
+    <string name="some_id">Добавить
+
+
+</string>
 </resources>

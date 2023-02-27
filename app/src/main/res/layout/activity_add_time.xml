@@ -8,28 +8,47 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:background="@drawable/addtime"
+        android:background="@drawable/fon22222"
         android:layout_height="match_parent">
 
+
+
+
         <TextView
-            android:id="@+id/a"
-            android:layout_width="match_parent"
-            android:layout_height="170dp"
-            android:layout_marginTop="70dp"
-            android:fontFamily="@font/font1"
-            android:text="Выбор \nвремени"
-            android:textAlignment="center"
-            android:textAppearance="@style/medicine_re"
-            android:textColor="@color/black" />
+            android:layout_width="311dp"
+            android:layout_height="96dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="45dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="117dp"
+            android:text="Выберете"
+            android:fontFamily="@font/inter"
+            android:textAppearance="@style/some_id4"
+            android:lineSpacingExtra="32sp"
+            android:gravity="center_horizontal|top"
+            />
+        <TextView
+            android:layout_width="311dp"
+            android:layout_height="96dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="45dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="147dp"
+            android:text="время"
+            android:fontFamily="@font/inter"
+            android:textAppearance="@style/some_id4"
+            android:lineSpacingExtra="-32sp"
+            android:gravity="center_horizontal|top"
+            />
 
         <TextView
             android:id="@+id/setTimes"
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:visibility="gone"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="50dp"
             android:layout_marginTop="260dp"
-            android:layout_marginRight="30dp"
+            android:layout_marginRight="60dp"
             android:background="@drawable/edt"
             android:textSize="30sp"
             android:textAlignment="center"
@@ -42,8 +61,8 @@
             android:visibility="gone"
             android:background="@drawable/edt"
             android:layout_marginTop="320dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="60dp"
             android:textSize="30sp"
             android:textAlignment="center"
             android:textColor="@color/black"/>
@@ -55,8 +74,8 @@
             android:visibility="gone"
             android:background="@drawable/edt"
             android:layout_marginTop="380dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="60dp"
             android:textSize="30sp"
             android:textAlignment="center"
             android:textColor="@color/black"/>
@@ -68,8 +87,8 @@
             android:visibility="gone"
             android:background="@drawable/edt"
             android:layout_marginTop="440dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="60dp"
             android:textSize="30sp"
             android:textAlignment="center"
             android:textColor="@color/black"/>
@@ -81,8 +100,8 @@
             android:visibility="gone"
             android:background="@drawable/edt"
             android:layout_marginTop="500dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="60dp"
             android:textSize="30sp"
             android:textAlignment="center"
             android:textColor="@color/black"/>
@@ -94,8 +113,8 @@
             android:visibility="gone"
             android:background="@drawable/edt"
             android:layout_marginTop="560dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="60dp"
             android:textSize="30sp"
             android:textAlignment="center"
             android:textColor="@color/black"/>
@@ -103,13 +122,14 @@
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/nextBtn"
             android:layout_width="match_parent"
-            android:layout_height="38dp"
-            android:layout_marginLeft="25dp"
+            android:layout_height="33dp"
+            android:layout_marginLeft="50dp"
             android:layout_marginTop="570dp"
-            android:layout_marginRight="25dp"
-            android:background="@drawable/btn"
+            android:layout_marginRight="60dp"
+            android:background="@drawable/botao"
             android:onClick="save"
             android:text="Завершить"
+            android:fontFamily="@font/inter"
             android:textAppearance="@style/kl" />
 
     </RelativeLayout>

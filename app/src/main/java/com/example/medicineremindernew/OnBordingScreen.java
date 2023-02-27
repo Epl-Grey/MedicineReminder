@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -18,9 +19,17 @@ public class OnBordingScreen extends AppCompatActivity {
 
     private ViewPager viewPager;
     private CardView next;
+    private ImageView images;
     private LinearLayout dotsLayout;
     private TextView[] dots;
     private SaveState saveState;
+
+    private int buttons[] ={
+            R.drawable.ob1,
+            R.drawable.ob2,
+            R.drawable.ob3,
+            R.drawable.ob4
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +41,7 @@ public class OnBordingScreen extends AppCompatActivity {
 
         viewPager = findViewById(R.id.viewPager);
         next = findViewById(R.id.nextCard);
-        dotsLayout = findViewById(R.id.dotsLayout);
+        images = findViewById(R.id.imageBtn);
         saveState = new SaveState(this, "ob");
         Intent intent = new Intent(this, LoginActivity.class);
         if (saveState.getState() >= 1) {
@@ -40,12 +49,14 @@ public class OnBordingScreen extends AppCompatActivity {
             finish();
         }
 
+
         ObAdapter adapter = new ObAdapter(this);
         viewPager.setAdapter(adapter);
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 viewPager.setCurrentItem(1, true);
+                images.setImageResource(buttons[1]);
             }
         });
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -56,12 +67,13 @@ public class OnBordingScreen extends AppCompatActivity {
 
             @Override
             public void onPageSelected(int position) {
-                dotsFunction(position);
+
                 next.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         if (position < 3) {
                             viewPager.setCurrentItem(position + 1, true);
+                            images.setImageResource(buttons[position+1]);
                         } else {
                             saveState.setState(1);
                             startActivity(intent);
@@ -77,32 +89,8 @@ public class OnBordingScreen extends AppCompatActivity {
             }
         });
 
-        dotsFunction(0);
 
     }
 
-    private void dotsFunction(int pos) {
-        dots = new TextView[4];
-        dotsLayout.removeAllViews();
 
-        for (int i = 0; i < dots.length; i++) {
-
-            dots[i] = new TextView(this);
-            dots[i].setText(Html.fromHtml("-"));
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                dots[i].setTextColor(getColor(R.color.grey));  //unselected color
-            }
-            dots[i].setTextSize(40);    //unselected size
-
-            dotsLayout.addView(dots[i]);
-
-        }
-
-        if (dots.length > 0) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                dots[pos].setTextColor(getColor(R.color.bl));   //selected dot color
-            }
-            dots[pos].setTextSize(40);  //selected dots size
-        }
-    }
 }

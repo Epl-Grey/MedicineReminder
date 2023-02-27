@@ -27,24 +27,16 @@
 
 
         <ImageView
+            android:id="@+id/imageBtn"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="7dp"
-            android:src="@drawable/group_7095"
+            android:src="@drawable/ob1"
             />
 
 
     </androidx.cardview.widget.CardView>
 
-    <LinearLayout
-        android:id="@+id/dotsLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="30dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="@id/nextCard"
-        app:layout_constraintEnd_toStartOf="@+id/viewPager"
-        app:layout_constraintStart_toStartOf="@id/nextCard"
-        app:layout_constraintTop_toTopOf="@id/nextCard" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
