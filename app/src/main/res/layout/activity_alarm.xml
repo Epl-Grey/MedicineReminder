@@ -10,30 +10,26 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#ffffff"
+        android:background="#FCF7F1"
         tools:ignore="MissingConstraints">
 
-        <TextView
-            android:id="@+id/time"
-            android:layout_width="match_parent"
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="60dp"
-            android:text="@string/time"
-            android:textAppearance="@style/time"
-            android:textAlignment="center" />
+            app:srcCompat="@drawable/close_round" />
 
-
-
-
-
-            <WebView
-                android:id="@+id/simpleWebView"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="300dp"
-                android:layout_marginLeft="100dp"
-                android:background="#ffffff"
-                tools:ignore="WebViewLayout" />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:textColor="@color/bl"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/imageButton"
+            android:layout_marginTop="250dp"
+            android:textSize="32sp"
+            android:text="Время" />
 
     </RelativeLayout>
 

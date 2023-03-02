@@ -19,8 +19,10 @@ import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 
 import com.example.medicineremindernew.firebase.PillsManager;
+import com.example.medicineremindernew.firebase.UsersManager;
 
 import java.util.Calendar;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -56,13 +58,13 @@ public class MainActivity extends AppCompatActivity {
         intent = new Intent(this, AddingPill.class);
         addPill.setOnClickListener(view -> startActivity(intent));
         RelativeLayout inf=findViewById(R.id.inform);
-        Intent informIntent = new Intent(this, InformActivity.class);
+        Intent informIntent = new Intent(this, inform.class);
         inf.setOnClickListener(view -> startActivity(informIntent));
 
 
         pillList = findViewById(R.id.list);
         pillList.setOnItemClickListener((parent, view, position, id) -> {
-            Intent intent = new Intent(getApplicationContext(), InformActivity.class);
+            Intent intent = new Intent(getApplicationContext(),inform.class);
             intent.putExtra("id", id);
             userId = id;
             startActivity(intent);
