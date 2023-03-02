@@ -20,6 +20,7 @@ public class OnBordingScreen extends AppCompatActivity {
     private ViewPager viewPager;
     private CardView next;
     private ImageView images;
+    private TextView skipText;
     private LinearLayout dotsLayout;
     private TextView[] dots;
     private SaveState saveState;
@@ -38,17 +39,22 @@ public class OnBordingScreen extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_on_bording_screen);
-
+        Intent intent2 = new Intent(this, LoginActivity.class);
         viewPager = findViewById(R.id.viewPager);
         next = findViewById(R.id.nextCard);
         images = findViewById(R.id.imageBtn);
+        skipText = findViewById(R.id.skipText);
         saveState = new SaveState(this, "ob");
-        Intent intent = new Intent(this, LoginActivity.class);
         if (saveState.getState() >= 1) {
-            startActivity(intent);
+            startActivity(intent2);
             finish();
         }
-
+        skipText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SkipOnBordingScreen();
+            }
+        });
 
         ObAdapter adapter = new ObAdapter(this);
         viewPager.setAdapter(adapter);
@@ -74,10 +80,9 @@ public class OnBordingScreen extends AppCompatActivity {
                         if (position < 3) {
                             viewPager.setCurrentItem(position + 1, true);
                             images.setImageResource(buttons[position+1]);
-                        } else {
-                            saveState.setState(1);
-                            startActivity(intent);
-                            finish();
+                        }
+                        else {
+                            SkipOnBordingScreen();
                         }
                     }
                 });
@@ -92,5 +97,11 @@ public class OnBordingScreen extends AppCompatActivity {
 
     }
 
+    void SkipOnBordingScreen() {
+        Intent intent = new Intent(this, LoginActivity.class);
+        saveState.setState(1);
+        startActivity(intent);
+        finish();
+    }
 
 }

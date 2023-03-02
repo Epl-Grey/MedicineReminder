@@ -11,6 +11,21 @@
          android:background="#FCF7F1"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+    <TextView
+        android:id="@+id/skipText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="83dp"
+        app:layout_constraintLeft_toLeftOf="@id/nextCard"
+        android:layout_marginLeft="-260dp"
+        android:text="Пропустить"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:fontFamily="@font/inter"
+        android:textColor="@color/bl"/>
+
+
 
     <androidx.cardview.widget.CardView
         android:id="@+id/nextCard"
@@ -20,22 +35,23 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:backgroundTint="@color/main"
-        android:layout_margin="30dp"
+        android:layout_marginBottom="65dp"
+        android:layout_marginRight="40dp"
         android:clickable="true"
-        android:focusable="true"
-        android:foreground="?attr/selectableItemBackground">
+        android:focusable="true">
 
 
         <ImageView
             android:id="@+id/imageBtn"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="7dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:src="@drawable/ob1"
             />
 
 
     </androidx.cardview.widget.CardView>
+
+
 
 
 
