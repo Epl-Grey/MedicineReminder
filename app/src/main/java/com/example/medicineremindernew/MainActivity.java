@@ -58,13 +58,13 @@ public class MainActivity extends AppCompatActivity {
         intent = new Intent(this, AddingPill.class);
         addPill.setOnClickListener(view -> startActivity(intent));
         RelativeLayout inf=findViewById(R.id.inform);
-        Intent informIntent = new Intent(this, inform.class);
+        Intent informIntent = new Intent(this, InformActivity.class);
         inf.setOnClickListener(view -> startActivity(informIntent));
 
 
         pillList = findViewById(R.id.list);
         pillList.setOnItemClickListener((parent, view, position, id) -> {
-            Intent intent = new Intent(getApplicationContext(),inform.class);
+            Intent intent = new Intent(getApplicationContext(),InformActivity.class);
             intent.putExtra("id", id);
             userId = id;
             startActivity(intent);

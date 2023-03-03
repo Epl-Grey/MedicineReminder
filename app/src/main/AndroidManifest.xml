@@ -14,9 +14,8 @@
         android:theme="@style/Theme.Design.Light.NoActionBar" >
         <activity
             android:name=".MainActivity"
-            android:exported="false"
-            android:label="@string/title_activity_main"
-            android:theme="@style/NoActionBar" />
+            android:theme="@style/Theme.Design.NoActionBar"
+            android:exported="false" />
         <activity
             android:name=".OnBordingScreen"
             android:exported="false" />
