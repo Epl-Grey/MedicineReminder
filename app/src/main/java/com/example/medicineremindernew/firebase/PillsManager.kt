@@ -27,10 +27,7 @@ class PillsManager(val context: Context) {
                     }
                 }
 
-
-                listener(pills)
                 System.out.println(pills)
-                // TODO: Добаваить таблетки в локальную базу данных
                 val dbHelper: DatabaseHelper = DatabaseHelper(context)
                 val sharedPreference = context.getSharedPreferences("UserInfo",Context.MODE_PRIVATE)
                 val userName = sharedPreference.getString("userName", "userId don't set")
@@ -42,7 +39,7 @@ class PillsManager(val context: Context) {
                         dbHelper.insertPill(it)
                     }
                 }
-
+                listener(pills)
             }
 
             override fun onCancelled(databaseError: DatabaseError) {

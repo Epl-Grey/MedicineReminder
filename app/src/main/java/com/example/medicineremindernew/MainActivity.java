@@ -112,6 +112,19 @@ public class MainActivity extends AppCompatActivity implements CalendarAdapter.O
         SharedPreferences sharedPreference = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
         System.out.println(sharedPreference.getString("userName", "userId don't set"));
         pillsManager = new PillsManager(this);
+        pillsManager.setListener((pills) -> {
+            System.out.println("PILLS CHANGED");
+            db = databaseHelper.getReadableDatabase();
+            //получаем данные из бд в виде курсора
+            pillCursor = db.rawQuery("select " + DatabaseHelper.COLUMN_ID + ", " + DatabaseHelper.COLUMN_NAME  + ", " + DatabaseHelper.COLUMN_VALUETIME + ", " + DatabaseHelper.COLUMN_TIME1 + " from " + DatabaseHelper.TABLE, null);
+            // определяем, какие столбцы из курсора будут выводиться в ListView
+            String[] headers = new String[]{DatabaseHelper.COLUMN_NAME, DatabaseHelper.COLUMN_VALUETIME, DatabaseHelper.COLUMN_TIME1};
+            // создаем адаптер, передаем в него курсор
+            pillAdapter = new SimpleCursorAdapter(this, R.layout.row_layout,
+                    pillCursor, headers, new int[]{R.id.name, R.id.kl, R.id.time}, 0);
+            pillList.setAdapter(pillAdapter);
+            return null;
+        });
     }
 
     @Override
