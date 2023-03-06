@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity implements CalendarAdapter.O
     Cursor dataCursor;
     Cursor testCursor;
     Cursor numberIdCursor;
-    SimpleCursorAdapter pillAdapter;
+    PillCursorAdapter pillAdapter;
     SimpleCursorAdapter dataAdapter;
 
     Intent intent;
@@ -85,9 +85,9 @@ public class MainActivity extends AppCompatActivity implements CalendarAdapter.O
 
         pillList = findViewById(R.id.list);
         pillList.setOnItemClickListener((parent, view, position, id) -> {
-            Intent intent = new Intent(getApplicationContext(),InformActivity.class);
-            intent.putExtra("id", id);
-
+            TextView idTextView = view.findViewById(R.id.id_storage); // Yeah, TextView for storing data :)
+            Intent intent = new Intent(getApplicationContext(), InformActivity.class);
+            intent.putExtra("id", idTextView.getText().toString());
             startActivity(intent);
         });
 
@@ -132,8 +132,9 @@ public class MainActivity extends AppCompatActivity implements CalendarAdapter.O
             // определяем, какие столбцы из курсора будут выводиться в ListView
             String[] headers = new String[]{DatabaseHelper.COLUMN_NAME, DatabaseHelper.COLUMN_VALUETIME, DatabaseHelper.COLUMN_TIME1};
             // создаем адаптер, передаем в него курсор
-            pillAdapter = new SimpleCursorAdapter(this, R.layout.row_layout,
-                    pillCursor, headers, new int[]{R.id.name, R.id.kl, R.id.time}, 0);
+//            pillAdapter = new SimpleCursorAdapter(this, R.layout.row_layout,
+//                    pillCursor, headers, new int[]{R.id.name, R.id.kl, R.id.time}, 0);
+            pillAdapter = new PillCursorAdapter(this, pillCursor);
             pillList.setAdapter(pillAdapter);
             return null;
         });

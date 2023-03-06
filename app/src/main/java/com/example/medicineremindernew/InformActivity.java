@@ -54,16 +54,14 @@ public class InformActivity extends AppCompatActivity {
         sqlHelper = new DatabaseHelper(this);
         db = sqlHelper.getWritableDatabase();
         MainActivity mainActivity = new MainActivity();
-        userId = mainActivity.userId;
 
-        System.out.println(userId);
+        userId = getIntent().getStringExtra("id");
+        System.out.println("Inform: userId: " + userId);
 
+        userCursor = db.rawQuery("select * from " + DatabaseHelper.TABLE + " where " +
+                DatabaseHelper.COLUMN_ID + "=?", new String[]{userId});
 
-
-//        userCursor = db.rawQuery("select * from " + DatabaseHelper.TABLE + " where " +
-//                DatabaseHelper.COLUMN_ID + "=?", new String[]{Long.toString(userId)});
-
-        userCursor = db.rawQuery("SELECT * FROM " + DatabaseHelper.TABLE, new String[]{});
+//        userCursor = db.rawQuery("SELECT * FROM " + DatabaseHelper.TABLE, new String[]{});
 
         userCursor.moveToFirst();
         String date1 = userCursor.getString(4);
