@@ -18,7 +18,11 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.List;
 
 public class InformActivity extends AppCompatActivity {
 
@@ -27,7 +31,7 @@ public class InformActivity extends AppCompatActivity {
     DatabaseHelper sqlHelper;
     SQLiteDatabase db;
     Cursor userCursor;
-    long userId=0;
+    String userId=null;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -51,6 +55,7 @@ public class InformActivity extends AppCompatActivity {
         db = sqlHelper.getWritableDatabase();
         MainActivity mainActivity = new MainActivity();
         userId = mainActivity.userId;
+
         System.out.println(userId);
 
 
@@ -79,7 +84,6 @@ public class InformActivity extends AppCompatActivity {
             System.out.println(date2);
 
             long milliseconds = date2.getTime() - date.getTime();
-
             days = (int) (milliseconds / (24 * 60 * 60 * 1000) + 1);
             System.out.println("Разница между датами в днях: " + days);
 

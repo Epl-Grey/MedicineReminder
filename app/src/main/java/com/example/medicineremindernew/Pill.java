@@ -1,7 +1,7 @@
 package com.example.medicineremindernew;
 
 public class Pill {
-    public int id;
+    public String id;
     public String name;
     public int value;
     public String dosage;
@@ -9,7 +9,7 @@ public class Pill {
     public String date2;
     public String time;
 
-    Pill(int id, String name, int value, String dosage, String date1, String date2, String time){
+    Pill(String id, String name, int value, String dosage, String date1, String date2, String time){
         this.id = id;
         this.name = name;
         this.value = value;

@@ -36,7 +36,7 @@ public class AlarmController {
         cursor.moveToFirst();
 
         while(!cursor.isAfterLast()){
-            int id = cursor.getInt(0);
+            String id = cursor.getString(0);
             String name = cursor.getString(1);
             int value = cursor.getInt(2);
             String dosage = cursor.getString(3);

@@ -17,6 +17,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 
+import android.widget.Adapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -38,16 +39,18 @@ public class MainActivity extends AppCompatActivity implements CalendarAdapter.O
     SQLiteDatabase db;
     Cursor pillCursor;
     Cursor dataCursor;
+    Cursor testCursor;
+    Cursor numberIdCursor;
     SimpleCursorAdapter pillAdapter;
     SimpleCursorAdapter dataAdapter;
 
     Intent intent;
     Button addPill;
     TextView calendar;
-
+    LocalDate date;
     DatePickerDialog datePickerDialog;
 
-    public static long userId;
+    public static String userId;
     PillsManager pillsManager;
 
     private TextView monthYearText;
@@ -75,17 +78,16 @@ public class MainActivity extends AppCompatActivity implements CalendarAdapter.O
         monthYearText = findViewById(R.id.monthYearTV);
         CalendarUtils.selectedDate = LocalDate.now();
         setWeekView();
-
+        date = CalendarUtils.selectedDate;
         monthYearText.setOnClickListener(v -> {
             openDatePickerAfter();
         });
-
 
         pillList = findViewById(R.id.list);
         pillList.setOnItemClickListener((parent, view, position, id) -> {
             Intent intent = new Intent(getApplicationContext(),InformActivity.class);
             intent.putExtra("id", id);
-            userId = id;
+
             startActivity(intent);
         });
 
@@ -93,6 +95,8 @@ public class MainActivity extends AppCompatActivity implements CalendarAdapter.O
             openDatePickerAfter(calendar);
             readFromDb();
         });
+
+
 
         databaseHelper = new DatabaseHelper(getApplicationContext());
         AlarmController alarmController = new AlarmController(this);
@@ -111,10 +115,18 @@ public class MainActivity extends AppCompatActivity implements CalendarAdapter.O
 
         SharedPreferences sharedPreference = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
         System.out.println(sharedPreference.getString("userName", "userId don't set"));
+
+        onCalendarItem();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
         pillsManager = new PillsManager(this);
         pillsManager.setListener((pills) -> {
             System.out.println("PILLS CHANGED");
             db = databaseHelper.getReadableDatabase();
+
             //получаем данные из бд в виде курсора
             pillCursor = db.rawQuery("select " + DatabaseHelper.COLUMN_ID + ", " + DatabaseHelper.COLUMN_NAME  + ", " + DatabaseHelper.COLUMN_VALUETIME + ", " + DatabaseHelper.COLUMN_TIME1 + " from " + DatabaseHelper.TABLE, null);
             // определяем, какие столбцы из курсора будут выводиться в ListView
@@ -127,24 +139,20 @@ public class MainActivity extends AppCompatActivity implements CalendarAdapter.O
         });
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        // открываем подключение
-        db = databaseHelper.getReadableDatabase();
-        //получаем данные из бд в виде курсора
-        pillCursor = db.rawQuery("select " + DatabaseHelper.COLUMN_ID + ", " + DatabaseHelper.COLUMN_NAME  + ", " + DatabaseHelper.COLUMN_VALUETIME + ", " + DatabaseHelper.COLUMN_TIME1 + " from " + DatabaseHelper.TABLE, null);
-        // определяем, какие столбцы из курсора будут выводиться в ListView
-        String[] headers = new String[]{DatabaseHelper.COLUMN_NAME, DatabaseHelper.COLUMN_VALUETIME, DatabaseHelper.COLUMN_TIME1};
-        // создаем адаптер, передаем в него курсор
-        pillAdapter = new SimpleCursorAdapter(this, R.layout.row_layout,
-                pillCursor, headers, new int[]{R.id.name, R.id.kl, R.id.time}, 0);
-        pillList.setAdapter(pillAdapter);
+    public void onCalendarItem() {
+        DatabaseHelper databaseHelper1 = new DatabaseHelper(this);
+        db = databaseHelper1.getReadableDatabase();
+        testCursor = db.rawQuery("select " + databaseHelper1.COLUMN_ID + ", " + databaseHelper1.COLUMN_DATE1  + ", " + databaseHelper1.COLUMN_DATE2 + " from " + databaseHelper1.TABLE, null);
+        int length = testCursor.getCount();
+        testCursor.moveToFirst();
+        for (int i = 0; i < length; i++) {
+            String id = testCursor.getString(0);
+            String data = testCursor.getString(1);
+            String data2 = testCursor.getString(2);
 
-
+            testCursor.moveToNext();
+        }
     }
-
-
     @Override
     public void onDestroy() {
         super.onDestroy();
@@ -160,6 +168,7 @@ public class MainActivity extends AppCompatActivity implements CalendarAdapter.O
             month = month + 1;
             LocalDate date = LocalDate.of(year, month, day);
             onItemClick(1, date);
+            monthYearText.setText(date.toString());
         };
 
         Calendar cal = Calendar.getInstance();
@@ -236,7 +245,7 @@ public class MainActivity extends AppCompatActivity implements CalendarAdapter.O
     private void initDatePicker() {
         DatePickerDialog.OnDateSetListener dateSetListener = (datePicker, year, month, day) -> {
             month = month + 1;
-            LocalDate date = LocalDate.of(year, month, day);
+            date = LocalDate.of(year, month, day);
             onItemClick(1, date);
         };
 
