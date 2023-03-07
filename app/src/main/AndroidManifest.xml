@@ -26,10 +26,10 @@
             android:name=".LoginActivity"
             android:exported="false" />
 
-        <receiver android:name=".AlarmReceiverNotify" />
+        <receiver android:name=".alarm.AlarmReceiverNotify" />
 
         <activity
-            android:name=".splashscreen"
+            android:name=".SplashActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -44,7 +44,7 @@
             android:name=".InformActivity"
             android:exported="false" />
         <activity
-            android:name=".AlarmActivity"
+            android:name=".alarm.AlarmActivity"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity

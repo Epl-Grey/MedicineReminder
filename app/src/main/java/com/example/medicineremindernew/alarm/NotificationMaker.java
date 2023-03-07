@@ -1,4 +1,4 @@
-package com.example.medicineremindernew;
+package com.example.medicineremindernew.alarm;
 
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -10,6 +10,9 @@ import android.os.Build;
 
 import androidx.annotation.RequiresApi;
 import androidx.core.app.NotificationCompat;
+
+import com.example.medicineremindernew.MainActivity;
+import com.example.medicineremindernew.R;
 
 public class NotificationMaker {
     static void makeNotify(Context ctx, String title, String time){

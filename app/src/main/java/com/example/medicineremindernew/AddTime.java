@@ -2,7 +2,6 @@ package com.example.medicineremindernew;
 
 import android.app.AlertDialog;
 import android.app.TimePickerDialog;
-import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -18,7 +17,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.medicineremindernew.firebase.PillData;
+import com.example.medicineremindernew.alarm.AlarmController;
 import com.example.medicineremindernew.firebase.PillsManager;
 
 import java.util.Calendar;

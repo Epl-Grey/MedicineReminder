@@ -17,20 +17,19 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 
-import android.widget.Adapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 
+import com.example.medicineremindernew.alarm.AlarmController;
+import com.example.medicineremindernew.alarm.Pill;
 import com.example.medicineremindernew.firebase.PillsManager;
-import com.example.medicineremindernew.firebase.UsersManager;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Random;
 
 public class MainActivity extends AppCompatActivity implements CalendarAdapter.OnItemListener{
 
@@ -56,26 +55,30 @@ public class MainActivity extends AppCompatActivity implements CalendarAdapter.O
     private TextView monthYearText;
     private RecyclerView calendarRecyclerView;
     public ArrayList<LocalDate> days;
+    public AlarmController alarmController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         addPill = findViewById(R.id.addButton);
         calendar= findViewById(R.id.monthYearTV);
         Button settings=findViewById(R.id.settings);
         TextView title = findViewById(R.id.medicine_re);
-        Intent sett = new Intent(this, SettingsActivity.class);
-        settings.setOnClickListener(view -> startActivity(sett));
-        intent = new Intent(this, AddingPill.class);
-        addPill.setOnClickListener(view -> startActivity(intent));
-        RelativeLayout inf=findViewById(R.id.inform);
-        Intent informIntent = new Intent(this, InformActivity.class);
-        inf.setOnClickListener(view -> startActivity(informIntent));
         calendarRecyclerView = findViewById(R.id.calendarRecyclerView);
         monthYearText = findViewById(R.id.monthYearTV);
+        RelativeLayout inf = findViewById(R.id.inform);
+        pillList = findViewById(R.id.list);
+
+        intent = new Intent(this, AddingPill.class);
+        Intent sett = new Intent(this, SettingsActivity.class);
+        Intent informIntent = new Intent(this, InformActivity.class);
+
+        settings.setOnClickListener(view -> startActivity(sett));
+        addPill.setOnClickListener(view -> startActivity(intent));
+        inf.setOnClickListener(view -> startActivity(informIntent));
+
         CalendarUtils.selectedDate = LocalDate.now();
         setWeekView();
         date = CalendarUtils.selectedDate;
@@ -83,7 +86,6 @@ public class MainActivity extends AppCompatActivity implements CalendarAdapter.O
             openDatePickerAfter();
         });
 
-        pillList = findViewById(R.id.list);
         pillList.setOnItemClickListener((parent, view, position, id) -> {
             TextView idTextView = view.findViewById(R.id.id_storage); // Yeah, TextView for storing data :)
             Intent intent = new Intent(getApplicationContext(), InformActivity.class);
@@ -96,22 +98,21 @@ public class MainActivity extends AppCompatActivity implements CalendarAdapter.O
             readFromDb();
         });
 
-
+        databaseHelper = new DatabaseHelper(this);
+        db = databaseHelper.getReadableDatabase();
+        pillCursor = db.rawQuery("select " + DatabaseHelper.COLUMN_ID + ", " + DatabaseHelper.COLUMN_NAME  + ", " + DatabaseHelper.COLUMN_VALUETIME + ", " + DatabaseHelper.COLUMN_TIME1 + " from " + DatabaseHelper.TABLE, null);
+        pillAdapter = new PillCursorAdapter(this, pillCursor);
+        pillList.setAdapter(pillAdapter);
 
         databaseHelper = new DatabaseHelper(getApplicationContext());
-        AlarmController alarmController = new AlarmController(this);
-        title.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                alarmController.refresh();
-            }
-        });
+        alarmController = new AlarmController(this);
 
-        alarmController.refresh();
         Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.MINUTE, 1);
-        System.out.println(calendar.getTime());
         String time = calendar.get(Calendar.HOUR_OF_DAY) + ":" + calendar.get(Calendar.MINUTE);
+        alarmController.add_alarm_notify(new Pill("boyaroshnik", "Боярошник", 10, "шт", "1.02.2023", "1.09.2023", time));
+
+        alarmController.refresh();
 
         SharedPreferences sharedPreference = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
         System.out.println(sharedPreference.getString("userName", "userId don't set"));
@@ -126,16 +127,11 @@ public class MainActivity extends AppCompatActivity implements CalendarAdapter.O
         pillsManager.setListener((pills) -> {
             System.out.println("PILLS CHANGED");
             db = databaseHelper.getReadableDatabase();
+            pillCursor = db.rawQuery("SELECT " + DatabaseHelper.COLUMN_ID + ", " + DatabaseHelper.COLUMN_NAME  + ", " + DatabaseHelper.COLUMN_VALUETIME + ", " + DatabaseHelper.COLUMN_TIME1 + " FROM " + DatabaseHelper.TABLE, null);
+            pillAdapter.changeCursor(pillCursor);
+            pillAdapter.notifyDataSetChanged();
 
-            //получаем данные из бд в виде курсора
-            pillCursor = db.rawQuery("select " + DatabaseHelper.COLUMN_ID + ", " + DatabaseHelper.COLUMN_NAME  + ", " + DatabaseHelper.COLUMN_VALUETIME + ", " + DatabaseHelper.COLUMN_TIME1 + " from " + DatabaseHelper.TABLE, null);
-            // определяем, какие столбцы из курсора будут выводиться в ListView
-            String[] headers = new String[]{DatabaseHelper.COLUMN_NAME, DatabaseHelper.COLUMN_VALUETIME, DatabaseHelper.COLUMN_TIME1};
-            // создаем адаптер, передаем в него курсор
-//            pillAdapter = new SimpleCursorAdapter(this, R.layout.row_layout,
-//                    pillCursor, headers, new int[]{R.id.name, R.id.kl, R.id.time}, 0);
-            pillAdapter = new PillCursorAdapter(this, pillCursor);
-            pillList.setAdapter(pillAdapter);
+            alarmController.refresh();
             return null;
         });
     }
@@ -143,7 +139,7 @@ public class MainActivity extends AppCompatActivity implements CalendarAdapter.O
     public void onCalendarItem() {
         DatabaseHelper databaseHelper1 = new DatabaseHelper(this);
         db = databaseHelper1.getReadableDatabase();
-        testCursor = db.rawQuery("select " + databaseHelper1.COLUMN_ID + ", " + databaseHelper1.COLUMN_DATE1  + ", " + databaseHelper1.COLUMN_DATE2 + " from " + databaseHelper1.TABLE, null);
+        testCursor = db.rawQuery("select " + DatabaseHelper.COLUMN_ID + ", " + DatabaseHelper.COLUMN_DATE1 + ", " + DatabaseHelper.COLUMN_DATE2 + " from " + DatabaseHelper.TABLE, null);
         int length = testCursor.getCount();
         testCursor.moveToFirst();
         for (int i = 0; i < length; i++) {

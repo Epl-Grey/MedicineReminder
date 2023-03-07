@@ -3,7 +3,6 @@ package com.example.medicineremindernew.firebase
 import android.content.ContentValues
 import android.content.Context
 import android.util.Log
-import com.example.medicineremindernew.AlarmController
 import com.example.medicineremindernew.DatabaseHelper
 import com.google.firebase.database.*
 import com.google.firebase.database.ktx.getValue

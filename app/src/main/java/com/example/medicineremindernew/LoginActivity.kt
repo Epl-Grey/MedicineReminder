@@ -18,7 +18,8 @@ class LoginActivity : AppCompatActivity() {
     lateinit var submitButton: Button
     lateinit var submitButton2: TextView
 
-    lateinit var saveState: SaveState;
+    lateinit var saveState: SaveState
+    lateinit var mainIntent: Intent
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,11 +31,8 @@ class LoginActivity : AppCompatActivity() {
         submitButton2 = findViewById(R.id.register)
 
         saveState = SaveState(this, "ob")
-        val intent2= Intent(this, MainActivity::class.java)
-        if (saveState.state >= 2) {
-            startActivity(intent2)
-            finish()
-        }
+
+        mainIntent = Intent(this, MainActivity::class.java)
 
         submitButton.setOnClickListener {
             if(loginEditText.text.isEmpty()){
@@ -66,21 +64,21 @@ class LoginActivity : AppCompatActivity() {
                             val editor = getSharedPreferences("UserInfo", Context.MODE_PRIVATE).edit()
                             editor.putString("userName", user.userLogin)
                             editor.apply()
+
+                            saveState.state = 2
+                            startActivity(mainIntent)
+                            finish()
                         }
                     }
                 }
                 Toast.makeText(this, "Invalid auth data", Toast.LENGTH_SHORT).show()
             }
-
-            saveState.state = 2
-            startActivity(intent)
-            finish()
         }
 
 
         submitButton2.setOnClickListener {
-            val intent = Intent(this, RegisterActivity::class.java)
-            startActivity(intent)
+            val registerIntent = Intent(this, RegisterActivity::class.java)
+            startActivity(registerIntent)
         }
 
 

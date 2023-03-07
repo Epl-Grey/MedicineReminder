@@ -1,4 +1,4 @@
-package com.example.medicineremindernew;
+package com.example.medicineremindernew.alarm;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

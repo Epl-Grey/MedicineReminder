@@ -5,9 +5,7 @@ import androidx.cardview.widget.CardView;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
-import android.text.Html;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
@@ -39,20 +37,24 @@ public class OnBordingScreen extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_on_bording_screen);
-        Intent intent2 = new Intent(this, LoginActivity.class);
+        Intent loginIntent = new Intent(this, LoginActivity.class);
+        Intent mainIntent = new Intent(this, MainActivity.class);
         viewPager = findViewById(R.id.viewPager);
         next = findViewById(R.id.nextCard);
         images = findViewById(R.id.imageBtn);
         skipText = findViewById(R.id.skipText);
         saveState = new SaveState(this, "ob");
-        if (saveState.getState() >= 1) {
-            startActivity(intent2);
+        if (saveState.getState() == 1) {
+            startActivity(loginIntent);
+            finish();
+        }else if(saveState.getState() == 2) {
+            startActivity(mainIntent);
             finish();
         }
         skipText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SkipOnBordingScreen();
+                skipOnBoardingScreen();
             }
         });
 
@@ -82,7 +84,7 @@ public class OnBordingScreen extends AppCompatActivity {
                             images.setImageResource(buttons[position+1]);
                         }
                         else {
-                            SkipOnBordingScreen();
+                            skipOnBoardingScreen();
                         }
                     }
                 });
@@ -97,7 +99,7 @@ public class OnBordingScreen extends AppCompatActivity {
 
     }
 
-    void SkipOnBordingScreen() {
+    void skipOnBoardingScreen() {
         Intent intent = new Intent(this, LoginActivity.class);
         saveState.setState(1);
         startActivity(intent);

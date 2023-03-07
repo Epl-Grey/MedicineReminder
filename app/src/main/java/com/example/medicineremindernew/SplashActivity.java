@@ -7,11 +7,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.view.Window;
-import android.webkit.WebView;
-import android.widget.Button;
 import android.widget.TextView;
 
-public class splashscreen extends AppCompatActivity {
+public class SplashActivity extends AppCompatActivity {
     TextView typingt;
     Window window;
     @Override
@@ -24,7 +22,7 @@ public class splashscreen extends AppCompatActivity {
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        Intent i=new Intent(splashscreen.this,OnBordingScreen.class);
+                        Intent i=new Intent(SplashActivity.this,OnBordingScreen.class);
                         startActivity(i);
                     }
                 }, 1500);

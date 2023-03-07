@@ -1,4 +1,4 @@
-package com.example.medicineremindernew;
+package com.example.medicineremindernew.alarm;
 
 public class Pill {
     public String id;
@@ -9,7 +9,7 @@ public class Pill {
     public String date2;
     public String time;
 
-    Pill(String id, String name, int value, String dosage, String date1, String date2, String time){
+    public Pill(String id, String name, int value, String dosage, String date1, String date2, String time){
         this.id = id;
         this.name = name;
         this.value = value;

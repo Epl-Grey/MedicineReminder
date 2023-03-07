@@ -1,4 +1,4 @@
-package com.example.medicineremindernew;
+package com.example.medicineremindernew.alarm;
 
 import static android.content.Context.ALARM_SERVICE;
 
@@ -10,13 +10,12 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
 
-import androidx.annotation.RequiresApi;
+import com.example.medicineremindernew.DatabaseHelper;
+import com.example.medicineremindernew.MainActivity;
 
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Calendar;
-import java.util.Locale;
 
 public class AlarmController {
     Context context;
@@ -24,11 +23,11 @@ public class AlarmController {
     SQLiteDatabase db;
     Cursor cursor;
 
-    AlarmController(Context context){
+    public AlarmController(Context context){
         this.context = context;
     }
 
-    void refresh(){
+    public void refresh(){
         System.out.println("\n\n\n\n\n\n\n\n\n");
         sqlHelper = new DatabaseHelper(context);
         db = sqlHelper.getWritableDatabase();
@@ -155,7 +154,7 @@ public class AlarmController {
         }
     }
 
-    void add_alarm_notify(Pill pill){
+    public void add_alarm_notify(Pill pill){
         if (pill.time.equals("") || pill.date1.equals("дата") || pill.date2.equals("дата"))return;
 
         String[] time = pill.time.split(":");

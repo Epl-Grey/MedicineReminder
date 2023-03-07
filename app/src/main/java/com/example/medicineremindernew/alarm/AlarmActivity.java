@@ -1,4 +1,4 @@
-package com.example.medicineremindernew;
+package com.example.medicineremindernew.alarm;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,6 +10,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.ImageButton;
+
+import com.example.medicineremindernew.MainActivity;
+import com.example.medicineremindernew.R;
 
 public class AlarmActivity extends AppCompatActivity {
     WebView webView;

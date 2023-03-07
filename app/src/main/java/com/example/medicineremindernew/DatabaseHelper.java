@@ -10,7 +10,7 @@ import com.example.medicineremindernew.firebase.PillData;
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "pillInfo.db"; // название бд
     private static final int SCHEMA = 1; // версия базы данных
-    static final String TABLE = "pillsettings"; // название таблицы в бд
+    public static final String TABLE = "pillsettings"; // название таблицы в бд
     // названия столбцов
     public static final String COLUMN_ID = "_id";
     public static final String COLUMN_NAME = "name";

@@ -136,10 +136,6 @@ public class AddingPill extends AppCompatActivity {
             intent.putExtra("data1", textBefore.getText().toString());
             intent.putExtra("data2", textAfter.getText().toString());
 
-            Toast toast = Toast.makeText(getApplicationContext(),
-                    intent_dos, Toast.LENGTH_SHORT);
-            toast.show();
-
             startActivity(intent);
         });
     }
