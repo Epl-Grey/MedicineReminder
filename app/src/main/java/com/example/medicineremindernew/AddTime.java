@@ -164,19 +164,30 @@ public class AddTime extends AppCompatActivity {
     }
 
     public void save(View view){
-//        ContentValues bValues = new ContentValues();
-//        bValues.put(DatabaseHelper.COLUMN_NAME, getIntent().getStringExtra("name"));
-//        bValues.put(DatabaseHelper.COLUMN_VALUE, getIntent().getStringExtra("value"));
-//        bValues.put(DatabaseHelper.COLUMN_DOSAGE, getIntent().getStringExtra("dos"));
-//        bValues.put(DatabaseHelper.COLUMN_DATE1, getIntent().getStringExtra("data1"));
-//        bValues.put(DatabaseHelper.COLUMN_DATE2, getIntent().getStringExtra("data2"));
-//        bValues.put(DatabaseHelper.COLUMN_TIME1, setTimes.getText().toString());
-//        bValues.put(DatabaseHelper.COLUMN_TIME2, setTimes2.getText().toString());
-//        bValues.put(DatabaseHelper.COLUMN_TIME3, setTimes3.getText().toString());
-//        bValues.put(DatabaseHelper.COLUMN_TIME4, setTimes4.getText().toString());
-//        bValues.put(DatabaseHelper.COLUMN_TIME5, setTimes5.getText().toString());
-//        bValues.put(DatabaseHelper.COLUMN_TIME6, setTimes6.getText().toString());
-//        bValues.put(DatabaseHelper.COLUMN_VALUETIME, getIntent().getStringExtra("Item"));
+        if(setTimes.getVisibility() == View.VISIBLE && setTimes.getText().toString().isEmpty()){
+            setTimes.setError("Choose time");
+            return;
+        }
+        if(setTimes2.getVisibility() == View.VISIBLE && setTimes2.getText().toString().isEmpty()){
+            setTimes2.setError("Choose time");
+            return;
+        }
+        if(setTimes3.getVisibility() == View.VISIBLE && setTimes3.getText().toString().isEmpty()){
+            setTimes3.setError("Choose time");
+            return;
+        }
+        if(setTimes4.getVisibility() == View.VISIBLE && setTimes4.getText().toString().isEmpty()){
+            setTimes4.setError("Choose time");
+            return;
+        }
+        if(setTimes5.getVisibility() == View.VISIBLE && setTimes5.getText().toString().isEmpty()){
+            setTimes5.setError("Choose time");
+            return;
+        }
+        if(setTimes6.getVisibility() == View.VISIBLE && setTimes6.getText().toString().isEmpty()){
+            setTimes6.setError("Choose time");
+            return;
+        }
 
         SharedPreferences sharedPreference = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
         String userId = sharedPreference.getString("userName", "userId don't set");

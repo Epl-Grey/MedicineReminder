@@ -12,6 +12,7 @@ import android.widget.TextView;
 public class SplashActivity extends AppCompatActivity {
     TextView typingt;
     Window window;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,17 +20,13 @@ public class SplashActivity extends AppCompatActivity {
         View decorView = getWindow().getDecorView();
         int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
         decorView.setSystemUiVisibility(uiOptions);
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        Intent i=new Intent(SplashActivity.this,OnBordingScreen.class);
-                        startActivity(i);
-                    }
-                }, 1500);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent i = new Intent(SplashActivity.this, OnBordingScreen.class);
+                startActivity(i);
+                finish();
             }
-
-
-
-
-
+        }, 1500);
     }
+}

@@ -24,6 +24,8 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.Calendar;
 
 
@@ -125,6 +127,15 @@ public class AddingPill extends AppCompatActivity {
 
 
         btnChoose.setOnClickListener(view -> {
+            if(nameEdit.getText().toString().isEmpty()){
+                nameEdit.setError("Enter name");
+                return;
+            }
+            if(valueEdit.getText().toString().isEmpty() || !StringUtils.isNumeric(valueEdit.getText().toString())){
+                valueEdit.setError("Enter value");
+                return;
+            }
+
             selectItemOr = spinner_times.getSelectedItem().toString();
             String intent_dos = spinner_num.getSelectedItem().toString();
 
