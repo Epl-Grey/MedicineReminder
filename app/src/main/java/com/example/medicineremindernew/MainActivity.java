@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity implements CalendarAdapter.O
         Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.MINUTE, 1);
         String time = calendar.get(Calendar.HOUR_OF_DAY) + ":" + calendar.get(Calendar.MINUTE);
-        alarmController.add_alarm_notify(new Pill("boyaroshnik", "Боярошник", 10, "шт", "1.02.2023", "1.09.2023", time));
+//        alarmController.add_alarm_notify(new Pill("boyaroshnik", "Боярошник", 10, "шт", "1.02.2023", "1.09.2023", time));
 
         alarmController.refresh();
 
