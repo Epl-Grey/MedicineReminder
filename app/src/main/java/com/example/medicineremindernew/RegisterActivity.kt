@@ -39,7 +39,7 @@ class RegisterActivity : AppCompatActivity() {
                 passwordRepeatEditText.error = "Repeat password"
                 return@setOnClickListener
             }
-            if(passwordEditText.text.toString() != passwordRepeatEditText.text.toString()){
+            if(passwordEditText.text.toString().trim() != passwordRepeatEditText.text.toString().trim()){
                 Toast.makeText(this@RegisterActivity, "Passwords are different", Toast.LENGTH_LONG).show()
                 return@setOnClickListener
             }
@@ -49,15 +49,15 @@ class RegisterActivity : AppCompatActivity() {
 
             userManager.listener = fun(it: ArrayList<UserData>) {
                 for (user in userManager.users) {
-                    if (user.userLogin!!.toString() == loginEditText.text.toString()) {
+                    if (user.userLogin!!.toString() == loginEditText.text.toString().trim()) {
                         Toast.makeText(this@RegisterActivity, "Login already in use", Toast.LENGTH_LONG).show()
                         return
                     }
                 }
-                userManager.saveData(loginEditText.text.toString(), passwordEditText.text.toString())
+                userManager.saveData(loginEditText.text.toString().trim(), passwordEditText.text.toString().trim())
                 Toast.makeText(this@RegisterActivity, "Registration succeed!\nHave a good day", Toast.LENGTH_LONG).show()
                 val editor = getSharedPreferences("UserInfo", Context.MODE_PRIVATE).edit()
-                editor.putString("userName", loginEditText.text.toString())
+                editor.putString("userName", loginEditText.text.toString().trim())
                 editor.apply()
                 saveState.state = 2
                 finish()

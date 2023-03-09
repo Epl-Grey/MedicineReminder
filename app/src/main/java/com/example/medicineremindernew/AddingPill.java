@@ -5,15 +5,18 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -141,11 +144,11 @@ public class AddingPill extends AppCompatActivity {
 
             intent.putExtra("id", userId);
             intent.putExtra("Item", selectItemOr);
-            intent.putExtra("name", nameEdit.getText().toString());
-            intent.putExtra("value", valueEdit.getText().toString());
+            intent.putExtra("name", nameEdit.getText().toString().trim());
+            intent.putExtra("value", valueEdit.getText().toString().trim());
             intent.putExtra("dos", intent_dos);
-            intent.putExtra("data1", textBefore.getText().toString());
-            intent.putExtra("data2", textAfter.getText().toString());
+            intent.putExtra("data1", textBefore.getText().toString().trim());
+            intent.putExtra("data2", textAfter.getText().toString().trim());
 
             startActivity(intent);
         });

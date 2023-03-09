@@ -29,7 +29,9 @@ public class AlarmActivity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    onDestroy();
                     startActivity(intent);
+                    finish();
                 }
             });
         Uri notificationUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);

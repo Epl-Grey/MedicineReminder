@@ -49,10 +49,10 @@ class LoginActivity : AppCompatActivity() {
             userManager.listener = fun(it: ArrayList<UserData>) {
                 for (user in it) {
                     System.out.println("${loginEditText.text}   ${user.userLogin!!} = ${user.userLogin!!.equals(loginEditText.text.toString())}")
-                    if (user.userLogin!!.equals(loginEditText.text.toString())) {
+                    if (user.userLogin!!.equals(loginEditText.text.toString().trim())) {
                         System.out.println("USER FOUNDED")
                         val passwordHash: String = MessageDigest.getInstance("SHA-512")
-                            .digest(passwordEditText.text.toString().toByteArray())
+                            .digest(passwordEditText.text.toString().trim().toByteArray())
                             .joinToString(separator = "") {
                                 ((it.toInt() and 0xff) + 0x100)
                                     .toString(16)
