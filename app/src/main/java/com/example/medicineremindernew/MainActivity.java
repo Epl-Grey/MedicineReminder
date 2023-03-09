@@ -2,6 +2,7 @@ package com.example.medicineremindernew;
 
 import static com.example.medicineremindernew.CalendarUtils.daysInWeekArray;
 import static com.example.medicineremindernew.CalendarUtils.monthYearFromDate;
+import static com.example.medicineremindernew.CalendarUtils.selectedDate;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -28,6 +29,7 @@ import com.example.medicineremindernew.alarm.Pill;
 import com.example.medicineremindernew.firebase.PillsManager;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -42,6 +44,9 @@ public class MainActivity extends AppCompatActivity implements CalendarAdapter.O
     Cursor numberIdCursor;
     PillCursorAdapter pillAdapter;
     SimpleCursorAdapter dataAdapter;
+
+    public static DatabaseHelper databaseHelper1;
+    public static SQLiteDatabase db2;
 
     Intent intent;
     Button addPill;
@@ -61,7 +66,8 @@ public class MainActivity extends AppCompatActivity implements CalendarAdapter.O
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        databaseHelper1 = new DatabaseHelper(this);
+        db2 = databaseHelper1.getReadableDatabase();
         addPill = findViewById(R.id.addButton);
         calendar= findViewById(R.id.monthYearTV);
         Button settings=findViewById(R.id.settings);
@@ -117,7 +123,7 @@ public class MainActivity extends AppCompatActivity implements CalendarAdapter.O
         SharedPreferences sharedPreference = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
         System.out.println(sharedPreference.getString("userName", "userId don't set"));
 
-        onCalendarItem();
+      //  onCalendarItem();
     }
 
     @Override
@@ -136,19 +142,25 @@ public class MainActivity extends AppCompatActivity implements CalendarAdapter.O
         });
     }
 
-    public void onCalendarItem() {
-        DatabaseHelper databaseHelper1 = new DatabaseHelper(this);
-        db = databaseHelper1.getReadableDatabase();
-        testCursor = db.rawQuery("select " + DatabaseHelper.COLUMN_ID + ", " + DatabaseHelper.COLUMN_DATE1 + ", " + DatabaseHelper.COLUMN_DATE2 + " from " + DatabaseHelper.TABLE, null);
+    public void onCalendarItem(DatabaseHelper databaseHelper1, SQLiteDatabase db) {
+        testCursor = db.rawQuery("select " + databaseHelper1.COLUMN_ID + ", " + databaseHelper1.COLUMN_DATE1 + ", " + databaseHelper1.COLUMN_DATE2 + " from " + databaseHelper1.TABLE, null);
         int length = testCursor.getCount();
         testCursor.moveToFirst();
-        for (int i = 0; i < length; i++) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        System.out.println(selectedDate);
+      //  for (int i = 0; i < length; i++) {
             String id = testCursor.getString(0);
             String data = testCursor.getString(1);
             String data2 = testCursor.getString(2);
+            String[] str = data.split("\n.");
+//            String data3 = str[2] + "-" + str[1] + "-" + str[0];
+            //LocalDate localDate = LocalDate.parse(data3);
+           //     System.out.println("str " + str[0]);
+
+
 
             testCursor.moveToNext();
-        }
+       // }
     }
     @Override
     public void onDestroy() {

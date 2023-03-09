@@ -1,5 +1,6 @@
 package com.example.medicineremindernew;
 
+import android.database.sqlite.SQLiteDatabase;
 import android.view.View;
 import android.widget.TextView;
 
@@ -14,6 +15,8 @@ public class CalendarViewHolder extends RecyclerView.ViewHolder implements View.
     private final ArrayList<LocalDate> days;
     public final View parentView;
     public final TextView dayOfMonth;
+    DatabaseHelper databaseHelper;
+    SQLiteDatabase db;
     private final CalendarAdapter.OnItemListener onItemListener;
     public CalendarViewHolder(@NonNull View itemView, CalendarAdapter.OnItemListener onItemListener, ArrayList<LocalDate> days)
     {
@@ -24,6 +27,7 @@ public class CalendarViewHolder extends RecyclerView.ViewHolder implements View.
         itemView.setOnClickListener(this);
         this.days = days;
     }
+    MainActivity mainActivity = new MainActivity();
 
     @Override
     public void onClick(View itemView)
@@ -31,5 +35,6 @@ public class CalendarViewHolder extends RecyclerView.ViewHolder implements View.
         onItemListener.onItemClick(getAdapterPosition(),
                 days.get(getAdapterPosition()));
 
+        mainActivity.onCalendarItem(mainActivity.databaseHelper1, mainActivity.db2);
     }
 }
