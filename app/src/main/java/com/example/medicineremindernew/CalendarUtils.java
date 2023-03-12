@@ -16,10 +16,10 @@ public class CalendarUtils
     public static ArrayList<LocalDate> daysInWeekArray(LocalDate selectedDate)
     {
         ArrayList<LocalDate> days = new ArrayList<>();
-        LocalDate current = mondayForDate(selectedDate);
-        LocalDate endDate = current.plusWeeks(1);
+        LocalDate current = selectedDate.withDayOfMonth(1);
+        LocalDate endDate = selectedDate.withDayOfMonth(selectedDate.getMonth().length(selectedDate.isLeapYear()));
 
-        while (current.isBefore(endDate))
+        while (current.isBefore(endDate.plusDays(1)))
         {
             days.add(current);
             current = current.plusDays(1);

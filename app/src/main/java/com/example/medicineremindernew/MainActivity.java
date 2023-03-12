@@ -6,6 +6,7 @@ import static com.example.medicineremindernew.CalendarUtils.selectedDate;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.AlertDialog;
@@ -33,7 +34,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class MainActivity extends AppCompatActivity implements CalendarAdapter.OnItemListener{
+public class
+MainActivity extends AppCompatActivity implements CalendarAdapter.OnItemListener{
 
     ListView pillList;
     DatabaseHelper databaseHelper;
@@ -48,6 +50,7 @@ public class MainActivity extends AppCompatActivity implements CalendarAdapter.O
     public static DatabaseHelper databaseHelper1;
     public static SQLiteDatabase db2;
 
+    LinearLayoutManager linearLayoutManager;
     Intent intent;
     Button addPill;
     TextView calendar;
@@ -169,32 +172,8 @@ public class MainActivity extends AppCompatActivity implements CalendarAdapter.O
         db.close();
         pillCursor.close();
     }
-
-    private void initDatePicker(TextView calDate) {
-
-
-        DatePickerDialog.OnDateSetListener dateSetListener = (datePicker, year, month, day) -> {
-            month = month + 1;
-            LocalDate date = LocalDate.of(year, month, day);
-            onItemClick(1, date);
-            monthYearText.setText(date.toString());
-        };
-
-        Calendar cal = Calendar.getInstance();
-        int year = cal.get(Calendar.YEAR);
-        int month = cal.get(Calendar.MONTH);
-        int day = cal.get(Calendar.DAY_OF_MONTH);
-
-        int style = AlertDialog.THEME_DEVICE_DEFAULT_LIGHT;
-
-        datePickerDialog = new DatePickerDialog(this, style, dateSetListener, year, month, day);
-        //datePickerDialog.getDatePicker().setMaxDate(System.currentTimeMillis());
-
-    }
-
-
     public void openDatePickerAfter(View view) {
-        initDatePicker(calendar);
+        initDatePicker();
         datePickerDialog.show();
     }
     public void readFromDb() {
@@ -226,21 +205,21 @@ public class MainActivity extends AppCompatActivity implements CalendarAdapter.O
         days = daysInWeekArray(CalendarUtils.selectedDate);
 
         CalendarAdapter calendarAdapter = new CalendarAdapter(days, this);
-        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getApplicationContext(), 7);
-        calendarRecyclerView.setLayoutManager(layoutManager);
+        linearLayoutManager = new LinearLayoutManager(MainActivity.this, LinearLayoutManager.HORIZONTAL, false);
+        calendarRecyclerView.setLayoutManager(linearLayoutManager);
         calendarRecyclerView.setAdapter(calendarAdapter);
     }
 
 
     public void previousWeekAction(View view)
     {
-        CalendarUtils.selectedDate = CalendarUtils.selectedDate.minusDays(1);
+        CalendarUtils.selectedDate = CalendarUtils.selectedDate.minusMonths(1);
         setWeekView();
     }
 
     public void nextWeekAction(View view)
     {
-        CalendarUtils.selectedDate = CalendarUtils.selectedDate.plusDays(+1);
+        CalendarUtils.selectedDate = CalendarUtils.selectedDate.plusMonths(1);
         setWeekView();
     }
 
@@ -250,7 +229,6 @@ public class MainActivity extends AppCompatActivity implements CalendarAdapter.O
         CalendarUtils.selectedDate = date;
         setWeekView();
     }
-
     private void initDatePicker() {
         DatePickerDialog.OnDateSetListener dateSetListener = (datePicker, year, month, day) -> {
             month = month + 1;
