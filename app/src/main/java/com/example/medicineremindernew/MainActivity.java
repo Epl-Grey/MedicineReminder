@@ -5,10 +5,10 @@ import static com.example.medicineremindernew.CalendarUtils.monthYearFromDate;
 import static com.example.medicineremindernew.CalendarUtils.selectedDate;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.Context;
@@ -22,11 +22,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
-import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 
 import com.example.medicineremindernew.alarm.AlarmController;
-import com.example.medicineremindernew.alarm.Pill;
 import com.example.medicineremindernew.firebase.PillsManager;
 
 import java.time.LocalDate;
@@ -43,10 +41,7 @@ MainActivity extends AppCompatActivity implements CalendarAdapter.OnItemListener
     Cursor pillCursor;
     Cursor dataCursor;
     Cursor testCursor;
-    Cursor numberIdCursor;
     PillCursorAdapter pillAdapter;
-    SimpleCursorAdapter dataAdapter;
-
     public static DatabaseHelper databaseHelper1;
     public static SQLiteDatabase db2;
 
@@ -57,7 +52,6 @@ MainActivity extends AppCompatActivity implements CalendarAdapter.OnItemListener
     LocalDate date;
     DatePickerDialog datePickerDialog;
 
-    public static String userId;
     PillsManager pillsManager;
 
     private TextView monthYearText;
@@ -65,6 +59,7 @@ MainActivity extends AppCompatActivity implements CalendarAdapter.OnItemListener
     public ArrayList<LocalDate> days;
     public AlarmController alarmController;
 
+    @SuppressLint("CutPasteId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,7 +69,6 @@ MainActivity extends AppCompatActivity implements CalendarAdapter.OnItemListener
         addPill = findViewById(R.id.addButton);
         calendar= findViewById(R.id.monthYearTV);
         Button settings=findViewById(R.id.settings);
-        TextView title = findViewById(R.id.medicine_re);
         calendarRecyclerView = findViewById(R.id.calendarRecyclerView);
         monthYearText = findViewById(R.id.monthYearTV);
         RelativeLayout inf = findViewById(R.id.inform);
@@ -91,9 +85,7 @@ MainActivity extends AppCompatActivity implements CalendarAdapter.OnItemListener
         CalendarUtils.selectedDate = LocalDate.now();
         setWeekView();
         date = CalendarUtils.selectedDate;
-        monthYearText.setOnClickListener(v -> {
-            openDatePickerAfter();
-        });
+        monthYearText.setOnClickListener(v -> openDatePickerAfter());
 
         pillList.setOnItemClickListener((parent, view, position, id) -> {
             TextView idTextView = view.findViewById(R.id.id_storage); // Yeah, TextView for storing data :)
@@ -118,7 +110,6 @@ MainActivity extends AppCompatActivity implements CalendarAdapter.OnItemListener
 
         Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.MINUTE, 1);
-        String time = calendar.get(Calendar.HOUR_OF_DAY) + ":" + calendar.get(Calendar.MINUTE);
 //        alarmController.add_alarm_notify(new Pill("boyaroshnik", "Боярошник", 10, "шт", "1.02.2023", "1.09.2023", time));
 
         alarmController.refresh();
@@ -150,20 +141,39 @@ MainActivity extends AppCompatActivity implements CalendarAdapter.OnItemListener
         int length = testCursor.getCount();
         testCursor.moveToFirst();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        System.out.println(selectedDate);
-      //  for (int i = 0; i < length; i++) {
-            String id = testCursor.getString(0);
-            String data = testCursor.getString(1);
-            String data2 = testCursor.getString(2);
-            String[] str = data.split("\n.");
-//            String data3 = str[2] + "-" + str[1] + "-" + str[0];
-            //LocalDate localDate = LocalDate.parse(data3);
-           //     System.out.println("str " + str[0]);
+        System.out.println("selectedDate " + selectedDate);
+        String id;
+        String data;
+        String data2;
+        String[] str;
+        String[] str2;
+        String dataSplit;
+        LocalDate localDate;
+        String dateSplit2;
+        LocalDate localDate2;
+        for (int i = 0; i < length; i++) {
+            id = testCursor.getString(0);
+            data = testCursor.getString(1);
+            data2 = testCursor.getString(2);
+
+            str = data.split("\\.");
+            str2 = data2.split("\\.");
+
+            dataSplit = str[2] + "-" + str[1] + "-" + str[0];
+            localDate = LocalDate.parse(dataSplit);
+            System.out.println("str " + localDate);
+
+            dateSplit2 = str2[2] + "-" + str2[1] + "-" + str2[0];
+            localDate2 = LocalDate.parse(dateSplit2);
+            System.out.println("str2 " + localDate2);
 
 
 
             testCursor.moveToNext();
-       // }
+
+
+
+        }
     }
     @Override
     public void onDestroy() {
@@ -180,13 +190,16 @@ MainActivity extends AppCompatActivity implements CalendarAdapter.OnItemListener
         db = databaseHelper.getReadableDatabase();
 
         dataCursor = db.query(DatabaseHelper.TABLE, null, null, null, null, null, null);
-        String strDate = "01 11 22";
+        String strDate = "01 11 2022";
         String[] words = strDate.split(" ");
-        System.out.println(words);
+        String date = words[2] + "-" + words[1] + "-" + words[0];
+        System.out.println("words " + date);
         if (dataCursor.moveToFirst()) {
             int id = dataCursor.getColumnIndex(DatabaseHelper.COLUMN_ID);
             int d1 = dataCursor.getColumnIndex(DatabaseHelper.COLUMN_DATE1);
             int d2 = dataCursor.getColumnIndex(DatabaseHelper.COLUMN_DATE2);
+
+        //    System.out.println("d1 " + d1);
 
             do {
 //                dataCursor.getString(d1);

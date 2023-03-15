@@ -153,7 +153,8 @@ public class AddingPill extends AppCompatActivity {
             startActivity(intent);
         });
     }
-
+    String day2;
+    String month2;
     private void initDatePicker(TextView textView) {
         DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener()
         {
@@ -161,7 +162,17 @@ public class AddingPill extends AppCompatActivity {
             public void onDateSet(DatePicker datePicker, int year, int month, int day)
             {
                 month = month + 1;
-                String date = day + "." + month + "." + year;
+                if (day == 1 || day == 2 || day == 3 || day == 4 || day == 5 || day == 6 || day == 7 || day == 8 || day == 9){
+                    day2 = "0" + day;
+                } else {
+                    day2 = String.valueOf(day);
+                }
+                if (month == 1 || month == 2 || month == 3 || month == 4 || month == 5 || month == 6 || month == 7 || month == 8 || month == 9){
+                    month2 = "0" + month;
+                } else {
+                    month2 = String.valueOf(month);
+                }
+                String date = day2 + "." + month2 + "." + year;
                 textView.setText(date);
             }
         };

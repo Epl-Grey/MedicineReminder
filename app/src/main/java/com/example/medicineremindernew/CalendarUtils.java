@@ -13,6 +13,7 @@ public class CalendarUtils
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM yyyy");
         return date.format(formatter);
     }
+
     public static ArrayList<LocalDate> daysInWeekArray(LocalDate selectedDate)
     {
         ArrayList<LocalDate> days = new ArrayList<>();
@@ -24,21 +25,10 @@ public class CalendarUtils
             days.add(current);
             current = current.plusDays(1);
         }
+
+
+
         return days;
     }
-
-    private static LocalDate mondayForDate(LocalDate current) {
-        LocalDate oneWeekAgo = current.minusWeeks(1);
-
-        while (current.isAfter(oneWeekAgo)) {
-            if(current.getDayOfWeek() == DayOfWeek.MONDAY)
-                return current;
-
-            current = current.minusDays(1);
-        }
-
-        return null;
-    }
-
 
 }
