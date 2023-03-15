@@ -10,7 +10,7 @@
         android:id="@+id/RelativeLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#F1EDE6"
+        android:background="@color/white"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp">
 
@@ -42,11 +42,11 @@
 
         <TextView
             android:layout_width="361.96dp"
-            android:layout_height="30dp"
+            android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_marginLeft="29dp"
-            android:layout_marginTop="278dp"
+            android:layout_marginTop="270dp"
             android:fontFamily="@font/inter"
             android:gravity="top"
             android:text="Название препарата"
@@ -55,9 +55,9 @@
         <EditText
             android:id="@+id/NameEdit"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="29dp"
-            android:layout_marginTop="320dp"
+            android:layout_marginTop="312dp"
             android:layout_marginRight="30dp" />
 
         <TextView
@@ -66,19 +66,19 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_marginLeft="29dp"
-            android:layout_marginTop="367dp"
+            android:layout_marginTop="359dp"
             android:fontFamily="@font/inter"
             android:gravity="top"
-            android:text="@string/some_id"
+            android:text="Сколько"
             android:textAppearance="@style/some_id3" />
 
         <EditText
             android:id="@+id/NumberEdit"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="wrap_content"
             android:layout_below="@id/NameEdit"
             android:layout_marginLeft="29dp"
-            android:layout_marginTop="51dp"
+            android:layout_marginTop="35dp"
             android:layout_marginRight="200dp" />
 
         <Spinner
@@ -87,16 +87,16 @@
             android:layout_height="40dp"
             android:layout_below="@id/NameEdit"
             android:layout_marginLeft="220dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="22dp"
             android:layout_marginRight="30dp"/>
 
         <TextView
             android:layout_width="358.01dp"
-            android:layout_height="25dp"
+            android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_marginLeft="29dp"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="441dp"
+            android:layout_marginTop="433dp"
             android:text="Кол-во раз в сутки"
             android:textAppearance="@style/some_id3"
             android:fontFamily="@font/inter"
@@ -109,16 +109,16 @@
             android:layout_height="30dp"
             android:layout_below="@id/NumberEdit"
             android:layout_marginLeft="29dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="33dp"
             android:layout_marginRight="30dp"/>
 
         <TextView
             android:layout_width="359dp"
-            android:layout_height="25dp"
+            android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_marginLeft="29dp"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="520dp"
+            android:layout_marginTop="512dp"
             android:text="Начало курса"
             android:textAppearance="@style/some_id3"
             android:fontFamily="@font/inter"
@@ -128,7 +128,7 @@
         <TextView
             android:id="@+id/textBefore"
             android:layout_width="wrap_content"
-            android:layout_height="26.5dp"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="29dp"
             android:text="01.01.2023"
             android:textAlignment="center"
@@ -153,7 +153,7 @@
         <TextView
             android:id="@+id/textAfter"
             android:layout_width="wrap_content"
-            android:layout_height="26.9dp"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="29dp"
             android:layout_marginTop="625dp"
             android:text="01.01.2023"
@@ -179,48 +179,49 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnChoose"
-            android:layout_width="291dp"
+            android:layout_width="match_parent"
             android:layout_height="35dp"
             android:layout_alignParentLeft="true"
-            android:layout_marginLeft="75dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
             android:layout_alignParentTop="true"
             android:layout_marginTop="677dp"
             android:background="@drawable/botao"
             android:text="Выбрать"
+            android:textColor="@color/bl"
             android:fontFamily="@font/inter"
             android:textAppearance="@style/kl" />
 
 
-        <ImageView
-            android:layout_width="71dp"
-            android:layout_height="100dp"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="335dp"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="130dp"
-            android:background="@drawable/object1"
-            />
-        <ImageView
-            android:layout_width="186dp"
-            android:layout_height="107dp"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="242dp"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="0dp"
-            android:clipToOutline="true"
-            android:background="@drawable/object2"
-            />
-        <ImageView
+        <RelativeLayout
+            android:id="@+id/rl"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
 
-            android:layout_width="84dp"
-            android:layout_height="71dp"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="172dp"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="0dp"
-            android:clipToOutline="true"
-            android:background="@drawable/object3"
-            />
+            >
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/frame_44" />
+            <ImageView
+                android:id="@+id/imageView7"
+                android:layout_toRightOf="@id/imageView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/frame_42" />
+
+            <ImageView
+                android:id="@+id/imageView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/imageView7"
+                android:layout_alignParentRight="true"
+                app:srcCompat="@drawable/__1_occggrkm5_transformed_1" />
+
+
+        </RelativeLayout>
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
