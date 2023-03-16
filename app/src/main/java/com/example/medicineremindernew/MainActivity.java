@@ -137,7 +137,7 @@ MainActivity extends AppCompatActivity implements CalendarAdapter.OnItemListener
     }
 
     public void onCalendarItem(DatabaseHelper databaseHelper1, SQLiteDatabase db) {
-        testCursor = db.rawQuery("select " + databaseHelper1.COLUMN_ID + ", " + databaseHelper1.COLUMN_DATE1 + ", " + databaseHelper1.COLUMN_DATE2 + " from " + databaseHelper1.TABLE, null);
+        testCursor = db.rawQuery("select " + databaseHelper1.COLUMN_ID + ", " + databaseHelper1.COLUMN_DATE1 + ", " + databaseHelper1.COLUMN_DATE2 + ", "+databaseHelper1.COLUMN_NAME + ", " + databaseHelper1.COLUMN_VALUETIME + ", " + databaseHelper1.COLUMN_TIME1 + " from " + databaseHelper1.TABLE, null);
         int length = testCursor.getCount();
         testCursor.moveToFirst();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -145,6 +145,9 @@ MainActivity extends AppCompatActivity implements CalendarAdapter.OnItemListener
         String id;
         String data;
         String data2;
+        String pillName;
+        String valueTime;
+        String time1;
         String[] str;
         String[] str2;
         String dataSplit;
@@ -155,6 +158,9 @@ MainActivity extends AppCompatActivity implements CalendarAdapter.OnItemListener
             id = testCursor.getString(0);
             data = testCursor.getString(1);
             data2 = testCursor.getString(2);
+            pillName = testCursor.getString(3);
+            valueTime = testCursor.getString(4);
+            time1 = testCursor.getString(5);
 
             str = data.split("\\.");
             str2 = data2.split("\\.");
@@ -167,7 +173,14 @@ MainActivity extends AppCompatActivity implements CalendarAdapter.OnItemListener
             localDate2 = LocalDate.parse(dateSplit2);
             System.out.println("str2 " + localDate2);
 
+            if (selectedDate.isAfter(localDate) && selectedDate.isBefore(localDate2)) {
+                String[] pills = {id, pillName, valueTime, time1};
 
+                pillAdapter = new PillCursorAdapter(this, testCursor);
+                pillAdapter.changeCursor(testCursor);
+                pillAdapter.notifyDataSetChanged();
+                System.out.println("123123123123123123123123123");
+            }
 
             testCursor.moveToNext();
 
@@ -228,6 +241,7 @@ MainActivity extends AppCompatActivity implements CalendarAdapter.OnItemListener
     {
         CalendarUtils.selectedDate = CalendarUtils.selectedDate.minusMonths(1);
         setWeekView();
+        onCalendarItem(databaseHelper, db);
     }
 
     public void nextWeekAction(View view)
