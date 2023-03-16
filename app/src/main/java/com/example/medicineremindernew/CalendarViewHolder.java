@@ -2,6 +2,7 @@ package com.example.medicineremindernew;
 
 import android.database.sqlite.SQLiteDatabase;
 import android.view.View;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -38,5 +39,6 @@ public class CalendarViewHolder extends RecyclerView.ViewHolder implements View.
                 days.get(getAdapterPosition()));
 
         mainActivity.onCalendarItem(mainActivity.databaseHelper1, mainActivity.db2);
+
     }
 }
