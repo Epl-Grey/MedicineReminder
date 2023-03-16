@@ -16,6 +16,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -57,6 +58,7 @@ public class AddingPill extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_adding_pill);
+
         // присваение
         Spinner spinner_num =  findViewById(R.id.Spinner);
         Spinner spinner_times =  findViewById(R.id.spinnerTimes);
@@ -152,6 +154,7 @@ public class AddingPill extends AppCompatActivity {
 
             startActivity(intent);
         });
+
     }
     String day2;
     String month2;
@@ -199,5 +202,6 @@ public class AddingPill extends AppCompatActivity {
         initDatePicker(textBefore);
         datePickerDialog.show();
     }
+
 
 }
