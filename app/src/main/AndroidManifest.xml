@@ -7,9 +7,8 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/frame_1__1_"
+        android:icon="@drawable/frame_78"
         android:label="Medecine Reminder"
-        android:roundIcon="@drawable/frame_1__1_"
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.Light.NoActionBar" >
         <activity
