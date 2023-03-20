@@ -10,10 +10,9 @@
         android:icon="@drawable/frame_78"
         android:label="Medecine Reminder"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Design.Light" >
+        android:theme="@style/Theme.Design.Light.NoActionBar" >
         <activity
             android:name=".MainActivity"
-            android:theme="@style/Theme.Design"
             android:exported="false" />
         <activity
             android:name=".OnBordingScreen"
