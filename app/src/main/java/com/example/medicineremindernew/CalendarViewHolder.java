@@ -1,5 +1,6 @@
 package com.example.medicineremindernew;
 
+import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.view.View;
 import android.widget.ListView;
@@ -19,7 +20,10 @@ public class CalendarViewHolder extends RecyclerView.ViewHolder implements View.
     public final TextView dayOfMonth;
     public final TextView weekText;
     private final CalendarAdapter.OnItemListener onItemListener;
-    public CalendarViewHolder(@NonNull View itemView, CalendarAdapter.OnItemListener onItemListener, ArrayList<LocalDate> days, ArrayList<String> numberWeek)
+    private MainActivity context;
+
+
+    public CalendarViewHolder(@NonNull View itemView, CalendarAdapter.OnItemListener onItemListener, ArrayList<LocalDate> days, ArrayList<String> numberWeek, MainActivity context)
     {
         super(itemView);
         parentView = itemView.findViewById(R.id.parentView);
@@ -29,8 +33,9 @@ public class CalendarViewHolder extends RecyclerView.ViewHolder implements View.
         itemView.setOnClickListener(this);
         this.days = days;
         this.numberWeek = numberWeek;
+        this.context = context;
     }
-    MainActivity mainActivity = new MainActivity();
+
 
     @Override
     public void onClick(View itemView)
@@ -38,7 +43,8 @@ public class CalendarViewHolder extends RecyclerView.ViewHolder implements View.
         onItemListener.onItemClick(getAdapterPosition(),
                 days.get(getAdapterPosition()));
 
-        mainActivity.onCalendarItem(mainActivity.databaseHelper1, mainActivity.db2);
+        context.onCalendarItem(context.databaseHelper, context.db);
+
 
     }
 }

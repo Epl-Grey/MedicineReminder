@@ -1,5 +1,6 @@
 package com.example.medicineremindernew;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,14 +16,16 @@ class CalendarAdapter extends RecyclerView.Adapter<CalendarViewHolder>
     private final ArrayList<LocalDate> days;
     private final OnItemListener onItemListener;
     private final ArrayList<String> numberWeek;
+    private MainActivity context;
 
 
 
-    public CalendarAdapter(OnItemListener onItemListener, ArrayList<LocalDate> days, ArrayList<String> numberWeek)
+    public CalendarAdapter(OnItemListener onItemListener, ArrayList<LocalDate> days, ArrayList<String> numberWeek, MainActivity context)
     {
         this.days = days;
         this.onItemListener = onItemListener;
         this.numberWeek = numberWeek;
+        this.context = context;
     }
 
 
@@ -38,7 +41,7 @@ class CalendarAdapter extends RecyclerView.Adapter<CalendarViewHolder>
 
 
 
-        return new CalendarViewHolder(view, onItemListener, days, numberWeek);
+        return new CalendarViewHolder(view, onItemListener, days, numberWeek, context);
     }
 
     @Override

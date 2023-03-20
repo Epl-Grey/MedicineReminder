@@ -107,11 +107,11 @@ MainActivity extends AppCompatActivity implements CalendarAdapter.OnItemListener
             readFromDb();
         });
 
-        databaseHelper = new DatabaseHelper(this);
-        db = databaseHelper.getReadableDatabase();
-        pillCursor = db.rawQuery("select " + DatabaseHelper.COLUMN_ID + ", " + DatabaseHelper.COLUMN_NAME  + ", " + DatabaseHelper.COLUMN_VALUETIME + ", " + DatabaseHelper.COLUMN_TIME1 + " from " + DatabaseHelper.TABLE, null);
-        pillAdapter = new PillCursorAdapter(this, pillCursor);
-        pillList.setAdapter(pillAdapter);
+//        databaseHelper = new DatabaseHelper(this);
+//        db = databaseHelper.getReadableDatabase();
+//        pillCursor = db.rawQuery("select " + DatabaseHelper.COLUMN_ID + ", " + DatabaseHelper.COLUMN_NAME  + ", " + DatabaseHelper.COLUMN_VALUETIME + ", " + DatabaseHelper.COLUMN_TIME1 + " from " + DatabaseHelper.TABLE, null);
+//        pillAdapter = new PillCursorAdapter(this, pillCursor);
+//        pillList.setAdapter(pillAdapter);
 
         databaseHelper = new DatabaseHelper(getApplicationContext());
         alarmController = new AlarmController(this);
@@ -181,14 +181,17 @@ MainActivity extends AppCompatActivity implements CalendarAdapter.OnItemListener
             System.out.println("str2 " + localDate2);
 
             if (selectedDate.isAfter(localDate) && selectedDate.isBefore(localDate2)) {
+                System.out.println(" ----- if complete -----");
+                System.out.println(" ids " + id);
+                pillCursor = db.rawQuery("SELECT " + DatabaseHelper.COLUMN_ID + ", " + DatabaseHelper.COLUMN_NAME  + ", " + DatabaseHelper.COLUMN_VALUETIME + ", " + DatabaseHelper.COLUMN_TIME1 + " FROM " + DatabaseHelper.TABLE + " WHERE " + DatabaseHelper.COLUMN_ID + " =   \""+ id + "\"", null);
+                pillAdapter = new PillCursorAdapter(this, pillCursor);
+                pillList.setAdapter(pillAdapter);
 
-                //    pillCursor = db.rawQuery("SELECT " + DatabaseHelper.COLUMN_ID + ", " + DatabaseHelper.COLUMN_NAME  + ", " + DatabaseHelper.COLUMN_VALUETIME + ", " + DatabaseHelper.COLUMN_TIME1 + " FROM " + DatabaseHelper.TABLE + " where " + "_id = -NQsz2dqk4YG4I74RzgU", null);
-//                pillAdapter.changeCursor(pillCursor);
-//                pillAdapter.notifyDataSetChanged();
+
 
             }
 
-         //   testCursor.moveToNext();
+            testCursor.moveToNext();
 
         }
 
@@ -236,7 +239,7 @@ MainActivity extends AppCompatActivity implements CalendarAdapter.OnItemListener
         days = daysInWeekArray(CalendarUtils.selectedDate);
         numberWeek = numberOfDays(CalendarUtils.selectedDate);
         System.out.println("numberWeek " + numberWeek);
-        CalendarAdapter calendarAdapter = new CalendarAdapter(this, days, numberWeek);
+        CalendarAdapter calendarAdapter = new CalendarAdapter(this, days, numberWeek, (MainActivity) this);
         linearLayoutManager = new LinearLayoutManager(MainActivity.this, LinearLayoutManager.HORIZONTAL, false);
         calendarRecyclerView.setLayoutManager(linearLayoutManager);
         calendarRecyclerView.setAdapter(calendarAdapter);
