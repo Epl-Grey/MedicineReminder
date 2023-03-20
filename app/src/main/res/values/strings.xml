@@ -4,6 +4,8 @@
     <string name="title2">Учетная запись</string>
     <string name="title3">Уведомления</string>
     <string name="title4">Инсулин</string>
+    <string name="open">Открыть</string>
+    <string name="close">Закрыть</string>
     <string name="description1">Приложение Medicine Reminder поможет вам не забыть про своевременный  прием лекарств.</string>
     <string name="description2">Ваши данные не потеряются, главное зарегистрироваться или войти с помощью учетной записи Gooogle</string>
     <string name="description3">Наличие напоминание в виде уведомлений за 15 минут до начала приема и будильник на указанное время</string>

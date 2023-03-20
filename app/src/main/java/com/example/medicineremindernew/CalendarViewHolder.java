@@ -14,13 +14,12 @@ import java.util.ArrayList;
 public class CalendarViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener
 {
     private final ArrayList<LocalDate> days;
+    private final ArrayList<String> numberWeek;
     public final View parentView;
     public final TextView dayOfMonth;
     public final TextView weekText;
-    DatabaseHelper databaseHelper;
-    SQLiteDatabase db;
     private final CalendarAdapter.OnItemListener onItemListener;
-    public CalendarViewHolder(@NonNull View itemView, CalendarAdapter.OnItemListener onItemListener, ArrayList<LocalDate> days)
+    public CalendarViewHolder(@NonNull View itemView, CalendarAdapter.OnItemListener onItemListener, ArrayList<LocalDate> days, ArrayList<String> numberWeek)
     {
         super(itemView);
         parentView = itemView.findViewById(R.id.parentView);
@@ -29,6 +28,7 @@ public class CalendarViewHolder extends RecyclerView.ViewHolder implements View.
         this.onItemListener = onItemListener;
         itemView.setOnClickListener(this);
         this.days = days;
+        this.numberWeek = numberWeek;
     }
     MainActivity mainActivity = new MainActivity();
 

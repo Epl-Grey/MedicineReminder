@@ -6,12 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
+
+
+
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="101dp">
+
+
+
 
         <ImageButton
             android:id="@+id/imageButton2"
@@ -87,80 +95,6 @@
             android:textSize="20sp"
             android:textStyle="bold" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="17dp"
-            android:layout_marginRight="17dp"
-            android:layout_marginTop="250dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Пн"
-                android:textAlignment="center"
-                android:textColor="@color/gray"
-                android:textSize="16sp" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Вт"
-                android:textAlignment="center"
-                android:textColor="@color/gray"
-                android:textSize="16sp" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Ср"
-                android:textAlignment="center"
-                android:textColor="@color/gray"
-                android:textSize="16sp" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Чт"
-                android:textAlignment="center"
-                android:textColor="@color/gray"
-                android:textSize="16sp" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Пт"
-                android:textAlignment="center"
-                android:textColor="@color/gray"
-                android:textSize="16sp" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Сб"
-                android:textAlignment="center"
-                android:textColor="@color/gray"
-                android:textSize="16sp" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Вс"
-                android:textAlignment="center"
-                android:textColor="@color/gray"
-                android:textSize="16sp" />
-
-
-        </LinearLayout>
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/calendarRecyclerView"
             android:layout_width="match_parent"
@@ -168,6 +102,7 @@
             android:layout_marginLeft="14dp"
             android:layout_marginRight="14dp"
             android:layout_marginTop="271dp"
+            android:orientation="horizontal"
             />
         <!--45dp-->
         <androidx.appcompat.widget.AppCompatButton
@@ -268,5 +203,4 @@
         </RelativeLayout>
 
     </RelativeLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
