@@ -7,23 +7,25 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.time.DayOfWeek;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 class CalendarAdapter extends RecyclerView.Adapter<CalendarViewHolder>
 {
     private final ArrayList<LocalDate> days;
     private final OnItemListener onItemListener;
+    private final ArrayList<String> numberWeek;
 
-    private String dayOfWeek;
 
-    public CalendarAdapter(ArrayList<LocalDate> days, OnItemListener onItemListener)
+
+    public CalendarAdapter(OnItemListener onItemListener, ArrayList<LocalDate> days, ArrayList<String> numberWeek)
     {
         this.days = days;
         this.onItemListener = onItemListener;
+        this.numberWeek = numberWeek;
     }
+
+
 
     @NonNull 
     @Override
@@ -36,44 +38,30 @@ class CalendarAdapter extends RecyclerView.Adapter<CalendarViewHolder>
 
 
 
-        return new CalendarViewHolder(view, onItemListener, days);
+        return new CalendarViewHolder(view, onItemListener, days, numberWeek);
     }
 
     @Override
     public void onBindViewHolder(@NonNull CalendarViewHolder holder, int position)
     {
+
         final LocalDate date = days.get(position);
-        if(date == null)
+        final String text = numberWeek.get(position);
+        if(date == null){
             holder.dayOfMonth.setText("");
-        else
-        {
+            holder.weekText.setText("");
+        } else{
             holder.dayOfMonth.setText(String.valueOf(date.getDayOfMonth()));
+            for(int i = 1; i <numberWeek.size(); i++) {
+                holder.weekText.setText(text);
+            }
             if(date.equals(CalendarUtils.selectedDate)){
                 holder.parentView.setBackgroundResource(R.drawable.selectitem);
+                holder.weekText.setText("");
             } else {
                 holder.parentView.setBackgroundResource(R.drawable.noselectitem);
 
 
-//                for (int i = 0; i < 10; i++) {
-//                    dayOfWeek = days.get(i).getDayOfWeek().toString();
-//                    System.out.println(dayOfWeek);
-//                    ;
-//                    if(dayOfWeek.equals("WEDNESDAY")) {
-//                        holder.weekText.setText("Ср");
-//                    } else if(dayOfWeek.equals("MONDAY")) {
-//                        holder.weekText.setText("Пн");
-//                    } else if(dayOfWeek.equals("TUESDAY")) {
-//                        holder.weekText.setText("Вт");
-//                    } else if(dayOfWeek.equals("THURSDAY")) {
-//                        holder.weekText.setText("Чт");
-//                    } else if(dayOfWeek.equals("FRIDAY")) {
-//                        holder.weekText.setText("Пт");
-//                    } else if(dayOfWeek.equals("SATURDAY")) {
-//                        holder.weekText.setText("Сб");
-//                    } else if(dayOfWeek.equals("SUNDAY")) {
-//                        holder.weekText.setText("Вс");
-//                    }
-//                }
 
             }
 
@@ -83,11 +71,13 @@ class CalendarAdapter extends RecyclerView.Adapter<CalendarViewHolder>
     @Override
     public int getItemCount()
     {
-        return days.size();
+        return numberWeek.size();
     }
 
     public interface  OnItemListener
     {
         void onItemClick(int position, LocalDate date);
     }
+
+
 }

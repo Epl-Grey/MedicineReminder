@@ -2,6 +2,7 @@ package com.example.medicineremindernew;
 
 import static com.example.medicineremindernew.CalendarUtils.daysInWeekArray;
 import static com.example.medicineremindernew.CalendarUtils.monthYearFromDate;
+import static com.example.medicineremindernew.CalendarUtils.numberOfDays;
 import static com.example.medicineremindernew.CalendarUtils.selectedDate;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,12 +21,12 @@ import android.os.Bundle;
 import android.view.View;
 
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.medicineremindernew.alarm.AlarmController;
-import com.example.medicineremindernew.firebase.PillsManager;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -47,17 +48,20 @@ MainActivity extends AppCompatActivity implements CalendarAdapter.OnItemListener
 
     LinearLayoutManager linearLayoutManager;
     Intent intent;
+
+    public Intent navigator;
     Button addPill;
+    ImageButton navBtn;
     TextView calendar;
     LocalDate date;
     DatePickerDialog datePickerDialog;
-
-    PillsManager pillsManager;
-
     private TextView monthYearText;
     private RecyclerView calendarRecyclerView;
     public ArrayList<LocalDate> days;
+    public ArrayList<String> numberWeek;
     public AlarmController alarmController;
+
+
 
     @SuppressLint("CutPasteId")
     @Override
@@ -73,6 +77,10 @@ MainActivity extends AppCompatActivity implements CalendarAdapter.OnItemListener
         monthYearText = findViewById(R.id.monthYearTV);
         RelativeLayout inf = findViewById(R.id.inform);
         pillList = findViewById(R.id.list);
+        databaseHelper = new DatabaseHelper(this);
+        db = databaseHelper.getReadableDatabase();
+        Cursor addPillCursor = db.rawQuery("select " + databaseHelper.COLUMN_ID + ", " + databaseHelper.COLUMN_DATE1 + ", " + databaseHelper.COLUMN_DATE2 + ", "+databaseHelper.COLUMN_NAME + ", " + databaseHelper.COLUMN_VALUETIME + ", " + databaseHelper.COLUMN_TIME1 + " from " + databaseHelper.TABLE + " where  " +  databaseHelper.COLUMN_ID + " = " + " 1", null);
+
 
         intent = new Intent(this, AddingPill.class);
         Intent sett = new Intent(this, SettingsActivity.class);
@@ -120,47 +128,46 @@ MainActivity extends AppCompatActivity implements CalendarAdapter.OnItemListener
       //  onCalendarItem();
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        pillsManager = new PillsManager(this);
-        pillsManager.setListener((pills) -> {
-            System.out.println("PILLS CHANGED");
-            db = databaseHelper.getReadableDatabase();
-            pillCursor = db.rawQuery("SELECT " + DatabaseHelper.COLUMN_ID + ", " + DatabaseHelper.COLUMN_NAME  + ", " + DatabaseHelper.COLUMN_VALUETIME + ", " + DatabaseHelper.COLUMN_TIME1 + " FROM " + DatabaseHelper.TABLE, null);
-            pillAdapter.changeCursor(pillCursor);
-            pillAdapter.notifyDataSetChanged();
 
-            alarmController.refresh();
-            return null;
-        });
-    }
-
+    //
+//    @Override
+//    public void onResume() {
+//        super.onResume();
+//        pillsManager = new PillsManager(this);
+//        pillsManager.setListener((pills) -> {
+//            System.out.println("PILLS CHANGED");
+//            db = databaseHelper.getReadableDatabase();
+//            pillCursor = db.rawQuery("SELECT " + DatabaseHelper.COLUMN_ID + ", " + DatabaseHelper.COLUMN_NAME  + ", " + DatabaseHelper.COLUMN_VALUETIME + ", " + DatabaseHelper.COLUMN_TIME1 + " FROM " + DatabaseHelper.TABLE, null);
+//            pillAdapter.changeCursor(pillCursor);
+//            pillAdapter.notifyDataSetChanged();
+//
+//            alarmController.refresh();
+//            return null;
+//        });
+//    }
+    String id;
+    String data;
+    String data2;
+    String[] str;
+    String[] str2;
+    String dataSplit;
+    LocalDate localDate;
+    String dateSplit2;
+    LocalDate localDate2;
     public void onCalendarItem(DatabaseHelper databaseHelper1, SQLiteDatabase db) {
         testCursor = db.rawQuery("select " + databaseHelper1.COLUMN_ID + ", " + databaseHelper1.COLUMN_DATE1 + ", " + databaseHelper1.COLUMN_DATE2 + ", "+databaseHelper1.COLUMN_NAME + ", " + databaseHelper1.COLUMN_VALUETIME + ", " + databaseHelper1.COLUMN_TIME1 + " from " + databaseHelper1.TABLE, null);
-        int length = testCursor.getCount();
         testCursor.moveToFirst();
+        int length = testCursor.getCount();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         System.out.println("selectedDate " + selectedDate);
-        String id;
-        String data;
-        String data2;
-        String pillName;
-        String valueTime;
-        String time1;
-        String[] str;
-        String[] str2;
-        String dataSplit;
-        LocalDate localDate;
-        String dateSplit2;
-        LocalDate localDate2;
-        for (int i = 0; i < length; i++) {
+
+
+        for (int i = 1; i <= length; i++) {
+
+            System.out.println("length " + length);
             id = testCursor.getString(0);
             data = testCursor.getString(1);
             data2 = testCursor.getString(2);
-            pillName = testCursor.getString(3);
-            valueTime = testCursor.getString(4);
-            time1 = testCursor.getString(5);
 
             str = data.split("\\.");
             str2 = data2.split("\\.");
@@ -174,19 +181,17 @@ MainActivity extends AppCompatActivity implements CalendarAdapter.OnItemListener
             System.out.println("str2 " + localDate2);
 
             if (selectedDate.isAfter(localDate) && selectedDate.isBefore(localDate2)) {
-                String[] pills = {id, pillName, valueTime, time1};
 
-                pillAdapter = new PillCursorAdapter(this, testCursor);
-                pillAdapter.changeCursor(testCursor);
-                pillAdapter.notifyDataSetChanged();
-                System.out.println("123123123123123123123123123");
+                //    pillCursor = db.rawQuery("SELECT " + DatabaseHelper.COLUMN_ID + ", " + DatabaseHelper.COLUMN_NAME  + ", " + DatabaseHelper.COLUMN_VALUETIME + ", " + DatabaseHelper.COLUMN_TIME1 + " FROM " + DatabaseHelper.TABLE + " where " + "_id = -NQsz2dqk4YG4I74RzgU", null);
+//                pillAdapter.changeCursor(pillCursor);
+//                pillAdapter.notifyDataSetChanged();
+
             }
 
-            testCursor.moveToNext();
-
-
+         //   testCursor.moveToNext();
 
         }
+
     }
     @Override
     public void onDestroy() {
@@ -229,11 +234,13 @@ MainActivity extends AppCompatActivity implements CalendarAdapter.OnItemListener
     {
         monthYearText.setText(monthYearFromDate(CalendarUtils.selectedDate));
         days = daysInWeekArray(CalendarUtils.selectedDate);
-
-        CalendarAdapter calendarAdapter = new CalendarAdapter(days, this);
+        numberWeek = numberOfDays(CalendarUtils.selectedDate);
+        System.out.println("numberWeek " + numberWeek);
+        CalendarAdapter calendarAdapter = new CalendarAdapter(this, days, numberWeek);
         linearLayoutManager = new LinearLayoutManager(MainActivity.this, LinearLayoutManager.HORIZONTAL, false);
         calendarRecyclerView.setLayoutManager(linearLayoutManager);
         calendarRecyclerView.setAdapter(calendarAdapter);
+
     }
 
 
@@ -241,7 +248,6 @@ MainActivity extends AppCompatActivity implements CalendarAdapter.OnItemListener
     {
         CalendarUtils.selectedDate = CalendarUtils.selectedDate.minusMonths(1);
         setWeekView();
-        onCalendarItem(databaseHelper, db);
     }
 
     public void nextWeekAction(View view)
