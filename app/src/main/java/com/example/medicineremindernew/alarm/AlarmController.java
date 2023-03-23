@@ -11,7 +11,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
 
 import com.example.medicineremindernew.DatabaseHelper;
-import com.example.medicineremindernew.MainActivity;
+import com.example.medicineremindernew.HomeFragment;
 
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
@@ -135,7 +135,7 @@ public class AlarmController {
     }
 
     private PendingIntent getAlarmInfoPendingIntent() {
-        Intent alarmInfoIntent = new Intent(context, MainActivity.class);
+        Intent alarmInfoIntent = new Intent(context, HomeFragment.class);
         alarmInfoIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             return PendingIntent.getActivity(context, 0, alarmInfoIntent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_MUTABLE);

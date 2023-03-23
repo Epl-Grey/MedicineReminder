@@ -16,11 +16,11 @@ class CalendarAdapter extends RecyclerView.Adapter<CalendarViewHolder>
     private final ArrayList<LocalDate> days;
     private final OnItemListener onItemListener;
     private final ArrayList<String> numberWeek;
-    private MainActivity context;
+    private HomeFragment context;
 
 
 
-    public CalendarAdapter(OnItemListener onItemListener, ArrayList<LocalDate> days, ArrayList<String> numberWeek, MainActivity context)
+    public CalendarAdapter(OnItemListener onItemListener, ArrayList<LocalDate> days, ArrayList<String> numberWeek, HomeFragment context)
     {
         this.days = days;
         this.onItemListener = onItemListener;

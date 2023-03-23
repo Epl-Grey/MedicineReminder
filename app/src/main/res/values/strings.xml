@@ -6,6 +6,8 @@
     <string name="title4">Инсулин</string>
     <string name="open">Открыть</string>
     <string name="close">Закрыть</string>
+    <string name="open_nav">Open Navigation Drawer</string>
+    <string name="close_nav">Close Navigation Drawer</string>
     <string name="description1">Приложение Medicine Reminder поможет вам не забыть про своевременный  прием лекарств.</string>
     <string name="description2">Ваши данные не потеряются, главное зарегистрироваться или войти с помощью учетной записи Gooogle</string>
     <string name="description3">Наличие напоминание в виде уведомлений за 15 минут до начала приема и будильник на указанное время</string>
@@ -43,4 +45,6 @@ MEDICINE\nREMINDER
 
 
 </string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

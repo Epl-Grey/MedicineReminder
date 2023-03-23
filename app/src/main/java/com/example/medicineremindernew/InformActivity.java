@@ -39,7 +39,7 @@ public class InformActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inform);
         ImageButton back=findViewById(R.id.back);
-        Intent bak=new Intent(this,MainActivity.class);
+        Intent bak=new Intent(this,HomeFragment.class);
 
         TextView name = findViewById(R.id.name);
         TextView dose = findViewById(R.id.dose);
@@ -53,7 +53,7 @@ public class InformActivity extends AppCompatActivity {
 
         sqlHelper = new DatabaseHelper(this);
         db = sqlHelper.getWritableDatabase();
-        MainActivity mainActivity = new MainActivity();
+        //MainActivity mainActivity = new MainActivity();
 
         userId = getIntent().getStringExtra("id");
         System.out.println("Inform: userId: " + userId);

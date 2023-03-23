@@ -20,10 +20,10 @@ public class CalendarViewHolder extends RecyclerView.ViewHolder implements View.
     public final TextView dayOfMonth;
     public final TextView weekText;
     private final CalendarAdapter.OnItemListener onItemListener;
-    private MainActivity context;
+    private HomeFragment context;
 
 
-    public CalendarViewHolder(@NonNull View itemView, CalendarAdapter.OnItemListener onItemListener, ArrayList<LocalDate> days, ArrayList<String> numberWeek, MainActivity context)
+    public CalendarViewHolder(@NonNull View itemView, CalendarAdapter.OnItemListener onItemListener, ArrayList<LocalDate> days, ArrayList<String> numberWeek, HomeFragment context)
     {
         super(itemView);
         parentView = itemView.findViewById(R.id.parentView);

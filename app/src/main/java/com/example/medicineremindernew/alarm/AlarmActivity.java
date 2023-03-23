@@ -11,7 +11,7 @@ import android.view.View;
 import android.webkit.WebView;
 import android.widget.ImageButton;
 
-import com.example.medicineremindernew.MainActivity;
+import com.example.medicineremindernew.HomeFragment;
 import com.example.medicineremindernew.R;
 
 public class AlarmActivity extends AppCompatActivity {
@@ -24,7 +24,7 @@ public class AlarmActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alarm);
             back=findViewById(R.id.imageButton);
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, HomeFragment.class);
 
         back.setOnClickListener(new View.OnClickListener() {
                 @Override

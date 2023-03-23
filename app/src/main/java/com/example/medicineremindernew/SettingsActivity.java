@@ -27,7 +27,7 @@ public class SettingsActivity extends AppCompatActivity {
         Intent intent = new Intent(this, AddingPill.class);
         addpill.setOnClickListener(view -> startActivity(intent));
         ImageButton back = findViewById(R.id.back);
-        Intent bak = new Intent(this, MainActivity.class);
+        Intent bak = new Intent(this, HomeFragment.class);
         back.setOnClickListener(view -> startActivity(bak));
 
         TextView login_btn = findViewById(R.id.email);

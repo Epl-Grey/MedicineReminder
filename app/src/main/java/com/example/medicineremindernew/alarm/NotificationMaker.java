@@ -11,7 +11,7 @@ import android.os.Build;
 import androidx.annotation.RequiresApi;
 import androidx.core.app.NotificationCompat;
 
-import com.example.medicineremindernew.MainActivity;
+import com.example.medicineremindernew.HomeFragment;
 import com.example.medicineremindernew.R;
 
 public class NotificationMaker {
@@ -19,7 +19,7 @@ public class NotificationMaker {
         System.out.println("NOTIFY!!!");
         NotificationManager mNotificationManager;
 
-        Intent ii = new Intent(ctx, MainActivity.class);
+        Intent ii = new Intent(ctx, HomeFragment.class);
 
         PendingIntent pendingIntent;
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.S){
