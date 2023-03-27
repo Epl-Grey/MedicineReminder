@@ -11,7 +11,7 @@ import android.view.View;
 import android.webkit.WebView;
 import android.widget.ImageButton;
 
-import com.example.medicineremindernew.HomeFragment;
+import com.example.medicineremindernew.fragments.HomeFragment;
 import com.example.medicineremindernew.R;
 
 public class AlarmActivity extends AppCompatActivity {

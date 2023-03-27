@@ -14,15 +14,13 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 
+import com.example.medicineremindernew.fragments.HomeFragment;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.List;
 
 public class InformActivity extends AppCompatActivity {
 
@@ -39,7 +37,7 @@ public class InformActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inform);
         ImageButton back=findViewById(R.id.back);
-        Intent bak=new Intent(this,HomeFragment.class);
+        Intent bak=new Intent(this, HomeFragment.class);
 
         TextView name = findViewById(R.id.name);
         TextView dose = findViewById(R.id.dose);
@@ -174,15 +172,9 @@ public class InformActivity extends AppCompatActivity {
 
 
 
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(bak);
-            }
-        });
-        ImageButton settings=findViewById(R.id.settings);
-        Intent sett = new Intent(this, SettingsActivity.class);
-        settings.setOnClickListener(view -> startActivity(sett));
+        back.setOnClickListener(view -> startActivity(bak));
+
+
 
         Intent intent = new Intent(this, AddingPill.class);
         redactor.setOnClickListener(new View.OnClickListener() {

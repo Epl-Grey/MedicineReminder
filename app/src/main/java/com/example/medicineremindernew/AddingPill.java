@@ -73,7 +73,7 @@ public class AddingPill extends AppCompatActivity {
         ImageButton back_btn = findViewById(R.id.back);
 
         Intent main_activity_intent = new Intent(this, MainActivity.class);
-        Intent settings_activity = new Intent(this, SettingsActivity.class);
+
 
         sqlHelper = new DatabaseHelper(this);
         db = sqlHelper.getWritableDatabase();

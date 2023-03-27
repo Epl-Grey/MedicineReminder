@@ -1,6 +1,5 @@
 package com.example.medicineremindernew;
 
-import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -28,8 +27,6 @@ public class CalendarUtils
             current = current.plusDays(1);
         }
 
-
-
         return days;
     }
 
@@ -42,20 +39,28 @@ public class CalendarUtils
         {
             String dayOfWeek = current.getDayOfWeek().toString();
 
-            if(dayOfWeek.equals("WEDNESDAY")) {
-                numberWeek.add("ср");
-            } else if(dayOfWeek.equals("MONDAY")) {
-                numberWeek.add("пн");
-            } else if(dayOfWeek.equals("TUESDAY")) {
-                numberWeek.add("вт");
-            } else if(dayOfWeek.equals("THURSDAY")) {
-                numberWeek.add("чт");
-            } else if(dayOfWeek.equals("FRIDAY")) {
-                numberWeek.add("пт");
-            } else if(dayOfWeek.equals("SATURDAY")) {
-                numberWeek.add("сб");
-            } else if(dayOfWeek.equals("SUNDAY")) {
-                numberWeek.add("вс");
+            switch (dayOfWeek) {
+                case "WEDNESDAY":
+                    numberWeek.add("ср");
+                    break;
+                case "MONDAY":
+                    numberWeek.add("пн");
+                    break;
+                case "TUESDAY":
+                    numberWeek.add("вт");
+                    break;
+                case "THURSDAY":
+                    numberWeek.add("чт");
+                    break;
+                case "FRIDAY":
+                    numberWeek.add("пт");
+                    break;
+                case "SATURDAY":
+                    numberWeek.add("сб");
+                    break;
+                case "SUNDAY":
+                    numberWeek.add("вс");
+                    break;
             }
 
             current = current.plusDays(1);

@@ -8,10 +8,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 
-import androidx.annotation.RequiresApi;
 import androidx.core.app.NotificationCompat;
 
-import com.example.medicineremindernew.HomeFragment;
+import com.example.medicineremindernew.fragments.HomeFragment;
 import com.example.medicineremindernew.R;
 
 public class NotificationMaker {

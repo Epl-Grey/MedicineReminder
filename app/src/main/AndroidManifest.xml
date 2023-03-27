@@ -42,10 +42,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SettingsActivity"
-            android:screenOrientation="portrait"
-            android:exported="false" />
-        <activity
             android:name=".InformActivity"
             android:exported="false" />
         <activity

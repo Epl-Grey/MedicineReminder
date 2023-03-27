@@ -1,13 +1,12 @@
 package com.example.medicineremindernew;
 
-import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
 import android.view.View;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.medicineremindernew.fragments.HomeFragment;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -43,7 +42,7 @@ public class CalendarViewHolder extends RecyclerView.ViewHolder implements View.
         onItemListener.onItemClick(getAdapterPosition(),
                 days.get(getAdapterPosition()));
 
-        context.onCalendarItem(context.databaseHelper, context.db);
+        context.onCalendarItem(context.db);
 
 
     }
