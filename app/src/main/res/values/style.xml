@@ -153,6 +153,10 @@
         </item>
 
     </style>
+    <style name="sm">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">#171930</item>
+    </style>
     <style name="welcom">
 
         <item name="android:textSize">
@@ -164,5 +168,8 @@
         </item>
 
     </style>
-
+    <style name="tue">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">#171930</item>
+    </style>
 </resources>

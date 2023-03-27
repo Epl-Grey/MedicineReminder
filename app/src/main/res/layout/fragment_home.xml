@@ -114,7 +114,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_marginLeft="17dp"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="15dp"
+            android:textColor="@color/bl"
             android:layout_above="@id/mediciine"
             android:text="Добро пожаловать!"
             android:textAppearance="@style/medicine_re" />
@@ -124,6 +125,7 @@
             android:layout_width="220dp"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
+            android:textColor="@color/bl"
             android:layout_marginLeft="17dp"
             android:layout_above="@id/monthYearTV"
             android:text="Хорошего дня!"
