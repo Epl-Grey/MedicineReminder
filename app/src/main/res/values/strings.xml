@@ -19,8 +19,7 @@
         22.02.2022
 
     </string>
-    <string name="name">
-        Парацетомол
+    <string name="name">Парацетомол
     </string>
 
     <string name="medicine_re">
@@ -28,8 +27,7 @@ MEDICINE\nREMINDER
 </string>
 
     <string name="kl">3 раза в сутки</string>
-    <string name="nam">
-    Название
+    <string name="nam">Название
 </string>
     <string name="dos">Дозировка</string>
     <string name="dose">250 мг</string>

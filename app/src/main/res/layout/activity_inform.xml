@@ -10,46 +10,77 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:ignore="MissingConstraints">
+        <RelativeLayout
+            android:id="@+id/rl"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+
+            >
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/frame_44" />
+            <ImageView
+                android:id="@+id/imageView7"
+                android:layout_toRightOf="@id/imageView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/frame_42" />
+
+            <ImageView
+                android:id="@+id/imageView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/imageView7"
+                android:layout_alignParentRight="true"
+                app:srcCompat="@drawable/__1_occggrkm5_transformed_1" />
 
 
+        </RelativeLayout>
 
         <ImageButton
             android:id="@+id/back"
-            android:layout_width="30dp"
-            android:layout_height="25dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_alignParentLeft="true"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="23dp"
-            android:background="@drawable/back" />
+            android:background="@drawable/close_round" />
 
-        <ImageView
+        <TextView
             android:id="@+id/imageView2"
-            android:layout_width="wrap_content"
+            android:layout_width="220dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="70dp"
-            app:srcCompat="@drawable/frame_26" />
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="80dp"
+            android:layout_marginLeft="17dp"
+            android:layout_marginBottom="15dp"
+            android:textColor="@color/bl"
+            android:text="Подробная информация"
+            android:textAppearance="@style/medicine_re" />
 
         <TextView
             android:id="@+id/nam"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/settings"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="40dp"
-            android:layout_toRightOf="@id/imageView2"
+            android:layout_below="@id/imageView2"
+            android:layout_marginLeft="17dp"
             android:text="@string/nam"
-            android:textAppearance="@style/nam" />
+            android:textColor="@color/black"
+            android:textSize="15sp" />
         <TextView
             android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/name"
+            android:layout_marginLeft="40dp"
+            android:layout_toEndOf="@id/nam"
             android:textAppearance="@style/some_id"
-            android:layout_below="@id/nam"
-            android:layout_marginTop="5dp"
-            android:layout_toRightOf="@id/imageView2"
-            android:layout_marginLeft="20dp"
+            android:layout_marginTop="167dp"
+
+
             />
         <TextView
             android:id="@+id/dos"
@@ -101,7 +132,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/imageView2"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="150dp"
             android:layout_marginLeft="20dp"
             android:textAppearance="@style/inf"
             android:text="Время приема"
@@ -206,13 +237,18 @@
 
         <Button
             android:id="@+id/redactor"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="35dp"
-            android:layout_below="@+id/nexts"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="35dp"
-            android:background="@drawable/btn"
-            android:text="Редактировать" />
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+           android:layout_below="@id/nexts"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/botao"
+            android:text="Выбрать"
+            android:textColor="@color/bl"
+            android:fontFamily="@font/inter"
+            android:textAppearance="@style/kl"/>
 
     </RelativeLayout>
 
