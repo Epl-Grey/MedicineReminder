@@ -136,6 +136,7 @@
 
 
         <TextView
+            android:id="@+id/setDateBolus"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="сб 02 марта 2023 08:00"
@@ -159,7 +160,7 @@
             <TextView
                 android:layout_width="80dp"
                 android:layout_height="32dp"
-                android:text="Активный инсулин"
+                android:text="Расчет на коррекцию"
                 android:textSize="12sp"
                 android:textColor="@color/bl"
                 android:textAlignment="center"
@@ -170,7 +171,7 @@
             <TextView
                 android:layout_width="80dp"
                 android:layout_height="32dp"
-                android:text="Расчет на коррекцию"
+                android:text="Активный инсулин"
                 android:textSize="12sp"
                 android:textColor="@color/bl"
                 android:textAlignment="center"

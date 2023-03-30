@@ -1,9 +1,9 @@
 package com.example.medicineremindernew.fragments;
 
-import static com.example.medicineremindernew.CalendarUtils.daysInWeekArray;
-import static com.example.medicineremindernew.CalendarUtils.monthYearFromDate;
-import static com.example.medicineremindernew.CalendarUtils.numberOfDays;
-import static com.example.medicineremindernew.CalendarUtils.selectedDate;
+import static com.example.medicineremindernew.calendar.CalendarUtils.daysInWeekArray;
+import static com.example.medicineremindernew.calendar.CalendarUtils.monthYearFromDate;
+import static com.example.medicineremindernew.calendar.CalendarUtils.numberOfDays;
+import static com.example.medicineremindernew.calendar.CalendarUtils.selectedDate;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
@@ -27,8 +27,8 @@ import android.widget.TextView;
 
 import com.example.medicineremindernew.AddingPill;
 
-import com.example.medicineremindernew.CalendarAdapter;
-import com.example.medicineremindernew.CalendarUtils;
+import com.example.medicineremindernew.calendar.CalendarAdapter;
+import com.example.medicineremindernew.calendar.CalendarUtils;
 import com.example.medicineremindernew.DatabaseHelper;
 import com.example.medicineremindernew.InformActivity;
 import com.example.medicineremindernew.PillSimpleAdapter;

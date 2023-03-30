@@ -1,4 +1,4 @@
-package com.example.medicineremindernew;
+package com.example.medicineremindernew.calendar;
 
 import android.view.View;
 import android.widget.TextView;
@@ -6,6 +6,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.medicineremindernew.R;
 import com.example.medicineremindernew.fragments.HomeFragment;
 
 import java.time.LocalDate;
