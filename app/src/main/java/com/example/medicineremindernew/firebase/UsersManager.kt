@@ -35,7 +35,7 @@ class UsersManager() {
         dbRef.addValueEventListener(userListener)
     }
 
-    fun saveData(userLogin: String, userPassword: String){
+    fun saveData(userLogin: String, userPassword: String, userDiabetes: Boolean){
         val empId = dbRef.push().key!!
 
         val passwordHash: String = MessageDigest.getInstance("SHA-512")
@@ -46,7 +46,7 @@ class UsersManager() {
                             .substring(1)
                 }
 
-        val employeeModel = UserData(empId, userLogin, passwordHash)
+        val employeeModel = UserData(empId, userLogin, passwordHash, userDiabetes)
 
         dbRef.child(empId).setValue(employeeModel)
     }

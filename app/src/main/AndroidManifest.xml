@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.Light.NoActionBar">
         <activity
+            android:name=".RegisterDiabetesActivity"
+            android:exported="false" />
+        <activity
             android:name=".AddGoodActivity"
             android:exported="false" />
         <activity

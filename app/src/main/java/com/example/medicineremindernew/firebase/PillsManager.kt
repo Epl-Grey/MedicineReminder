@@ -14,7 +14,6 @@ class PillsManager(val context: Context) {
     var listener: (pills: ArrayList<PillData>) -> Unit = {}
 
     init {
-        val sharedPreference = context.getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
         val pillListener = object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 // Get Post object and use the values to update the UI
