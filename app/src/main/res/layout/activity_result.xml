@@ -42,63 +42,99 @@
 
 <!--        </RelativeLayout>-->
 
-        <TextView
-            android:id="@+id/titleText"
-            android:layout_width="220dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="17dp"
-            android:layout_marginBottom="15dp"
-            android:textColor="@color/bl"
-            android:layout_marginTop="20dp"
-            android:text="Результаты расчетов"
-            android:fontFamily="@font/font1"
-            android:textAppearance="@style/medicine_re" />
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </TableLayout>
 
         <TextView
+            android:layout_width="311dp"
+            android:layout_height="100dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="100dp"
+            android:gravity="top"
+            android:lineSpacingExtra="-32sp"
+            android:text="Результаты"
+            android:textAppearance="@style/some_id2" />
+
+        <TextView
+            android:id="@+id/q"
+            android:layout_width="311dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="153dp"
+            android:gravity="top"
+            android:lineSpacingExtra="-32sp"
+            android:text="Расчетов"
+            android:textAppearance="@style/some_id2" />
+
+        <TextView
+            android:id="@+id/rec"
             android:layout_width="380dp"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:layout_marginLeft="17dp"
+            android:layout_marginLeft="20dp"
             android:layout_marginBottom="15dp"
             android:textColor="#F80000"
-            android:layout_marginTop="110dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/q"
             android:fontFamily="@font/inter"
             android:text="Не является рекомендацией! Перед инъекцией проверьте рассчет!"
-            android:textSize="20sp"
+            android:textSize="16sp"
             android:textAppearance="@style/medicine_re"/>
 
         <TextView
+android:id="@+id/gl"
+            android:layout_below="@id/rec"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Глюкоза: "
             android:textSize="20sp"
             android:textColor="@color/bl"
             android:fontFamily="@font/font1"
-            android:layout_marginTop="190dp"
-            android:layout_marginLeft="17dp"
+            android:layout_marginLeft="20dp"
             android:layout_marginRight="200dp"/>
 
         <TextView
+            android:layout_below="@id/gl"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Углеводы: "
             android:textSize="20sp"
             android:textColor="@color/bl"
             android:fontFamily="@font/font1"
-            android:layout_marginTop="240dp"
-            android:layout_marginLeft="17dp"
+            android:layout_marginLeft="20dp"
             android:layout_marginRight="200dp"/>
 
         <TextView
             android:id="@+id/glukoza"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@id/rec"
             android:text="12 "
             android:textSize="20sp"
             android:textColor="@color/bl"
             android:fontFamily="@font/font1"
-            android:layout_marginTop="190dp"
             android:layout_marginLeft="250dp"
             android:layout_marginRight="110dp"/>
 
@@ -107,46 +143,50 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="12 "
+            android:layout_below="@id/gl"
             android:textSize="20sp"
             android:textColor="@color/bl"
             android:fontFamily="@font/font1"
-            android:layout_marginTop="240dp"
             android:layout_marginLeft="250dp"
             android:layout_marginRight="110dp"/>
 
         <TextView
+            android:id="@+id/mm"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="ммол/л"
             android:textSize="20sp"
             android:textColor="@color/bl"
             android:fontFamily="@font/font1"
-            android:layout_marginTop="190dp"
+            android:layout_below="@id/rec"
             android:layout_marginLeft="300dp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@id/mm"
             android:text="ХЕ"
             android:textSize="20sp"
             android:textColor="@color/bl"
             android:fontFamily="@font/font1"
-            android:layout_marginTop="240dp"
             android:layout_marginLeft="300dp" />
 
 
         <TextView
-            android:id="@+id/setDateBolus"
+            android:id="@+id/time"
+            android:layout_below="@id/XE"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="сб 02 марта 2023 08:00"
             android:textSize="20sp"
+            android:layout_marginBottom="10dp"
             android:textColor="@color/bl"
             android:fontFamily="@font/font1"
-            android:layout_marginTop="290dp"
-            android:layout_marginLeft="17dp"/>
+            android:layout_marginLeft="20dp"/>
 
             <TextView
+                android:layout_below="@id/time"
+                android:id="@+id/eatt"
                 android:layout_width="50dp"
                 android:layout_height="32dp"
                 android:text="Расчет на еду"
@@ -154,10 +194,21 @@
                 android:textColor="@color/bl"
                 android:textAlignment="center"
                 android:fontFamily="@font/font1"
-                android:layout_marginTop="350dp"
                 android:layout_marginLeft="47dp"/>
 
             <TextView
+                android:layout_width="80dp"
+                android:layout_height="32dp"
+                android:text="Активный инсулин"
+                android:layout_below="@id/time"
+                android:textSize="12sp"
+                android:textColor="@color/bl"
+                android:textAlignment="center"
+                android:fontFamily="@font/font1"
+                android:layout_marginLeft="162dp"/>
+
+            <TextView
+                android:layout_below="@id/time"
                 android:layout_width="80dp"
                 android:layout_height="32dp"
                 android:text="Расчет на коррекцию"
@@ -165,67 +216,75 @@
                 android:textColor="@color/bl"
                 android:textAlignment="center"
                 android:fontFamily="@font/font1"
-                android:layout_marginTop="350dp"
-                android:layout_marginLeft="162dp"/>
-
-            <TextView
-                android:layout_width="80dp"
-                android:layout_height="32dp"
-                android:text="Активный инсулин"
-                android:textSize="12sp"
-                android:textColor="@color/bl"
-                android:textAlignment="center"
-                android:fontFamily="@font/font1"
-                android:layout_marginTop="350dp"
                 android:layout_marginLeft="292dp"/>
 
             <TextView
                 android:id="@+id/eat"
                 android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:text="6 Ед"
+                android:layout_below="@id/eatt"
                 android:textSize="20sp"
                 android:textColor="@color/bl"
                 android:textAlignment="center"
                 android:fontFamily="@font/font1"
-                android:layout_marginTop="380dp"
                 android:layout_marginLeft="47dp"/>
 
             <TextView
-                android:id="@+id/insulin"
+                android:id="@+id/corect"
                 android:layout_width="60dp"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:text="0.4 Ед"
                 android:textSize="18sp"
                 android:textColor="@color/bl"
                 android:textAlignment="center"
                 android:fontFamily="@font/font1"
-                android:layout_marginTop="380dp"
+                android:layout_below="@id/eatt"
+
                 android:layout_marginLeft="170dp"/>
 
             <TextView
-                android:id="@+id/corect"
+                android:id="@+id/insulin"
                 android:layout_width="60dp"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:text="0 Ед"
+                android:layout_below="@id/eatt"
                 android:textSize="18sp"
                 android:textColor="@color/bl"
                 android:textAlignment="center"
                 android:fontFamily="@font/font1"
-                android:layout_marginTop="380dp"
                 android:layout_marginLeft="300dp"/>
 
-<!--        <View-->
-<!--            android:layout_width="110dp"-->
-<!--            android:layout_height="92dp"-->
-<!--            android:layout_alignParentLeft="true"-->
-<!--            android:layout_marginLeft="17dp"-->
-<!--            android:layout_alignParentTop="true"-->
-<!--            android:layout_marginTop="350dp"-->
-<!--            android:background="@drawable/selectitem"-->
-<!--            android:elevation="6dp"-->
-<!--            />-->
 
+        <RelativeLayout
+            android:id="@+id/rl"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+
+            >
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/frame_44" />
+            <ImageView
+                android:id="@+id/imageView7"
+                android:layout_toRightOf="@id/imageView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/frame_42" />
+
+            <ImageView
+                android:id="@+id/imageView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/imageView7"
+                android:layout_alignParentRight="true"
+                app:srcCompat="@drawable/__1_occggrkm5_transformed_1" />
+
+
+        </RelativeLayout>
 <!--        <View-->
 <!--            android:layout_width="110dp"-->
 <!--            android:layout_height="92dp"-->
@@ -269,9 +328,10 @@
             />
 
         <TextView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="400dp"
+            android:id="@+id/ress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="410dp"
             android:layout_marginLeft="190dp"
             android:text="="
             android:textColor="@color/bl"
@@ -279,12 +339,12 @@
             />
 
         <TextView
+            android:layout_below="@id/ress"
             android:layout_width="110dp"
             android:layout_height="52dp"
-            android:text="Итоговый инсулин"
+            android:text="Итоговый    инсулин"
             android:textColor="@color/bl"
             android:textSize="20sp"
-            android:layout_marginTop="450dp"
             android:layout_marginLeft="100dp"
             android:fontFamily="@font/font1"
             />
@@ -296,7 +356,7 @@
             android:text="6.4"
             android:textColor="@color/bl"
             android:textSize="35sp"
-            android:layout_marginTop="450dp"
+            android:layout_below="@id/ress"
             android:layout_marginLeft="210dp"
             android:fontFamily="@font/font1"
             />
@@ -305,9 +365,9 @@
             android:layout_width="110dp"
             android:layout_height="52dp"
             android:text="Ед"
+            android:layout_below="@id/ress"
             android:textColor="@color/bl"
             android:textSize="35sp"
-            android:layout_marginTop="450dp"
             android:layout_marginLeft="270dp"
             android:fontFamily="@font/font1"
             />
@@ -320,7 +380,7 @@
             android:textColor="@color/bl"
             android:fontFamily="@font/font1"
             android:layout_marginTop="550dp"
-            android:layout_marginLeft="17dp"
+            android:layout_marginLeft="20dp"
             android:layout_marginRight="200dp"/>
 
         <TextView
@@ -331,7 +391,7 @@
             android:textColor="@color/bl"
             android:fontFamily="@font/font1"
             android:layout_marginTop="580dp"
-            android:layout_marginLeft="17dp"
+            android:layout_marginLeft="20dp"
             android:layout_marginRight="200dp"/>
 
         <TextView
@@ -342,7 +402,7 @@
             android:textColor="@color/bl"
             android:fontFamily="@font/font1"
             android:layout_marginTop="610dp"
-            android:layout_marginLeft="17dp"
+            android:layout_marginLeft="20dp"
             android:layout_marginRight="200dp"/>
 
         <TextView
@@ -401,7 +461,7 @@
             android:fontFamily="@font/font1"
             android:layout_marginTop="580dp"
             android:layout_marginLeft="362dp"
-            android:layout_marginRight="10dp" />
+            android:layout_marginRight="20dp" />
 
         <TextView
             android:layout_width="match_parent"
