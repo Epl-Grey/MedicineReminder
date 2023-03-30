@@ -115,6 +115,7 @@
             android:layout_alignParentLeft="true"
             android:layout_marginLeft="17dp"
             android:layout_marginBottom="15dp"
+            android:fontFamily="@font/font1"
             android:textColor="@color/bl"
             android:layout_above="@id/mediciine"
             android:text="Добро пожаловать!"
@@ -149,6 +150,8 @@
             android:layout_marginTop="1dp"
             android:divider="@null"
             android:dividerHeight="0dp" />
+
+
 
         <RelativeLayout
             android:id="@+id/inform"

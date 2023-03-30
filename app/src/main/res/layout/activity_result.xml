@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ResultActivity">
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+<!--        <RelativeLayout-->
+<!--            android:id="@+id/rl"-->
+<!--            android:layout_width="250dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_alignParentRight="true"-->
+
+<!--            >-->
+<!--            <ImageView-->
+<!--                android:id="@+id/imageView6"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                app:srcCompat="@drawable/frame_44" />-->
+<!--            <ImageView-->
+<!--                android:id="@+id/imageView7"-->
+<!--                android:layout_toRightOf="@id/imageView6"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                app:srcCompat="@drawable/frame_42" />-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/imageView8"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_below="@id/imageView7"-->
+<!--                android:layout_alignParentRight="true"-->
+<!--                app:srcCompat="@drawable/__1_occggrkm5_transformed_1" />-->
+
+
+<!--        </RelativeLayout>-->
+
+        <TextView
+            android:id="@+id/titleText"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="17dp"
+            android:layout_marginBottom="15dp"
+            android:textColor="@color/bl"
+            android:layout_marginTop="20dp"
+            android:text="Результаты расчетов"
+            android:fontFamily="@font/font1"
+            android:textAppearance="@style/medicine_re" />
+
+        <TextView
+            android:layout_width="380dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="17dp"
+            android:layout_marginBottom="15dp"
+            android:textColor="#F80000"
+            android:layout_marginTop="110dp"
+            android:fontFamily="@font/inter"
+            android:text="Не является рекомендацией! Перед инъекцией проверьте рассчет!"
+            android:textSize="20sp"
+            android:textAppearance="@style/medicine_re"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Глюкоза: "
+            android:textSize="20sp"
+            android:textColor="@color/bl"
+            android:fontFamily="@font/font1"
+            android:layout_marginTop="190dp"
+            android:layout_marginLeft="17dp"
+            android:layout_marginRight="200dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Углеводы: "
+            android:textSize="20sp"
+            android:textColor="@color/bl"
+            android:fontFamily="@font/font1"
+            android:layout_marginTop="240dp"
+            android:layout_marginLeft="17dp"
+            android:layout_marginRight="200dp"/>
+
+        <TextView
+            android:id="@+id/glukoza"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="12 "
+            android:textSize="20sp"
+            android:textColor="@color/bl"
+            android:fontFamily="@font/font1"
+            android:layout_marginTop="190dp"
+            android:layout_marginLeft="250dp"
+            android:layout_marginRight="110dp"/>
+
+        <TextView
+            android:id="@+id/XE"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="12 "
+            android:textSize="20sp"
+            android:textColor="@color/bl"
+            android:fontFamily="@font/font1"
+            android:layout_marginTop="240dp"
+            android:layout_marginLeft="250dp"
+            android:layout_marginRight="110dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ммол/л"
+            android:textSize="20sp"
+            android:textColor="@color/bl"
+            android:fontFamily="@font/font1"
+            android:layout_marginTop="190dp"
+            android:layout_marginLeft="300dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ХЕ"
+            android:textSize="20sp"
+            android:textColor="@color/bl"
+            android:fontFamily="@font/font1"
+            android:layout_marginTop="240dp"
+            android:layout_marginLeft="300dp" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="сб 02 марта 2023 08:00"
+            android:textSize="20sp"
+            android:textColor="@color/bl"
+            android:fontFamily="@font/font1"
+            android:layout_marginTop="290dp"
+            android:layout_marginLeft="17dp"/>
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="32dp"
+                android:text="Расчет на еду"
+                android:textSize="12sp"
+                android:textColor="@color/bl"
+                android:textAlignment="center"
+                android:fontFamily="@font/font1"
+                android:layout_marginTop="350dp"
+                android:layout_marginLeft="47dp"/>
+
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="32dp"
+                android:text="Активный инсулин"
+                android:textSize="12sp"
+                android:textColor="@color/bl"
+                android:textAlignment="center"
+                android:fontFamily="@font/font1"
+                android:layout_marginTop="350dp"
+                android:layout_marginLeft="162dp"/>
+
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="32dp"
+                android:text="Расчет на коррекцию"
+                android:textSize="12sp"
+                android:textColor="@color/bl"
+                android:textAlignment="center"
+                android:fontFamily="@font/font1"
+                android:layout_marginTop="350dp"
+                android:layout_marginLeft="292dp"/>
+
+            <TextView
+                android:id="@+id/eat"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:text="6 Ед"
+                android:textSize="20sp"
+                android:textColor="@color/bl"
+                android:textAlignment="center"
+                android:fontFamily="@font/font1"
+                android:layout_marginTop="380dp"
+                android:layout_marginLeft="47dp"/>
+
+            <TextView
+                android:id="@+id/insulin"
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:text="0.4 Ед"
+                android:textSize="18sp"
+                android:textColor="@color/bl"
+                android:textAlignment="center"
+                android:fontFamily="@font/font1"
+                android:layout_marginTop="380dp"
+                android:layout_marginLeft="170dp"/>
+
+            <TextView
+                android:id="@+id/corect"
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:text="0 Ед"
+                android:textSize="18sp"
+                android:textColor="@color/bl"
+                android:textAlignment="center"
+                android:fontFamily="@font/font1"
+                android:layout_marginTop="380dp"
+                android:layout_marginLeft="300dp"/>
+
+<!--        <View-->
+<!--            android:layout_width="110dp"-->
+<!--            android:layout_height="92dp"-->
+<!--            android:layout_alignParentLeft="true"-->
+<!--            android:layout_marginLeft="17dp"-->
+<!--            android:layout_alignParentTop="true"-->
+<!--            android:layout_marginTop="350dp"-->
+<!--            android:background="@drawable/selectitem"-->
+<!--            android:elevation="6dp"-->
+<!--            />-->
+
+<!--        <View-->
+<!--            android:layout_width="110dp"-->
+<!--            android:layout_height="92dp"-->
+<!--            android:layout_alignParentLeft="true"-->
+<!--            android:layout_marginLeft="147dp"-->
+<!--            android:layout_alignParentTop="true"-->
+<!--            android:layout_marginTop="350dp"-->
+<!--            android:background="@drawable/selectitem"-->
+<!--            android:elevation="6dp"-->
+<!--            />-->
+
+<!--        <View-->
+<!--            android:layout_width="110dp"-->
+<!--            android:layout_height="92dp"-->
+<!--            android:layout_alignParentLeft="true"-->
+<!--            android:layout_marginLeft="277dp"-->
+<!--            android:layout_alignParentTop="true"-->
+<!--            android:layout_marginTop="350dp"-->
+<!--            android:background="@drawable/selectitem"-->
+<!--            android:elevation="6dp"-->
+<!--            />-->
+
+        <TextView
+            android:layout_width="25dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="375dp"
+            android:layout_marginLeft="130dp"
+            android:text="+"
+            android:textColor="@color/bl"
+            android:textSize="30sp"
+            />
+
+        <TextView
+            android:layout_width="25dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="375dp"
+            android:layout_marginLeft="260dp"
+            android:text="-"
+            android:textColor="@color/bl"
+            android:textSize="30sp"
+            />
+
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="400dp"
+            android:layout_marginLeft="190dp"
+            android:text="="
+            android:textColor="@color/bl"
+            android:textSize="50sp"
+            />
+
+        <TextView
+            android:layout_width="110dp"
+            android:layout_height="52dp"
+            android:text="Итоговый инсулин"
+            android:textColor="@color/bl"
+            android:textSize="20sp"
+            android:layout_marginTop="450dp"
+            android:layout_marginLeft="100dp"
+            android:fontFamily="@font/font1"
+            />
+
+        <TextView
+            android:id="@+id/result"
+            android:layout_width="63dp"
+            android:layout_height="52dp"
+            android:text="6.4"
+            android:textColor="@color/bl"
+            android:textSize="35sp"
+            android:layout_marginTop="450dp"
+            android:layout_marginLeft="210dp"
+            android:fontFamily="@font/font1"
+            />
+
+        <TextView
+            android:layout_width="110dp"
+            android:layout_height="52dp"
+            android:text="Ед"
+            android:textColor="@color/bl"
+            android:textSize="35sp"
+            android:layout_marginTop="450dp"
+            android:layout_marginLeft="270dp"
+            android:fontFamily="@font/font1"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Расчет на еду"
+            android:textSize="15sp"
+            android:textColor="@color/bl"
+            android:fontFamily="@font/font1"
+            android:layout_marginTop="550dp"
+            android:layout_marginLeft="17dp"
+            android:layout_marginRight="200dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Расчет на коррекцию"
+            android:textSize="15sp"
+            android:textColor="@color/bl"
+            android:fontFamily="@font/font1"
+            android:layout_marginTop="580dp"
+            android:layout_marginLeft="17dp"
+            android:layout_marginRight="200dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Итоговый инсулин"
+            android:textSize="15sp"
+            android:textColor="@color/bl"
+            android:fontFamily="@font/font1"
+            android:layout_marginTop="610dp"
+            android:layout_marginLeft="17dp"
+            android:layout_marginRight="200dp"/>
+
+        <TextView
+            android:id="@+id/calcEat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="4*1.5 = 6"
+            android:textSize="15sp"
+            android:textColor="@color/bl"
+            android:fontFamily="@font/font1"
+            android:layout_marginTop="550dp"
+            android:layout_marginLeft="240dp"
+            android:layout_marginRight="50dp"/>
+
+        <TextView
+            android:id="@+id/calcCorect"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="(12-8)/10 = 0.4"
+            android:textSize="15sp"
+            android:textColor="@color/bl"
+            android:fontFamily="@font/font1"
+            android:layout_marginTop="580dp"
+            android:layout_marginLeft="240dp"
+            android:layout_marginRight="50dp" />
+
+        <TextView
+            android:id="@+id/calcResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="6 + 0.4 = 6"
+            android:textSize="15sp"
+            android:textColor="@color/bl"
+            android:fontFamily="@font/font1"
+            android:layout_marginTop="610dp"
+            android:layout_marginLeft="240dp"
+            android:layout_marginRight="50dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ед"
+            android:textSize="15sp"
+            android:textColor="@color/bl"
+            android:fontFamily="@font/font1"
+            android:layout_marginTop="550dp"
+            android:layout_marginLeft="362dp"
+            android:layout_marginRight="10dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ед"
+            android:textSize="15sp"
+            android:textColor="@color/bl"
+            android:fontFamily="@font/font1"
+            android:layout_marginTop="580dp"
+            android:layout_marginLeft="362dp"
+            android:layout_marginRight="10dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ед"
+            android:textSize="15sp"
+            android:textColor="@color/bl"
+            android:fontFamily="@font/font1"
+            android:layout_marginTop="610dp"
+            android:layout_marginLeft="362dp"
+            android:layout_marginRight="10dp" />
+
+
+        <Button
+            android:id="@+id/btnCalculate"
+            android:layout_width="291dp"
+            android:layout_height="45dp"
+            android:text="Сохранить результат"
+            android:textColor="@color/white"
+            android:fontFamily="@font/font1"
+            android:background="@drawable/botao"
+            android:layout_marginTop="660dp"
+            android:layout_marginLeft="60dp"/>
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

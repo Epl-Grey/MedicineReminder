@@ -171,8 +171,8 @@ public class InformActivity extends AppCompatActivity {
 
 
 
-
-        back.setOnClickListener(view -> startActivity(bak));
+        Intent bak2 = new Intent(this, MainActivity.class);
+        back.setOnClickListener(view -> startActivity(bak2));
 
 
 

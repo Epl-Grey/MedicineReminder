@@ -161,6 +161,8 @@ public class AddTime extends AppCompatActivity {
             }
         });
 
+
+
     }
 
     public void save(View view){
@@ -247,10 +249,13 @@ public class AddTime extends AppCompatActivity {
         // закрываем подключение
         db.close();
         // переход к главной activity
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, AddGoodActivity.class);
+        String addgood = "1";
+        intent.putExtra("addgood", addgood);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         startActivity(intent);
     }
+
 
 
 }

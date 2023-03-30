@@ -8,11 +8,13 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.example.medicineremindernew.fragments.CalendarXEFragment;
+import com.example.medicineremindernew.fragments.CalculatorBolusa;
+import com.example.medicineremindernew.fragments.CalculatorXEFragment;
 import com.example.medicineremindernew.fragments.HomeFragment;
 import com.example.medicineremindernew.fragments.SettingsFragment;
 import com.google.android.material.navigation.NavigationView;
@@ -60,12 +62,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
 
             case R.id.nav_calendarXE:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new CalendarXEFragment()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new CalculatorXEFragment()).commit();
+                break;
+
+            case R.id.nav_calendarBolusa:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new CalculatorBolusa()).commit();
                 break;
 
             case R.id.nav_logout:
-
-                Toast.makeText(this, "Logout!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Exit!", Toast.LENGTH_SHORT).show();
+                this.finishAffinity();
                 break;
         }
 

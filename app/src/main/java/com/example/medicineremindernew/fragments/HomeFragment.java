@@ -20,7 +20,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -32,7 +31,8 @@ import com.example.medicineremindernew.CalendarAdapter;
 import com.example.medicineremindernew.CalendarUtils;
 import com.example.medicineremindernew.DatabaseHelper;
 import com.example.medicineremindernew.InformActivity;
-import com.example.medicineremindernew.PillCursorAdapter;
+import com.example.medicineremindernew.PillSimpleAdapter;
+import com.example.medicineremindernew.PillsView;
 import com.example.medicineremindernew.R;
 import com.example.medicineremindernew.alarm.AlarmController;
 
@@ -49,7 +49,7 @@ public class HomeFragment extends Fragment {
     Cursor pillCursor;
     Cursor dataCursor;
     Cursor testCursor;
-    PillCursorAdapter pillAdapter;
+    PillSimpleAdapter pillAdapter;
     public static DatabaseHelper databaseHelper1;
     public static SQLiteDatabase db2;
 
@@ -120,9 +120,9 @@ public class HomeFragment extends Fragment {
 
         databaseHelper = new DatabaseHelper(getActivity());
         db = databaseHelper.getReadableDatabase();
-        pillCursor = db.rawQuery("select " + DatabaseHelper.COLUMN_ID + ", " + DatabaseHelper.COLUMN_NAME  + ", " + DatabaseHelper.COLUMN_VALUETIME + ", " + DatabaseHelper.COLUMN_TIME1 + " from " + DatabaseHelper.TABLE, null);
-        pillAdapter = new PillCursorAdapter(getActivity(), pillCursor);
-        pillList.setAdapter(pillAdapter);
+//        pillCursor = db.rawQuery("select " + DatabaseHelper.COLUMN_ID + ", " + DatabaseHelper.COLUMN_NAME  + ", " + DatabaseHelper.COLUMN_VALUETIME + ", " + DatabaseHelper.COLUMN_TIME1 + " from " + DatabaseHelper.TABLE, null);
+//        pillAdapter = new PillSimpleAdapter(getActivity(), pillCursor);
+//        pillList.setAdapter(pillAdapter);
 
         databaseHelper = new DatabaseHelper(getActivity());
         alarmController = new AlarmController(getContext());
@@ -141,8 +141,9 @@ public class HomeFragment extends Fragment {
         testCursor.moveToFirst();
         int length = testCursor.getCount();
         System.out.println("selectedDate " + selectedDate);
-  //      ArrayAdapter<Cursor> calendarItems = new ArrayAdapter<>(pillCursor);
-
+        ArrayList<PillsView> arrayList = new ArrayList<PillsView>();
+        pillAdapter = new PillSimpleAdapter(getContext(), arrayList);
+        pillList.setAdapter(pillAdapter);
         for (int i = 1; i <= length; i++) {
 
             String id = testCursor.getString(0);
@@ -163,23 +164,26 @@ public class HomeFragment extends Fragment {
             if (selectedDate.isAfter(localDate) && selectedDate.isBefore(localDate2) || selectedDate.equals(localDate) || selectedDate.equals(localDate2)) {
 
                 pillCursor = db.rawQuery("SELECT " + DatabaseHelper.COLUMN_ID + ", " + DatabaseHelper.COLUMN_NAME  + ", " + DatabaseHelper.COLUMN_VALUETIME + ", " + DatabaseHelper.COLUMN_TIME1 + " FROM " + DatabaseHelper.TABLE + " WHERE " + DatabaseHelper.COLUMN_ID + " =   \""+ id + "\"", null);
-          //      calendarItems.add(pillCursor);
-                pillAdapter = new PillCursorAdapter(getContext(), pillCursor);
+                pillCursor.moveToFirst();
+                arrayList.add(new PillsView(pillCursor.getString(1), pillCursor.getString(2), pillCursor.getString(3), pillCursor.getString(0)));
+
+                pillAdapter = new PillSimpleAdapter(getContext(), arrayList);
                 pillList.setAdapter(pillAdapter);
 
             }
+
 
             testCursor.moveToNext();
 
         }
 
     }
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        db.close();
-        pillCursor.close();
-    }
+//    @Override
+//    public void onDestroy() {
+//        super.onDestroy();
+//        db.close();
+//        pillCursor.close();
+//    }
     public void openDatePickerAfter(View view) {
         initDatePicker();
         datePickerDialog.show();
