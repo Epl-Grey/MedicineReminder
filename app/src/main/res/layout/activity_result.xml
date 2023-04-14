@@ -476,11 +476,12 @@ android:id="@+id/gl"
 
 
         <Button
-            android:id="@+id/btnCalculate"
+            android:id="@+id/btnResult"
             android:layout_width="291dp"
             android:layout_height="45dp"
             android:text="Сохранить результат"
             android:textColor="@color/white"
+            android:textSize="20sp"
             android:fontFamily="@font/font1"
             android:background="@drawable/botao"
             android:layout_marginTop="660dp"

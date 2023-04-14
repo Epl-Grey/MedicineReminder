@@ -5,7 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,7 +16,11 @@ import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
+import com.example.medicineremindernew.alarm.AlarmController;
 import com.example.medicineremindernew.calendar.CalendarUtils;
+
+import com.example.medicineremindernew.firebase.BolusManager;
+import com.example.medicineremindernew.firebase.PillsManager;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -24,16 +31,16 @@ import java.util.Locale;
 
 public class ResultActivity extends AppCompatActivity {
 
-    TextView glukoza;
-    TextView XE;
-    TextView eat;
-    TextView insulin;
-    TextView corect;
-    TextView result;
-    TextView calcEat;
-    TextView calcCorect;
-    TextView calcResult;
-    TextView setDateBolus;
+    TextView glukozaText;
+    TextView XEText;
+    TextView eatText;
+    TextView insulinText;
+    TextView corectText;
+    TextView resultText;
+    TextView calcEatText;
+    TextView calcCorectText;
+    TextView calcResultText;
+    TextView timeText;
     Button btnCalculate;
 
     DatePickerDialog datePickerDialog;
@@ -41,22 +48,28 @@ public class ResultActivity extends AppCompatActivity {
     int hour, minute;
     String date2;
 
+    DatabaseHelper sqlHelper;
+    SQLiteDatabase db;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
 
-        glukoza = findViewById(R.id.glukoza);
-        XE = findViewById(R.id.XE);
-        eat = findViewById(R.id.eat);
-        insulin = findViewById(R.id.insulin);
-        corect = findViewById(R.id.corect);
-        result = findViewById(R.id.result);
-        calcEat = findViewById(R.id.calcEat);
-        calcCorect = findViewById(R.id.calcCorect);
-        calcResult = findViewById(R.id.calcResult);
-        //setDateBolus = findViewById(R.id.setDateBolus);
-        btnCalculate = findViewById(R.id.btnCalculate);
+        sqlHelper = new DatabaseHelper(this);
+        db = sqlHelper.getWritableDatabase();
+
+        glukozaText = findViewById(R.id.glukoza);
+        XEText = findViewById(R.id.XE);
+        eatText = findViewById(R.id.eat);
+        insulinText = findViewById(R.id.insulin);
+        corectText = findViewById(R.id.corect);
+        resultText = findViewById(R.id.result);
+        calcEatText = findViewById(R.id.calcEat);
+        calcCorectText = findViewById(R.id.calcCorect);
+        calcResultText = findViewById(R.id.calcResult);
+        timeText = findViewById(R.id.time);
+        btnCalculate = findViewById(R.id.btnResult);
 
         CalendarUtils.selectedDate = LocalDate.now();
 
@@ -72,24 +85,24 @@ public class ResultActivity extends AppCompatActivity {
         String strCelGluk = getIntent().getStringExtra("celGluk");
         getIntent().getIntArrayExtra("gluk");
 
-        int correct = Integer.parseInt(strGluk) - Integer.parseInt(strCelGluk);
+        float correct = Integer.parseInt(strGluk) - Integer.parseInt(strCelGluk);
         correct = correct / Integer.parseInt(strFchi);
-        int corEat = Integer.parseInt(strYglev) * Integer.parseInt(strYk);
-        int corRes = correct + corEat - Integer.parseInt(strActivation);
+        float corEat = Integer.parseInt(strYglev) * Integer.parseInt(strYk);
+        float corRes = correct + corEat - Integer.parseInt(strActivation);
         String strCorrect = String.valueOf(correct);
         String strCalcCorect = "(" + strGluk + "-" + strCelGluk + ")" + "/" + strFchi + "=" + strCorrect;
         String strEat = String.valueOf(corEat);
         String strCalcEat = strYglev + "*" + strYk + "=" + strEat;
         String strResult = String.valueOf(corRes);
         String strRes = corEat + "+" + correct + "-" + strActivation + "=" + corRes;
-        glukoza.setText(strGluk);
-        result.setText(strResult);
-        eat.setText(strEat + " Ед");
-        insulin.setText(strCorrect + " Ед");
-        calcEat.setText(strCalcEat);
-        calcCorect.setText(strCalcCorect);
-        calcResult.setText(strRes);
-        corect.setText(strActivation + " Ед");
+        glukozaText.setText(strGluk);
+        resultText.setText(strResult);
+        eatText.setText(strEat + " Ед");
+        insulinText.setText(strCorrect + " Ед");
+        calcEatText.setText(strCalcEat);
+        calcCorectText.setText(strCalcCorect);
+        calcResultText.setText(strRes);
+        corectText.setText(strActivation + " Ед");
 
         CalendarUtils.selectedDate = LocalDate.now();
 
@@ -97,26 +110,41 @@ public class ResultActivity extends AppCompatActivity {
         String monthOfYear = CalendarUtils.selectedDate.getMonth().toString();
 
         switch (monthOfYear) {
+            case "JANUARY":
+                monthOfYear = "января";
+                break;
+            case "FEBRUARY":
+                monthOfYear = "февраля";
+                break;
             case "MARCH":
                 monthOfYear = "марта";
                 break;
-            case "MONDAY":
-                monthOfYear = "пн";
+            case "APRIL":
+                monthOfYear = "апреля";
                 break;
-            case "TUESDAY":
-                monthOfYear = "вт";
+            case "MAY":
+                monthOfYear = "мая";
                 break;
-            case "THURSDAY":
-                monthOfYear = "чт";
+            case "JUNE":
+                monthOfYear = "июня";
                 break;
-            case "FRIDAY":
-                monthOfYear = "пт";
+            case "JULY":
+                monthOfYear = "июля";
                 break;
-            case "SATURDAY":
-                monthOfYear = "сб";
+            case "AUGUST":
+                monthOfYear = "августа";
                 break;
-            case "SUNDAY":
-                monthOfYear = "вс";
+            case "SEPTEMBER":
+                monthOfYear = "сентября";
+                break;
+            case "OCTOBER":
+                monthOfYear = "октября";
+                break;
+            case "NOVEMBER":
+                monthOfYear = "ноября";
+                break;
+            case "DECEMBER":
+                monthOfYear = "декабря";
                 break;
         }
 
@@ -147,11 +175,49 @@ public class ResultActivity extends AppCompatActivity {
         }
         DateFormat df = new SimpleDateFormat("HH:mm");
         String date = df.format(Calendar.getInstance().getTime());
-        String dateBolus = dayOfWeek + " " + CalendarUtils.selectedDate.getDayOfMonth() + " " + CalendarUtils.selectedDate.getMonth().toString() + " " + CalendarUtils.selectedDate.getYear() + " " +  date;
-        setDateBolus.setText(dateBolus);
+        String dateBolus = dayOfWeek + " " + CalendarUtils.selectedDate.getDayOfMonth() + " " + monthOfYear + " " + CalendarUtils.selectedDate.getYear() + " " +  date;
+        timeText.setText(dateBolus);
 
-        btnCalculate.setOnClickListener(view -> startActivity(main_intent));
+        btnCalculate.setOnClickListener(view -> saveResult());
 
+    }
+
+    public void saveResult(){
+
+
+        SharedPreferences sharedPreference = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
+        String userId = sharedPreference.getString("userName", "userId don't set");
+
+        BolusManager bolusManager = new BolusManager(this);
+        bolusManager.saveData(
+                userId,
+                glukozaText.getText().toString(),
+                XEText.getText().toString(),
+                eatText.getText().toString(),
+                insulinText.getText().toString(),
+                corectText.getText().toString(),
+                resultText.getText().toString(),
+                calcEatText.getText().toString(),
+                calcCorectText.getText().toString(),
+                calcResultText.getText().toString(),
+                timeText.getText().toString()
+        );
+
+        AlarmController alarmController = new AlarmController(this);
+        alarmController.refresh();
+
+        getToMainRes();
+
+    }
+
+    private void getToMainRes(){
+        // закрываем подключение
+        db.close();
+        // переход к главной activity
+        Intent intent = new Intent(this, AddGoodActivity.class);
+
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        startActivity(intent);
     }
 
     String day2;
@@ -212,7 +278,7 @@ public class ResultActivity extends AppCompatActivity {
     }
 
     public void openDatePicker(View view) {
-        initDatePicker(setDateBolus);
+        initDatePicker(timeText);
         datePickerDialog.show();
     }
 

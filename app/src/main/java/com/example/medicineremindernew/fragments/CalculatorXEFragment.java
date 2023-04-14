@@ -15,9 +15,7 @@ public class CalculatorXEFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View viewP = inflater.inflate(R.layout.fragment_calendar_x_e, container, false);
-
-
+        View viewP = inflater.inflate(R.layout.fragment_home, container, false);
 
         return viewP;
     }

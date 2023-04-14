@@ -13,12 +13,15 @@
         android:background="#FCF7F1"
         tools:ignore="MissingConstraints">
 
-
         <ImageButton
             android:id="@+id/imageButton"
+            android:layout_marginTop="17dp"
+            android:layout_marginLeft="17dp"
+            android:background="@drawable/close_round"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/close_round" />
+            />
+
 
         <TextView
             android:id="@+id/textView"
@@ -30,6 +33,68 @@
             android:layout_marginTop="250dp"
             android:textSize="32sp"
             android:text="Время" />
+        <RelativeLayout
+            android:id="@+id/rl2"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+
+            >
+            <ImageView
+                android:id="@+id/imageView71"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/_46" />
+            <ImageView
+                android:id="@+id/imageView72"
+                android:layout_below="@id/imageView71"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/_45" />
+
+            <ImageView
+                android:id="@+id/imageView82"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:layout_below="@id/imageView71"
+                android:layout_toRightOf="@id/imageView72"
+                android:layout_alignParentRight="true"
+                app:srcCompat="@drawable/_4" />
+
+
+        </RelativeLayout>     <RelativeLayout
+        android:id="@+id/rl"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+
+        >
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/frame_44" />
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/imageView6"
+            app:srcCompat="@drawable/frame_42" />
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/imageView7"
+            android:layout_alignParentRight="true"
+            app:srcCompat="@drawable/__1_occggrkm5_transformed_1" />
+
+
+    </RelativeLayout>
 
     </RelativeLayout>
 
