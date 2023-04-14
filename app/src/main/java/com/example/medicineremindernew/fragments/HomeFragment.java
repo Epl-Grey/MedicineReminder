@@ -83,6 +83,7 @@ public class HomeFragment extends Fragment {
         minusMonthBtn = viewP.findViewById(R.id.minMonthBtn);
         plusMonthBtn = viewP.findViewById(R.id.plusMonthBtn);
         calendar= viewP.findViewById(R.id.monthYearTV);
+
         calendarRecyclerView = viewP.findViewById(R.id.calendarRecyclerView);
         monthYearText = viewP.findViewById(R.id.monthYearTV);
         RelativeLayout inf = viewP.findViewById(R.id.inform);
@@ -137,13 +138,15 @@ public class HomeFragment extends Fragment {
             System.out.println("PILLS CHANGED");
             pillAdapter.notifyDataSetChanged();
             alarmController.refresh();
+            onCalendarItem(db);
+            pillAdapter.notifyDataSetChanged();
             return null;
         });
 
         return viewP;
     }
 
-    public void onCalendarItem( SQLiteDatabase db) {
+    public void onCalendarItem(SQLiteDatabase db) {
         testCursor = db.rawQuery("select " + DatabaseHelper.COLUMN_ID + ", " + DatabaseHelper.COLUMN_DATE1 + ", " + DatabaseHelper.COLUMN_DATE2 + ", "+ DatabaseHelper.COLUMN_NAME + ", " + DatabaseHelper.COLUMN_VALUETIME + ", " + DatabaseHelper.COLUMN_TIME1 + " from " + DatabaseHelper.TABLE, null);
         testCursor.moveToFirst();
         int length = testCursor.getCount();
