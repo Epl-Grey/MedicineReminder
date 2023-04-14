@@ -82,7 +82,7 @@ public class HomeFragment extends Fragment {
         minusMonthBtn = viewP.findViewById(R.id.minMonthBtn);
         plusMonthBtn = viewP.findViewById(R.id.plusMonthBtn);
         calendar= viewP.findViewById(R.id.monthYearTV);
-        Button settings=  viewP.findViewById(R.id.settings);
+
         calendarRecyclerView = viewP.findViewById(R.id.calendarRecyclerView);
         monthYearText = viewP.findViewById(R.id.monthYearTV);
         RelativeLayout inf = viewP.findViewById(R.id.inform);
@@ -94,7 +94,6 @@ public class HomeFragment extends Fragment {
         Intent sett = new Intent(getContext(), SettingsFragment.class);
         Intent informIntent = new Intent(getContext(), InformActivity.class);
 
-        settings.setOnClickListener(view -> startActivity(sett));
         addPill.setOnClickListener(view -> startActivity(intent));
         inf.setOnClickListener(view -> startActivity(informIntent));
 
