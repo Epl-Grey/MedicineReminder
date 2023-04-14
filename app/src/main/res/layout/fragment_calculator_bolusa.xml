@@ -115,17 +115,16 @@
         android:textSize="18sp"
         android:textColor="@color/bl"
         android:fontFamily="@font/font1"
+        android:layout_marginRight="20dp"
         android:layout_below="@id/editGluk"
-        android:layout_toRightOf="@id/ugl"
-        android:layout_marginLeft="70dp"/>
+        android:layout_alignParentRight="true" />
 
     <EditText
         android:id="@+id/editFCHI"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/fchi"
-        android:layout_toRightOf="@id/ugl"
-        android:layout_marginLeft="70dp"
+        android:layout_alignParentRight="true"
         android:layout_marginRight="20dp"/>
 
     <TextView
