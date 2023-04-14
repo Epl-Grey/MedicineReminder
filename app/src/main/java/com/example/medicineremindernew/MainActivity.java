@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.example.medicineremindernew.firebase.PillsManager;
 import com.example.medicineremindernew.fragments.CalculatorBolusa;
 import com.example.medicineremindernew.fragments.CalculatorXEFragment;
 import com.example.medicineremindernew.fragments.HomeFragment;

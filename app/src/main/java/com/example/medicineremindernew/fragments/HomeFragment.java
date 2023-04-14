@@ -35,6 +35,7 @@ import com.example.medicineremindernew.PillSimpleAdapter;
 import com.example.medicineremindernew.PillsView;
 import com.example.medicineremindernew.R;
 import com.example.medicineremindernew.alarm.AlarmController;
+import com.example.medicineremindernew.firebase.PillsManager;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -67,7 +68,7 @@ public class HomeFragment extends Fragment {
     public ArrayList<LocalDate> days;
     public ArrayList<String> numberWeek;
     public AlarmController alarmController;
-
+    private PillsManager pillsManager;
 
     @SuppressLint("CutPasteId")
     @Override
@@ -131,6 +132,14 @@ public class HomeFragment extends Fragment {
 
         alarmController.refresh();
         onCalendarItem(db);
+
+        pillsManager = new PillsManager(getContext());
+        pillsManager.setListener((pills) -> {
+            System.out.println("PILLS CHANGED");
+            pillAdapter.notifyDataSetChanged();
+            alarmController.refresh();
+            return null;
+        });
 
         return viewP;
     }
