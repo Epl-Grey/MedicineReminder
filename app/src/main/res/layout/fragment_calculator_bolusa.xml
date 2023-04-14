@@ -81,12 +81,13 @@
 
     <EditText
         android:id="@+id/editGluk"
-        android:layout_below="@id/texgl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
+        android:layout_below="@id/texgl"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"/>
+        android:layout_marginTop="0dp"
+        android:layout_marginRight="20dp"
+        android:inputType="number" />
 
     <TextView
         android:id="@+id/ugl"
@@ -94,6 +95,7 @@
         android:layout_height="wrap_content"
         android:text="Углеводы(ХЕ)"
         android:textSize="18sp"
+
         android:textColor="@color/bl"
         android:fontFamily="@font/font1"
         android:layout_below="@id/editGluk"
@@ -104,6 +106,7 @@
         android:layout_width="150dp"
         android:layout_height="wrap_content"
      android:layout_below="@id/ugl"
+        android:inputType="number"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="17dp"/>
 
@@ -113,6 +116,7 @@
         android:layout_height="wrap_content"
         android:text="ФЧИ(ммол/л)"
         android:textSize="18sp"
+
         android:textColor="@color/bl"
         android:fontFamily="@font/font1"
         android:layout_below="@id/editGluk"
@@ -124,6 +128,7 @@
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/fchi"
+        android:inputType="number"
         android:layout_toRightOf="@id/ugl"
         android:layout_marginLeft="70dp"
         android:layout_marginRight="20dp"/>
@@ -144,6 +149,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/yk"
+        android:inputType="number"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"/>
 
@@ -153,6 +159,7 @@
         android:layout_height="wrap_content"
         android:text="Активный инсулин(ЕД)"
         android:textSize="18sp"
+
         android:textColor="@color/bl"
         android:fontFamily="@font/font1"
         android:layout_below="@id/editYK"
@@ -164,6 +171,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/akt"
+        android:inputType="number"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"/>
 
@@ -184,6 +192,7 @@
         android:id="@+id/editCelGluk"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:inputType="number"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"/>
 
