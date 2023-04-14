@@ -119,9 +119,9 @@
 
         android:textColor="@color/bl"
         android:fontFamily="@font/font1"
+        android:layout_marginRight="20dp"
         android:layout_below="@id/editGluk"
-        android:layout_toRightOf="@id/ugl"
-        android:layout_marginLeft="70dp"/>
+        android:layout_alignParentRight="true" />
 
     <EditText
         android:id="@+id/editFCHI"
@@ -131,6 +131,7 @@
         android:inputType="number"
         android:layout_toRightOf="@id/ugl"
         android:layout_marginLeft="70dp"
+        android:layout_alignParentRight="true"
         android:layout_marginRight="20dp"/>
 
     <TextView
@@ -159,7 +160,6 @@
         android:layout_height="wrap_content"
         android:text="Активный инсулин(ЕД)"
         android:textSize="18sp"
-
         android:textColor="@color/bl"
         android:fontFamily="@font/font1"
         android:layout_below="@id/editYK"

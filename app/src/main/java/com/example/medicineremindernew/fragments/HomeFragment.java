@@ -82,7 +82,6 @@ public class HomeFragment extends Fragment {
         minusMonthBtn = viewP.findViewById(R.id.minMonthBtn);
         plusMonthBtn = viewP.findViewById(R.id.plusMonthBtn);
         calendar= viewP.findViewById(R.id.monthYearTV);
-
         calendarRecyclerView = viewP.findViewById(R.id.calendarRecyclerView);
         monthYearText = viewP.findViewById(R.id.monthYearTV);
         RelativeLayout inf = viewP.findViewById(R.id.inform);
