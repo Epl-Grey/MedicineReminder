@@ -55,7 +55,7 @@ public class ResultActivity extends AppCompatActivity {
         calcEat = findViewById(R.id.calcEat);
         calcCorect = findViewById(R.id.calcCorect);
         calcResult = findViewById(R.id.calcResult);
-        setDateBolus = findViewById(R.id.setDateBolus);
+        //setDateBolus = findViewById(R.id.setDateBolus);
         btnCalculate = findViewById(R.id.btnCalculate);
 
         CalendarUtils.selectedDate = LocalDate.now();

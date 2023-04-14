@@ -91,7 +91,7 @@
     <style name="time_">
 
         <item name="android:textSize">
-            24sp
+            21sp
         </item>
 
         <item name="android:textColor">
