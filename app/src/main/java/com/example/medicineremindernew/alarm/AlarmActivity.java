@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.example.medicineremindernew.fragments.HomeFragment;
 import com.example.medicineremindernew.R;
@@ -19,13 +20,21 @@ public class AlarmActivity extends AppCompatActivity {
     public String fileName = "a2.html";
     Ringtone ringtone;
     ImageButton  back;
+    TextView nameTextView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alarm);
-            back=findViewById(R.id.imageButton);
-        Intent intent = new Intent(this, HomeFragment.class);
 
+        back=findViewById(R.id.imageButton);
+        nameTextView = findViewById(R.id.textView);
+
+        Bundle extras = getIntent().getExtras();
+        String name = extras.getString("name");
+        nameTextView.setText(name);
+
+        Intent intent = new Intent(this, HomeFragment.class);
         back.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -34,6 +43,7 @@ public class AlarmActivity extends AppCompatActivity {
                     finish();
                 }
             });
+
         Uri notificationUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
         ringtone = RingtoneManager.getRingtone(this, notificationUri);
         if (ringtone == null) {

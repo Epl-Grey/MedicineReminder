@@ -137,7 +137,6 @@ public class HomeFragment extends Fragment {
         pillsManager.setListener((pills) -> {
             System.out.println("PILLS CHANGED");
             pillAdapter.notifyDataSetChanged();
-            alarmController.refresh();
             onCalendarItem(db);
             pillAdapter.notifyDataSetChanged();
             return null;
@@ -152,7 +151,7 @@ public class HomeFragment extends Fragment {
         int length = testCursor.getCount();
         System.out.println("selectedDate " + selectedDate);
         ArrayList<PillsView> arrayList = new ArrayList<PillsView>();
-        pillAdapter = new PillSimpleAdapter(getContext(), arrayList);
+        pillAdapter = new PillSimpleAdapter(getActivity(), arrayList);
         pillList.setAdapter(pillAdapter);
         for (int i = 1; i <= length; i++) {
 
@@ -186,7 +185,7 @@ public class HomeFragment extends Fragment {
             testCursor.moveToNext();
 
         }
-
+        alarmController.refresh();
     }
 //    @Override
 //    public void onDestroy() {

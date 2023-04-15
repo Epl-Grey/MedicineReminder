@@ -50,20 +50,20 @@ public class AlarmController {
             String times = cursor.getString(12);
 
 
-            System.out.println("ID:     " + id);
-            System.out.println("Name:   " + name);
-            System.out.println("Value:  " + value);
-            System.out.println("Dosage: " + dosage);
-            System.out.println("Date 1: " + date1);
-            System.out.println("Date 2: " + date2);
-            System.out.println("Time 1: " + time1);
-            System.out.println("Time 2: " + time2);
-            System.out.println("Time 3: " + time3);
-            System.out.println("Time 4: " + time4);
-            System.out.println("Time 5: " + time5);
-            System.out.println("Time 6: " + time6);
-            System.out.println("Times : " + times);
-            System.out.println();
+//            System.out.println("ID:     " + id);
+//            System.out.println("Name:   " + name);
+//            System.out.println("Value:  " + value);
+//            System.out.println("Dosage: " + dosage);
+//            System.out.println("Date 1: " + date1);
+//            System.out.println("Date 2: " + date2);
+//            System.out.println("Time 1: " + time1);
+//            System.out.println("Time 2: " + time2);
+//            System.out.println("Time 3: " + time3);
+//            System.out.println("Time 4: " + time4);
+//            System.out.println("Time 5: " + time5);
+//            System.out.println("Time 6: " + time6);
+//            System.out.println("Times : " + times);
+//            System.out.println();
 
             add_alarm(new Pill(id, name, value, dosage, date1, date2, time1));
             add_alarm(new Pill(id, name, value, dosage, date1, date2, time2));
@@ -130,7 +130,7 @@ public class AlarmController {
             AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
 
             AlarmManager.AlarmClockInfo alarmClockInfo = new AlarmManager.AlarmClockInfo(alarm_calendar.getTimeInMillis(), getAlarmInfoPendingIntent());
-            alarmManager.setAlarmClock(alarmClockInfo, getAlarmActionPendingIntent());
+            alarmManager.setAlarmClock(alarmClockInfo, getAlarmActionPendingIntent(pill.name));
         }
     }
 
@@ -144,8 +144,9 @@ public class AlarmController {
         }
     }
 
-    private PendingIntent getAlarmActionPendingIntent() {
+    private PendingIntent getAlarmActionPendingIntent(String name) {
         Intent intent = new Intent(context, AlarmActivity.class);
+        intent.putExtra("name", name);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             return PendingIntent.getActivity(context, 1, intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_MUTABLE);

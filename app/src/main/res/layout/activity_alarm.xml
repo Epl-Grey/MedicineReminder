@@ -31,8 +31,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/imageButton"
             android:layout_marginTop="250dp"
-            android:textSize="32sp"
-            android:text="Время" />
+            android:textSize="42sp"
+            android:text="Боярошник" />
         <RelativeLayout
             android:id="@+id/rl2"
             android:layout_width="300dp"
