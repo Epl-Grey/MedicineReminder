@@ -209,6 +209,7 @@ public class AlarmController {
             PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_MUTABLE);
 
             alarm_calendar.add(Calendar.MINUTE, -15);
+            alarm_calendar.add(Calendar.DAY_OF_MONTH, +1);
 
             AlarmManager alarmManager = (AlarmManager)context.getSystemService(ALARM_SERVICE);
 

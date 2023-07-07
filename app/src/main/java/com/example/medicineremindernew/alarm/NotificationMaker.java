@@ -24,7 +24,7 @@ public class NotificationMaker {
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.S){
             pendingIntent = PendingIntent.getActivity(ctx, 0, ii, PendingIntent.FLAG_MUTABLE);
         }else{
-            pendingIntent = PendingIntent.getActivity(ctx, 0, ii, 0);
+            pendingIntent = PendingIntent.getActivity(ctx, 0, ii, PendingIntent.FLAG_IMMUTABLE);
         }
 
         NotificationCompat.Builder mBuilder =
@@ -33,6 +33,7 @@ public class NotificationMaker {
                         .setSmallIcon(R.drawable.bell)
                         .setContentTitle(title)
                         .setContentText("Примите в "+ time)
+                        .setSmallIcon(R.drawable.frame_78)
                         .setPriority(Notification.PRIORITY_MAX);
 
 
