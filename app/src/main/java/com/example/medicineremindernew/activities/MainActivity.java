@@ -19,7 +19,6 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.example.medicineremindernew.R;
-import com.example.medicineremindernew.alarm.NotificationService;
 import com.example.medicineremindernew.fragments.CalculatorBolusa;
 import com.example.medicineremindernew.fragments.HomeFragment;
 import com.google.android.material.navigation.NavigationView;

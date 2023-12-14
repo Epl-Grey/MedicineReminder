@@ -13,7 +13,7 @@ import androidx.core.app.NotificationCompat;
 import com.example.medicineremindernew.fragments.HomeFragment;
 import com.example.medicineremindernew.R;
 
-public class NotificationMaker {
+public class NotificationService {
     static void makeNotify(Context ctx, String title, String time){
         System.out.println("NOTIFY!!!");
         NotificationManager mNotificationManager;
