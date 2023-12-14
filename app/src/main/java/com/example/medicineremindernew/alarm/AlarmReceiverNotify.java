@@ -11,7 +11,7 @@ public class AlarmReceiverNotify extends BroadcastReceiver {
         Bundle extras = intent.getExtras();
         String name = extras.getString("name");
         String time = extras.getString("time");
-        NotificationMaker.makeNotify(context, name, time);
+        NotificationService.makeNotify(context, name, time);
 
     }
 }

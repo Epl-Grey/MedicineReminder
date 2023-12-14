@@ -1,7 +1,8 @@
-package com.example.medicineremindernew
+package com.example.medicineremindernew.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.medicineremindernew.R
 
 class RegisterDiabetesActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

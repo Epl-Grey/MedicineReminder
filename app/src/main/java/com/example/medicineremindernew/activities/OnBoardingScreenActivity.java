@@ -1,4 +1,4 @@
-package com.example.medicineremindernew;
+package com.example.medicineremindernew.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
@@ -12,7 +12,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class OnBordingScreen extends AppCompatActivity {
+import com.example.medicineremindernew.ObAdapter;
+import com.example.medicineremindernew.R;
+import com.example.medicineremindernew.SaveState;
+
+public class OnBoardingScreenActivity extends AppCompatActivity {
 
 
     private ViewPager viewPager;

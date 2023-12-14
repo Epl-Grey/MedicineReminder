@@ -1,23 +1,27 @@
-package com.example.medicineremindernew;
+package com.example.medicineremindernew.activities;
 
+import androidx.activity.result.contract.ActivityResultContract;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.example.medicineremindernew.firebase.PillsManager;
+import com.example.medicineremindernew.R;
+import com.example.medicineremindernew.alarm.NotificationService;
 import com.example.medicineremindernew.fragments.CalculatorBolusa;
-import com.example.medicineremindernew.fragments.CalculatorXEFragment;
 import com.example.medicineremindernew.fragments.HomeFragment;
-import com.example.medicineremindernew.fragments.SettingsFragment;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -48,6 +52,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             navigationView.setCheckedItem(R.id.nav_home);
         }
 
+
+//        NotificationService.makeNotify(this, "Боярошник", "228:223");
     }
 
     @SuppressLint("NonConstantResourceId")
@@ -58,13 +64,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
                 break;
 
-            case R.id.nav_settings:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new SettingsFragment()).commit();
-                break;
-
-            case R.id.nav_calendarXE:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new CalculatorXEFragment()).commit();
-                break;
+//            case R.id.nav_settings:
+//                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new SettingsFragment()).commit();
+//                break;
+//
+//            case R.id.nav_calendarXE:
+//                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new CalculatorXEFragment()).commit();
+//                break;
 
             case R.id.nav_calendarBolusa:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new CalculatorBolusa()).commit();

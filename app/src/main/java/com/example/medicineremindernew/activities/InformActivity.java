@@ -1,4 +1,4 @@
-package com.example.medicineremindernew;
+package com.example.medicineremindernew.activities;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +14,9 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 
+import com.example.medicineremindernew.AddingPill;
+import com.example.medicineremindernew.DatabaseHelper;
+import com.example.medicineremindernew.R;
 import com.example.medicineremindernew.fragments.HomeFragment;
 
 import java.text.ParseException;

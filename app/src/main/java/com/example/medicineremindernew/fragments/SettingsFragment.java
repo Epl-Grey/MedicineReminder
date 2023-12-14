@@ -13,9 +13,9 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.medicineremindernew.AddingPill;
-import com.example.medicineremindernew.LoginActivity;
+import com.example.medicineremindernew.activities.LoginActivity;
 import com.example.medicineremindernew.R;
-import com.example.medicineremindernew.RegisterActivity;
+import com.example.medicineremindernew.activities.RegisterActivity;
 
 
 public class SettingsFragment extends Fragment {

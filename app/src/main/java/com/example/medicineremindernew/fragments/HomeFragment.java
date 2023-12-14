@@ -30,7 +30,7 @@ import com.example.medicineremindernew.AddingPill;
 import com.example.medicineremindernew.calendar.CalendarAdapter;
 import com.example.medicineremindernew.calendar.CalendarUtils;
 import com.example.medicineremindernew.DatabaseHelper;
-import com.example.medicineremindernew.InformActivity;
+import com.example.medicineremindernew.activities.InformActivity;
 import com.example.medicineremindernew.PillSimpleAdapter;
 import com.example.medicineremindernew.PillsView;
 import com.example.medicineremindernew.R;

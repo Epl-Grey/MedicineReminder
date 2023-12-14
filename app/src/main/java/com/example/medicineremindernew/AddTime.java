@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.medicineremindernew.activities.AddGoodActivity;
 import com.example.medicineremindernew.alarm.AlarmController;
 import com.example.medicineremindernew.firebase.PillsManager;
 

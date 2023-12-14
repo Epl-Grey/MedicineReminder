@@ -4,8 +4,6 @@ import android.content.ContentValues
 import android.content.Context
 import android.util.Log
 import com.example.medicineremindernew.BolusHelper
-import com.example.medicineremindernew.DatabaseHelper
-import com.example.medicineremindernew.ResultActivity
 import com.google.firebase.database.*
 import com.google.firebase.database.ktx.getValue
 

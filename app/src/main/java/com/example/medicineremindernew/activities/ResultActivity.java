@@ -1,4 +1,4 @@
-package com.example.medicineremindernew;
+package com.example.medicineremindernew.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,17 +16,17 @@ import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
+import com.example.medicineremindernew.DatabaseHelper;
+import com.example.medicineremindernew.R;
 import com.example.medicineremindernew.alarm.AlarmController;
 import com.example.medicineremindernew.calendar.CalendarUtils;
 
 import com.example.medicineremindernew.firebase.BolusManager;
-import com.example.medicineremindernew.firebase.PillsManager;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.Locale;
 
 public class ResultActivity extends AppCompatActivity {

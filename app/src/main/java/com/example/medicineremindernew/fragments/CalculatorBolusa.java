@@ -12,7 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.medicineremindernew.R;
-import com.example.medicineremindernew.ResultActivity;
+import com.example.medicineremindernew.activities.ResultActivity;
 
 
 public class CalculatorBolusa extends Fragment {

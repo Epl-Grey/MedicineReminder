@@ -1,8 +1,7 @@
-package com.example.medicineremindernew;
+package com.example.medicineremindernew.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.AnimatedVectorDrawable;
 import android.graphics.drawable.Drawable;
@@ -12,6 +11,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+
+import com.example.medicineremindernew.R;
 
 public class AddGoodActivity extends AppCompatActivity {
 

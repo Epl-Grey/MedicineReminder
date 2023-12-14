@@ -1,6 +1,9 @@
-package com.example.medicineremindernew
+package com.example.medicineremindernew.activities
 
-3import android.content.Intent
+import com.example.medicineremindernew.R
+import com.example.medicineremindernew.SaveState
+
+import android.content.Intent
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

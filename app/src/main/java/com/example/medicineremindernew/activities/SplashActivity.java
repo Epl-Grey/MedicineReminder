@@ -1,4 +1,4 @@
-package com.example.medicineremindernew;
+package com.example.medicineremindernew.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +8,8 @@ import android.os.Handler;
 import android.view.View;
 import android.view.Window;
 import android.widget.TextView;
+
+import com.example.medicineremindernew.R;
 
 public class SplashActivity extends AppCompatActivity {
     TextView typingt;
@@ -23,7 +25,7 @@ public class SplashActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent i = new Intent(SplashActivity.this, OnBordingScreen.class);
+                Intent i = new Intent(SplashActivity.this, OnBoardingScreenActivity.class);
                 startActivity(i);
                 finish();
             }
