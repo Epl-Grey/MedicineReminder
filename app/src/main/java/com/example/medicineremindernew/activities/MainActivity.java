@@ -26,6 +26,7 @@ import com.example.medicineremindernew.alarm.NotificationService;
 import com.example.medicineremindernew.fragments.CalculatorBolusa;
 import com.example.medicineremindernew.fragments.HomeFragment;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -60,8 +61,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.POST_NOTIFICATIONS},101);
             }
         }
-//        NotificationService.makeNotify(this, "Боярошник", "228:223");
-//        NotificationService.makeNotify(this, "Пустырник", "69:1337");
     }
 
     @SuppressLint("NonConstantResourceId")

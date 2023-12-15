@@ -11,6 +11,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
 
 import com.example.medicineremindernew.DatabaseHelper;
+import com.example.medicineremindernew.activities.MainActivity;
 import com.example.medicineremindernew.fragments.HomeFragment;
 
 import java.text.SimpleDateFormat;
@@ -135,7 +136,7 @@ public class AlarmController {
     }
 
     private PendingIntent getAlarmInfoPendingIntent() {
-        Intent alarmInfoIntent = new Intent(context, HomeFragment.class);
+        Intent alarmInfoIntent = new Intent(context, MainActivity.class);
         alarmInfoIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             return PendingIntent.getActivity(context, 0, alarmInfoIntent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_MUTABLE);
@@ -149,9 +150,9 @@ public class AlarmController {
         intent.putExtra("name", name);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            return PendingIntent.getActivity(context, 1, intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_MUTABLE);
+            return PendingIntent.getActivity(context, name.hashCode(), intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_MUTABLE);
         }else{
-            return PendingIntent.getActivity(context, 1, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+            return PendingIntent.getActivity(context, name.hashCode(), intent, PendingIntent.FLAG_UPDATE_CURRENT);
         }
     }
 
@@ -206,15 +207,15 @@ public class AlarmController {
             intent.putExtra("name", pill.name);
             SimpleDateFormat df = new SimpleDateFormat("HH:mm");
             intent.putExtra("time", df.format(alarm_calendar.getTime()));
-            PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_MUTABLE);
+            PendingIntent pendingIntent = PendingIntent.getBroadcast(context, pill.hashCode(), intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
 
             alarm_calendar.add(Calendar.MINUTE, -15);
-            alarm_calendar.add(Calendar.DAY_OF_MONTH, +1);
+//            alarm_calendar.add(Calendar.DAY_OF_MONTH, +1);
 
             AlarmManager alarmManager = (AlarmManager)context.getSystemService(ALARM_SERVICE);
 
             System.out.println(pill.name + " " + alarm_calendar.getTime());
-            alarmManager.set(AlarmManager.RTC_WAKEUP, alarm_calendar.getTimeInMillis(), pendingIntent);
+            alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, alarm_calendar.getTimeInMillis(), pendingIntent);
             System.out.println("setAlarmNotify");
         }
 

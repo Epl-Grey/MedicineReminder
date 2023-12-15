@@ -20,7 +20,7 @@ import com.example.medicineremindernew.R;
 public class NotificationService {
     private static final int PILLS_CHANNEL_ID = 99;
     public static void makeNotify(Context ctx, String title, String time){
-        Log.i("Notification", "NOTIFY!!!");
+        Log.i("Notification", "NOTIFY!!! " + title);
         NotificationManager mNotificationManager;
 
         Intent ii = new Intent(ctx, HomeFragment.class);
@@ -46,11 +46,11 @@ public class NotificationService {
         mNotificationManager = (NotificationManager) ctx.getSystemService(Context.NOTIFICATION_SERVICE);
 
         NotificationChannel channel = new NotificationChannel(
-                title,
+                "pills",
                 "Pills",
                 NotificationManager.IMPORTANCE_HIGH);
         mNotificationManager.createNotificationChannel(channel);
-        mBuilder.setChannelId(title);
+        mBuilder.setChannelId("pills");
 
         Notification notification = mBuilder.build();
 

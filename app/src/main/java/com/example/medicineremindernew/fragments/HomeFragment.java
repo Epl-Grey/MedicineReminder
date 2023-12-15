@@ -27,6 +27,7 @@ import android.widget.TextView;
 
 import com.example.medicineremindernew.AddingPill;
 
+import com.example.medicineremindernew.alarm.Pill;
 import com.example.medicineremindernew.calendar.CalendarAdapter;
 import com.example.medicineremindernew.calendar.CalendarUtils;
 import com.example.medicineremindernew.DatabaseHelper;
@@ -35,6 +36,7 @@ import com.example.medicineremindernew.PillSimpleAdapter;
 import com.example.medicineremindernew.PillsView;
 import com.example.medicineremindernew.R;
 import com.example.medicineremindernew.alarm.AlarmController;
+import com.example.medicineremindernew.firebase.PillData;
 import com.example.medicineremindernew.firebase.PillsManager;
 
 import java.time.LocalDate;
@@ -139,6 +141,8 @@ public class HomeFragment extends Fragment {
             pillAdapter.notifyDataSetChanged();
             onCalendarItem(db);
             pillAdapter.notifyDataSetChanged();
+
+
             return null;
         });
 
@@ -274,5 +278,6 @@ public class HomeFragment extends Fragment {
         initDatePicker();
         datePickerDialog.show();
     }
+
 
 }
