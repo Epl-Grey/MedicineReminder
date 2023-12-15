@@ -91,11 +91,12 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/calendarRecyclerView"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="14dp"
             android:layout_marginRight="14dp"
             android:layout_marginTop="271dp"
             android:orientation="horizontal"
+            tools:itemCount="5"
             />
         <!--45dp-->
 
