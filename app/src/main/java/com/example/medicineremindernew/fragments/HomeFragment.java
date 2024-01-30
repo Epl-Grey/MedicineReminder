@@ -71,7 +71,7 @@ public class HomeFragment extends Fragment {
     public ArrayList<String> numberWeek;
     public AlarmController alarmController;
     private PillsManager pillsManager;
-
+    int positionG;
     @SuppressLint("CutPasteId")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -234,6 +234,7 @@ public class HomeFragment extends Fragment {
         linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         calendarRecyclerView.setLayoutManager(linearLayoutManager);
         calendarRecyclerView.setAdapter(calendarAdapter);
+        calendarRecyclerView.getLayoutManager().scrollToPosition(positionG-3);
 
     }
 
@@ -254,6 +255,8 @@ public class HomeFragment extends Fragment {
     public void onItemClick(int position, LocalDate date)
     {
         CalendarUtils.selectedDate = date;
+        System.out.println("positionpositionpositionposition " + position);
+        positionG = position;
         setWeekView();
     }
     private void initDatePicker() {
