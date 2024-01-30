@@ -1,104 +1,66 @@
 package com.example.medicineremindernew.activities;
 
-import androidx.activity.result.contract.ActivityResultContract;
-import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-
-import android.Manifest;
-import android.annotation.SuppressLint;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.medicineremindernew.R;
-import com.example.medicineremindernew.alarm.NotificationService;
 import com.example.medicineremindernew.fragments.CalculatorBolusa;
 import com.example.medicineremindernew.fragments.HomeFragment;
-import com.google.android.material.navigation.NavigationView;
-import com.google.firebase.database.FirebaseDatabase;
+import com.example.medicineremindernew.fragments.SettingsFragment;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+public class MainActivity extends AppCompatActivity
+        implements BottomNavigationView
+        .OnNavigationItemSelectedListener {
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-
-    private DrawerLayout drawerLayout;
+    BottomNavigationView bottomNavigationView;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        bottomNavigationView
+                = findViewById(R.id.bottomNavigationView);
 
-        Toolbar toolbar = findViewById(R.id.toolbar); //Ignore red line errors
-        setSupportActionBar(toolbar);
-
-        drawerLayout = findViewById(R.id.drawer_layout);
-        NavigationView navigationView = findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open_nav,
-                R.string.close_nav);
-        drawerLayout.addDrawerListener(toggle);
-        toggle.syncState();
-
-        if (savedInstanceState == null) {
-            System.out.println("savedInstanceState == null");
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
-            navigationView.setCheckedItem(R.id.nav_home);
-        }
-
-        if (Build.VERSION.SDK_INT >= 33) {
-            if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
-                ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.POST_NOTIFICATIONS},101);
-            }
-        }
+        bottomNavigationView
+                .setOnNavigationItemSelectedListener(this);
+        bottomNavigationView.setSelectedItemId(R.id.person);
     }
+    HomeFragment homeFragment = new HomeFragment();
+    CalculatorBolusa calculatorBolusa = new CalculatorBolusa();
+    SettingsFragment settingsFragment = new SettingsFragment();
 
-    @SuppressLint("NonConstantResourceId")
     @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+    public boolean
+    onNavigationItemSelected(@NonNull MenuItem item)
+    {
+
         switch (item.getItemId()) {
-            case R.id.nav_home:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
-                break;
+            case R.id.person:
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.flFragment, homeFragment)
+                        .commit();
+                return true;
 
-//            case R.id.nav_settings:
-//                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new SettingsFragment()).commit();
-//                break;
-//
-//            case R.id.nav_calendarXE:
-//                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new CalculatorXEFragment()).commit();
-//                break;
+            case R.id.home:
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.flFragment, calculatorBolusa)
+                        .commit();
+                return true;
 
-            case R.id.nav_calendarBolusa:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new CalculatorBolusa()).commit();
-                break;
-
-            case R.id.nav_logout:
-                Toast.makeText(this, "Exit!", Toast.LENGTH_SHORT).show();
-                this.finishAffinity();
-                break;
+            case R.id.settings:
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.flFragment, settingsFragment)
+                        .commit();
+                return true;
         }
-
-        drawerLayout.closeDrawer(GravityCompat.START);
-        return true;
-    }
-
-    @Override
-    public void onBackPressed() {
-        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-            drawerLayout.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
+        return false;
     }
 }
