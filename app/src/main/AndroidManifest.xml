@@ -8,6 +8,7 @@
 
 
     <application
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@drawable/frame_78"
         android:label="Medecine Reminder"
