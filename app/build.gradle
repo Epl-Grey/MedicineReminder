@@ -4,10 +4,11 @@ plugins {
     id 'com.google.gms.google-services'
     id 'kotlin-kapt'
     id 'com.google.dagger.hilt.android'
+    id 'org.jetbrains.kotlin.plugin.serialization' version '1.8.20'
 }
 
 android {
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.example.medicineremindernew"
@@ -49,6 +50,13 @@ dependencies {
 
     implementation "com.google.dagger:hilt-android:2.44"
     kapt "com.google.dagger:hilt-compiler:2.44"
+
+    implementation platform("io.github.jan-tennert.supabase:bom:2.1.0")
+    implementation "io.github.jan-tennert.supabase:postgrest-kt:2.1.0"
+    implementation "io.github.jan-tennert.supabase:gotrue-kt"
+    implementation 'io.github.jan-tennert.supabase:realtime-kt'
+    implementation "io.ktor:ktor-client-android:2.3.8"
+    implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.2"
 
     implementation platform('com.google.firebase:firebase-bom:31.1.1')
     implementation 'com.google.firebase:firebase-analytics-ktx'
