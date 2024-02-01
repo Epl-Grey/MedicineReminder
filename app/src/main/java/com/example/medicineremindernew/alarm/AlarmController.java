@@ -2,6 +2,7 @@ package com.example.medicineremindernew.alarm;
 
 import static android.content.Context.ALARM_SERVICE;
 
+import android.annotation.SuppressLint;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -9,6 +10,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
+import android.util.Log;
 
 import com.example.medicineremindernew.DatabaseHelper;
 import com.example.medicineremindernew.activities.MainActivity;
@@ -131,7 +133,12 @@ public class AlarmController {
             AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
 
             AlarmManager.AlarmClockInfo alarmClockInfo = new AlarmManager.AlarmClockInfo(alarm_calendar.getTimeInMillis(), getAlarmInfoPendingIntent());
-            alarmManager.setAlarmClock(alarmClockInfo, getAlarmActionPendingIntent(pill.name));
+            try{
+                alarmManager.setAlarmClock(alarmClockInfo, getAlarmActionPendingIntent(pill.name));
+            }catch (SecurityException e){
+                Log.e("alarm", "alarmManager.setAlarmClock SecureException");
+            }
+
         }
     }
 
@@ -199,7 +206,7 @@ public class AlarmController {
 //        System.out.println(alarm_calendar.getTime() + " > " + calendar_date2.getTime() + " = " + (alarm_calendar.compareTo(calendar_date2) < 0));
 
         if(alarm_calendar.compareTo(calendar_date1) > 0 & alarm_calendar.compareTo(calendar_date2) < 0){
-            System.out.println(Calendar.getInstance().getTime() + " > " + alarm_calendar.getTime() + " = " + (Calendar.getInstance().compareTo(alarm_calendar) > 0));
+//            System.out.println(Calendar.getInstance().getTime() + " > " + alarm_calendar.getTime() + " = " + (Calendar.getInstance().compareTo(alarm_calendar) > 0));
             if(Calendar.getInstance().compareTo(alarm_calendar) > 0){
                 alarm_calendar.add(Calendar.DAY_OF_MONTH, 1);
             }
@@ -215,8 +222,16 @@ public class AlarmController {
             AlarmManager alarmManager = (AlarmManager)context.getSystemService(ALARM_SERVICE);
 
 //            System.out.println(pill.name + " " + alarm_calendar.getTime());
-            alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, alarm_calendar.getTimeInMillis(), pendingIntent);
+
 //            System.out.println("setAlarmNotify");
+            System.out.println(pill.name + " " + alarm_calendar.getTime());
+            try{
+                alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, alarm_calendar.getTimeInMillis(), pendingIntent);
+            }catch (SecurityException e){
+                Log.e("alarm", "alarmManager.setExactAndAllowWhileIdle SecureException");
+            }
+
+            System.out.println("setAlarmNotify");
         }
 
 
