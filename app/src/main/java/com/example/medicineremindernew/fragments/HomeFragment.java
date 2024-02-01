@@ -159,7 +159,10 @@ public class HomeFragment extends Fragment {
         int length = testCursor.getCount();
         System.out.println("selectedDate " + selectedDate);
         ArrayList<PillsView> arrayList = new ArrayList<PillsView>();
-        pillAdapter = new PillSimpleAdapter(getActivity(), arrayList);
+
+            pillAdapter = new PillSimpleAdapter(getActivity(), arrayList);
+
+
         pillList.setAdapter(pillAdapter);
         for (int i = 1; i <= length; i++) {
 

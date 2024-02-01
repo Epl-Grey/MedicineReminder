@@ -6,7 +6,9 @@ import android.view.MenuItem;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.medicineremindernew.AddingPill;
 import com.example.medicineremindernew.R;
+import com.example.medicineremindernew.fragments.AddPillFragment;
 import com.example.medicineremindernew.fragments.CalculatorBolusa;
 import com.example.medicineremindernew.fragments.HomeFragment;
 import com.example.medicineremindernew.fragments.SettingsFragment;
@@ -28,9 +30,10 @@ public class MainActivity extends AppCompatActivity
 
         bottomNavigationView
                 .setOnNavigationItemSelectedListener(this);
-        bottomNavigationView.setSelectedItemId(R.id.person);
+        bottomNavigationView.setSelectedItemId(R.id.home);
     }
     HomeFragment homeFragment = new HomeFragment();
+    AddPillFragment addPillFragment = new AddPillFragment();
     CalculatorBolusa calculatorBolusa = new CalculatorBolusa();
     SettingsFragment settingsFragment = new SettingsFragment();
 
@@ -40,14 +43,21 @@ public class MainActivity extends AppCompatActivity
     {
 
         switch (item.getItemId()) {
-            case R.id.person:
+            case R.id.home:
                 getSupportFragmentManager()
                         .beginTransaction()
                         .replace(R.id.flFragment, homeFragment)
                         .commit();
                 return true;
 
-            case R.id.home:
+            case R.id.addPill:
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.flFragment, addPillFragment)
+                        .commit();
+                return true;
+
+            case R.id.calculatorBolusa:
                 getSupportFragmentManager()
                         .beginTransaction()
                         .replace(R.id.flFragment, calculatorBolusa)
