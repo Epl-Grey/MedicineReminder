@@ -1,6 +1,6 @@
 package com.example.medicineremindernew.di
 
-import com.example.medicineremindernew.models.ApiKey
+import com.example.medicineremindernew.models.ApiConfig
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -16,8 +16,8 @@ object MainModule {
     @Provides
     fun provideSupabaseClient(): SupabaseClient{
         return createSupabaseClient(
-            supabaseUrl = ApiKey.supabaseUrl,
-            supabaseKey = ApiKey.supabaseKey
+            supabaseUrl = ApiConfig.supabaseUrl,
+            supabaseKey = ApiConfig.supabaseKey
         ) {
             install(Auth)
             install(Postgrest)

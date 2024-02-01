@@ -12,14 +12,16 @@ import com.example.medicineremindernew.R
 import com.example.medicineremindernew.SaveState
 import com.example.medicineremindernew.firebase.UserData
 import com.example.medicineremindernew.firebase.UsersManager
+import dagger.hilt.EntryPoint
+
 
 class RegisterActivity : AppCompatActivity() {
-    lateinit var loginEditText: EditText
-    lateinit var passwordEditText: EditText
-    lateinit var passwordRepeatEditText: EditText
-    lateinit var submitButton: Button
-    lateinit var diabetesCheckbox: CheckBox
-    lateinit var saveState: SaveState
+    private lateinit var loginEditText: EditText
+    private lateinit var passwordEditText: EditText
+    private lateinit var passwordRepeatEditText: EditText
+    private lateinit var submitButton: Button
+    private lateinit var diabetesCheckbox: CheckBox
+    private lateinit var saveState: SaveState
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

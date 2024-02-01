@@ -13,6 +13,7 @@ import android.widget.TextView
 import android.widget.Toast
 import com.example.medicineremindernew.firebase.UserData
 import com.example.medicineremindernew.firebase.UsersManager
+import dagger.hilt.EntryPoint
 import java.security.MessageDigest
 
 class LoginActivity : AppCompatActivity() {
