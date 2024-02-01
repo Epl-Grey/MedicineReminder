@@ -7,6 +7,8 @@ import android.content.Intent
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.KeyEvent
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -49,6 +51,8 @@ class LoginActivity : AppCompatActivity() {
 
             val userManager = UsersManager()
 
+
+
             userManager.listener = fun(it: ArrayList<UserData>) {
                 for (user in it) {
                     System.out.println("${loginEditText.text}   ${user.userLogin!!} = ${user.userLogin!!.equals(loginEditText.text.toString())}")
@@ -78,6 +82,17 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
+
+
+
+        passwordEditText.setOnKeyListener(View.OnKeyListener { v, keyCode, event ->
+            if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_UP) {
+                //Perform Code
+                submitButton.performClick()
+                return@OnKeyListener true
+            }
+            false
+        })
 
         submitButton2.setOnClickListener {
             val registerIntent = Intent(this, RegisterActivity::class.java)

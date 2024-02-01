@@ -4,6 +4,8 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.KeyEvent
+import android.view.View
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
@@ -71,5 +73,14 @@ class RegisterActivity : AppCompatActivity() {
                 finish()
             }
         }
+        passwordRepeatEditText.setOnKeyListener(View.OnKeyListener { v, keyCode, event ->
+            if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_UP) {
+                //Perform Code
+                submitButton.performClick()
+                return@OnKeyListener true
+            }
+            false
+        })
+
     }
 }
