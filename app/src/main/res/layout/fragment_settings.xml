@@ -4,125 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:id="@+id/RelativeLayout"
-    android:background="@drawable/iphone_13_pro_max___2"
     android:layout_height="match_parent"
     tools:context=".fragments.SettingsFragment">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:text="Настройки"
+        android:textAlignment="center"
+        android:textSize="45sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/font1"/>
 
-
-        <ImageButton
-            android:id="@+id/back"
-            android:layout_width="30dp"
-            android:layout_height="25dp"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="23dp"
-            android:background="@drawable/back" />
-
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/addButton"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/plus" />
-        <TextView
-            android:id="@+id/settings"
-            android:layout_width="220dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="70dp"
-            android:gravity="top"
-            android:text="Settings"
-            android:textAppearance="@style/medicine_re" />
-
-        <ImageView
-            android:id="@+id/vector_10"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/settings"
-            android:layout_marginTop="30dp"
-            android:background="@drawable/vector_10"
-            />
-
-        <Spinner
-            android:id="@+id/spinner"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/vector_10"
-            android:layout_marginLeft="110dp"
-            android:layout_marginTop="15dp"
-            android:entries="@array/lang"
-            android:textAlignment="center" />
-
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/spinner"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="50dp"
-            android:background="@drawable/bell__1_" />
-
-        <TextView
-            android:id="@+id/bell"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/spinner"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="53dp"
-            android:layout_toRightOf="@id/imageView3"
-            android:text="Звук уведомлений"
-            android:textAppearance="@style/some_id" />
-
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/imageView3"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="30dp"
-            android:background="@drawable/e_mail__1_"/>
-
-        <TextView
-            android:id="@+id/email"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/imageView3"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="33dp"
-            android:layout_toRightOf="@id/imageView4"
-            android:text="Техподдержка"
-            android:textAppearance="@style/some_id" />
-        <RelativeLayout
-            android:id="@+id/the"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/imageView4"
-            >
-            <ImageView
-                android:id="@+id/imageView5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="30dp"
-                android:background="@drawable/sun" />
-
-            <TextView
-                android:id="@+id/theme"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="33dp"
-                android:layout_toRightOf="@id/imageView5"
-                android:text="Светлая тема"
-                android:textAppearance="@style/some_id" />
-        </RelativeLayout>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/voiceMelodyBtn"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="45dp"
+        android:layout_marginRight="45dp"
+        android:text="звук мелодии"
+        android:textSize="25sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/font1"/>
 
     </RelativeLayout>
 
