@@ -56,10 +56,9 @@ import com.google.firebase.database.ktx.getValue
                  result: String,
                  calcEat: String,
                  calcCorect: String,
-                 calcResult: String,
                  time: String){
         var bolusId = dbRef.push().key!!
-        val bolusData = BolusData(bolusId, userId, glukoza, XE, eat, insulin, corect, result, calcEat, calcCorect, calcResult, time)
+        val bolusData = BolusData(bolusId, userId, glukoza, XE, eat, insulin, corect, result, calcEat, calcCorect, time)
         dbRef.child(bolusId).setValue(bolusData)
     }
 

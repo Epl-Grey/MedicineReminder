@@ -39,7 +39,7 @@ public class ResultActivity extends AppCompatActivity {
     TextView resultText;
     TextView calcEatText;
     TextView calcCorectText;
-    TextView calcResultText;
+
     TextView timeText;
     Button btnCalculate;
 
@@ -47,6 +47,8 @@ public class ResultActivity extends AppCompatActivity {
     LocalDate date;
     int hour, minute;
     String date2;
+
+    String aaaa;
 
     DatabaseHelper sqlHelper;
     SQLiteDatabase db;
@@ -101,7 +103,7 @@ public class ResultActivity extends AppCompatActivity {
         insulinText.setText(strCorrect + " ЕД");
         calcEatText.setText(strCalcEat);
         calcCorectText.setText(strCalcCorect);
-        calcResultText.setText(strRes);
+
         corectText.setText(strActivation + " ЕД");
 
         CalendarUtils.selectedDate = LocalDate.now();
@@ -199,7 +201,6 @@ public class ResultActivity extends AppCompatActivity {
                 resultText.getText().toString(),
                 calcEatText.getText().toString(),
                 calcCorectText.getText().toString(),
-                calcResultText.getText().toString(),
                 timeText.getText().toString()
         );
 

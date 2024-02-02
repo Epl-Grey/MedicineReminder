@@ -66,7 +66,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="100dp"
-            android:layout_below="textResult"
+            android:layout_below="@+id/textResult"
             android:gravity="top"
             android:lineSpacingExtra="-32sp"
             android:text="расчетов"
@@ -193,7 +193,7 @@
                 android:layout_height="wrap_content"
                 android:text="6 ЕД"
                 android:layout_below="@id/eatt"
-                android:textSize="20sp"
+                android:textSize="15sp"
                 android:textColor="@color/white"
                 android:textAlignment="center"
                 android:fontFamily="@font/montserratmedium" />

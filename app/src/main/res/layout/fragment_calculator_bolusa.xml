@@ -25,8 +25,8 @@
         android:layout_width="311dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_below="textCalc"
-        android:layout_marginTop="100dp"
+        android:layout_below="@+id/textCalc"
+
         android:lineSpacingExtra="-32sp"
         android:text="Болюса"
         android:fontFamily="@font/montserratsemibold"
