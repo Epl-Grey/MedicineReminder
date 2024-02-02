@@ -67,7 +67,7 @@ public class ResultActivity extends AppCompatActivity {
         resultText = findViewById(R.id.result);
         calcEatText = findViewById(R.id.calcEat);
         calcCorectText = findViewById(R.id.calcCorect);
-        calcResultText = findViewById(R.id.calcResult);
+
         timeText = findViewById(R.id.time);
         btnCalculate = findViewById(R.id.btnResult);
 
@@ -96,13 +96,13 @@ public class ResultActivity extends AppCompatActivity {
         String strResult = String.valueOf(corRes);
         String strRes = corEat + "+" + correct + "-" + strActivation + "=" + corRes;
         glukozaText.setText(strGluk);
-        resultText.setText(strResult);
-        eatText.setText(strEat + " Ед");
-        insulinText.setText(strCorrect + " Ед");
+        resultText.setText(strResult + " ЕД");
+        eatText.setText(strEat + " ЕД");
+        insulinText.setText(strCorrect + " ЕД");
         calcEatText.setText(strCalcEat);
         calcCorectText.setText(strCalcCorect);
         calcResultText.setText(strRes);
-        corectText.setText(strActivation + " Ед");
+        corectText.setText(strActivation + " ЕД");
 
         CalendarUtils.selectedDate = LocalDate.now();
 
