@@ -154,7 +154,7 @@
         android:id="@+id/btnCalculate"
         android:layout_width="208dp"
         android:layout_height="45dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:text="Рассчитать"
         android:textSize="20sp"
         android:textColor="@color/white"

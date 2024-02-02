@@ -38,13 +38,18 @@ import com.example.medicineremindernew.R;
 import com.example.medicineremindernew.alarm.AlarmController;
 import com.example.medicineremindernew.firebase.PillData;
 import com.example.medicineremindernew.firebase.PillsManager;
+import com.example.medicineremindernew.services.PillsDataService;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
+import javax.inject.Inject;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
 public class HomeFragment extends Fragment {
 
     ListView pillList;
@@ -74,6 +79,10 @@ public class HomeFragment extends Fragment {
     public AlarmController alarmController;
     private PillsManager pillsManager;
     int positionG;
+
+    @Inject
+    PillsDataService pillsDataService;
+
     @SuppressLint("CutPasteId")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

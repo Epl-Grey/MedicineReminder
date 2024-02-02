@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.medicineremindernew.R;
+import com.example.medicineremindernew.fragments.AddPillFragment;
 import com.example.medicineremindernew.fragments.CalculatorBolusa;
 import com.example.medicineremindernew.fragments.HomeFragment;
 import com.example.medicineremindernew.fragments.SettingsFragment;

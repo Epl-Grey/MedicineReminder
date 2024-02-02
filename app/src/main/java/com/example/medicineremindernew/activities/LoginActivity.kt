@@ -28,6 +28,7 @@ import kotlinx.coroutines.withContext
 import java.net.URL
 import javax.inject.Inject
 
+@AndroidEntryPoint
 class LoginActivity : AppCompatActivity() {
     lateinit var loginEditText: EditText
     lateinit var passwordEditText: EditText
