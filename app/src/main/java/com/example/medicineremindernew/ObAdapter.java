@@ -36,7 +36,7 @@ public class ObAdapter extends PagerAdapter {
     };
 
     private int images[] ={
-            R.drawable.image33,
+            R.drawable._22x_1,
             R.drawable.image21,
             R.drawable.image20,
 

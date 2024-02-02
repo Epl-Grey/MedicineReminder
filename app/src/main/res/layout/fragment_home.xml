@@ -11,7 +11,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white"
+
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="101dp">
 
@@ -27,7 +27,7 @@
             android:fontFamily="@font/montserratsemibold"
             android:gravity="top"
             android:lineSpacingExtra="-32sp"
-            android:text="Добрый день,Name!"
+            android:text="Добрый день!"
             android:textSize="22sp"
             android:textColor="@color/black" />
 

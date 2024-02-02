@@ -61,23 +61,10 @@
             android:background="@drawable/rounded_rectangle"/>
 
 
-        <EditText
-            android:id="@+id/reapet_password_edit_text"
-            android:layout_width="match_parent"
-            android:layout_height="46dp"
-            android:layout_marginTop="12dp"
-            android:layout_below="@id/password_edit_text"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/rounded_rectangle"
-            android:fontFamily="@font/montserratmedium"
-            android:hint="Повторите пароль"
-            android:inputType="textPassword"
-            android:textColorHint="@color/green_white" />
+
 
         <Button
-            android:layout_below="@id/reapet_password_edit_text"
+            android:layout_below="@id/login_edit_text"
             android:id="@+id/submit_login"
             android:layout_width="209dp"
             android:layout_height="45dp"
@@ -88,7 +75,7 @@
             android:layout_marginLeft="120dp"
             android:layout_marginRight="120dp"
             android:background="@drawable/rounded_buttom"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="150dp"/>
 
         <TextView
             android:layout_below="@id/submit_login"

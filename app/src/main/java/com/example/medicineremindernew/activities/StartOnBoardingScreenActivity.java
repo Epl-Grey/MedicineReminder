@@ -8,9 +8,11 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.medicineremindernew.R;
+import com.example.medicineremindernew.SaveState;
 
 public class StartOnBoardingScreenActivity extends AppCompatActivity {
     Button btnNext;
+    private SaveState saveState;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,5 +22,15 @@ public class StartOnBoardingScreenActivity extends AppCompatActivity {
         btnNext.setOnClickListener(v -> {
               startActivity(intent);
         });
+        Intent loginIntent = new Intent(this, LoginActivity.class);
+        Intent mainIntent = new Intent(this, MainActivity.class);
+        saveState = new SaveState(this, "ob");
+        if (saveState.getState() == 1) {
+            startActivity(loginIntent);
+            finish();
+        }else if(saveState.getState() == 2) {
+            startActivity(mainIntent);
+            finish();
+        }
     }
 }
