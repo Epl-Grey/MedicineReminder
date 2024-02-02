@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -20,19 +21,14 @@ public class OnBoardingScreenActivity extends AppCompatActivity {
 
 
     private ViewPager viewPager;
-    private CardView next;
-    private ImageView images;
+
+    private Button images;
     private TextView skipText;
     private LinearLayout dotsLayout;
     private TextView[] dots;
     private SaveState saveState;
 
-    private int buttons[] ={
-            R.drawable.ob1,
-            R.drawable.ob2,
-            R.drawable.ob3,
-            R.drawable.ob4
-    };
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +40,6 @@ public class OnBoardingScreenActivity extends AppCompatActivity {
         Intent loginIntent = new Intent(this, LoginActivity.class);
         Intent mainIntent = new Intent(this, MainActivity.class);
         viewPager = findViewById(R.id.viewPager);
-        next = findViewById(R.id.nextCard);
         images = findViewById(R.id.imageBtn);
         skipText = findViewById(R.id.skipText);
         saveState = new SaveState(this, "ob");
@@ -64,11 +59,11 @@ public class OnBoardingScreenActivity extends AppCompatActivity {
 
         ObAdapter adapter = new ObAdapter(this);
         viewPager.setAdapter(adapter);
-        next.setOnClickListener(new View.OnClickListener() {
+        images.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 viewPager.setCurrentItem(1, true);
-                images.setImageResource(buttons[1]);
+
             }
         });
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -80,12 +75,12 @@ public class OnBoardingScreenActivity extends AppCompatActivity {
             @Override
             public void onPageSelected(int position) {
 
-                next.setOnClickListener(new View.OnClickListener() {
+                images.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        if (position < 3) {
+                        if (position < 2) {
                             viewPager.setCurrentItem(position + 1, true);
-                            images.setImageResource(buttons[position+1]);
+
                         }
                         else {
                             skipOnBoardingScreen();

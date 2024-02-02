@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.StartOnBoardingScreenActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:text="Добро"
+            android:textSize="35sp"
+            android:fontFamily="@font/montserratsemibold"
+            android:textColor="@color/black"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="25dp"/>
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:text="пожаловать!"
+            android:textSize="35sp"
+            android:fontFamily="@font/montserratsemibold"
+            android:textColor="@color/black"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="70dp"/>
+
+        <TextView
+            android:id="@+id/simpleText"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:text="Наше приложение поможет
+поможет вам не забыть
+про своевременный  прием лекарств."
+            android:textSize="22sp"
+            android:layout_below="@+id/text"
+            android:fontFamily="@font/montserratmedium"
+            android:textColor="@color/black"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/buttonNext"
+            android:layout_width="177dp"
+            android:layout_height="45dp"
+            android:background="@drawable/rounded_buttom"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="15dp"
+            android:layout_below="@+id/simpleText"
+            android:text="Начать"
+            android:textColor="@color/white"
+            android:fontFamily="@font/montserratmedium"
+            android:textSize="22sp"
+            android:textAllCaps="false"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="320dp"
+            android:background="@drawable/image18"
+            />
+
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

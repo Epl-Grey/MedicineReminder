@@ -1,17 +1,15 @@
 <resources>
     <string name="app_name">MedicineReminderNew</string>
-    <string name="title1">Добро пожаловать</string>
-    <string name="title2">Учетная запись</string>
-    <string name="title3">Уведомления</string>
-    <string name="title4">Инсулин</string>
+    <string name="title1">Учетная запись</string>
+    <string name="title2">Уведомления</string>
+    <string name="title3">Инсулин</string>
     <string name="open">Открыть</string>
     <string name="close">Закрыть</string>
     <string name="open_nav">Open Navigation Drawer</string>
     <string name="close_nav">Close Navigation Drawer</string>
-    <string name="description1">Приложение Medicine Reminder поможет вам не забыть про своевременный  прием лекарств.</string>
-    <string name="description2">Ваши данные не потеряются, главное зарегистрироваться или войти с помощью учетной записи Gooogle</string>
-    <string name="description3">Наличие напоминание в виде уведомлений за 15 минут до начала приема и будильник на указанное время</string>
-    <string name="description4">Наличие калькулятора болюса и хлебных единиц.</string>
+    <string name="description1">Ваши данные не потеряются, главное зарегистривоться с помощью электронной почты.</string>
+    <string name="description2">Вам будут приходить уведомления за 15 минут до будильника, а также чтобы не забывать вы можете поставить виджет </string>
+    <string name="description3">Расчет инсулина для сахарного диабета первого типа</string>
     <string name="time">
         15:00
     </string>

@@ -15,6 +15,10 @@
         android:label="Medecine Reminder"
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.Light.NoActionBar">
+        <activity
+            android:name=".activities.StartOnBoardingScreenActivity"
+            android:exported="false" />
+
         <receiver
             android:name=".PillWidget"
             android:exported="false">

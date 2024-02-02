@@ -15,16 +15,25 @@
             android:id="@+id/image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
+
+        <ImageView
+            android:layout_marginTop="380dp"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/image1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+/>
+
     <TextView
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/title1"
-        android:textAlignment="center"
         android:layout_marginTop="390dp"
         android:textSize="28sp"
         android:textStyle="bold"
-        android:textColor="@color/bl"
+        android:textColor="@color/black"
+        android:fontFamily="@font/montserratsemibold"
         android:layout_marginBottom="20dp"/>
     <TextView
         android:id="@+id/description"
@@ -32,8 +41,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/title"
         android:text="@string/description1"
-        android:textColor="@color/bl"
-        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:fontFamily="@font/montserratmedium"
         android:textSize="18sp"/>
 
 
