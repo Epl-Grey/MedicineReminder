@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
@@ -12,9 +13,14 @@ import com.example.medicineremindernew.R
 import com.example.medicineremindernew.SaveState
 import com.example.medicineremindernew.firebase.UserData
 import com.example.medicineremindernew.firebase.UsersManager
+import com.example.medicineremindernew.services.AuthService
 import dagger.hilt.EntryPoint
+import dagger.hilt.android.AndroidEntryPoint
+import io.github.jan.supabase.exceptions.BadRequestRestException
+import kotlinx.coroutines.runBlocking
+import javax.inject.Inject
 
-
+@AndroidEntryPoint
 class RegisterActivity : AppCompatActivity() {
     private lateinit var loginEditText: EditText
     private lateinit var passwordEditText: EditText
@@ -22,6 +28,9 @@ class RegisterActivity : AppCompatActivity() {
     private lateinit var submitButton: Button
     private lateinit var diabetesCheckbox: CheckBox
     private lateinit var saveState: SaveState
+
+    @Inject
+    lateinit var authService: AuthService
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,26 +60,23 @@ class RegisterActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            val userManager = UsersManager()
-            saveState = SaveState(this, "ob")
-
-            userManager.listener = fun(it: ArrayList<UserData>) {
-                for (user in userManager.users) {
-                    if (user.userLogin!!.toString() == loginEditText.text.toString().trim()) {
-                        Toast.makeText(this@RegisterActivity, "Login already in use", Toast.LENGTH_LONG).show()
-                        return
-                    }
+            try {
+                runBlocking {
+                    authService.createUser(
+                        loginEditText.text.toString(),
+                        passwordEditText.text.toString(),
+                        loginEditText.text.toString(),
+                    )
                 }
-                userManager.saveData(loginEditText.text.toString().trim(), passwordEditText.text.toString().trim(), diabetesCheckbox.isChecked)
-                Toast.makeText(this@RegisterActivity, "Registration succeed!\nHave a good day", Toast.LENGTH_LONG).show()
-                val editor = getSharedPreferences("UserInfo", Context.MODE_PRIVATE).edit()
-                editor.putString("userName", loginEditText.text.toString().trim())
-                editor.apply()
-                saveState.state = 2
 
+                Toast.makeText(this@RegisterActivity, "Registration succeed!", Toast.LENGTH_SHORT).show()
                 val homeIntent = Intent(this, MainActivity::class.java)
                 startActivity(homeIntent)
                 finish()
+
+            }catch (e: BadRequestRestException){
+                Toast.makeText(this@RegisterActivity, e.error, Toast.LENGTH_LONG).show()
+                Log.e("register", e.error)
             }
         }
     }
