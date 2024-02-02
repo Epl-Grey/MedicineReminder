@@ -1,18 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/person"
-        android:title="Home"
-
+        android:id="@+id/home"
+        android:title="Главная"
+        android:icon="@drawable/home"
         />
     <item
-        android:id="@+id/home"
-        android:title="CalcBolusa"
-
+        android:id="@+id/addPill"
+        android:title="Добавить"
+        android:icon="@drawable/add"
+        />
+    <item
+        android:id="@+id/calculatorBolusa"
+        android:title="КалБолюс"
+        android:icon="@drawable/calculator"
         />
     <item
         android:id="@+id/settings"
-        android:title="Settings"
-
+        android:title="Настройки"
+        android:icon="@drawable/user"
         />
 </menu>

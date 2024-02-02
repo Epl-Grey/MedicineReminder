@@ -5,6 +5,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.KeyEvent
+import android.view.View
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
@@ -22,12 +24,10 @@ import javax.inject.Inject
 
 @AndroidEntryPoint
 class RegisterActivity : AppCompatActivity() {
-    private lateinit var loginEditText: EditText
+    private lateinit var emailEditText: EditText
     private lateinit var passwordEditText: EditText
     private lateinit var passwordRepeatEditText: EditText
     private lateinit var submitButton: Button
-    private lateinit var diabetesCheckbox: CheckBox
-    private lateinit var saveState: SaveState
 
     @Inject
     lateinit var authService: AuthService
@@ -36,15 +36,15 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
-        loginEditText = findViewById(R.id.login_edit_text)
+        emailEditText = findViewById(R.id.email_edit_text)
         passwordEditText = findViewById(R.id.password_edit_text)
         passwordRepeatEditText = findViewById(R.id.repeat_password_edit_text)
         submitButton = findViewById(R.id.submit_register)
-        diabetesCheckbox = findViewById(R.id.diabetes_checkbox)
+
 
         submitButton.setOnClickListener {
-            if(loginEditText.text.isEmpty()){
-                loginEditText.error = "Enter login"
+            if(emailEditText.text.isEmpty()){
+                emailEditText.error = "Enter login"
                 return@setOnClickListener
             }
             if(passwordEditText.text.isEmpty()){
@@ -63,9 +63,9 @@ class RegisterActivity : AppCompatActivity() {
             try {
                 runBlocking {
                     authService.createUser(
-                        loginEditText.text.toString(),
+                        emailEditText.text.toString(),
                         passwordEditText.text.toString(),
-                        loginEditText.text.toString(),
+                        emailEditText.text.toString(),
                     )
                 }
 
@@ -79,5 +79,14 @@ class RegisterActivity : AppCompatActivity() {
                 Log.e("register", e.error)
             }
         }
+        passwordRepeatEditText.setOnKeyListener(View.OnKeyListener { v, keyCode, event ->
+            if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_UP) {
+                //Perform Code
+                submitButton.performClick()
+                return@OnKeyListener true
+            }
+            false
+        })
+
     }
 }

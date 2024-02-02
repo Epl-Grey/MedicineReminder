@@ -16,143 +16,125 @@
         tools:layout_editor_absoluteY="101dp">
 
 
-
-
-
-
-        <RelativeLayout
-            android:id="@+id/rl"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-
-            >
-            <ImageView
-                android:id="@+id/imageView6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/frame_44" />
-            <ImageView
-                android:id="@+id/imageView7"
-                android:layout_toRightOf="@id/imageView6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/frame_42" />
-
-            <ImageView
-                android:id="@+id/imageView8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/imageView7"
-                android:layout_alignParentRight="true"
-                app:srcCompat="@drawable/__1_occggrkm5_transformed_1" />
-
-
-        </RelativeLayout>
-
-        <Button
-            android:id="@+id/minMonthBtn"
-            android:layout_width="20dp"
-            android:layout_height="25dp"
-            android:layout_marginLeft="17dp"
-            android:layout_marginTop="10dp"
-            android:layout_below="@id/rl"
-            android:background="@drawable/backitem" />
+        <TextView
+            android:id="@+id/textHeader"
+            android:layout_width="273dp"
+            android:layout_height="32dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/montserratsemibold"
+            android:gravity="top"
+            android:lineSpacingExtra="-32sp"
+            android:text="Добрый день,Name!"
+            android:textSize="22sp"
+            android:textColor="@color/black" />
 
         <TextView
             android:id="@+id/monthYearTV"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
-            android:layout_below="@id/rl"
-            android:fontFamily="@font/inter"
+            android:layout_width="157dp"
+            android:layout_height="27dp"
+            android:layout_marginTop="20dp"
+            android:layout_alignLeft="@+id/minMonthBtn"
+            android:layout_below="@id/textHeader"
+            android:fontFamily="@font/montserratsemibold"
             android:text="Feb 2021"
+            android:layout_marginLeft="20dp"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="20sp" />
 
         <Button
             android:id="@+id/plusMonthBtn"
-            android:layout_width="20dp"
-            android:layout_height="25dp"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="17dp"
-            android:layout_below="@id/rl"
-            android:background="@drawable/nextitem"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="22dp"
 
+            android:layout_marginLeft="193dp"
+            android:layout_below="@id/textHeader"
+            android:background="@drawable/arrowright"
             android:textSize="20sp"
             android:textStyle="bold" />
+
+
+        <Button
+            android:id="@+id/minMonthBtn"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginLeft="17dp"
+            android:layout_marginTop="22dp"
+            android:layout_below="@id/textHeader"
+            android:background="@drawable/arrowleft" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/calendarRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
             android:layout_marginLeft="14dp"
             android:layout_marginRight="14dp"
-            android:layout_marginTop="271dp"
+            android:layout_below="@id/monthYearTV"
             android:orientation="horizontal"
             tools:itemCount="5"
             />
+
+        <TextView
+            android:id="@+id/text1"
+            android:layout_width="237dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/calendarRecyclerView"
+            android:fontFamily="@font/montserratmedium"
+            android:text="Расписание"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/black"
+            android:textSize="22sp" />
+
         <!--45dp-->
 
-        <TextView
-            android:layout_width="311dp"
-            android:layout_height="100dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="80dp"
-            android:fontFamily="@font/inter"
-            android:gravity="top"
-            android:lineSpacingExtra="-32sp"
-            android:text="Добро"
-            android:textAppearance="@style/some_id2" />
 
-        <TextView
-            android:id="@+id/medicine_re"
-            android:layout_width="311dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="120dp"
-            android:fontFamily="@font/inter"
-            android:gravity="top"
-            android:lineSpacingExtra="-32sp"
-            android:text="пожаловать!"
-            android:textAppearance="@style/some_id2" />
-        <TextView
-            android:id="@+id/mediciine"
-            android:layout_width="220dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:textColor="@color/bl"
-            android:layout_marginLeft="20dp"
-            android:layout_below="@id/medicine_re"
-            android:text="Хорошего дня!"
-            />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/addButton"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/add_round_fill" />
+<!--        <TextView-->
+<!--            android:id="@+id/medicine_re"-->
+<!--            android:layout_width="311dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_alignParentLeft="true"-->
+<!--            android:layout_alignParentTop="true"-->
+<!--            android:layout_marginLeft="20dp"-->
+<!--            android:layout_marginTop="120dp"-->
+<!--            android:fontFamily="@font/inter"-->
+<!--            android:gravity="top"-->
+<!--            android:lineSpacingExtra="-32sp"-->
+<!--            android:text="пожаловать!"-->
+<!--            android:textAppearance="@style/some_id2" />-->
+<!--        <TextView-->
+<!--            android:id="@+id/mediciine"-->
+<!--            android:layout_width="220dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_alignParentLeft="true"-->
+<!--            android:textColor="@color/bl"-->
+<!--            android:layout_marginLeft="20dp"-->
+<!--            android:layout_below="@id/medicine_re"-->
+<!--            android:text="Хорошего дня!"-->
+<!--            />-->
+
+<!--        <androidx.appcompat.widget.AppCompatButton-->
+<!--            android:id="@+id/addButton"-->
+<!--            android:layout_width="60dp"-->
+<!--            android:layout_height="60dp"-->
+<!--            android:layout_alignParentRight="true"-->
+<!--            android:layout_alignParentBottom="true"-->
+<!--            android:layout_marginRight="20dp"-->
+<!--            android:layout_marginBottom="20dp"-->
+<!--            android:background="@drawable/add_round_fill" />-->
 
         <ListView
             android:id="@+id/list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/calendarRecyclerView"
-            android:layout_marginTop="1dp"
+            android:layout_below="@id/text1"
+            android:layout_marginTop="20dp"
             android:layout_marginRight="15dp"
             android:layout_marginBottom="15dp"
             android:layout_marginLeft="15dp"

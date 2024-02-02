@@ -12,6 +12,8 @@ import android.webkit.WebView;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.example.medicineremindernew.SaveSound;
+import com.example.medicineremindernew.SaveState;
 import com.example.medicineremindernew.fragments.HomeFragment;
 import com.example.medicineremindernew.R;
 
@@ -21,6 +23,7 @@ public class AlarmActivity extends AppCompatActivity {
     Ringtone ringtone;
     ImageButton  back;
     TextView nameTextView;
+    private SaveSound saveSound;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +37,8 @@ public class AlarmActivity extends AppCompatActivity {
         String name = extras.getString("name");
         nameTextView.setText(name);
 
+        saveSound = new SaveSound(this, "sound");
+
         Intent intent = new Intent(this, HomeFragment.class);
         back.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -45,7 +50,13 @@ public class AlarmActivity extends AppCompatActivity {
             });
 
         Uri notificationUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
-        ringtone = RingtoneManager.getRingtone(this, notificationUri);
+
+
+        if(saveSound.getState() != null || saveSound.getState().equals("") || saveSound.getState().equals(" ")) {
+            ringtone = RingtoneManager.getRingtone(this, Uri.parse(saveSound.getState()));
+        } else {
+            ringtone = RingtoneManager.getRingtone(this, notificationUri);
+        }
         if (ringtone == null) {
             notificationUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_RINGTONE);
             ringtone = RingtoneManager.getRingtone(this, notificationUri);

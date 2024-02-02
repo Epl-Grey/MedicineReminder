@@ -41,25 +41,25 @@ public class CalendarUtils
 
             switch (dayOfWeek) {
                 case "WEDNESDAY":
-                    numberWeek.add("ср");
+                    numberWeek.add("Ср");
                     break;
                 case "MONDAY":
-                    numberWeek.add("пн");
+                    numberWeek.add("Пн");
                     break;
                 case "TUESDAY":
-                    numberWeek.add("вт");
+                    numberWeek.add("Вт");
                     break;
                 case "THURSDAY":
-                    numberWeek.add("чт");
+                    numberWeek.add("Чт");
                     break;
                 case "FRIDAY":
-                    numberWeek.add("пт");
+                    numberWeek.add("Пт");
                     break;
                 case "SATURDAY":
-                    numberWeek.add("сб");
+                    numberWeek.add("Сб");
                     break;
                 case "SUNDAY":
-                    numberWeek.add("вс");
+                    numberWeek.add("Вс");
                     break;
             }
 

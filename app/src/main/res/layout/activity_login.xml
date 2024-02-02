@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".activities.LoginActivity">
 
     <RelativeLayout
@@ -13,92 +14,80 @@
         android:orientation="vertical"
        >
 
-        <RelativeLayout
-            android:id="@+id/frame_45"
-            android:layout_width="230dp"
-            android:layout_height="160dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:background="@drawable/frame_4"
-             />
-        <RelativeLayout
-            android:id="@+id/frame_47"
-            android:layout_width="30dp"
-            android:layout_height="40dp"
-            android:layout_below="@id/frame_45"
-            android:layout_alignParentLeft="true"
-            android:background="@drawable/frame_47"
-            android:clipToOutline="true" />
+
         <TextView
-            android:id="@+id/welcom"
-            android:layout_below="@id/frame_45"
-            android:layout_marginTop="10dp"
+            android:id="@+id/autorization"
+
+            android:layout_marginTop="40dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Добро"
+            android:text="Авторизация"
             android:textSize="40dp"
+            android:fontFamily="@font/montserratsemibold"
             android:textAppearance="@style/welcom"
-            android:gravity="center"
-/>
-        <TextView
-            android:id="@+id/welcom_2"
-            android:layout_below="@id/welcom"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="пожаловать"
-            android:textSize="40dp"
-            android:textAppearance="@style/welcom"
-            android:gravity="center"
+            android:paddingLeft="24dp"
+
             />
-        <TextView
-            android:id="@+id/text_login"
-            android:layout_below="@id/welcom_2"
-            android:text="Логин"
-            android:layout_marginLeft="55dp"
-            android:layout_marginTop="30dp"
-            android:textAppearance="@style/some_id3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            />
+
+
         <EditText
-            android:layout_below="@id/text_login"
+            android:layout_below="@id/autorization"
             android:id="@+id/login_edit_text"
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp"
+            android:layout_marginTop="160dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="46dp"
+            android:background="@drawable/rounded_rectangle"
+            android:hint="Ваша почта"
+            android:fontFamily="@font/montserratmedium"
+            android:textColorHint="@color/green_white"
+
       />
-        <TextView
-            android:id="@+id/text_pass"
-            android:layout_below="@id/login_edit_text"
-            android:text="Пароль"
-            android:layout_marginLeft="55dp"
-            android:layout_marginTop="10dp"
-            android:textAppearance="@style/some_id3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            />
+
         <EditText
-            android:layout_below="@id/text_pass"
+            android:layout_below="@id/login_edit_text"
             android:id="@+id/password_edit_text"
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="20dp"
-            android:inputType="textPassword"/>
+            android:hint="Ваш пароль"
+            android:fontFamily="@font/montserratmedium"
+            android:textColorHint="@color/green_white"
+            android:layout_marginTop="12dp"
 
-        <Button
-            android:layout_below="@id/password_edit_text"
-            android:id="@+id/submit_login"
+            android:inputType="textPassword"
+            android:layout_height="46dp"
+            android:background="@drawable/rounded_rectangle"/>
+
+
+        <EditText
+            android:id="@+id/reapet_password_edit_text"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:text="Войти"
-            android:textColor="#ffffff"
+            android:layout_height="46dp"
+            android:layout_marginTop="12dp"
+            android:layout_below="@id/password_edit_text"
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp"
-            android:background="@drawable/submit"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/rounded_rectangle"
+            android:fontFamily="@font/montserratmedium"
+            android:hint="Повторите пароль"
+            android:inputType="textPassword"
+            android:textColorHint="@color/green_white" />
+
+        <Button
+            android:layout_below="@id/reapet_password_edit_text"
+            android:id="@+id/submit_login"
+            android:layout_width="209dp"
+            android:layout_height="45dp"
+            android:text="Войти"
+            android:textColor="#ffffff"
+            android:fontFamily="@font/montserratmedium"
+            android:textSize="20sp"
+            android:layout_marginLeft="120dp"
+            android:layout_marginRight="120dp"
+            android:background="@drawable/rounded_buttom"
             android:layout_marginTop="10dp"/>
 
         <TextView
@@ -107,10 +96,11 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:gravity="center"
-            android:textColor="@color/bl"
-            android:text="Зарегистрироваться"
+            android:textColor="@color/black"
+            android:text="Регистрация"
             android:textSize="20dp"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/montserratmedium"/>
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

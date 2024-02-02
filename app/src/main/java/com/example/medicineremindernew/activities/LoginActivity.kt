@@ -4,6 +4,8 @@ import android.content.Intent
 import android.os.AsyncTask
 import android.os.Bundle
 import android.util.Log
+import android.view.KeyEvent
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -26,8 +28,6 @@ import kotlinx.coroutines.withContext
 import java.net.URL
 import javax.inject.Inject
 
-
-@AndroidEntryPoint
 class LoginActivity : AppCompatActivity() {
     lateinit var loginEditText: EditText
     lateinit var passwordEditText: EditText
@@ -92,9 +92,23 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
+
+
+
+        passwordEditText.setOnKeyListener(View.OnKeyListener { v, keyCode, event ->
+            if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_UP) {
+                //Perform Code
+                submitButton.performClick()
+                return@OnKeyListener true
+            }
+            false
+        })
+
         submitButton2.setOnClickListener {
             val registerIntent = Intent(this, RegisterActivity::class.java)
             startActivity(registerIntent)
         }
+
+
     }
 }

@@ -121,7 +121,7 @@ public class AlarmController {
 
 //        System.out.println("Date1  " + calendar_date1.get(Calendar.DAY_OF_MONTH) + "." + calendar_date1.get(Calendar.MONTH) + "." + calendar_date1.get(Calendar.YEAR));
 //        System.out.println("Date2  " + calendar_date2.get(Calendar.DAY_OF_MONTH) + "." + calendar_date2.get(Calendar.MONTH) + "." + calendar_date2.get(Calendar.YEAR));
-//
+
 //        System.out.println(alarm_calendar.getTime() + " > " + calendar_date1.getTime() + " = " + (alarm_calendar.compareTo(calendar_date1) > 0));
 //        System.out.println(alarm_calendar.getTime() + " > " + calendar_date2.getTime() + " = " + (alarm_calendar.compareTo(calendar_date2) < 0));
 
@@ -221,6 +221,9 @@ public class AlarmController {
 
             AlarmManager alarmManager = (AlarmManager)context.getSystemService(ALARM_SERVICE);
 
+//            System.out.println(pill.name + " " + alarm_calendar.getTime());
+
+//            System.out.println("setAlarmNotify");
             System.out.println(pill.name + " " + alarm_calendar.getTime());
             try{
                 alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, alarm_calendar.getTimeInMillis(), pendingIntent);

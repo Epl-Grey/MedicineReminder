@@ -20,95 +20,71 @@
             android:layout_below="@id/imageView2"
             android:layout_marginLeft="20dp"
             android:layout_marginBottom="10dp"
-            android:fontFamily="@font/font1"
+            android:fontFamily="@font/montserratsemibold"
             android:text="сб 02 марта 2023 "
-            android:textColor="@color/bl"
-            android:textSize="20sp" />
-
-        <RelativeLayout
-            android:id="@+id/rl"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-
-            >
-
-            <ImageView
-                android:id="@+id/imageView6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/frame_44" />
-
-            <ImageView
-                android:id="@+id/imageView7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/imageView6"
-                app:srcCompat="@drawable/frame_42" />
-
-            <ImageView
-                android:id="@+id/imageView8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/imageView7"
-                android:layout_alignParentRight="true"
-                app:srcCompat="@drawable/__1_occggrkm5_transformed_1" />
+            android:textColor="@color/black"
+            android:textSize="22sp" />
 
 
-        </RelativeLayout>
 
         <ImageButton
             android:id="@+id/back"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
             android:layout_alignParentLeft="true"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="23dp"
-            android:background="@drawable/close_round" />
+            android:background="@drawable/arrowleft" />
 
         <TextView
             android:id="@+id/imageView2"
-            android:layout_width="220dp"
+            android:layout_width="252dp"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="80dp"
             android:layout_marginBottom="15dp"
             android:text="Подробная информация"
+            android:fontFamily="@font/montserratsemibold"
             android:textAppearance="@style/medicine_re"
-            android:textColor="@color/bl" />
+            android:textColor="@color/black" />
 
-        <TextView
-            android:id="@+id/nam"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/times"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="10dp"
-            android:text="Название:"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
 
-        <TextView
-            android:id="@+id/name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+
+        <RelativeLayout
+            android:id="@+id/lrname"
+            android:layout_width="match_parent"
+            android:layout_height="57dp"
             android:layout_below="@id/times"
             android:layout_marginTop="10dp"
             android:layout_alignParentRight="true"
             android:layout_marginRight="20dp"
-            android:text="@string/name"
-            android:textColor="@color/bl"
-            android:textSize="20sp" />
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/rounded_page_ob"
+>
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="57dp"
+                android:layout_marginTop="4dp"
+                android:text="@string/name"
+                android:textColor="@color/white"
+                android:background="@drawable/rounded_page_ob"
+                android:fontFamily="@font/montserratmedium"
+
+                android:textSize="22sp" />
+
+        </RelativeLayout>
 
         <TextView
             android:id="@+id/dos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/nam"
+            android:layout_below="@+id/lrname"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
             android:text="Дозировка:"
+            android:fontFamily="@font/montserratmedium"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textAppearance="@style/nam" />
@@ -117,49 +93,30 @@
             android:id="@+id/dose"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/name"
+            android:layout_below="@id/lrname"
             android:layout_marginTop="20dp"
             android:layout_alignParentRight="true"
             android:layout_marginRight="20dp"
             android:textColor="@color/bl"
             android:textSize="20dp"
+            android:fontFamily="@font/montserratmedium"
             android:text="@string/dose"
             />
 
-        <TextView
-            android:id="@+id/nextt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/dose"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="17dp"
-            android:text="Следующий \nприем:"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
 
-        <TextView
-            android:id="@+id/time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/dose"
-            android:text="@string/time"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="20dp"
-            android:textColor="@color/bl"
-            android:textSize="20dp"
-            android:layout_marginTop="20dp"
-
-            />
 
         <TextView
             android:id="@+id/t"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/time"
+            android:layout_below="@id/dose"
             android:layout_marginLeft="20dp"
-            android:textAppearance="@style/a"
+            android:textStyle="bold"
+            android:textColor="@color/black"
             android:textSize="20dp"
-            android:layout_marginTop="40dp"
+            android:fontFamily="@font/montserratmedium"
+            android:textAllCaps="true"
+            android:layout_marginTop="20dp"
             android:text="Время приема"
              />
 
@@ -171,6 +128,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
             android:text="@string/kl2"
+            android:fontFamily="@font/montserratmedium"
             android:textAppearance="@style/kl" />
 
         <TextView
@@ -178,10 +136,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/t"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:layout_toRightOf="@+id/kl"
             android:text="@string/timeall"
+            android:fontFamily="@font/montserratmedium"
             android:textAppearance="@style/kl"
 
             />
@@ -195,7 +154,10 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="15dp"
             android:text="Продолжительность"
-            android:textAppearance="@style/a"
+            android:fontFamily="@font/montserratmedium"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:textColor="@color/black"
             android:textSize="20dp" />
 
         <TextView
@@ -205,6 +167,7 @@
             android:layout_below="@id/kyrs"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
+            android:fontFamily="@font/montserratmedium"
             android:text="8 недель"
             android:textAppearance="@style/kl" />
 
@@ -216,7 +179,10 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="15dp"
             android:text="Количество"
-            android:textAppearance="@style/a"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:fontFamily="@font/montserratmedium"
+            android:textAllCaps="true"
             android:textSize="20dp" />
 
         <TextView
@@ -227,6 +193,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
             android:text="160 капсул"
+            android:fontFamily="@font/montserratmedium"
             android:textAppearance="@style/kl" />
 
         <TextView
@@ -238,17 +205,18 @@
             android:layout_marginTop="10dp"
             android:layout_toRightOf="@+id/numbes"
             android:text="(в целом) |"
+            android:fontFamily="@font/montserratmedium"
             android:textAppearance="@style/kl" />
 
         <TextView
             android:id="@+id/numbernext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/number"
-            android:layout_marginLeft="5dp"
+            android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
-            android:layout_toRightOf="@+id/all"
+            android:layout_below="@+id/all"
             android:text="64 капсулы"
+            android:fontFamily="@font/montserratmedium"
             android:textAppearance="@style/kl"
 
             />
@@ -257,25 +225,28 @@
             android:id="@+id/nexts"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/number"
+            android:layout_below="@id/all"
             android:layout_marginLeft="4dp"
             android:layout_marginTop="10dp"
             android:layout_toRightOf="@+id/numbernext"
             android:text="(осталось) "
+            android:fontFamily="@font/montserratmedium"
             android:textAppearance="@style/kl" />
 
         <Button
             android:id="@+id/redactor"
-            android:layout_width="match_parent"
-            android:layout_height="35dp"
+            android:layout_width="233dp"
+            android:layout_height="44dp"
             android:layout_below="@id/nexts"
             android:layout_alignParentLeft="true"
-            android:layout_marginLeft="50dp"
+            android:layout_marginLeft="20dp"
             android:layout_marginTop="30dp"
             android:layout_marginRight="50dp"
-            android:background="@drawable/botao"
-            android:fontFamily="@font/inter"
+            android:background="@drawable/rounded_buttom"
+            android:textSize="20sp"
+            android:fontFamily="@font/montserratmedium"
             android:text="Редактировать"
+
             android:textAppearance="@style/kl"
             android:textColor="#ffffff" />
 

@@ -42,6 +42,7 @@ import com.example.medicineremindernew.firebase.PillsManager;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
 
 public class HomeFragment extends Fragment {
@@ -52,6 +53,7 @@ public class HomeFragment extends Fragment {
     Cursor pillCursor;
     Cursor dataCursor;
     Cursor testCursor;
+    Cursor timeCursor;
     PillSimpleAdapter pillAdapter;
     public static DatabaseHelper databaseHelper1;
     public static SQLiteDatabase db2;
@@ -59,7 +61,7 @@ public class HomeFragment extends Fragment {
     LinearLayoutManager linearLayoutManager;
     Intent intent;
 
-    Button addPill;
+
     Button minusMonthBtn;
     Button plusMonthBtn;
     TextView calendar;
@@ -81,7 +83,7 @@ public class HomeFragment extends Fragment {
 
         databaseHelper1 = new DatabaseHelper(getActivity());
         db2 = databaseHelper1.getReadableDatabase();
-        addPill = viewP.findViewById(R.id.addButton);
+
         minusMonthBtn = viewP.findViewById(R.id.minMonthBtn);
         plusMonthBtn = viewP.findViewById(R.id.plusMonthBtn);
         calendar= viewP.findViewById(R.id.monthYearTV);
@@ -97,7 +99,7 @@ public class HomeFragment extends Fragment {
         Intent sett = new Intent(getContext(), SettingsFragment.class);
         Intent informIntent = new Intent(getContext(), InformActivity.class);
 
-        addPill.setOnClickListener(view -> startActivity(intent));
+
         inf.setOnClickListener(view -> startActivity(informIntent));
 
         CalendarUtils.selectedDate = LocalDate.now();
@@ -150,12 +152,21 @@ public class HomeFragment extends Fragment {
     }
 
     public void onCalendarItem(SQLiteDatabase db) {
+
+
         testCursor = db.rawQuery("select " + DatabaseHelper.COLUMN_ID + ", " + DatabaseHelper.COLUMN_DATE1 + ", " + DatabaseHelper.COLUMN_DATE2 + ", "+ DatabaseHelper.COLUMN_NAME + ", " + DatabaseHelper.COLUMN_VALUETIME + ", " + DatabaseHelper.COLUMN_TIME1 + " from " + DatabaseHelper.TABLE, null);
         testCursor.moveToFirst();
         int length = testCursor.getCount();
         System.out.println("selectedDate " + selectedDate);
         ArrayList<PillsView> arrayList = new ArrayList<PillsView>();
-        pillAdapter = new PillSimpleAdapter(getActivity(), arrayList);
+
+        try {
+            pillAdapter = new PillSimpleAdapter(getActivity(), arrayList);
+        } catch (Exception e) {
+            throw e;
+        }
+
+
         pillList.setAdapter(pillAdapter);
         for (int i = 1; i <= length; i++) {
 
@@ -175,8 +186,12 @@ public class HomeFragment extends Fragment {
             System.out.println("str2 " + localDate2);
 
             if (selectedDate.isAfter(localDate) && selectedDate.isBefore(localDate2) || selectedDate.equals(localDate) || selectedDate.equals(localDate2)) {
-
+                timeCursor = db.rawQuery("select " + DatabaseHelper.COLUMN_ID + ", " + DatabaseHelper.COLUMN_TIME1 + ", " + DatabaseHelper.COLUMN_TIME2 + ", "+ DatabaseHelper.COLUMN_TIME3 + ", " + DatabaseHelper.COLUMN_TIME4 + ", " + DatabaseHelper.COLUMN_TIME5 +  ", " + DatabaseHelper.COLUMN_TIME6 + " from " + DatabaseHelper.TABLE, null);
+                Date currentTime = Calendar.getInstance().getTime();
+                System.out.println("currentTime ------- " + currentTime);
                 pillCursor = db.rawQuery("SELECT " + DatabaseHelper.COLUMN_ID + ", " + DatabaseHelper.COLUMN_NAME  + ", " + DatabaseHelper.COLUMN_VALUETIME + ", " + DatabaseHelper.COLUMN_TIME1 + " FROM " + DatabaseHelper.TABLE + " WHERE " + DatabaseHelper.COLUMN_ID + " =   \""+ id + "\"", null);
+
+
                 pillCursor.moveToFirst();
                 arrayList.add(new PillsView(pillCursor.getString(1), pillCursor.getString(2), pillCursor.getString(3), pillCursor.getString(0)));
 

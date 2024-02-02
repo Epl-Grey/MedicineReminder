@@ -4,15 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".activities.SplashActivity">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="MissingConstraints">
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
+    <ImageView
+        android:id="@+id/i"
+        android:layout_width="92dp"
+        android:layout_height="88dp"
+        android:background="@drawable/logo"
+        android:layout_marginTop="240dp"
+        android:layout_centerHorizontal="true"
+       />
+
+    <TextView
+        android:layout_width="370dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/splashscreen__1_"
-        tools:ignore="MissingConstraints"
-        >
+        android:text="Medicine Reminder"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/i"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/newyorkerc"
+        android:textColor="@color/green_white"
+        android:textSize="40sp"
+        android:textAlignment="center"
+        />
+</RelativeLayout>
 
 
-    </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
