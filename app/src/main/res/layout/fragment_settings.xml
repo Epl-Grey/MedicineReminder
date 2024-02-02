@@ -8,25 +8,65 @@
     tools:context=".fragments.SettingsFragment">
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="65dp"
+        android:id="@+id/settings"
+        android:layout_width="311dp"
+        android:layout_height="50dp"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentTop="true"
+    android:layout_marginLeft="20dp"
+    android:layout_marginTop="40dp"
+    android:fontFamily="@font/montserratsemibold"
+    android:gravity="top"
+    android:lineSpacingExtra="-32sp"
+    android:textAppearance="@style/some_id2"
         android:text="Настройки"
-        android:textAlignment="center"
-        android:textSize="45sp"
-        android:textColor="@color/black"
-        android:fontFamily="@font/font1"/>
-
+        />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/NameBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/settings"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="Имя"
+        android:textAlignment="viewStart"
+        android:textSize="25sp"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:background="@drawable/rounded_buttom"
+        android:fontFamily="@font/montserratregular"/>
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/voiceMelodyBtn"
         android:layout_width="match_parent"
-        android:layout_height="65dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginLeft="45dp"
-        android:layout_marginRight="45dp"
-        android:text="звук мелодии"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/NameBtn"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="Звук мелодии"
         android:textSize="25sp"
-        android:textColor="@color/black"
-        android:fontFamily="@font/font1"/>
+        android:textAlignment="textStart"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:background="@drawable/rounded_buttom"
+        android:fontFamily="@font/montserratregular"/>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/ThemeBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/voiceMelodyBtn"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:textAlignment="viewStart"
+        android:layout_marginRight="20dp"
+        android:text="Светлая тема"
+        android:textSize="25sp"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:background="@drawable/rounded_buttom"
+        android:fontFamily="@font/montserratregular"/>
+
 
     </RelativeLayout>
 

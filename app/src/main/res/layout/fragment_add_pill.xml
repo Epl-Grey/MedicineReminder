@@ -22,7 +22,7 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="33dp"
+            android:layout_marginTop="40dp"
             android:fontFamily="@font/montserratsemibold"
             android:gravity="top"
             android:lineSpacingExtra="-32sp"

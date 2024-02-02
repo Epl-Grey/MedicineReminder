@@ -11,110 +11,58 @@
         android:layout_height="match_parent"
         >
 
-        <RelativeLayout
-            android:id="@+id/rl"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-
-            >
-
-            <ImageView
-                android:id="@+id/imageView6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/frame_44" />
-
-            <ImageView
-                android:id="@+id/imageView7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/imageView6"
-                app:srcCompat="@drawable/frame_42" />
-
-            <ImageView
-                android:id="@+id/imageView8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/imageView7"
-                android:layout_alignParentRight="true"
-                app:srcCompat="@drawable/__1_occggrkm5_transformed_1" />
-
-
-        </RelativeLayout>
 
         <ImageView
             android:id="@+id/imageView9"
             android:layout_width="200dp"
-            android:layout_below="@id/rl"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
             android:layout_marginLeft="100dp"
             android:layout_height="200dp"
             app:srcCompat="@drawable/a" />
-
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/flowers"
+            android:layout_height="wrap_content"
+            />
         <ImageView
             android:id="@+id/image"
             android:layout_width="100dp"
             android:layout_height="90dp"
-            android:layout_below="@id/rl"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
             android:layout_marginLeft="155dp"
             android:layout_marginTop="55dp"
             app:srcCompat="@drawable/anim" />
 
         <TextView
             android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_below="@id/imageView9"
-            android:layout_marginLeft="20dp"
-            android:textSize="28sp"
-            android:textColor="@color/bl"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="32dp"
+            android:fontFamily="@font/montserratsemibold"
+            android:textAppearance="@style/some_id4"
+            android:lineSpacingExtra="32sp"
+            android:textSize="30sp"
+            android:layout_below="@id/bk"
+            android:textColor="@color/black"
             android:text="Препарат успешно  добавлен! "
-            android:textAlignment="center"
             android:layout_height="wrap_content"
             />
 
         <ImageButton
             android:id="@+id/bk"
-            android:layout_marginTop="17dp"
+            android:layout_marginTop="40dp"
             android:layout_marginLeft="17dp"
-            android:background="@drawable/close_round"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:background="@drawable/arrowleft"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             />
 
 
 
-        <RelativeLayout
-            android:id="@+id/rl2"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
 
-            >
-            <ImageView
-                android:id="@+id/imageView71"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/_46" />
-            <ImageView
-                android:id="@+id/imageView72"
-                android:layout_below="@id/imageView71"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/_45" />
-
-            <ImageView
-                android:id="@+id/imageView82"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:layout_below="@id/imageView71"
-                android:layout_toRightOf="@id/imageView72"
-                android:layout_alignParentRight="true"
-                app:srcCompat="@drawable/_4" />
-
-
-        </RelativeLayout>
 
     </RelativeLayout>
 
