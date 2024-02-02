@@ -3,7 +3,7 @@
     android:layout_width="230dp"
     android:layout_height="85dp"
     android:theme="@style/Theme.Design.Light.NoActionBar.AppWidgetContainer"
-    android:background="@drawable/submit">
+    android:background="@drawable/rounded_page_ob">
 
 
 
@@ -13,7 +13,8 @@
         android:layout_height="wrap_content"
         android:gravity="top"
         android:text="@string/name"
-        android:textAppearance="@style/some_id"
+        android:fontFamily="@font/montserratmedium"
+            android:textColor="@color/white"
             android:textSize="20sp"/>
 
         <TextView
@@ -21,10 +22,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/name"
-
+             android:fontFamily="@font/montserratmedium"
+            android:textColor="@color/white"
+            android:textSize="16dp"
             android:gravity="top"
             android:text="@string/time"
-            android:textAppearance="@style/kl" />
+             />
 
 
 </RelativeLayout>

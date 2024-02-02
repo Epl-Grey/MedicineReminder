@@ -43,11 +43,23 @@
             android:layout_marginLeft="32dp"
             android:fontFamily="@font/montserratsemibold"
             android:textAppearance="@style/some_id4"
-            android:lineSpacingExtra="32sp"
-            android:textSize="30sp"
+
+            android:textSize="25dp"
             android:layout_below="@id/bk"
             android:textColor="@color/black"
-            android:text="Препарат успешно  добавлен! "
+            android:text="Препарат успешно "
+            android:layout_height="wrap_content"
+            />
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="32dp"
+            android:fontFamily="@font/montserratsemibold"
+            android:textAppearance="@style/some_id4"
+            android:textSize="25dp"
+            android:layout_below="@id/textView2"
+            android:textColor="@color/black"
+            android:text="добавлен! "
             android:layout_height="wrap_content"
             />
 

@@ -8,8 +8,8 @@
 
     <TextView
         android:id="@+id/textCalc"
-        android:layout_width="311dp"
-        android:layout_height="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="20dp"
@@ -25,7 +25,7 @@
         android:layout_width="311dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_below="@+id/textCalc"
+        android:layout_below="@id/textCalc"
 
         android:lineSpacingExtra="-32sp"
         android:text="Болюса"
@@ -55,7 +55,7 @@
         android:layout_height="50dp"
         android:layout_below="@id/rec"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="25dp"
         android:layout_marginRight="20dp"
         android:inputType="number"
         android:hint="Текущая глюкоза(ммол/л)"
@@ -160,8 +160,7 @@
         android:textColor="@color/white"
         android:fontFamily="@font/montserratmedium"
         android:layout_centerHorizontal="true"
-        android:textAllCaps="false
-"
+        android:textAllCaps="false"
         android:background="@drawable/rounded_buttom"
         android:layout_below="@id/editCelGluk" />
 
