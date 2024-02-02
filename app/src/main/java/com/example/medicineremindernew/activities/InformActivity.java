@@ -44,7 +44,6 @@ public class InformActivity extends AppCompatActivity {
 
         TextView name = findViewById(R.id.name);
         TextView dose = findViewById(R.id.dose);
-        TextView time = findViewById(R.id.time);
         TextView kl = findViewById(R.id.kl);
         TextView allt = findViewById(R.id.allt);
         TextView weeks = findViewById(R.id.weeks);
@@ -162,7 +161,6 @@ public class InformActivity extends AppCompatActivity {
 
         name.setText(userCursor.getString(1));
         dose.setText(userCursor.getString(2) + " " + userCursor.getString(3));
-        time.setText(userCursor.getString(6));
         kl.setText(userCursor.getString(12));
         numbernext.setText(daysValue2 + " " + userCursor.getString(3));
         numbes.setText(daysValue + " " + userCursor.getString(3));

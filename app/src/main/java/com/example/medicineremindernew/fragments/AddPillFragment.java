@@ -66,7 +66,7 @@ public class AddPillFragment extends Fragment {
         valueEdit =  viewP.findViewById(R.id.NumberEdit);
 
         Button btnChoose =  viewP.findViewById(R.id.btnChoose);
-        ImageButton back_btn = viewP.findViewById(R.id.back);
+
 
         Intent main_activity_intent = new Intent(getContext(), MainActivity.class);
 
@@ -99,12 +99,7 @@ public class AddPillFragment extends Fragment {
 //            userCursor.close();
 
 
-        back_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(main_activity_intent);
-            }
-        });
+
 
 
 

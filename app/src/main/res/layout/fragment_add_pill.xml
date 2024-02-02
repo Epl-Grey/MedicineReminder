@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".fragments.AddPillFragment">
+
+    <RelativeLayout
+        android:id="@+id/RelativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <TextView
+            android:id="@+id/helloText"
+            android:layout_width="311dp"
+            android:layout_height="50dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="33dp"
+            android:fontFamily="@font/montserratsemibold"
+            android:gravity="top"
+            android:lineSpacingExtra="-32sp"
+            android:text="@string/some_id"
+            android:textAppearance="@style/some_id2" />
+
+        <TextView
+            android:id="@+id/q"
+            android:layout_width="311dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+
+            android:layout_below="@+id/helloText"
+            android:fontFamily="@font/montserratsemibold"
+            android:gravity="top"
+            android:lineSpacingExtra="-32sp"
+            android:text="препарат"
+            android:textAppearance="@style/some_id2" />
+
+
+        <EditText
+            android:id="@+id/NameEdit"
+            android:layout_width="370dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/q"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="65dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/rounded_rectangle"
+            android:hint="Название препарата"
+            android:textColorHint="@color/green_white"
+            android:fontFamily="@font/montserratmedium" />
+
+
+
+        <EditText
+            android:id="@+id/NumberEdit"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/NameEdit"
+            android:inputType="number"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="200dp"
+            android:hint="Дозировка"
+            android:textColorHint="@color/green_white"
+            android:fontFamily="@font/montserratmedium"
+            android:background="@drawable/rounded_rectangle"/>
+
+        <Spinner
+            android:id="@+id/Spinner"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/NameEdit"
+            android:layout_marginLeft="220dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:id="@+id/textBefore"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:text="01.01.2023"
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/NumberEdit"
+            android:textAllCaps="false"
+            android:textColor="@color/green_white"
+            android:textSize="20sp"
+            android:fontFamily="@font/montserratmedium"
+            android:gravity="center_vertical"
+            android:background="@drawable/rounded_rectangle"
+            />
+
+
+        <TextView
+            android:id="@+id/textAfter"
+            android:background="@drawable/rounded_rectangle"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/textBefore"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="30dp"
+            android:text="01.01.2023"
+            android:textColor="@color/green_white"
+            android:fontFamily="@font/montserratmedium"
+            android:textSize="20sp"
+            android:gravity="center_vertical"/>
+
+        <Spinner
+            android:id="@+id/spinnerTimes"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/textAfter"
+            android:layout_marginLeft="29dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/rounded_rectangle"
+            />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnChoose"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_below="@id/spinnerTimes"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/rounded_buttom"
+            android:text="Продолжить"
+            android:layout_marginLeft="100dp"
+            android:layout_marginRight="100dp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/montserratmedium"
+            android:textSize="20sp"
+            android:textAppearance="@style/kl" />
+
+
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

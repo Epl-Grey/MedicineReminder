@@ -8,129 +8,138 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:background="@drawable/fon22222"
+        android:background="@color/white"
         android:layout_height="match_parent">
 
 
 
 
         <TextView
-            android:layout_width="311dp"
-            android:layout_height="96dp"
+            android:layout_width="376dp"
+            android:layout_height="45dp"
             android:layout_alignParentLeft="true"
-            android:layout_marginLeft="45dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="117dp"
-            android:text="Выберете"
-            android:fontFamily="@font/inter"
+            android:layout_marginTop="55dp"
+            android:text="Выбор времени"
+            android:fontFamily="@font/montserratsemibold"
             android:textAppearance="@style/some_id4"
             android:lineSpacingExtra="32sp"
-            android:gravity="center_horizontal|top"
+            android:textSize="35sp"
             />
-        <TextView
-            android:layout_width="311dp"
-            android:layout_height="96dp"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="45dp"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="147dp"
-            android:text="время"
-            android:fontFamily="@font/inter"
-            android:textAppearance="@style/some_id4"
-            android:lineSpacingExtra="-32sp"
-            android:gravity="center_horizontal|top"
-            />
+
 
         <TextView
             android:id="@+id/setTimes"
             android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:visibility="gone"
+            android:layout_height="55dp"
+
             android:layout_marginLeft="50dp"
-            android:layout_marginTop="260dp"
+            android:layout_marginTop="200dp"
             android:layout_marginRight="60dp"
-            android:background="@drawable/edt"
-            android:textSize="30sp"
-            android:textAlignment="center"
-            android:textColor="@color/black" />
+            android:background="@drawable/rounded_rectangle"
+
+            android:fontFamily="@font/montserratmedium"
+            android:textSize="20sp"
+            android:gravity="center_vertical"
+            android:textColor="@color/green_white" />
 
         <TextView
             android:id="@+id/setTimes2"
             android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:visibility="gone"
-            android:background="@drawable/edt"
-            android:layout_marginTop="320dp"
+            android:layout_height="55dp"
+
+            android:layout_marginTop="20dp"
             android:layout_marginLeft="50dp"
             android:layout_marginRight="60dp"
-            android:textSize="30sp"
-            android:textAlignment="center"
-            android:textColor="@color/black"/>
+            android:background="@drawable/rounded_rectangle"
+
+            android:fontFamily="@font/montserratmedium"
+            android:textSize="20sp"
+            android:gravity="center_vertical"
+            android:textColor="@color/green_white"
+            android:layout_below="@+id/setTimes"/>
 
         <TextView
             android:id="@+id/setTimes3"
             android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:visibility="gone"
-            android:background="@drawable/edt"
-            android:layout_marginTop="380dp"
+            android:layout_height="55dp"
+
+            android:layout_marginTop="20dp"
             android:layout_marginLeft="50dp"
             android:layout_marginRight="60dp"
-            android:textSize="30sp"
-            android:textAlignment="center"
-            android:textColor="@color/black"/>
+            android:background="@drawable/rounded_rectangle"
+
+            android:fontFamily="@font/montserratmedium"
+            android:textSize="20sp"
+            android:gravity="center_vertical"
+            android:textColor="@color/green_white"
+            android:layout_below="@+id/setTimes2"/>
 
         <TextView
             android:id="@+id/setTimes4"
             android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:visibility="gone"
-            android:background="@drawable/edt"
-            android:layout_marginTop="440dp"
+            android:layout_height="55dp"
+
+            android:layout_marginTop="20dp"
             android:layout_marginLeft="50dp"
             android:layout_marginRight="60dp"
-            android:textSize="30sp"
-            android:textAlignment="center"
-            android:textColor="@color/black"/>
+            android:background="@drawable/rounded_rectangle"
+
+            android:fontFamily="@font/montserratmedium"
+            android:textSize="20sp"
+            android:gravity="center_vertical"
+            android:textColor="@color/green_white"
+            android:layout_below="@+id/setTimes3"/>
 
         <TextView
             android:id="@+id/setTimes5"
             android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:visibility="gone"
-            android:background="@drawable/edt"
-            android:layout_marginTop="500dp"
+            android:layout_height="55dp"
+
+            android:layout_marginTop="20dp"
             android:layout_marginLeft="50dp"
             android:layout_marginRight="60dp"
-            android:textSize="30sp"
-            android:textAlignment="center"
-            android:textColor="@color/black"/>
+            android:background="@drawable/rounded_rectangle"
+
+            android:fontFamily="@font/montserratmedium"
+            android:textSize="20sp"
+            android:gravity="center_vertical"
+            android:textColor="@color/green_white"
+            android:layout_below="@+id/setTimes4"/>
 
         <TextView
             android:id="@+id/setTimes6"
             android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:visibility="gone"
-            android:background="@drawable/edt"
-            android:layout_marginTop="560dp"
+            android:layout_height="55dp"
+
+            android:layout_marginTop="20dp"
             android:layout_marginLeft="50dp"
             android:layout_marginRight="60dp"
-            android:textSize="30sp"
-            android:textAlignment="center"
-            android:textColor="@color/black"/>
+            android:background="@drawable/rounded_rectangle"
+
+            android:fontFamily="@font/montserratmedium"
+            android:textSize="20sp"
+            android:gravity="center_vertical"
+            android:textColor="@color/green_white"
+            android:layout_below="@+id/setTimes5"/>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/nextBtn"
             android:layout_width="match_parent"
-            android:layout_height="33dp"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="570dp"
-            android:layout_marginRight="60dp"
-            android:background="@drawable/botao"
+            android:layout_height="45dp"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="100dp"
+            android:background="@drawable/rounded_buttom"
             android:onClick="save"
             android:text="Завершить"
-            android:fontFamily="@font/inter"
-            android:textAppearance="@style/kl" />
+            android:fontFamily="@font/montserratmedium"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textAppearance="@style/kl"
+            android:layout_below="@+id/setTimes6"/>
 
     </RelativeLayout>
 

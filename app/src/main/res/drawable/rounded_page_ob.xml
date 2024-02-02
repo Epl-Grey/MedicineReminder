@@ -1,0 +1,18 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Задаем форму прямоугольника -->
+    <corners android:radius="15dp" />
+
+    <!-- Задаем цвет фона -->
+    <solid android:color="@color/green_white" />
+
+
+
+    <!-- Задаем отступы -->
+    <padding
+        android:left="10dp"
+        android:right="10dp"
+        android:top="5dp"
+        android:bottom="5dp" />
+
+</shape>

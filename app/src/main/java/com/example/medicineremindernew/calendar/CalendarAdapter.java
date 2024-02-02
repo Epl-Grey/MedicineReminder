@@ -1,5 +1,6 @@
 package com.example.medicineremindernew.calendar;
 
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,6 +47,7 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarViewHolder>
         return new CalendarViewHolder(view, onItemListener, days, numberWeek, context);
     }
 
+    @SuppressLint("ResourceAsColor")
     @Override
     public void onBindViewHolder(@NonNull CalendarViewHolder holder, int position)
     {
@@ -61,10 +63,11 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarViewHolder>
                 holder.weekText.setText(text);
             }
             if(date.equals(CalendarUtils.selectedDate)){
-                holder.parentView.setBackgroundResource(R.drawable.selectitem);
-                holder.weekText.setText("");
+
+                holder.weekText.setTextColor(R.color.black);
+                holder.weekText.setFontFeatureSettings(String.valueOf(R.font.montserratsemibold));
             } else {
-                holder.parentView.setBackgroundResource(R.drawable.noselectitem);
+
 
 
 

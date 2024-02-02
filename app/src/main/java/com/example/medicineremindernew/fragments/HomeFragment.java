@@ -61,7 +61,7 @@ public class HomeFragment extends Fragment {
     LinearLayoutManager linearLayoutManager;
     Intent intent;
 
-    Button addPill;
+
     Button minusMonthBtn;
     Button plusMonthBtn;
     TextView calendar;
@@ -83,7 +83,7 @@ public class HomeFragment extends Fragment {
 
         databaseHelper1 = new DatabaseHelper(getActivity());
         db2 = databaseHelper1.getReadableDatabase();
-        addPill = viewP.findViewById(R.id.addButton);
+
         minusMonthBtn = viewP.findViewById(R.id.minMonthBtn);
         plusMonthBtn = viewP.findViewById(R.id.plusMonthBtn);
         calendar= viewP.findViewById(R.id.monthYearTV);
@@ -99,7 +99,7 @@ public class HomeFragment extends Fragment {
         Intent sett = new Intent(getContext(), SettingsFragment.class);
         Intent informIntent = new Intent(getContext(), InformActivity.class);
 
-        addPill.setOnClickListener(view -> startActivity(intent));
+
         inf.setOnClickListener(view -> startActivity(informIntent));
 
         CalendarUtils.selectedDate = LocalDate.now();
@@ -160,7 +160,11 @@ public class HomeFragment extends Fragment {
         System.out.println("selectedDate " + selectedDate);
         ArrayList<PillsView> arrayList = new ArrayList<PillsView>();
 
+        try {
             pillAdapter = new PillSimpleAdapter(getActivity(), arrayList);
+        } catch (Exception e) {
+            throw e;
+        }
 
 
         pillList.setAdapter(pillAdapter);
