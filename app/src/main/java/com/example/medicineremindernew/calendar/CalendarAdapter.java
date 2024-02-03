@@ -40,7 +40,7 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarViewHolder>
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View view = inflater.inflate(R.layout.calendar_cell, parent, false);
         ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
-//            layoutParams.height = 155;
+     //       layoutParams.height = 165;
 
 
 
@@ -63,12 +63,12 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarViewHolder>
                 holder.weekText.setText(text);
             }
             if(date.equals(CalendarUtils.selectedDate)){
-
+                holder.parentView.setBackgroundResource(R.drawable.rectangle1221);
                 holder.weekText.setTextColor(R.color.black);
-                holder.weekText.setFontFeatureSettings(String.valueOf(R.font.montserratsemibold));
+
             } else {
 
-
+                holder.parentView.setBackgroundResource(R.drawable.rectangle1122);
 
 
             }

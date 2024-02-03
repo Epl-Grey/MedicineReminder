@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".AddingPill">
 
     <RelativeLayout
@@ -15,220 +16,144 @@
         tools:layout_editor_absoluteY="0dp">
 
         <TextView
-            android:layout_width="311dp"
-            android:layout_height="100dp"
+            android:id="@+id/helloText"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
+
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="113dp"
-            android:fontFamily="@font/inter"
+            android:layout_below="@id/back"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/montserratsemibold"
             android:gravity="top"
             android:lineSpacingExtra="-32sp"
-            android:text="@string/some_id"
-            android:textAppearance="@style/some_id2" />
+            android:text="Редактировать"
+            android:textSize="32dp"
+            android:textColor="@color/black"
+             />
 
         <TextView
             android:id="@+id/q"
             android:layout_width="311dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="153dp"
-            android:fontFamily="@font/inter"
+            android:textColor="@color/black"
+            android:textSize="32dp"
+            android:layout_below="@+id/helloText"
+            android:fontFamily="@font/montserratsemibold"
             android:gravity="top"
             android:lineSpacingExtra="-32sp"
             android:text="препарат"
-            android:textAppearance="@style/some_id2" />
-
-        <TextView
-            android:id="@+id/nametext"
-            android:layout_width="361.96dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="30dp"
-            android:layout_below="@id/q"
+             />
+        <ImageButton
+            android:id="@+id/back"
             android:layout_marginTop="40dp"
-            android:fontFamily="@font/inter"
-            android:gravity="top"
-            android:text="Название препарата"
-            android:textAppearance="@style/some_id3" />
+            android:layout_marginLeft="17dp"
+            android:background="@drawable/arrowleft"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            />
 
         <EditText
             android:id="@+id/NameEdit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/nametext"
+            android:layout_width="370dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/q"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="-6dp"
-            android:layout_marginRight="30dp" />
+            android:layout_marginTop="65dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/rounded_rectangle"
+            android:hint="Название препарата"
+            android:textColorHint="@color/green_white"
+            android:fontFamily="@font/montserratmedium" />
 
-        <TextView
-            android:id="@+id/number"
-            android:layout_marginTop="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="25dp"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="30dp"
-            android:layout_below="@id/NameEdit"
-            android:fontFamily="@font/inter"
-            android:gravity="top"
-            android:text="Сколько"
-            android:textAppearance="@style/some_id3" />
+
 
         <EditText
             android:id="@+id/NumberEdit"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/number"
+            android:layout_height="50dp"
+            android:layout_below="@id/NameEdit"
             android:inputType="number"
-            android:layout_marginLeft="29dp"
-            android:layout_marginRight="200dp" />
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="200dp"
+            android:hint="Дозировка"
+            android:textColorHint="@color/green_white"
+            android:fontFamily="@font/montserratmedium"
+            android:background="@drawable/rounded_rectangle"/>
 
         <Spinner
             android:id="@+id/Spinner"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_below="@id/number"
+            android:layout_height="50dp"
+            android:layout_below="@id/NameEdit"
             android:layout_marginLeft="220dp"
-            android:layout_marginRight="30dp"/>
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="20dp"/>
 
         <TextView
-            android:id="@+id/as"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
+            android:id="@+id/textBefore"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginRight="30dp"
+            android:text="01.01.2023"
+            android:layout_marginTop="20dp"
             android:layout_below="@id/NumberEdit"
-            android:text="Кол-во раз в сутки"
-            android:textAppearance="@style/some_id3"
-            android:fontFamily="@font/inter"
-            android:gravity="top"
+            android:textAllCaps="false"
+            android:textColor="@color/green_white"
+            android:textSize="20sp"
+            android:fontFamily="@font/montserratmedium"
+            android:gravity="center_vertical"
+            android:background="@drawable/rounded_rectangle"
             />
+
+
+        <TextView
+            android:id="@+id/textAfter"
+            android:background="@drawable/rounded_rectangle"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/textBefore"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="30dp"
+            android:text="01.01.2023"
+            android:textColor="@color/green_white"
+            android:fontFamily="@font/montserratmedium"
+            android:textSize="20sp"
+            android:gravity="center_vertical"/>
 
         <Spinner
             android:id="@+id/spinnerTimes"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_below="@id/as"
+            android:layout_height="50dp"
+            android:layout_below="@id/textAfter"
             android:layout_marginLeft="29dp"
-            android:layout_marginRight="30dp"/>
-
-        <TextView
-            android:id="@+id/start"
-            android:layout_width="359dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="10dp"
-            android:layout_below="@id/spinnerTimes"
-            android:text="Начало курса"
-            android:textAppearance="@style/some_id3"
-            android:fontFamily="@font/inter"
-            android:gravity="top"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/rounded_rectangle"
             />
-
-        <TextView
-            android:id="@+id/textBefore"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:text="01.01.2023"
-            android:layout_marginTop="5dp"
-            android:layout_below="@id/start"
-            android:textAlignment="center"
-            android:textAllCaps="false"
-            android:textColor="#454444"
-            android:textSize="25sp" />
-
-        <TextView
-            android:id="@+id/id"
-            android:layout_width="359dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="10dp"
-            android:layout_below="@id/textBefore"
-            android:text="Конец курса"
-            android:textAppearance="@style/some_id3"
-            android:fontFamily="@font/inter"
-            android:gravity="top"
-            />
-
-        <TextView
-            android:id="@+id/textAfter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_below="@id/id"
-            android:text="01.01.2023"
-            android:layout_marginTop="5dp"
-            android:textAlignment="center"
-            android:textColor="#454444"
-            android:textSize="25sp" />
-
-
-
-                <ImageButton
-                    android:id="@+id/back"
-                    android:layout_width="30dp"
-                    android:layout_height="25dp"
-                    android:layout_alignParentLeft="true"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="23dp"
-                    android:background="@drawable/back" />
-
-
-
-
 
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnChoose"
             android:layout_width="match_parent"
-            android:layout_height="35dp"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
-           android:layout_below="@id/textAfter"
+            android:layout_height="45dp"
+            android:layout_below="@id/spinnerTimes"
             android:layout_marginTop="30dp"
-            android:background="@drawable/botao"
-            android:text="Выбрать"
-            android:textColor="@color/bl"
-            android:fontFamily="@font/inter"
+            android:background="@drawable/rounded_buttom"
+            android:text="Продолжить"
+            android:layout_marginLeft="100dp"
+            android:layout_marginRight="100dp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/montserratmedium"
+            android:textSize="20sp"
             android:textAppearance="@style/kl" />
 
 
-        <RelativeLayout
-            android:id="@+id/rl"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
 
-            >
-            <ImageView
-                android:id="@+id/imageView6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/frame_44" />
-            <ImageView
-                android:id="@+id/imageView7"
-                android:layout_toRightOf="@id/imageView6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/frame_42" />
-
-            <ImageView
-                android:id="@+id/imageView8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/imageView7"
-                android:layout_alignParentRight="true"
-                app:srcCompat="@drawable/__1_occggrkm5_transformed_1" />
-
-
-        </RelativeLayout>
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

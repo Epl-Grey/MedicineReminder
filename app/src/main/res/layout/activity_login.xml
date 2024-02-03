@@ -61,20 +61,7 @@
             android:background="@drawable/rounded_rectangle"/>
 
 
-<!--        <EditText-->
-<!--            android:id="@+id/reapet_password_edit_text"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="46dp"-->
-<!--            android:layout_marginTop="12dp"-->
-<!--            android:layout_below="@id/password_edit_text"-->
-<!--            android:layout_marginLeft="50dp"-->
-<!--            android:layout_marginRight="50dp"-->
-<!--            android:layout_marginBottom="20dp"-->
-<!--            android:background="@drawable/rounded_rectangle"-->
-<!--            android:fontFamily="@font/montserratmedium"-->
-<!--            android:hint="Повторите пароль"-->
-<!--            android:inputType="textPassword"-->
-<!--            android:textColorHint="@color/green_white" />-->
+
 
         <Button
             android:layout_below="@id/password_edit_text"
@@ -82,19 +69,20 @@
             android:layout_width="209dp"
             android:layout_height="45dp"
             android:text="Войти"
+            android:textAllCaps="false"
             android:textColor="#ffffff"
             android:fontFamily="@font/montserratmedium"
             android:textSize="20sp"
-            android:layout_marginLeft="120dp"
-            android:layout_marginRight="120dp"
+            android:layout_centerHorizontal="true"
             android:background="@drawable/rounded_buttom"
             android:layout_marginTop="68dp"/>
 
         <TextView
             android:layout_below="@id/submit_login"
             android:id="@+id/register"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="40dp"
+            android:layout_centerHorizontal="true"
             android:gravity="center"
             android:textColor="@color/black"
             android:text="Регистрация"

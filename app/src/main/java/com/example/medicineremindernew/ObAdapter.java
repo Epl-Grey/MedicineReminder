@@ -25,21 +25,28 @@ public class ObAdapter extends PagerAdapter {
             R.string.title1,
             R.string.title2,
             R.string.title3,
-            R.string.title4,
+
     };
 
     private int descriptions[] = {
             R.string.description1,
             R.string.description2,
             R.string.description3,
-            R.string.description4
+
     };
 
     private int images[] ={
-            R.drawable._22x_2,
-            R.drawable.z5zwmxld5d34oo6mjwqw5tuxa5xr3abh_transformed_1,
-            R.drawable._22x_1,
-            R.drawable._937591_scaled_transformed_1__1_
+            R.drawable.image20,
+            R.drawable.image21,
+            R.drawable.image20,
+
+    };
+
+    private int frame[] ={
+            R.drawable.frame301,
+            R.drawable.frame302,
+            R.drawable.frame303,
+
     };
 
     @Override
@@ -63,11 +70,13 @@ public class ObAdapter extends PagerAdapter {
         View v = layoutInflater.inflate(R.layout.page_ob,container,false);
 
         ImageView image = v.findViewById(R.id.image);
+        ImageView image2 = v.findViewById(R.id.image1);
         TextView title, description;
         title = v.findViewById(R.id.title);
         description = v.findViewById(R.id.description);
 
         image.setImageResource(images[position]);
+        image2.setImageResource(frame[position]);
         title.setText(titles[position]);
         description.setText(descriptions[position]);
 

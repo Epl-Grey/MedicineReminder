@@ -60,7 +60,7 @@
         android:layout_marginLeft="20dp"
         android:textAlignment="viewStart"
         android:layout_marginRight="20dp"
-        android:text="Светлая тема"
+        android:text="Сменить тему"
         android:textSize="22dp"
         android:textAllCaps="false"
         android:textColor="@color/white"
