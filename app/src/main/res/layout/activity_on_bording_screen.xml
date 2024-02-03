@@ -19,9 +19,9 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginBottom="75dp"
-        android:layout_marginLeft="40dp"
+        android:layout_marginLeft="35dp"
         android:text="Пропустить"
-        android:textSize="15sp"
+        android:textSize="13sp"
         android:fontFamily="@font/montserratmedium"
         android:textColor="@color/black"/>
 
@@ -43,7 +43,7 @@
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:layout_marginBottom="65dp"
-            android:layout_marginRight="40dp"
+            android:layout_marginRight="35dp"
             android:clickable="true"
             android:focusable="true"
             />
