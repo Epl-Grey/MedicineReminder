@@ -80,8 +80,6 @@ public class HomeFragment extends Fragment {
     private PillsManager pillsManager;
     int positionG;
 
-    @Inject
-    PillsDataService pillsDataService;
 
     @SuppressLint("CutPasteId")
     @Override
