@@ -3,6 +3,7 @@ package com.example.medicineremindernew.activities;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -14,10 +15,12 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 
-import com.example.medicineremindernew.AddingPill;
 import com.example.medicineremindernew.DatabaseHelper;
 import com.example.medicineremindernew.R;
 import com.example.medicineremindernew.fragments.HomeFragment;
+import com.example.medicineremindernew.models.Pill;
+
+import org.apache.commons.lang3.StringUtils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -27,13 +30,7 @@ import java.util.Date;
 
 public class InformActivity extends AppCompatActivity {
 
-    String[] times = {"1 раз в день", "2 раза в день", "3 раза в день", "4 раза в день", "5 раз в день", "6 раз в день"};
-
-    DatabaseHelper sqlHelper;
-    SQLiteDatabase db;
-    Cursor userCursor;
-    String userId=null;
-
+    @SuppressLint("SetTextI18n")
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,33 +48,18 @@ public class InformActivity extends AppCompatActivity {
         TextView numbernext = findViewById(R.id.numbernext);
         Button redactor = findViewById(R.id.redactor);
 
-        sqlHelper = new DatabaseHelper(this);
-        db = sqlHelper.getWritableDatabase();
         //MainActivity mainActivity = new MainActivity();
 
-        userId = getIntent().getStringExtra("id");
-        System.out.println("Inform: userId: " + userId);
-
-        userCursor = db.rawQuery("select * from " + DatabaseHelper.TABLE + " where " +
-                DatabaseHelper.COLUMN_ID + "=?", new String[]{userId});
-
-//        userCursor = db.rawQuery("SELECT * FROM " + DatabaseHelper.TABLE, new String[]{});
-
-        userCursor.moveToFirst();
-        String date1 = userCursor.getString(4);
-        String[] date11 = date1.split("\\.");
+        Pill pill = (Pill) getIntent().getSerializableExtra("pill");
+        if(pill == null) return;
 
         SimpleDateFormat formatter = new SimpleDateFormat("dd.mm.yyyy");
-        String dateFirst = userCursor.getString(4);
-        String dateSecond = userCursor.getString(5);
-        System.out.println(dateFirst + ", " + dateSecond);
         int days = 0;
         Date date2 = null;
         Date date = null;
         try {
-
-            date = formatter.parse(dateFirst);
-            date2 = formatter.parse(dateSecond);
+            date = formatter.parse(pill.getDate_from());
+            date2 = formatter.parse(pill.getDate_to());
             System.out.println(date);
             System.out.println(date2);
 
@@ -90,100 +72,47 @@ public class InformActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        String db12 = userCursor.getString(12);
-        int db2 = userCursor.getInt(2);
-        System.out.println(db2);
-        System.out.println(db12);
-        int daysValue = 0;
-        if (db12.equals(times[0])) {
-            daysValue = (1 * db2) * days;
-            System.out.println(daysValue + " таблеток");
-        } else if (db12.equals(times[1])) {
-            daysValue = (2 * db2) * days;
-            System.out.println(daysValue + " таблеток");
-        } else if (db12.equals(times[2])) {
-            daysValue = (3 * db2) * days;
-            System.out.println(daysValue + " таблеток");
-        } else if (db12.equals(times[3])) {
-            daysValue = (4 * db2) * days;
-            System.out.println(daysValue + " таблеток");
-        } else if (db12.equals(times[4])) {
-            daysValue = (5 * db2) * days;
-            System.out.println(daysValue + " таблеток");
-        } else if (db12.equals(times[5])) {
-            daysValue = (6 * db2) * days;
-            System.out.println(daysValue + " таблеток");
-        }
-
+        int daysValue = days * pill.getTimes().size();
 
         LocalDate date31 = LocalDate.now();
         DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("dd.MM.yyyy");
         String str = date31.format(formatter2);
         System.out.println(str);
-        Date date3;
-        int days2 = 0;
+
         int daysValue2 = 0;
         try {
-
-            date3 = formatter.parse(str);
+            Date date3 = formatter.parse(str);
             System.out.println(date3);
 
             long milliseconds = date2.getTime() - date3.getTime();
 
-            days2 = (int) (milliseconds / (24 * 60 * 60 * 1000));
+            int days2 = (int) (milliseconds / (24 * 60 * 60 * 1000));
             System.out.println("Разница между датами в днях2: " + days2);
 
-            if (db12.equals(times[0])) {
-                daysValue2 = (1 * db2) * days2;
-                System.out.println(daysValue2 + " таблеток осталось");
-            } else if (db12.equals(times[1])) {
-                daysValue2 = (2 * db2) * days2;
-                System.out.println(daysValue2 + " таблеток осталось");
-            } else if (db12.equals(times[2])) {
-                daysValue2 = (3 * db2) * days2;
-                System.out.println(daysValue2 + " таблеток осталось");
-            } else if (db12.equals(times[3])) {
-                daysValue2 = (4 * db2) * days2;
-                System.out.println(daysValue2 + " таблеток осталось");
-            } else if (db12.equals(times[4])) {
-                daysValue2 = (5 * db2) * days2;
-                System.out.println(daysValue2 + " таблеток осталось");
-            } else if (db12.equals(times[5])) {
-                daysValue2 = (6 * db2) * days2;
-                System.out.println(daysValue2 + " таблеток осталось");
-            }
-
+            daysValue2 = pill.getDosage_value() * pill.getTimes().size();
 
         } catch (ParseException e) {
             e.printStackTrace();
         }
 
 
-        name.setText(userCursor.getString(1));
-        dose.setText(userCursor.getString(2) + " " + userCursor.getString(3));
-        kl.setText(userCursor.getString(12));
-        numbernext.setText(daysValue2 + " " + userCursor.getString(3));
-        numbes.setText(daysValue + " " + userCursor.getString(3));
-        allt.setText(userCursor.getString(6) + " " + userCursor.getString(7) + " " +
-                userCursor.getString(8) + " " +userCursor.getString(9) + " " +
-                userCursor.getString(10) + " " + userCursor.getString(11));
-        weeks.setText(userCursor.getString(4) + "-" + userCursor.getString(5));
-        userCursor.close();
+        name.setText(pill.getName());
+        dose.setText(pill.getDosage_value() + " " + pill.getDosage_unit());
+        kl.setText(pill.getTimes().size() + " приёмов в сутки");
+        numbernext.setText(daysValue2 + " " + pill.getDosage_unit());
+        numbes.setText(daysValue + " " + pill.getDosage_unit());
+        allt.setText(StringUtils.join(pill.getTimes(), " "));
+        weeks.setText(pill.getDate_from() + "-" + pill.getDate_to());
 
 
-
-        Intent bak2 = new Intent(this, MainActivity.class);
-        back.setOnClickListener(view -> startActivity(bak2));
-
+        Intent mainIntent = new Intent(this, MainActivity.class);
+        back.setOnClickListener(view -> startActivity(mainIntent));
 
 
-        Intent intent = new Intent(this, AddingPill.class);
-        redactor.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                intent.putExtra("id", userId);
-                startActivity(intent);
-            }
+        Intent addPillIntent = new Intent(this, AddPillActivity.class);
+        redactor.setOnClickListener(view -> {
+            addPillIntent.putExtra("pill", pill);
+            startActivity(addPillIntent);
         });
 
     }

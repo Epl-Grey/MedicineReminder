@@ -15,7 +15,7 @@ class AuthService @Inject constructor(
 ) : IAuthService {
 
     override suspend fun createUser(userEmail: String, userPassword: String, userName: String){
-        val user = supabase.auth.signUpWith(Email) {
+        supabase.auth.signUpWith(Email) {
             email = userEmail
             password = userPassword
             data = buildJsonObject {

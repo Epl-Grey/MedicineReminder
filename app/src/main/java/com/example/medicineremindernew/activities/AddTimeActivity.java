@@ -1,4 +1,4 @@
-package com.example.medicineremindernew;
+package com.example.medicineremindernew.activities;
 
 import android.app.AlertDialog;
 import android.app.TimePickerDialog;
@@ -17,6 +17,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.medicineremindernew.DatabaseHelper;
+import com.example.medicineremindernew.R;
 import com.example.medicineremindernew.activities.AddGoodActivity;
 import com.example.medicineremindernew.alarm.AlarmController;
 import com.example.medicineremindernew.firebase.PillsManager;
@@ -24,7 +26,7 @@ import com.example.medicineremindernew.firebase.PillsManager;
 import java.util.Calendar;
 import java.util.Locale;
 
-public class AddTime extends AppCompatActivity {
+public class AddTimeActivity extends AppCompatActivity {
 
     TextView setTimes;
     TextView setTimes2;

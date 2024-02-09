@@ -1,5 +1,6 @@
 package com.example.medicineremindernew.models
 
+
 import kotlinx.serialization.Serializable
 import java.sql.Timestamp
 
@@ -14,4 +15,4 @@ data class Pill(
     var date_from: String? = null,
     var date_to: String? = null,
     var times: List<String>? = null
-)
+): java.io.Serializable
