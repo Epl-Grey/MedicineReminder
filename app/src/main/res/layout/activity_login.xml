@@ -64,7 +64,7 @@
 
 
         <Button
-            android:layout_below="@id/login_edit_text"
+            android:layout_below="@id/password_edit_text"
             android:id="@+id/submit_login"
             android:layout_width="209dp"
             android:layout_height="45dp"
@@ -75,7 +75,7 @@
             android:textSize="20sp"
             android:layout_centerHorizontal="true"
             android:background="@drawable/rounded_buttom"
-            android:layout_marginTop="150dp"/>
+            android:layout_marginTop="68dp"/>
 
         <TextView
             android:layout_below="@id/submit_login"
@@ -87,7 +87,7 @@
             android:textColor="@color/black"
             android:text="Регистрация"
             android:textSize="20dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="12dp"
             android:fontFamily="@font/montserratmedium"/>
     </RelativeLayout>
 

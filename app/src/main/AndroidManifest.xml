@@ -10,6 +10,7 @@
         android:maxSdkVersion="32" />
 
     <application
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@drawable/logotipe"
         android:label="Medecine Reminder"
@@ -82,11 +83,11 @@
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
-            android:name=".AddingPill"
+            android:name=".activities.AddPillActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".AddTime"
+            android:name=".activities.AddTimeActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
     </application>

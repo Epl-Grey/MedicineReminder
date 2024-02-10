@@ -2,10 +2,13 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'com.google.gms.google-services'
+    id 'kotlin-kapt'
+    id 'com.google.dagger.hilt.android'
+    id 'org.jetbrains.kotlin.plugin.serialization' version '1.8.20'
 }
 
 android {
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.example.medicineremindernew"
@@ -46,6 +49,16 @@ dependencies {
     implementation "androidx.core:core:1.9.0"
     implementation 'androidx.appcompat:appcompat:1.2.0'
 
+    implementation "com.google.dagger:hilt-android:2.44"
+    kapt "com.google.dagger:hilt-compiler:2.44"
+
+    implementation platform("io.github.jan-tennert.supabase:bom:2.1.0")
+    implementation "io.github.jan-tennert.supabase:postgrest-kt:2.1.0"
+    implementation "io.github.jan-tennert.supabase:gotrue-kt"
+    implementation 'io.github.jan-tennert.supabase:realtime-kt'
+    implementation "io.ktor:ktor-client-android:2.3.8"
+    implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.2"
+
     implementation platform('com.google.firebase:firebase-bom:31.1.1')
     implementation 'com.google.firebase:firebase-analytics-ktx'
     implementation 'com.google.firebase:firebase-database-ktx:20.1.0'
@@ -62,4 +75,8 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     implementation 'com.jakewharton.threetenabp:threetenabp:1.2.1'
     coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.2'
+}
+
+kapt {
+    correctErrorTypes true
 }

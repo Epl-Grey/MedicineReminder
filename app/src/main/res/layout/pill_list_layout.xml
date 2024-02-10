@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="100dp"
-    android:layout_marginBottom="15dp"
+    android:layout_height="90dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <RelativeLayout
@@ -10,12 +9,13 @@
         android:background="@drawable/rounded_page_ob"
         android:id="@+id/la"
         android:layout_height="90dp">
+
         <ImageView
             android:layout_width="54dp"
             android:layout_height="48dp"
             android:background="@drawable/calendar"
-            android:layout_marginTop="17dp"
-            />
+            android:layout_marginTop="17dp" />
+
         <TextView
             android:id="@+id/name"
             android:layout_width="220dp"
@@ -38,15 +38,6 @@
             android:layout_marginTop="2dp"/>
 
         <TextView
-            android:id="@+id/kl"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:text="3"
-            />
-
-
-
-        <TextView
             android:id="@+id/time"
             android:layout_width="75dp"
             android:layout_height="22dp"
@@ -58,15 +49,5 @@
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textAppearance="@style/time_" />
-
-        <TextView
-            android:id="@+id/id_storage"
-            android:layout_width="0dp"
-            android:layout_height="0dp"/></RelativeLayout>
-
-    <RelativeLayout
-        android:layout_below="@id/la"
-        android:layout_width="match_parent"
-        android:layout_height="10dp"
-        />
+    </RelativeLayout>
 </RelativeLayout>

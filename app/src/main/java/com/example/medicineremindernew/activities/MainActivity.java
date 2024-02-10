@@ -6,18 +6,28 @@ import android.view.MenuItem;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.medicineremindernew.AddingPill;
 import com.example.medicineremindernew.R;
 import com.example.medicineremindernew.fragments.AddPillFragment;
 import com.example.medicineremindernew.fragments.CalculatorBolusa;
 import com.example.medicineremindernew.fragments.HomeFragment;
 import com.example.medicineremindernew.fragments.SettingsFragment;
+import com.example.medicineremindernew.services.PillsDataService;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import javax.inject.Inject;
+
+import dagger.hilt.android.AndroidEntryPoint;
+import dagger.internal.InjectedFieldSignature;
+
+@AndroidEntryPoint
 public class MainActivity extends AppCompatActivity
         implements BottomNavigationView
         .OnNavigationItemSelectedListener {
 
     BottomNavigationView bottomNavigationView;
+
+    @Inject
+    PillsDataService pillsService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)

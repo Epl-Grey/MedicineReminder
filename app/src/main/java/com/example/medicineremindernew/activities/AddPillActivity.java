@@ -1,4 +1,4 @@
-package com.example.medicineremindernew;
+package com.example.medicineremindernew.activities;
 
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,14 +20,15 @@ import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.example.medicineremindernew.activities.MainActivity;
+import com.example.medicineremindernew.DatabaseHelper;
+import com.example.medicineremindernew.R;
 
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.Calendar;
 
 
-public class AddingPill extends AppCompatActivity {
+public class AddPillActivity extends AppCompatActivity {
 
     //Переменные
     String selectItemOr;
@@ -116,7 +117,7 @@ public class AddingPill extends AppCompatActivity {
         spinner_times.setAdapter(adapter2);
         // вывод текста для выбара времени
 
-        Intent intent = new Intent(this, AddTime.class);
+        Intent intent = new Intent(this, AddTimeActivity.class);
 
 
         textBefore.setOnClickListener(view -> openDatePickerBefore(textBefore));

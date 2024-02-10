@@ -1,30 +1,44 @@
 package com.example.medicineremindernew.activities
 
-import com.example.medicineremindernew.R
-import com.example.medicineremindernew.SaveState
-
 import android.content.Intent
-import android.content.Context
-import androidx.appcompat.app.AppCompatActivity
+import android.os.AsyncTask
 import android.os.Bundle
+import android.util.Log
 import android.view.KeyEvent
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import com.example.medicineremindernew.firebase.UserData
-import com.example.medicineremindernew.firebase.UsersManager
-import java.security.MessageDigest
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
+import com.example.medicineremindernew.R
+import com.example.medicineremindernew.services.AuthService
+import com.example.medicineremindernew.services.PillsDataService
+import dagger.hilt.EntryPoint
+import dagger.hilt.android.AndroidEntryPoint
+import io.github.jan.supabase.exceptions.BadRequestRestException
+import io.github.jan.supabase.gotrue.SessionStatus
+import io.github.jan.supabase.gotrue.auth
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.withContext
+import java.net.URL
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class LoginActivity : AppCompatActivity() {
     lateinit var loginEditText: EditText
     lateinit var passwordEditText: EditText
     lateinit var submitButton: Button
     lateinit var submitButton2: TextView
 
-    lateinit var saveState: SaveState
-    lateinit var mainIntent: Intent
+    @Inject
+    lateinit var  authService: AuthService
+    @Inject
+    lateinit var pillsDataService: PillsDataService
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,9 +49,22 @@ class LoginActivity : AppCompatActivity() {
         submitButton = findViewById(R.id.submit_login)
         submitButton2 = findViewById(R.id.register)
 
-        saveState = SaveState(this, "ob")
+        val mainIntent = Intent(this, MainActivity::class.java)
 
-        mainIntent = Intent(this, MainActivity::class.java)
+        GlobalScope.launch {
+            authService.supabase.auth.sessionStatus.collect {
+                when(it) {
+                    is SessionStatus.Authenticated -> {
+                        startActivity(mainIntent)
+                        finish()
+                    }
+                    SessionStatus.LoadingFromStorage -> Log.d("login", "Loading from storage")
+                    SessionStatus.NetworkError -> Log.d("login", "Network error")
+                    SessionStatus.NotAuthenticated -> Log.d("login", "Not authenticated")
+                }
+            }
+        }
+
 
         submitButton.setOnClickListener {
             if(loginEditText.text.isEmpty()){
@@ -49,36 +76,20 @@ class LoginActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            val userManager = UsersManager()
-
-
-
-            userManager.listener = fun(it: ArrayList<UserData>) {
-                for (user in it) {
-                    System.out.println("${loginEditText.text}   ${user.userLogin!!} = ${user.userLogin!!.equals(loginEditText.text.toString())}")
-                    if (user.userLogin!!.equals(loginEditText.text.toString().trim())) {
-                        System.out.println("USER FOUNDED")
-                        val passwordHash: String = MessageDigest.getInstance("SHA-512")
-                            .digest(passwordEditText.text.toString().trim().toByteArray())
-                            .joinToString(separator = "") {
-                                ((it.toInt() and 0xff) + 0x100)
-                                    .toString(16)
-                                    .substring(1)
-                            }
-
-                        if (user.userPassword!! == passwordHash) {
-                            Toast.makeText(this@LoginActivity, "Login succeed!", Toast.LENGTH_LONG).show()
-                            val editor = getSharedPreferences("UserInfo", Context.MODE_PRIVATE).edit()
-                            editor.putString("userName", user.userLogin)
-                            editor.apply()
-
-                            saveState.state = 2
-                            startActivity(mainIntent)
-                            finish()
-                        }
-                    }
+            try {
+                runBlocking {
+                    Log.d("login", authService.isSignedIn().toString())
+                    authService.signIn(loginEditText.text.toString(), passwordEditText.text.toString())
                 }
-                Toast.makeText(this, "Invalid auth data", Toast.LENGTH_SHORT).show()
+
+                Toast.makeText(this@LoginActivity, "Login succeed!", Toast.LENGTH_SHORT).show()
+                val homeIntent = Intent(this, MainActivity::class.java)
+                startActivity(homeIntent)
+                finish()
+
+            }catch (e: BadRequestRestException){
+                Toast.makeText(this@LoginActivity, e.error, Toast.LENGTH_LONG).show()
+                Log.e("login", e.error)
             }
         }
 

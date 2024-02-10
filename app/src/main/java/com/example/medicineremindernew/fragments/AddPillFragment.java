@@ -15,13 +15,12 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
-import com.example.medicineremindernew.AddTime;
+import com.example.medicineremindernew.activities.AddTimeActivity;
 import com.example.medicineremindernew.DatabaseHelper;
 import com.example.medicineremindernew.R;
 import com.example.medicineremindernew.activities.MainActivity;
@@ -113,7 +112,7 @@ public class AddPillFragment extends Fragment {
         spinner_times.setAdapter(adapter2);
         // вывод текста для выбара времени
 
-        Intent intent = new Intent(getContext(), AddTime.class);
+        Intent intent = new Intent(getContext(), AddTimeActivity.class);
 
 
         textBefore.setOnClickListener(view -> openDatePickerBefore(textBefore));

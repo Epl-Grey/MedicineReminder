@@ -4,6 +4,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.medicineremindernew.R;
@@ -43,8 +44,8 @@ public class CalendarViewHolder extends RecyclerView.ViewHolder implements View.
         onItemListener.onItemClick(getAdapterPosition(),
                 days.get(getAdapterPosition()));
 
-        context.onCalendarItem(context.db);
-
+//        context.onCalendarItem(context.db);
+        // Refresh pills
 
     }
 }
