@@ -1,16 +1,122 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.MedicineReminderNew" parent="Theme.AppCompat.DayNight.NoActionBar">
+    <style name="Theme.ViewApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_200</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimary">#CAECA7</item>
+        <item name="colorPrimaryVariant">@color/black</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_200</item>
-        <item name="colorOnSecondary">@color/white</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+    </style>
+
+    <style name="NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="Theme.Design.Light.NoActionBar.AppWidgetContainerParent" parent="@android:style/Theme.DeviceDefault">
+        <!-- Radius of the outer bound of widgets to make the rounded corners -->
+        <item name="appWidgetRadius">16dp</item>
+        <!--
+        Radius of the inner view's bound of widgets to make the rounded corners.
+        It needs to be 8dp or less than the value of appWidgetRadius
+        -->
+        <item name="appWidgetInnerRadius">8dp</item>
+    </style>
+
+    <style name="Theme.Design.Light.NoActionBar.AppWidgetContainer" parent="Theme.Design.Light.NoActionBar.AppWidgetContainerParent">
+        <!-- Apply padding to avoid the content of the widget colliding with the rounded corners -->
+        <item name="appWidgetPadding">16dp</item>
+    </style>
+
+    <style name="BottomNavigationTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/green</item>
+        <item name="colorPrimaryDark">@color/bottom_navigation_selected_icon_color</item>
+        <item name="android:textColorPrimary">@color/green</item>
+        <item name="android:textColorSecondary">@color/bottom_navigation_selected_text_color</item>
+    </style>
+
+    <style name="some_id">
+
+        <item name="android:textSize">
+            20sp
+        </item>
+
+        <item name="android:textColorHint">
+            @color/white
+        </item>
+
+    </style>
+
+    <style name="some_id2">
+
+        <item name="android:textSize">
+            40sp
+        </item>
+
+        <item name="android:textColor">@color/white</item>
+
+    </style>
+
+    <style name="some_id3">
+
+        <item name="android:textSize">
+            40sp
+        </item>
+
+        <item name="android:textColor">@color/white</item>
+
+    </style>
+
+    <style name="some_id4">
+
+        <item name="android:textSize">
+            22sp
+        </item>
+
+        <item name="android:textColor">@color/white</item>
+
+    </style>
+    <style name="some_id5">
+
+        <item name="android:textSize">
+            20sp
+        </item>
+
+        <item name="android:textColor">@color/white</item>
+
+    </style>
+
+    <style name="textColorNumberDay">
+
+        <item name="android:textSize">
+            18sp
+        </item>
+
+        <item name="android:textColor">@color/white</item>
+
+    </style>
+    <style name="some_id6">
+
+        <item name="android:textSize">
+            25sp
+        </item>
+
+        <item name="android:textColor">@color/white</item>
+
+    </style>
+    <style name="styleEditText" parent="Widget.AppCompat.EditText">>
+        <item name="android:colorBackground">@color/white</item>
+        <item name="strokeColor">@color/black</item>
+        <item name="hintTextColor">@color/white</item>
     </style>
 </resources>

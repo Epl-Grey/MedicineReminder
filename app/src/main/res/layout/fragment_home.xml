@@ -28,8 +28,8 @@
             android:gravity="top"
             android:lineSpacingExtra="-32sp"
             android:text="Добрый день!"
-            android:textSize="22sp"
-            android:textColor="@color/black" />
+            style="@style/some_id4"
+            />
 
         <TextView
             android:id="@+id/monthYearTextView"
@@ -42,8 +42,7 @@
             android:text="Feb 2021"
             android:layout_marginLeft="20dp"
             android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
+            style="@style/some_id5" />
 
         <Button
             android:id="@+id/plusMonthBtn"
@@ -88,8 +87,7 @@
             android:fontFamily="@font/montserratmedium"
             android:text="Расписание"
             android:layout_marginLeft="20dp"
-            android:textColor="@color/black"
-            android:textSize="22sp" />
+            style="@style/some_id4" />
 
         <!--45dp-->
 

@@ -60,7 +60,7 @@
         android:inputType="number"
         android:hint="Текущая глюкоза(ммол/л)"
         android:fontFamily="@font/montserratmedium"
-        android:textColorHint="@color/green_white"
+        style="@style/some_id"
         android:background="@drawable/rounded_rectangle"
         android:textSize="16sp"/>
 
@@ -75,7 +75,7 @@
         android:layout_marginRight="30dp"
         android:layout_marginTop="20dp"
         android:hint="Углеводы(ХЕ)"
-        android:textColorHint="@color/green_white"
+        style="@style/some_id"
         android:fontFamily="@font/montserratmedium"
         android:background="@drawable/rounded_rectangle"
         android:textSize="16sp"/>
@@ -94,7 +94,7 @@
         android:layout_marginRight="20dp"
         android:layout_marginTop="20dp"
         android:hint="ФЧИ(ммол/л)"
-        android:textColorHint="@color/green_white"
+        style="@style/some_id"
         android:background="@drawable/rounded_rectangle"
         android:fontFamily="@font/montserratmedium"
         android:textSize="16sp"/>
@@ -113,7 +113,7 @@
         android:hint="Утренний УК(ЕД/ХЕ)"
         android:textSize="16sp"
         android:fontFamily="@font/montserratmedium"
-        android:textColorHint="@color/green_white"
+        style="@style/some_id"
         android:background="@drawable/rounded_rectangle"/>
 
 
@@ -128,7 +128,7 @@
         android:layout_marginRight="20dp"
         android:layout_marginTop="20dp"
         android:hint="Активный инсулин(ЕД)"
-        android:textColorHint="@color/green_white"
+        style="@style/some_id"
         android:background="@drawable/rounded_rectangle"
         android:fontFamily="@font/montserratmedium"
         android:textSize="16sp"/>
@@ -146,7 +146,7 @@
         android:layout_marginTop="20dp"
         android:hint="Целевая глюкоза(ммол/л)"
         android:textSize="16sp"
-        android:textColorHint="@color/green_white"
+        style="@style/some_id"
         android:fontFamily="@font/montserratmedium"
         android:background="@drawable/rounded_rectangle"/>
 
