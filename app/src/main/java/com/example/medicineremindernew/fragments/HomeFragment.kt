@@ -11,19 +11,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
-import android.widget.Button
 import android.widget.DatePicker
-import android.widget.ListView
 import android.widget.TextView
-import androidx.core.text.PrecomputedTextCompat
-import androidx.core.widget.ListViewCompat
-import androidx.core.widget.TextViewCompat
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.liveData
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.medicineremindernew.PillAdapter
 import com.example.medicineremindernew.R
 import com.example.medicineremindernew.activities.InformActivity
@@ -31,12 +23,14 @@ import com.example.medicineremindernew.alarm.AlarmController
 import com.example.medicineremindernew.calendar.CalendarAdapter
 import com.example.medicineremindernew.calendar.CalendarUtils
 import com.example.medicineremindernew.databinding.FragmentHomeBinding
+import com.example.medicineremindernew.models.Pill
 import com.example.medicineremindernew.services.PillsDataService
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.io.Serializable
 import java.time.LocalDate
 import java.util.Calendar
 import javax.inject.Inject
@@ -44,13 +38,13 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
     private lateinit var linearLayoutManager: LinearLayoutManager
-    private lateinit var calendar: TextView
     private lateinit var date: LocalDate
     private lateinit var datePickerDialog: DatePickerDialog
     private lateinit var days: ArrayList<LocalDate>
     private lateinit var numberWeek: ArrayList<String>
     private lateinit var alarmController: AlarmController
-    var positionG = 0
+    private lateinit var pills: List<Pill>
+    private var positionG = 0
 
     @Inject
     lateinit var pillsDataService: PillsDataService
@@ -64,9 +58,7 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val viewP = inflater.inflate(R.layout.fragment_home, container, false)
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-
 
         CalendarUtils.selectedDate = LocalDate.now()
         setWeekView()
@@ -74,10 +66,21 @@ class HomeFragment : Fragment() {
 
         binding.minMonthBtn.setOnClickListener { previousWeekAction() }
         binding.plusMonthBtn.setOnClickListener { nextWeekAction() }
-        binding.monthYearTextView.setOnClickListener { openDatePickerAfter(calendar) }
+        binding.monthYearTextView.setOnClickListener { openDatePickerAfter(binding.monthYearTextView) }
 
         alarmController = AlarmController(context)
         refreshPills()
+
+//        GlobalScope.launch {
+//            pillsDataService.createPill(Pill(
+//                name = "Test",
+//                dosage_value = 10,
+//                dosage_unit = "kg",
+//                date_from = "20.05.2001",
+//                date_to = "10.10.2023",
+//                times = listOf("8:45", "21:15")
+//            ))
+//        }
 
         //TODO("Refresh pills")
         return binding.root
@@ -88,10 +91,9 @@ class HomeFragment : Fragment() {
         _binding = null
     }
 
-
-    fun refreshPills(){
+    private fun refreshPills(){
         lifecycleScope.launch {
-            val pills = withContext(Dispatchers.IO) {
+            pills = withContext(Dispatchers.IO) {
                 pillsDataService.getPills()
             }
             val listAdapter = PillAdapter(requireContext(), pills)
@@ -104,10 +106,6 @@ class HomeFragment : Fragment() {
                     startActivity(intent)
                 }
         }
-
-
-
-
     }
 
     fun onCalendarItem(db: SQLiteDatabase?) {
@@ -173,4 +171,10 @@ class HomeFragment : Fragment() {
         initDatePicker()
         datePickerDialog.show()
     }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putSerializable("pills", pills as Serializable)
+    }
+
 }

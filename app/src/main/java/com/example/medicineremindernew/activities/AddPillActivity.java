@@ -117,9 +117,6 @@ public class AddPillActivity extends AppCompatActivity {
         spinner_times.setAdapter(adapter2);
         // вывод текста для выбара времени
 
-        Intent intent = new Intent(this, AddTimeActivity.class);
-
-
         textBefore.setOnClickListener(view -> openDatePickerBefore(textBefore));
 
         textAfter.setOnClickListener(view -> openDatePickerAfter(textAfter));
@@ -139,8 +136,9 @@ public class AddPillActivity extends AppCompatActivity {
             selectItemOr = spinner_times.getSelectedItem().toString();
             String intent_dos = spinner_num.getSelectedItem().toString();
 
+            Intent intent = new Intent(this, AddTimeActivity.class);
             intent.putExtra("id", userId);
-            intent.putExtra("Item", selectItemOr);
+            intent.putExtra("item", selectItemOr);
             intent.putExtra("name", nameEdit.getText().toString().trim());
             intent.putExtra("value", valueEdit.getText().toString().trim());
             intent.putExtra("dos", intent_dos);

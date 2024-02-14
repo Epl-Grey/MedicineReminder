@@ -49,8 +49,7 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public boolean
-    onNavigationItemSelected(@NonNull MenuItem item)
-    {
+    onNavigationItemSelected(@NonNull MenuItem item) {
 
         switch (item.getItemId()) {
             case R.id.home:
