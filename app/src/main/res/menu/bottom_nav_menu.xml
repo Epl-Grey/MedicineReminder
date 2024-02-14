@@ -12,7 +12,7 @@
         />
     <item
         android:id="@+id/calculatorBolusa"
-        android:title="КалБолюс"
+        android:title="Болюс"
         android:icon="@drawable/calculator"
         />
     <item
