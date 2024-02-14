@@ -12,28 +12,29 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.DatePicker
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.medicineremindernew.DatabaseHelper
 import com.example.medicineremindernew.PillAdapter
-import com.example.medicineremindernew.R
+import com.example.medicineremindernew.PillsView
 import com.example.medicineremindernew.activities.InformActivity
 import com.example.medicineremindernew.alarm.AlarmController
 import com.example.medicineremindernew.calendar.CalendarAdapter
 import com.example.medicineremindernew.calendar.CalendarUtils
+import com.example.medicineremindernew.calendar.CalendarUtils.selectedDate
 import com.example.medicineremindernew.databinding.FragmentHomeBinding
 import com.example.medicineremindernew.models.Pill
 import com.example.medicineremindernew.services.PillsDataService
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.io.Serializable
 import java.time.LocalDate
 import java.util.Calendar
 import javax.inject.Inject
+
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
@@ -51,7 +52,6 @@ class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
-
 
     @SuppressLint("CutPasteId")
     override fun onCreateView(
@@ -71,17 +71,6 @@ class HomeFragment : Fragment() {
         alarmController = AlarmController(context)
         refreshPills()
 
-//        GlobalScope.launch {
-//            pillsDataService.createPill(Pill(
-//                name = "Test",
-//                dosage_value = 10,
-//                dosage_unit = "kg",
-//                date_from = "20.05.2001",
-//                date_to = "10.10.2023",
-//                times = listOf("8:45", "21:15")
-//            ))
-//        }
-
         //TODO("Refresh pills")
         return binding.root
     }
@@ -91,10 +80,25 @@ class HomeFragment : Fragment() {
         _binding = null
     }
 
-    private fun refreshPills(){
+    fun refreshPills(){
         lifecycleScope.launch {
             pills = withContext(Dispatchers.IO) {
                 pillsDataService.getPills()
+            }.filter {
+                val str = it.date_from!!.split("\\.".toRegex()).dropLastWhile { it.isEmpty() }
+                    .toTypedArray()
+                val str2 = it.date_to!!.split("\\.".toRegex()).dropLastWhile { it.isEmpty() }
+                    .toTypedArray()
+
+                val dataSplit = str[2] + "-" + str[1] + "-" + str[0]
+                val localDate = LocalDate.parse(dataSplit)
+                println("str $localDate")
+
+                val dateSplit2 = str2[2] + "-" + str2[1] + "-" + str2[0]
+                val localDate2 = LocalDate.parse(dateSplit2)
+                println("str2 $localDate2")
+
+                selectedDate.isAfter(localDate) && selectedDate.isBefore(localDate2) || selectedDate == localDate || selectedDate == localDate2
             }
             val listAdapter = PillAdapter(requireContext(), pills)
             binding.list.adapter = listAdapter
@@ -102,14 +106,14 @@ class HomeFragment : Fragment() {
             binding.list.onItemClickListener =
                 AdapterView.OnItemClickListener { adapterView, view, i, l ->
                     val intent = Intent(requireContext(), InformActivity::class.java)
-                    intent.putExtra("pill", pills[i] as java.io.Serializable)
+                    intent.putExtra("pill", pills[i] as Serializable)
                     startActivity(intent)
                 }
         }
     }
 
     fun onCalendarItem(db: SQLiteDatabase?) {
-        //TODO("Refresh pills")
+        refreshPills()
     }
 
     private fun openDatePickerAfter(view: View?) {
@@ -132,6 +136,8 @@ class HomeFragment : Fragment() {
         binding.calendarRecyclerView.layoutManager = linearLayoutManager
         binding.calendarRecyclerView.adapter = calendarAdapter
         binding.calendarRecyclerView.layoutManager!!.scrollToPosition(positionG - 3)
+
+        refreshPills()
     }
 
     private fun previousWeekAction() {
@@ -170,6 +176,7 @@ class HomeFragment : Fragment() {
     private fun openDatePickerAfter() {
         initDatePicker()
         datePickerDialog.show()
+        refreshPills()
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
