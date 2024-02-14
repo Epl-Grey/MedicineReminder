@@ -1,0 +1,36 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Widget.MedicineReminderNew.AppWidget.Container"
+    android:layout_width="match_parent"
+    android:background="@drawable/rounded_page_ob"
+    android:layout_height="90dp"
+    android:theme="@style/Theme.ViewApp.AppWidgetContainer">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="@drawable/rounded_page_ob"
+        android:layout_height="90dp">
+
+
+        <TextView
+            android:id="@+id/name2"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+
+            android:gravity="top"
+
+            android:fontFamily="@font/montserratmedium"
+            android:textColor="@color/white"
+            android:textAppearance="@style/some_id" />
+
+        <TextView
+            android:id="@+id/time2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/name2"
+            android:fontFamily="@font/montserratregular"
+
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:textAppearance="@style/time_" />
+    </RelativeLayout>
+</RelativeLayout>

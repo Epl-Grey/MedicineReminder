@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+
     tools:context=".activities.RegisterActivity">
 
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
+        android:background="@color/white"
         android:orientation="vertical"
         >
 
@@ -27,7 +27,7 @@
             android:fontFamily="@font/montserratsemibold"
             android:textAppearance="@style/welcom"
             android:paddingLeft="24dp"
-
+            android:textColor="@color/black"
             />
 
 
@@ -42,8 +42,8 @@
             android:layout_height="46dp"
             android:background="@drawable/rounded_rectangle"
             android:hint="Ваша почта"
-            android:fontFamily="@font/montserratmedium"
             android:textColorHint="@color/green_white"
+            android:fontFamily="@font/montserratmedium"
 
             />
 
@@ -56,11 +56,10 @@
             android:layout_marginTop="12dp"
             android:layout_width="match_parent"
             android:layout_height="46dp"
-            android:background="@drawable/rounded_rectangle"
             android:hint="Ваше имя"
-            android:fontFamily="@font/montserratmedium"
+            android:background="@drawable/rounded_rectangle"
             android:textColorHint="@color/green_white"
-
+            android:fontFamily="@font/montserratmedium"
             />
 
         <EditText
@@ -71,13 +70,12 @@
             android:textSize="18dp"
             android:layout_width="match_parent"
             android:hint="Ваш пароль"
-            android:fontFamily="@font/montserratmedium"
-            android:textColorHint="@color/green_white"
             android:layout_marginTop="12dp"
-
             android:inputType="textPassword"
             android:layout_height="46dp"
-            android:background="@drawable/rounded_rectangle"/>
+            android:background="@drawable/rounded_rectangle"
+            android:textColorHint="@color/green_white"
+            android:fontFamily="@font/montserratmedium"/>
 
 
         <EditText
@@ -90,11 +88,11 @@
             android:layout_marginRight="20dp"
             android:textSize="18dp"
             android:layout_marginBottom="20dp"
-            android:background="@drawable/rounded_rectangle"
-            android:fontFamily="@font/montserratmedium"
             android:hint="Повторите пароль"
             android:inputType="textPassword"
-            android:textColorHint="@color/green_white" />
+            android:background="@drawable/rounded_rectangle"
+            android:textColorHint="@color/green_white"
+            android:fontFamily="@font/montserratmedium"/>
 
         <Button
             android:layout_below="@id/repeat_password_edit_text"

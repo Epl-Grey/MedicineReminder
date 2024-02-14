@@ -12,17 +12,13 @@
     <application
         android:name=".App"
         android:allowBackup="true"
+        android:configChanges="uiMode"
         android:icon="@drawable/logotipe"
         android:label="Medecine Reminder"
         android:supportsRtl="true"
-        android:configChanges="uiMode"
         android:theme="@style/Theme.ViewApp">
-        <activity
-            android:name=".activities.StartOnBoardingScreenActivity"
-            android:exported="false" />
-
         <receiver
-            android:name=".PillWidget"
+            android:name=".NearestReceptionWidget"
             android:exported="false">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
@@ -30,9 +26,12 @@
 
             <meta-data
                 android:name="android.appwidget.provider"
-                android:resource="@xml/pill_widget_info" />
+                android:resource="@xml/nearest_reception_widget_info" />
         </receiver>
 
+        <activity
+            android:name=".activities.StartOnBoardingScreenActivity"
+            android:exported="false" />
         <activity
             android:name=".activities.RegisterDiabetesActivity"
             android:exported="false" />
