@@ -4,19 +4,14 @@ import android.app.AlertDialog
 import android.app.TimePickerDialog
 import android.app.TimePickerDialog.OnTimeSetListener
 import android.content.Intent
-import android.database.sqlite.SQLiteDatabase
 import android.os.Bundle
 import android.text.format.DateUtils
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.lifecycleScope
-import com.example.medicineremindernew.DatabaseHelper
 import com.example.medicineremindernew.R
 import com.example.medicineremindernew.alarm.AlarmController
-import com.example.medicineremindernew.firebase.PillsManager
 import com.example.medicineremindernew.models.Pill
 import com.example.medicineremindernew.services.PillsDataService
 import dagger.hilt.android.AndroidEntryPoint
@@ -182,8 +177,6 @@ class AddTimeActivity : AppCompatActivity() {
             pillsDataService.createPill(pill)
         }
 
-        val alarmController = AlarmController(this)
-        alarmController.refresh()
         goToMainRes()
     }
 

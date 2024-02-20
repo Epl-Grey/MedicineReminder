@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.medicineremindernew.R;
+import com.example.medicineremindernew.alarm.AlarmController;
 import com.example.medicineremindernew.fragments.AddPillFragment;
 import com.example.medicineremindernew.fragments.CalculatorBolusa;
 import com.example.medicineremindernew.fragments.HomeFragment;
@@ -25,9 +26,6 @@ public class MainActivity extends AppCompatActivity
         .OnNavigationItemSelectedListener {
 
     BottomNavigationView bottomNavigationView;
-
-    @Inject
-    PillsDataService pillsService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)

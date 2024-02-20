@@ -43,12 +43,14 @@ class HomeFragment : Fragment() {
     private lateinit var datePickerDialog: DatePickerDialog
     private lateinit var days: ArrayList<LocalDate>
     private lateinit var numberWeek: ArrayList<String>
-    private lateinit var alarmController: AlarmController
     private lateinit var pills: List<Pill>
     private var positionG = 0
 
     @Inject
     lateinit var pillsDataService: PillsDataService
+
+    @Inject
+    lateinit var alarmController: AlarmController
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
@@ -68,7 +70,6 @@ class HomeFragment : Fragment() {
         binding.plusMonthBtn.setOnClickListener { nextWeekAction() }
         binding.monthYearTextView.setOnClickListener { openDatePickerAfter(binding.monthYearTextView) }
 
-        alarmController = AlarmController(context)
         refreshPills()
 
         //TODO("Refresh pills")
@@ -109,6 +110,8 @@ class HomeFragment : Fragment() {
                     intent.putExtra("pill", pills[i] as Serializable)
                     startActivity(intent)
                 }
+
+            alarmController.refresh(pills)
         }
     }
 

@@ -1,6 +1,5 @@
 package com.example.medicineremindernew.activities
 
-import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,15 +7,10 @@ import android.util.Log
 import android.view.KeyEvent
 import android.view.View
 import android.widget.Button
-import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.Toast
 import com.example.medicineremindernew.R
-import com.example.medicineremindernew.SaveState
-import com.example.medicineremindernew.firebase.UserData
-import com.example.medicineremindernew.firebase.UsersManager
 import com.example.medicineremindernew.services.AuthService
-import dagger.hilt.EntryPoint
 import dagger.hilt.android.AndroidEntryPoint
 import io.github.jan.supabase.exceptions.BadRequestRestException
 import kotlinx.coroutines.runBlocking

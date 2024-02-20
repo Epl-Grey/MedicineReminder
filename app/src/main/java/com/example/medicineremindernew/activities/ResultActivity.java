@@ -203,10 +203,6 @@ public class ResultActivity extends AppCompatActivity {
                 calcCorectText.getText().toString(),
                 timeText.getText().toString()
         );
-
-        AlarmController alarmController = new AlarmController(this);
-        alarmController.refresh();
-
         getToMainRes();
 
     }
