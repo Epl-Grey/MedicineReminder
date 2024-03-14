@@ -9,6 +9,7 @@ import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.os.Build
 import android.util.Log
+import android.widget.Toast
 import com.example.medicineremindernew.DatabaseHelper
 import com.example.medicineremindernew.activities.MainActivity
 import com.example.medicineremindernew.models.Pill

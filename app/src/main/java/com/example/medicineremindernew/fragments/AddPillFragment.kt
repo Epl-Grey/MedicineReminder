@@ -63,34 +63,6 @@ class AddPillFragment : Fragment() {
         val main_activity_intent = Intent(context, MainActivity::class.java)
 
 
-//        sqlHelper = new DatabaseHelper(getContext());
-//        db = sqlHelper.getWritableDatabase();
-//
-//        Bundle extras = Intent.getIntent().getExtras();
-//        if (extras != null) {
-//            userId = extras.getLong("id");
-//        }
-//        // если 0, то добавление
-//        if (userId > 0) {
-//            // получаем элемент по id из бд
-//            userCursor = db.rawQuery("select * from " + DatabaseHelper.TABLE + " where " +
-//                    DatabaseHelper.COLUMN_ID + "=?", new String[]{String.valueOf(userId)});
-//            userCursor.moveToFirst();
-//            nameEdit.setText(userCursor.getString(1));
-//            valueEdit.setText(String.valueOf(userCursor.getInt(2)));
-//            textBefore.setText(userCursor.getString(4));
-//            textAfter.setText(userCursor.getString(5));
-//            userCursor.close();
-//        }
-
-
-//            nameEdit.setText(userCursor.getString(1));
-//            valueEdit.setText(String.valueOf(userCursor.getInt(2)));
-//            textBefore.setText(userCursor.getString(5));
-//            textAfter.setText(userCursor.getString(6));
-//            userCursor.close();
-
-
         //спинеры spinner_num, spinner_times
         val adapter: ArrayAdapter<*> =
             ArrayAdapter<Any?>(requireContext(), android.R.layout.simple_spinner_item, countries)

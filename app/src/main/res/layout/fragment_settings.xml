@@ -36,6 +36,7 @@
         android:textColor="@color/white"
         android:background="@drawable/rounded_buttom"
         android:fontFamily="@font/montserratregular"/>
+
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/voiceMelodyBtn"
         android:layout_width="match_parent"
@@ -51,6 +52,7 @@
         android:textColor="@color/white"
         android:background="@drawable/rounded_buttom"
         android:fontFamily="@font/montserratregular"/>
+
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/ThemeBtn"
         android:layout_width="match_parent"
@@ -61,6 +63,22 @@
         android:textAlignment="viewStart"
         android:layout_marginRight="20dp"
         android:text="Сменить тему"
+        android:textSize="22dp"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:background="@drawable/rounded_buttom"
+        android:fontFamily="@font/montserratregular"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/singOutBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ThemeBtn"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:textAlignment="viewStart"
+        android:layout_marginRight="20dp"
+        android:text="Выйти из аккаунта"
         android:textSize="22dp"
         android:textAllCaps="false"
         android:textColor="@color/white"
